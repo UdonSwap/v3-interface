@@ -1,13 +1,16 @@
-import { NetworkStatus } from '@apollo/client'
-import { TradeType } from '@uniswap/sdk-core'
-import { useMemo } from 'react'
-import { useDebounceWithStatus } from 'utilities/src/time/timing'
-import { useLocalizationContext } from 'wallet/src/features/language/LocalizationContext'
-import { useRouterQuote } from 'wallet/src/features/transactions/swap/trade/legacy/hooks/useRouterQuote'
-import { SWAP_FORM_DEBOUNCE_TIME_MS } from 'wallet/src/features/transactions/swap/trade/tradingApi/hooks/useTradingApiTrade'
-import { validateTrade } from 'wallet/src/features/transactions/swap/trade/tradingApi/utils'
-import { TradeWithStatus, UseTradeArgs } from 'wallet/src/features/transactions/swap/trade/types'
-import { CurrencyField } from 'wallet/src/features/transactions/transactionState/types'
+import { NetworkStatus } from "@apollo/client";
+import { useMemo } from "react";
+import { TradeType } from "udonswap-sdk-core";
+import { useDebounceWithStatus } from "utilities/src/time/timing";
+import { useLocalizationContext } from "wallet/src/features/language/LocalizationContext";
+import { useRouterQuote } from "wallet/src/features/transactions/swap/trade/legacy/hooks/useRouterQuote";
+import { SWAP_FORM_DEBOUNCE_TIME_MS } from "wallet/src/features/transactions/swap/trade/tradingApi/hooks/useTradingApiTrade";
+import { validateTrade } from "wallet/src/features/transactions/swap/trade/tradingApi/utils";
+import {
+  TradeWithStatus,
+  UseTradeArgs,
+} from "wallet/src/features/transactions/swap/trade/types";
+import { CurrencyField } from "wallet/src/features/transactions/transactionState/types";
 
 export function useTrade(args: UseTradeArgs): TradeWithStatus {
   const {
@@ -19,13 +22,13 @@ export function useTrade(args: UseTradeArgs): TradeWithStatus {
     isUSDQuote,
     sendPortionEnabled,
     skip,
-  } = args
+  } = args;
   const [debouncedAmountSpecified, isDebouncing] = useDebounceWithStatus(
     amountSpecified,
     SWAP_FORM_DEBOUNCE_TIME_MS
-  )
+  );
 
-  const formatter = useLocalizationContext()
+  const formatter = useLocalizationContext();
 
   /*
     1. if user clears input (amountSpecified is null or undefined), immediately use that
@@ -35,9 +38,10 @@ export function useTrade(args: UseTradeArgs): TradeWithStatus {
     chains for input/output currencies
   */
   const shouldDebounce =
-    amountSpecified && debouncedAmountSpecified?.currency.chainId === otherCurrency?.chainId
+    amountSpecified &&
+    debouncedAmountSpecified?.currency.chainId === otherCurrency?.chainId;
 
-  const amount = shouldDebounce ? debouncedAmountSpecified : amountSpecified
+  const amount = shouldDebounce ? debouncedAmountSpecified : amountSpecified;
 
   const { loading, networkStatus, error, data } = useRouterQuote({
     amountSpecified: amount,
@@ -48,20 +52,22 @@ export function useTrade(args: UseTradeArgs): TradeWithStatus {
     isUSDQuote,
     sendPortionEnabled,
     skip,
-  })
+  });
 
   return useMemo(() => {
     if (!data?.trade) {
-      return { loading, error, trade: null }
+      return { loading, error, trade: null };
     }
 
     const [currencyIn, currencyOut] =
       tradeType === TradeType.EXACT_INPUT
         ? [amount?.currency, otherCurrency]
-        : [otherCurrency, amount?.currency]
+        : [otherCurrency, amount?.currency];
 
     const exactCurrencyField =
-      tradeType === TradeType.EXACT_INPUT ? CurrencyField.INPUT : CurrencyField.OUTPUT
+      tradeType === TradeType.EXACT_INPUT
+        ? CurrencyField.INPUT
+        : CurrencyField.OUTPUT;
 
     const trade = validateTrade({
       trade: data.trade,
@@ -70,14 +76,14 @@ export function useTrade(args: UseTradeArgs): TradeWithStatus {
       exactAmount: amount,
       exactCurrencyField,
       formatter,
-    })
+    });
 
     return {
       loading: (amountSpecified && isDebouncing) || loading,
       isFetching: networkStatus === NetworkStatus.poll,
       error,
       trade,
-    }
+    };
   }, [
     data?.trade,
     tradeType,
@@ -89,5 +95,5 @@ export function useTrade(args: UseTradeArgs): TradeWithStatus {
     loading,
     networkStatus,
     error,
-  ])
+  ]);
 }

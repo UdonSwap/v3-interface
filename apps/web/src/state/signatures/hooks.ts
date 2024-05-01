@@ -1,44 +1,49 @@
-import { ChainId } from '@uniswap/sdk-core'
-import { useWeb3React } from '@web3-react/core'
-import { useCallback, useMemo } from 'react'
-import { useDispatch } from 'react-redux'
-import { useAppSelector } from 'state/hooks'
-import { OFFCHAIN_ORDER_TYPE_TO_SIGNATURE_TYPE, OffchainOrderType } from 'state/routing/types'
-import { UniswapXOrderStatus } from 'types/uniswapx'
-import { addSignature } from './reducer'
-import { SignatureDetails, SignatureType, UniswapXOrderDetails } from './types'
+import { ChainId } from "udonswap-sdk-core";
+import { useWeb3React } from "@web3-react/core";
+import { useCallback, useMemo } from "react";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "state/hooks";
+import {
+  OFFCHAIN_ORDER_TYPE_TO_SIGNATURE_TYPE,
+  OffchainOrderType,
+} from "state/routing/types";
+import { UniswapXOrderStatus } from "types/uniswapx";
+import { addSignature } from "./reducer";
+import { SignatureDetails, SignatureType, UniswapXOrderDetails } from "./types";
 
 export function useAllSignatures(): { [id: string]: SignatureDetails } {
-  const { account } = useWeb3React()
-  const signatures = useAppSelector((state) => state.signatures) ?? {}
-  if (!account || !signatures[account]) return {}
-  return signatures[account]
+  const { account } = useWeb3React();
+  const signatures = useAppSelector((state) => state.signatures) ?? {};
+  if (!account || !signatures[account]) return {};
+  return signatures[account];
 }
 
 export function usePendingOrders(): UniswapXOrderDetails[] {
-  const signatures = useAllSignatures()
+  const signatures = useAllSignatures();
   return useMemo(() => {
-    return Object.values(signatures).filter(isPendingOrder)
-  }, [signatures])
+    return Object.values(signatures).filter(isPendingOrder);
+  }, [signatures]);
 }
 
 export function useOrder(orderHash: string): UniswapXOrderDetails | undefined {
-  const signatures = useAllSignatures()
+  const signatures = useAllSignatures();
   return useMemo(() => {
-    const order = signatures[orderHash]
+    const order = signatures[orderHash];
     if (
       !order ||
-      ![SignatureType.SIGN_UNISWAPX_ORDER, SignatureType.SIGN_UNISWAPX_V2_ORDER, SignatureType.SIGN_LIMIT].includes(
-        order.type as SignatureType
-      )
+      ![
+        SignatureType.SIGN_UNISWAPX_ORDER,
+        SignatureType.SIGN_UNISWAPX_V2_ORDER,
+        SignatureType.SIGN_LIMIT,
+      ].includes(order.type as SignatureType)
     )
-      return undefined
-    return order
-  }, [signatures, orderHash])
+      return undefined;
+    return order;
+  }, [signatures, orderHash]);
 }
 
 export function useAddOrder() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return useCallback(
     (
@@ -46,9 +51,9 @@ export function useAddOrder() {
       orderHash: string,
       chainId: ChainId,
       expiry: number,
-      swapInfo: UniswapXOrderDetails['swapInfo'],
+      swapInfo: UniswapXOrderDetails["swapInfo"],
       encodedOrder: string,
-      offchainOrderType: OffchainOrderType
+      offchainOrderType: OffchainOrderType,
     ) => {
       dispatch(
         addSignature({
@@ -62,26 +67,28 @@ export function useAddOrder() {
           status: UniswapXOrderStatus.OPEN,
           addedTime: Date.now(),
           encodedOrder,
-        })
-      )
+        }),
+      );
     },
-    [dispatch]
-  )
+    [dispatch],
+  );
 }
 
 export function isFinalizedOrder(orderStatus: UniswapXOrderStatus) {
-  return orderStatus !== UniswapXOrderStatus.OPEN
+  return orderStatus !== UniswapXOrderStatus.OPEN;
 }
 
 export function isOnChainOrder(orderStatus: UniswapXOrderStatus) {
-  return orderStatus === UniswapXOrderStatus.FILLED
+  return orderStatus === UniswapXOrderStatus.FILLED;
 }
 
-function isPendingOrder(signature: SignatureDetails): signature is UniswapXOrderDetails {
+function isPendingOrder(
+  signature: SignatureDetails,
+): signature is UniswapXOrderDetails {
   return (
     (signature.type === SignatureType.SIGN_UNISWAPX_ORDER ||
       signature.type === SignatureType.SIGN_UNISWAPX_V2_ORDER ||
       signature.type === SignatureType.SIGN_LIMIT) &&
     signature.status === UniswapXOrderStatus.OPEN
-  )
+  );
 }

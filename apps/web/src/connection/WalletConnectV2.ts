@@ -1,4 +1,4 @@
-import { ChainId } from "@uniswap/sdk-core";
+import { ChainId } from "udonswap-sdk-core";
 import {
   URI_AVAILABLE,
   WalletConnect,

@@ -1,15 +1,15 @@
-import { parseUnits } from '@ethersproject/units'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { BigNumber } from 'ethers'
-import { convertScientificNotationToNumber } from 'utilities/src/format/convertScientificNotation'
-import { logger } from 'utilities/src/logger/logger'
+import { parseUnits } from "@ethersproject/units";
+import { BigNumber } from "ethers";
+import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { convertScientificNotationToNumber } from "utilities/src/format/convertScientificNotation";
+import { logger } from "utilities/src/logger/logger";
 
 // Allow for digits and one of either period or comma
-const ALL_NUMBERS_OR_SEPARATOR_REGEX = /^\d*\.?,?\d*$/
+const ALL_NUMBERS_OR_SEPARATOR_REGEX = /^\d*\.?,?\d*$/;
 
 export enum ValueType {
-  'Raw' = 'uint256', // integer format (the "raw" uint256) - usually used in smart contracts / how data is stored on-chain
-  'Exact' = 'float', // float format (the "exact" human readable number) - the typical way to display token amounts to users
+  "Raw" = "uint256", // integer format (the "raw" uint256) - usually used in smart contracts / how data is stored on-chain
+  "Exact" = "float", // float format (the "exact" human readable number) - the typical way to display token amounts to users
 }
 
 /**
@@ -27,31 +27,31 @@ export function getCurrencyAmount<T extends Currency>({
   valueType = ValueType.Raw,
   currency,
 }: {
-  value?: string
-  valueType: ValueType
-  currency?: T | null
+  value?: string;
+  valueType: ValueType;
+  currency?: T | null;
 }): CurrencyAmount<T> | null | undefined {
   if (!value || !currency) {
-    return undefined
+    return undefined;
   }
 
   try {
-    let parsedValue = sanitizeTokenAmount({ value, valueType })
+    let parsedValue = sanitizeTokenAmount({ value, valueType });
 
     if (valueType === ValueType.Exact) {
-      parsedValue = parseUnits(parsedValue, currency.decimals).toString()
-      if (parsedValue === '0') {
-        return null
+      parsedValue = parseUnits(parsedValue, currency.decimals).toString();
+      if (parsedValue === "0") {
+        return null;
       }
     }
 
-    return CurrencyAmount.fromRawAmount(currency, parsedValue)
+    return CurrencyAmount.fromRawAmount(currency, parsedValue);
   } catch (error) {
     // will fail when currency decimal information is incorrect
     logger.error(error, {
       tags: {
-        file: 'getCurrencyAmount',
-        function: 'getCurrencyAmount',
+        file: "getCurrencyAmount",
+        function: "getCurrencyAmount",
       },
       extra: {
         value,
@@ -61,9 +61,9 @@ export function getCurrencyAmount<T extends Currency>({
         address: currency.wrapped.address,
         decimals: currency.decimals,
       },
-    })
+    });
 
-    return null
+    return null;
   }
 }
 
@@ -71,24 +71,27 @@ const sanitizeTokenAmount = ({
   value,
   valueType,
 }: {
-  value: string
-  valueType: ValueType
+  value: string;
+  valueType: ValueType;
 }): string => {
-  let sanitizedValue = convertScientificNotationToNumber(value)
+  let sanitizedValue = convertScientificNotationToNumber(value);
 
-  if (sanitizedValue === '.') {
+  if (sanitizedValue === ".") {
     // Prevents an error being thrown when calling `BigNumber.from('.')`
-    sanitizedValue = '0.'
+    sanitizedValue = "0.";
   }
 
-  if (valueType === ValueType.Exact && !ALL_NUMBERS_OR_SEPARATOR_REGEX.test(sanitizedValue)) {
-    throw new Error('Provided value is invalid')
+  if (
+    valueType === ValueType.Exact &&
+    !ALL_NUMBERS_OR_SEPARATOR_REGEX.test(sanitizedValue)
+  ) {
+    throw new Error("Provided value is invalid");
   }
 
   if (valueType === ValueType.Raw) {
     // use BigNumber to do the sanitization of integers for us
-    sanitizedValue = BigNumber.from(sanitizedValue).toString()
+    sanitizedValue = BigNumber.from(sanitizedValue).toString();
   }
 
-  return sanitizedValue
-}
+  return sanitizedValue;
+};

@@ -1,30 +1,33 @@
-import { ApolloError } from '@apollo/client'
-import { ChainId } from '@uniswap/sdk-core'
-import { atomWithReset, useResetAtom, useUpdateAtom } from 'jotai/utils'
-import { ProtocolVersion } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
-import { FeatureFlags } from 'uniswap/src/features/experiments/flags'
-import { useFeatureFlag } from 'uniswap/src/features/experiments/hooks'
+import { ApolloError } from "@apollo/client";
+import { ChainId } from "udonswap-sdk-core";
+import { atomWithReset, useResetAtom, useUpdateAtom } from "jotai/utils";
+import { ProtocolVersion } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
+import { FeatureFlags } from "uniswap/src/features/experiments/flags";
+import { useFeatureFlag } from "uniswap/src/features/experiments/hooks";
 
 export type ChainOutageData = {
-  chainId: ChainId
-  version?: ProtocolVersion
-}
+  chainId: ChainId;
+  version?: ProtocolVersion;
+};
 
-export const manualChainOutageAtom = atomWithReset<ChainOutageData | undefined>(undefined)
+export const manualChainOutageAtom = atomWithReset<ChainOutageData | undefined>(
+  undefined,
+);
 export function useUpdateManualOutage({
   chainId,
   errorV3,
   errorV2,
 }: {
-  chainId?: ChainId
-  errorV3?: ApolloError
-  errorV2?: ApolloError
+  chainId?: ChainId;
+  errorV3?: ApolloError;
+  errorV2?: ApolloError;
 }) {
-  const setManualOutage = useUpdateAtom(manualChainOutageAtom)
-  const resetManualOutage = useResetAtom(manualChainOutageAtom)
-  resetManualOutage()
-  if (errorV3 && chainId) setManualOutage({ chainId })
-  if (errorV2 && chainId) setManualOutage({ chainId, version: ProtocolVersion.V2 })
+  const setManualOutage = useUpdateAtom(manualChainOutageAtom);
+  const resetManualOutage = useResetAtom(manualChainOutageAtom);
+  resetManualOutage();
+  if (errorV3 && chainId) setManualOutage({ chainId });
+  if (errorV2 && chainId)
+    setManualOutage({ chainId, version: ProtocolVersion.V2 });
 }
 
 export function useOutageBanners(): Record<ChainId, boolean> {
@@ -53,5 +56,5 @@ export function useOutageBanners(): Record<ChainId, boolean> {
     [ChainId.ZORA]: false,
     [ChainId.ROOTSTOCK]: false,
     [ChainId.BLAST]: false,
-  }
+  };
 }

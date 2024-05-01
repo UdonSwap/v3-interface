@@ -3,8 +3,8 @@ import {
   InterfaceElementName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount } from "@uniswap/sdk-core";
-import { Pair } from "@uniswap/v2-sdk";
+import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Pair } from "udonswap-v2";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import {
@@ -240,7 +240,7 @@ export default function CurrencyInputPanel({
   const { account, chainId } = useWeb3React();
   const selectedCurrencyBalance = useCurrencyBalance(
     account ?? undefined,
-    currency ?? undefined
+    currency ?? undefined,
   );
   const theme = useTheme();
   const { formatCurrencyAmount } = useFormatter();
@@ -321,7 +321,7 @@ export default function CurrencyInputPanel({
                               "..." +
                               currency.symbol.slice(
                                 currency.symbol.length - 5,
-                                currency.symbol.length
+                                currency.symbol.length,
                               )
                             : currency?.symbol) || (
                             <Trans>Select a token</Trans>
@@ -352,10 +352,10 @@ export default function CurrencyInputPanel({
                         style={{ display: "inline", cursor: "pointer" }}
                       >
                         {Boolean(
-                          !hideBalance && currency && selectedCurrencyBalance
+                          !hideBalance && currency && selectedCurrencyBalance,
                         ) &&
                           (renderBalance?.(
-                            selectedCurrencyBalance as CurrencyAmount<Currency>
+                            selectedCurrencyBalance as CurrencyAmount<Currency>,
                           ) || (
                             <Trans>
                               Balance:{" "}

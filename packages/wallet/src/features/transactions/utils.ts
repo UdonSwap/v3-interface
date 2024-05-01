@@ -1,17 +1,20 @@
-import { NetInfoState } from '@react-native-community/netinfo'
-import { CurrencyAmount, NativeCurrency } from '@uniswap/sdk-core'
-import { BigNumber, providers } from 'ethers'
-import { v4 as uuid } from 'uuid'
-import { ChainId } from 'wallet/src/constants/chains'
+import { NetInfoState } from "@react-native-community/netinfo";
+import { BigNumber, providers } from "ethers";
+import { CurrencyAmount, NativeCurrency } from "udonswap-sdk-core";
+import { v4 as uuid } from "uuid";
+import { ChainId } from "wallet/src/constants/chains";
 import {
   FinalizedTransactionStatus,
   TransactionStatus,
-} from 'wallet/src/features/transactions/types'
-import { ValueType, getCurrencyAmount } from 'wallet/src/utils/getCurrencyAmount'
+} from "wallet/src/features/transactions/types";
+import {
+  ValueType,
+  getCurrencyAmount,
+} from "wallet/src/utils/getCurrencyAmount";
 
 export enum QuoteType {
-  RoutingApi = 'RoutingApi',
-  TradingApi = 'TradingApi',
+  RoutingApi = "RoutingApi",
+  TradingApi = "TradingApi",
 }
 
 export function getSerializableTransactionRequest(
@@ -33,7 +36,7 @@ export function getSerializableTransactionRequest(
     value: value?.toString(),
     maxPriorityFeePerGas: maxPriorityFeePerGas?.toString(),
     maxFeePerGas: maxFeePerGas?.toString(),
-  }
+  };
 }
 
 function getNativeCurrencyTotalSpend(
@@ -42,48 +45,48 @@ function getNativeCurrencyTotalSpend(
   nativeCurrency?: NativeCurrency
 ): Maybe<CurrencyAmount<NativeCurrency>> {
   if (!gasFee || !nativeCurrency) {
-    return value
+    return value;
   }
 
   const gasFeeAmount = getCurrencyAmount({
     value: gasFee,
     valueType: ValueType.Raw,
     currency: nativeCurrency,
-  })
+  });
 
-  return value && gasFeeAmount ? gasFeeAmount.add(value) : gasFeeAmount
+  return value && gasFeeAmount ? gasFeeAmount.add(value) : gasFeeAmount;
 }
 
 export function hasSufficientFundsIncludingGas(params: {
-  transactionAmount?: CurrencyAmount<NativeCurrency>
-  gasFee?: string
-  nativeCurrencyBalance?: CurrencyAmount<NativeCurrency>
+  transactionAmount?: CurrencyAmount<NativeCurrency>;
+  gasFee?: string;
+  nativeCurrencyBalance?: CurrencyAmount<NativeCurrency>;
 }): boolean {
-  const { transactionAmount, gasFee, nativeCurrencyBalance } = params
+  const { transactionAmount, gasFee, nativeCurrencyBalance } = params;
   const totalSpend = getNativeCurrencyTotalSpend(
     transactionAmount,
     gasFee,
     nativeCurrencyBalance?.currency
-  )
-  return !totalSpend || !nativeCurrencyBalance?.lessThan(totalSpend)
+  );
+  return !totalSpend || !nativeCurrencyBalance?.lessThan(totalSpend);
 }
 
 export function createTransactionId(): string {
-  return uuid()
+  return uuid();
 }
 
 export const ANIMATE_SPRING_CONFIG = {
   stiffness: 90,
   damping: 15,
   mass: 0.8,
-}
+};
 
 export function isOffline(networkStatus: NetInfoState): boolean {
   return (
-    networkStatus.type !== 'unknown' &&
-    typeof networkStatus.isInternetReachable === 'boolean' &&
+    networkStatus.type !== "unknown" &&
+    typeof networkStatus.isInternetReachable === "boolean" &&
     networkStatus.isConnected === false
-  )
+  );
 }
 
 // Based on the current status of the transaction, we determine the new status.
@@ -92,10 +95,10 @@ export function getFinalizedTransactionStatus(
   receiptStatus?: number
 ): FinalizedTransactionStatus {
   if (!receiptStatus) {
-    return TransactionStatus.Failed
+    return TransactionStatus.Failed;
   }
   if (currentStatus === TransactionStatus.Cancelling) {
-    return TransactionStatus.Canceled
+    return TransactionStatus.Canceled;
   }
-  return TransactionStatus.Success
+  return TransactionStatus.Success;
 }

@@ -1,19 +1,31 @@
-import { MixedRouteSDK } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
-import { Pair, Route as V2Route } from '@uniswap/v2-sdk'
-import { FeeAmount, Pool, Route as V3Route } from '@uniswap/v3-sdk'
-import { BigNumber } from 'ethers'
-import { MAX_AUTO_SLIPPAGE_TOLERANCE } from 'wallet/src/constants/transactions'
-import { NativeCurrency } from 'wallet/src/features/tokens/NativeCurrency'
+import { BigNumber } from "ethers";
+import { MixedRouteSDK } from "udonswap-router-sdk";
+import {
+  Currency,
+  CurrencyAmount,
+  Percent,
+  Token,
+  TradeType,
+} from "udonswap-sdk-core";
+import { Pair, Route as V2Route } from "udonswap-v2";
+import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3-sdk";
+import { MAX_AUTO_SLIPPAGE_TOLERANCE } from "wallet/src/constants/transactions";
+import { NativeCurrency } from "wallet/src/features/tokens/NativeCurrency";
 import {
   PoolType,
   QuoteResult,
   V2PoolInRoute,
   V3PoolInRoute,
-} from 'wallet/src/features/transactions/swap/trade/legacy/types'
-import { SwapFee, Trade } from 'wallet/src/features/transactions/swap/trade/types'
-import { QuoteType } from 'wallet/src/features/transactions/utils'
-import { ValueType, getCurrencyAmount } from 'wallet/src/utils/getCurrencyAmount'
+} from "wallet/src/features/transactions/swap/trade/legacy/types";
+import {
+  SwapFee,
+  Trade,
+} from "wallet/src/features/transactions/swap/trade/types";
+import { QuoteType } from "wallet/src/features/transactions/utils";
+import {
+  ValueType,
+  getCurrencyAmount,
+} from "wallet/src/utils/getCurrencyAmount";
 
 export function transformQuoteToTrade(
   tokenInIsNative: boolean,
@@ -23,20 +35,21 @@ export function transformQuoteToTrade(
   slippageTolerance: number | undefined,
   quoteResult: QuoteResult | undefined
 ): Trade | null {
-  const routes = computeRoutes(tokenInIsNative, tokenOutIsNative, quoteResult)
+  const routes = computeRoutes(tokenInIsNative, tokenOutIsNative, quoteResult);
 
   if (!routes) {
-    return null
+    return null;
   }
 
   const swapFee: SwapFee | undefined =
-    quoteResult?.portionAmount !== undefined && quoteResult?.portionBips !== undefined
+    quoteResult?.portionAmount !== undefined &&
+    quoteResult?.portionBips !== undefined
       ? {
           recipient: quoteResult.portionRecipient,
-          percent: new Percent(quoteResult.portionBips, '10000'),
+          percent: new Percent(quoteResult.portionBips, "10000"),
           amount: quoteResult.portionAmount,
         }
-      : undefined
+      : undefined;
 
   return new Trade({
     quoteData: { quote: quoteResult, quoteType: QuoteType.RoutingApi },
@@ -74,7 +87,7 @@ export function transformQuoteToTrade(
         })) ?? [],
     tradeType,
     swapFee,
-  })
+  });
 }
 
 /**
@@ -84,81 +97,94 @@ export function transformQuoteToTrade(
 export function computeRoutes(
   tokenInIsNative: boolean,
   tokenOutIsNative: boolean,
-  quoteResult?: Pick<QuoteResult, 'route'>
+  quoteResult?: Pick<QuoteResult, "route">
 ):
   | {
-      routev3: V3Route<Currency, Currency> | null
-      routev2: V2Route<Currency, Currency> | null
-      mixedRoute: MixedRouteSDK<Currency, Currency> | null
-      inputAmount: CurrencyAmount<Currency>
-      outputAmount: CurrencyAmount<Currency>
+      routev3: V3Route<Currency, Currency> | null;
+      routev2: V2Route<Currency, Currency> | null;
+      mixedRoute: MixedRouteSDK<Currency, Currency> | null;
+      inputAmount: CurrencyAmount<Currency>;
+      outputAmount: CurrencyAmount<Currency>;
     }[]
   | undefined {
   if (!quoteResult || !quoteResult.route) {
-    return
+    return;
   }
 
   if (quoteResult.route.length === 0) {
-    return
+    return;
   }
 
-  const tokenIn = quoteResult.route[0]?.[0]?.tokenIn
-  const tokenOut = quoteResult.route[0]?.[quoteResult.route[0]?.length - 1]?.tokenOut
+  const tokenIn = quoteResult.route[0]?.[0]?.tokenIn;
+  const tokenOut =
+    quoteResult.route[0]?.[quoteResult.route[0]?.length - 1]?.tokenOut;
 
   if (!tokenIn || !tokenOut) {
-    throw new Error('Expected both tokenIn and tokenOut to be present')
+    throw new Error("Expected both tokenIn and tokenOut to be present");
   }
 
   const parsedCurrencyIn = tokenInIsNative
     ? NativeCurrency.onChain(tokenIn.chainId)
-    : parseToken(tokenIn)
+    : parseToken(tokenIn);
 
   const parsedCurrencyOut = tokenOutIsNative
     ? NativeCurrency.onChain(tokenOut.chainId)
-    : parseToken(tokenOut)
+    : parseToken(tokenOut);
 
   try {
     return quoteResult.route.map((route) => {
       if (route.length === 0) {
-        throw new Error('Expected route to have at least one pair or pool')
+        throw new Error("Expected route to have at least one pair or pool");
       }
 
       const inputAmount = getCurrencyAmount({
         value: route[0]?.amountIn,
         valueType: ValueType.Raw,
         currency: parsedCurrencyIn,
-      })
+      });
 
       const outputAmount = getCurrencyAmount({
         value: route[route.length - 1]?.amountOut,
         valueType: ValueType.Raw,
         currency: parsedCurrencyOut,
-      })
+      });
 
       if (!inputAmount || !outputAmount) {
-        throw new Error('Expected both amountIn and amountOut to be present')
+        throw new Error("Expected both amountIn and amountOut to be present");
       }
 
-      const isOnlyV2 = isV2OnlyRoute(route)
-      const isOnlyV3 = isV3OnlyRoute(route)
+      const isOnlyV2 = isV2OnlyRoute(route);
+      const isOnlyV3 = isV3OnlyRoute(route);
 
       return {
         routev3: isOnlyV3
-          ? new V3Route(route.map(parsePool), parsedCurrencyIn, parsedCurrencyOut)
+          ? new V3Route(
+              route.map(parsePool),
+              parsedCurrencyIn,
+              parsedCurrencyOut
+            )
           : null,
         routev2: isOnlyV2
-          ? new V2Route(route.map(parsePair), parsedCurrencyIn, parsedCurrencyOut)
+          ? new V2Route(
+              route.map(parsePair),
+              parsedCurrencyIn,
+              parsedCurrencyOut
+            )
           : null,
         mixedRoute:
           !isOnlyV3 && !isOnlyV2
-            ? new MixedRouteSDK(route.map(parsePoolOrPair), parsedCurrencyIn, parsedCurrencyOut)
+            ? new MixedRouteSDK(
+                route.map(parsePoolOrPair),
+                parsedCurrencyIn,
+                parsedCurrencyOut
+              )
             : null,
         inputAmount,
         outputAmount,
-      }
-    })
+      };
+    });
   } catch (e) {
-    return
+    return;
   }
 }
 
@@ -170,7 +196,7 @@ const parseToken = ({
   name,
   buyFeeBps,
   sellFeeBps,
-}: QuoteResult['route'][0][0]['tokenIn']): Token => {
+}: QuoteResult["route"][0][0]["tokenIn"]): Token => {
   return new Token(
     chainId,
     address,
@@ -180,12 +206,12 @@ const parseToken = ({
     false,
     buyFeeBps ? BigNumber.from(buyFeeBps) : undefined,
     sellFeeBps ? BigNumber.from(sellFeeBps) : undefined
-  )
-}
+  );
+};
 
 const parsePoolOrPair = (pool: V3PoolInRoute | V2PoolInRoute): Pool | Pair => {
-  return pool.type === PoolType.V3Pool ? parsePool(pool) : parsePair(pool)
-}
+  return pool.type === PoolType.V3Pool ? parsePool(pool) : parsePair(pool);
+};
 
 const parsePool = ({
   fee,
@@ -202,18 +228,22 @@ const parsePool = ({
     sqrtRatioX96,
     liquidity,
     parseInt(tickCurrent, 10)
-  )
+  );
 
 const parsePair = ({ reserve0, reserve1 }: V2PoolInRoute): Pair =>
   new Pair(
     CurrencyAmount.fromRawAmount(parseToken(reserve0.token), reserve0.quotient),
     CurrencyAmount.fromRawAmount(parseToken(reserve1.token), reserve1.quotient)
-  )
+  );
 
-function isV2OnlyRoute(route: (V3PoolInRoute | V2PoolInRoute)[]): route is V2PoolInRoute[] {
-  return route.every((pool) => pool.type === PoolType.V2Pool)
+function isV2OnlyRoute(
+  route: (V3PoolInRoute | V2PoolInRoute)[]
+): route is V2PoolInRoute[] {
+  return route.every((pool) => pool.type === PoolType.V2Pool);
 }
 
-function isV3OnlyRoute(route: (V3PoolInRoute | V2PoolInRoute)[]): route is V3PoolInRoute[] {
-  return route.every((pool) => pool.type === PoolType.V3Pool)
+function isV3OnlyRoute(
+  route: (V3PoolInRoute | V2PoolInRoute)[]
+): route is V3PoolInRoute[] {
+  return route.every((pool) => pool.type === PoolType.V3Pool);
 }

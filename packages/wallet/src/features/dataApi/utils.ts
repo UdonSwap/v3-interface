@@ -1,56 +1,58 @@
-import { ApolloError } from '@apollo/client'
-import { Token } from '@uniswap/sdk-core'
-import { useRef } from 'react'
+import { ApolloError } from "@apollo/client";
+import { useRef } from "react";
+import { Token } from "udonswap-sdk-core";
 import {
   Chain,
   ContractInput,
   SafetyLevel,
   TokenProjectsQuery,
   TopTokensQuery,
-} from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { CurrencyId } from 'uniswap/src/types/currency'
-import { ChainId } from 'wallet/src/constants/chains'
-import { fromGraphQLChain } from 'wallet/src/features/chains/utils'
-import { NativeCurrency } from 'wallet/src/features/tokens/NativeCurrency'
+} from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
+import { toGraphQLChain } from "uniswap/src/features/chains/utils";
+import { CurrencyInfo } from "uniswap/src/features/dataApi/types";
+import { CurrencyId } from "uniswap/src/types/currency";
+import { ChainId } from "wallet/src/constants/chains";
+import { fromGraphQLChain } from "wallet/src/features/chains/utils";
+import { NativeCurrency } from "wallet/src/features/tokens/NativeCurrency";
 import {
   currencyId,
   currencyIdToChain,
   currencyIdToGraphQLAddress,
   isNativeCurrencyAddress,
-} from 'wallet/src/utils/currencyId'
+} from "wallet/src/utils/currencyId";
 
 type BuildCurrencyParams = {
-  chainId?: Nullable<ChainId>
-  address?: Nullable<string>
-  decimals?: Nullable<number>
-  symbol?: Nullable<string>
-  name?: Nullable<string>
-  bypassChecksum?: boolean
-}
+  chainId?: Nullable<ChainId>;
+  address?: Nullable<string>;
+  decimals?: Nullable<number>;
+  symbol?: Nullable<string>;
+  name?: Nullable<string>;
+  bypassChecksum?: boolean;
+};
 
 // Converts CurrencyId to ContractInput format for GQL token queries
 export function currencyIdToContractInput(id: CurrencyId): ContractInput {
   return {
-    chain: toGraphQLChain(currencyIdToChain(id) ?? ChainId.Mainnet) ?? Chain.Ethereum,
+    chain:
+      toGraphQLChain(currencyIdToChain(id) ?? ChainId.Mainnet) ??
+      Chain.Ethereum,
     address: currencyIdToGraphQLAddress(id) ?? undefined,
-  }
+  };
 }
 
 export function tokenProjectToCurrencyInfos(
-  tokenProjects: TokenProjectsQuery['tokenProjects'],
+  tokenProjects: TokenProjectsQuery["tokenProjects"],
   chainFilter?: ChainId | null
 ): CurrencyInfo[] {
   return tokenProjects
     ?.flatMap((project) =>
       project?.tokens.map((token) => {
-        const { logoUrl, safetyLevel, name } = project ?? {}
-        const { chain, address, decimals, symbol } = token ?? {}
-        const chainId = fromGraphQLChain(chain)
+        const { logoUrl, safetyLevel, name } = project ?? {};
+        const { chain, address, decimals, symbol } = token ?? {};
+        const chainId = fromGraphQLChain(chain);
 
         if (chainFilter && chainFilter !== chainId) {
-          return null
+          return null;
         }
 
         const currency = buildCurrency({
@@ -59,10 +61,10 @@ export function tokenProjectToCurrencyInfos(
           decimals,
           symbol,
           name,
-        })
+        });
 
         if (!currency) {
-          return null
+          return null;
         }
 
         const currencyInfo: CurrencyInfo = {
@@ -70,17 +72,20 @@ export function tokenProjectToCurrencyInfos(
           currencyId: currencyId(currency),
           logoUrl,
           safetyLevel,
-        }
+        };
 
-        return currencyInfo
+        return currencyInfo;
       })
     )
-    .filter(Boolean) as CurrencyInfo[]
+    .filter(Boolean) as CurrencyInfo[];
 }
 
 // use inverse check here (instead of isNativeAddress) so we can typeguard address as must be string if this is true
-function isNonNativeAddress(chainId: ChainId, address: Maybe<string>): address is string {
-  return !isNativeCurrencyAddress(chainId, address)
+function isNonNativeAddress(
+  chainId: ChainId,
+  address: Maybe<string>
+): address is string {
+  return !isNativeCurrencyAddress(chainId, address);
 }
 
 /**
@@ -104,19 +109,26 @@ export function buildCurrency({
   bypassChecksum = true,
 }: BuildCurrencyParams): Token | NativeCurrency | undefined {
   if (!chainId || decimals === undefined || decimals === null) {
-    return undefined
+    return undefined;
   }
 
   return isNonNativeAddress(chainId, address)
-    ? new Token(chainId, address, decimals, symbol ?? undefined, name ?? undefined, bypassChecksum)
-    : NativeCurrency.onChain(chainId)
+    ? new Token(
+        chainId,
+        address,
+        decimals,
+        symbol ?? undefined,
+        name ?? undefined,
+        bypassChecksum
+      )
+    : NativeCurrency.onChain(chainId);
 }
 
 export function gqlTokenToCurrencyInfo(
-  token: NonNullable<NonNullable<TopTokensQuery['topTokens']>[0]>
+  token: NonNullable<NonNullable<TopTokensQuery["topTokens"]>[0]>
 ): CurrencyInfo | null {
-  const { chain, address, decimals, symbol, project } = token
-  const chainId = fromGraphQLChain(chain)
+  const { chain, address, decimals, symbol, project } = token;
+  const chainId = fromGraphQLChain(chain);
 
   const currency = buildCurrency({
     chainId,
@@ -124,10 +136,10 @@ export function gqlTokenToCurrencyInfo(
     decimals,
     symbol,
     name: project?.name,
-  })
+  });
 
   if (!currency) {
-    return null
+    return null;
   }
 
   const currencyInfo: CurrencyInfo = {
@@ -138,8 +150,8 @@ export function gqlTokenToCurrencyInfo(
     // defaulting to not spam. currently this flow triggers when a user is searching
     // for a token, in which case the user probably doesn't expect the token to be spam
     isSpam: project?.isSpam ?? false,
-  }
-  return currencyInfo
+  };
+  return currencyInfo;
 }
 
 /*
@@ -150,12 +162,15 @@ until the network request returns.
 
 Feature request to enable persisted errors: https://github.com/apollographql/apollo-feature-requests/issues/348
 */
-export function usePersistedError(loading: boolean, error?: ApolloError): ApolloError | undefined {
-  const persistedErrorRef = useRef<ApolloError>()
+export function usePersistedError(
+  loading: boolean,
+  error?: ApolloError
+): ApolloError | undefined {
+  const persistedErrorRef = useRef<ApolloError>();
 
   if (error || !loading) {
-    persistedErrorRef.current = error
+    persistedErrorRef.current = error;
   }
 
-  return persistedErrorRef.current
+  return persistedErrorRef.current;
 }
