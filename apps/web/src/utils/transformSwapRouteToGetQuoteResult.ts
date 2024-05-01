@@ -2,7 +2,7 @@ import { Protocol } from "udonswap-router-sdk";
 import { Currency, CurrencyAmount, TradeType } from "udonswap-sdk-core";
 // This file is lazy-loaded, so the import of smart-order-router is intentional.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import { routeAmountsToString, SwapRoute } from "@uniswap/smart-order-router";
+import { routeAmountsToString, SwapRoute } from "udonswap-smart-order-router";
 import { Pool } from "udonswap-v3-sdk";
 import {
   ClassicQuoteData,
@@ -132,7 +132,7 @@ export function transformSwapRouteToGetQuoteResult(
     blockNumber: blockNumber.toString(),
     amount: amount.quotient.toString(),
     amountDecimals: amount.toExact(),
-    quote: quote.quotient.toString(),
+    quote: quote. .toString(),
     quoteDecimals: quote.toExact(),
     quoteGasAdjusted: quoteGasAdjusted.quotient.toString(),
     quoteGasAdjustedDecimals: quoteGasAdjusted.toExact(),

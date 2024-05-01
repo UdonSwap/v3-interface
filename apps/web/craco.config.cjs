@@ -159,6 +159,8 @@ module.exports = {
           path: require.resolve("path-browserify"),
           os: require.resolve("os-browserify"),
           fs: false,
+          https: false,
+          http: false,
         },
       });
 
