@@ -13760,7 +13760,7 @@ __metadata:
     tsafe: 1.6.4
     typescript: 5.3.3
     udonswap-sdk-core: 1.0.2
-    udonswap-smart-order-router: latest
+    udonswap-smart-order-router: 1.0.6
     udonswap-v2: 1.0.7
     udonswap-v3-sdk: 1.0.1
     udonswapx-sdk: 1.0.0
@@ -43319,9 +43319,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-smart-order-router@npm:latest":
-  version: 1.0.2
-  resolution: "udonswap-smart-order-router@npm:1.0.2"
+"udonswap-smart-order-router@npm:1.0.6":
+  version: 1.0.6
+  resolution: "udonswap-smart-order-router@npm:1.0.6"
   dependencies:
     "@eth-optimism/sdk": ^3.2.2
     "@types/brotli": ^1.3.4
@@ -43350,7 +43350,7 @@ __metadata:
     udonswap-v3-sdk: ^1.0.1
   peerDependencies:
     jsbi: ^3.2.0
-  checksum: 1da0df271cd600a7a8d0d0986b22c401c719997da0f27b72b05d9b666a2e42b6d0802aa29e4d4d80e961ad2374691a902782c3023a6a2e44a5af9ed159248d41
+  checksum: 6da3f16806080b6ab3382d468646f094a273cafdde6ad3a2eb4661d367ed08bf6e962eb97cef97221cb7e2676a4670bd0fd7a5d690cce8a7ac4394377d96cd7f
   languageName: node
   linkType: hard
 
