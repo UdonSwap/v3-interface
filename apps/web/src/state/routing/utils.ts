@@ -7,7 +7,7 @@ import {
   Token,
   TradeType,
 } from "udonswap-sdk-core";
-import { DutchOrderInfo, DutchOrderInfoJSON } from "@uniswap/uniswapx-sdk";
+import { DutchOrderInfo, DutchOrderInfoJSON } from "udonswapx-sdk";
 import { Pair, Route as V2Route } from "udonswap-v2";
 import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3-sdk";
 import { BIPS_BASE } from "constants/misc";

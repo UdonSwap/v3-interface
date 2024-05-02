@@ -13637,7 +13637,6 @@ __metadata:
     "@uniswap/merkle-distributor": 1.0.1
     "@uniswap/redux-multicall": 1.1.8
     "@uniswap/token-lists": 1.0.0-beta.33
-    "@uniswap/uniswapx-sdk": 2.0.1-alpha.4
     "@uniswap/v2-core": 1.0.1
     "@uniswap/v2-periphery": 1.1.0-beta.0
     "@uniswap/v3-core": 1.0.1
@@ -13764,6 +13763,7 @@ __metadata:
     udonswap-smart-order-router: latest
     udonswap-v2: 1.0.7
     udonswap-v3-sdk: 1.0.1
+    udonswapx-sdk: 1.0.0
     uniswap: "workspace:^"
     use-resize-observer: 9.1.0
     utilities: "workspace:^"
@@ -14002,17 +14002,6 @@ __metadata:
   version: 1.0.0-beta.34
   resolution: "@uniswap/token-lists@npm:1.0.0-beta.34"
   checksum: 4cc273cf718fe8d7d0d3954298fccd6a0ccce4a407b772cbc37b6bda3da74d5a9195aafa5e57dae2efbf946f54ae6ad4564ae2024efe90c5d8d9402bbe2b4707
-  languageName: node
-  linkType: hard
-
-"@uniswap/uniswapx-sdk@npm:2.0.1-alpha.4":
-  version: 2.0.1-alpha.4
-  resolution: "@uniswap/uniswapx-sdk@npm:2.0.1-alpha.4"
-  dependencies:
-    "@ethersproject/bytes": ^5.7.0
-    "@ethersproject/providers": ^5.7.0
-    ethers: ^5.7.0
-  checksum: 1f0a497e7277518cfcfb425f27e3b9cfd79bbad226bcffa7885f822e1c2a33e66c0412c7dd25c296cc966b881e63233636add2eba76751a30c7ba2a6cd9096cb
   languageName: node
   linkType: hard
 
@@ -43419,6 +43408,19 @@ __metadata:
     tiny-warning: ^1.0.3
     udonswap-sdk-core: ^1.0.1
   checksum: f0a7b9f479a63bf138392ac0832c9a6db67fc6757f72c8c4cfe2597e3f00494d22ffd407e9df5d9c0b342d6212fc4c7c4cd59284e2a8935b5e3aa73d99ffb30a
+  languageName: node
+  linkType: hard
+
+"udonswapx-sdk@npm:1.0.0":
+  version: 1.0.0
+  resolution: "udonswapx-sdk@npm:1.0.0"
+  dependencies:
+    "@ethersproject/bytes": ^5.7.0
+    "@ethersproject/providers": ^5.7.0
+    ethers: ^5.7.0
+    udonswap-permit2-sdk: ^1.0.0
+    udonswap-sdk-core: ^1.0.2
+  checksum: 1e73c170f3844e7844477c97c204f2de99731a4b96411635a924011924eb1bf6812f12810dead6127ea19d7208fba3f02a1538dd1a94555a086a45f2f7b8422c
   languageName: node
   linkType: hard
 

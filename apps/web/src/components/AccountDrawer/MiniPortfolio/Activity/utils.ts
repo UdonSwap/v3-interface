@@ -1,7 +1,7 @@
 import { TransactionRequest } from "@ethersproject/abstract-provider";
 import { Web3Provider } from "@ethersproject/providers";
 import { ChainId } from "udonswap-sdk-core";
-import { CosignedV2DutchOrder, DutchOrder } from "@uniswap/uniswapx-sdk";
+import { CosignedV2DutchOrder, DutchOrder } from "udonswapx-sdk";
 import {
   getYear,
   isSameDay,

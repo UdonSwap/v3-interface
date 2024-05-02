@@ -47,13 +47,16 @@ const Container = styled.button<{
   align-items: center;
   background-color: ${({ theme, $highlighted, $selected }) => {
     if ($highlighted || $selected) {
-      return theme.surface3;
+      return "#9657EB59";
     }
     return "unset";
   }};
   ${({ $highlighted }) =>
     $highlighted ? highlightedBorderCss : containerBorderCss};
   ${({ $disabled }) => !$disabled && ClickableStyle};
+  :hover {
+    border-color: #9657eb59;
+  }
 `;
 
 const HighlightedContainerXButton = styled.button`
