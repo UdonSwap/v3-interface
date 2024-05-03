@@ -13,6 +13,7 @@ import store from "../../state/index";
 const CHAIN_SUBGRAPH_URL: Record<number, string> = {
   [ChainId.MAINNET]:
     "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3?source=uniswap",
+  [ChainId.MODE]: "https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn",
   [ChainId.ARBITRUM_ONE]:
     "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-arbitrum-one?source=uniswap",
   [ChainId.OPTIMISM]:
@@ -61,6 +62,10 @@ export const chainToApolloClient: Record<
   [ChainId.MAINNET]: new ApolloClient({
     cache: new InMemoryCache(),
     uri: CHAIN_SUBGRAPH_URL[ChainId.MAINNET],
+  }),
+  [ChainId.MODE]: new ApolloClient({
+    cache: new InMemoryCache(),
+    uri: CHAIN_SUBGRAPH_URL[ChainId.MODE],
   }),
   [ChainId.ARBITRUM_ONE]: new ApolloClient({
     cache: new InMemoryCache(),

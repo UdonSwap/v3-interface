@@ -303,6 +303,9 @@ export const DAI_BSC = new Token(
   "DAI",
 );
 
+export const DAI_MODE = new Token(ChainId.MODE, "0x9e5AAC1Ba1a2e6aEd6b32689DFcF62A509Ca96f3", 18, "DAI",
+  "DAI",)
+
 export const USDB_BLAST = new Token(
   ChainId.BLAST,
   "0x4300000000000000000000000000000000000003",
@@ -657,7 +660,7 @@ export const TOKEN_SHORTHANDS: {
 
 const STABLECOINS: { [chainId in ChainId]: Token[] } = {
   [ChainId.MAINNET]: [USDC_MAINNET, DAI, USDT],
-  [ChainId.MODE]: [],
+  [ChainId.MODE]: [DAI_MODE],
   [ChainId.ARBITRUM_ONE]: [USDC_ARBITRUM, DAI_ARBITRUM_ONE],
   [ChainId.ARBITRUM_GOERLI]: [USDC_ARBITRUM_GOERLI],
   [ChainId.OPTIMISM]: [USDC_OPTIMISM, DAI_OPTIMISM],

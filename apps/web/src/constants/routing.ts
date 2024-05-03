@@ -44,6 +44,7 @@ import {
   WETH_POLYGON,
   WETH_POLYGON_MUMBAI,
   WRAPPED_NATIVE_CURRENCY,
+  DAI_MODE,
   nativeOnChain,
 } from "./tokens";
 
@@ -73,7 +74,7 @@ export const COMMON_BASES: ChainCurrencyList = {
     WBTC,
     WRAPPED_NATIVE_CURRENCY[ChainId.MAINNET] as Token,
   ],
-  [ChainId.MODE]: [
+  [ChainId.MODE]: [DAI_MODE,
     WRAPPED_NATIVE_CURRENCY[ChainId.MODE] as Token,
   ],
   [ChainId.GOERLI]: [
