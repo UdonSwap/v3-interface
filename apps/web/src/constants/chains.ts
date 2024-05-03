@@ -7,6 +7,7 @@ import {
 
 export const CHAIN_IDS_TO_NAMES = {
   [ChainId.MAINNET]: "mainnet",
+  [ChainId.MODE]: "mode",
   [ChainId.GOERLI]: "goerli",
   [ChainId.SEPOLIA]: "sepolia",
   [ChainId.POLYGON]: "polygon",
@@ -87,12 +88,14 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
 export const SUPPORTED_V2POOL_CHAIN_IDS_DEPRECATED = [
   ChainId.MAINNET,
   ChainId.GOERLI,
+  ChainId.MODE
 ] as const;
 export const SUPPORTED_V2POOL_CHAIN_IDS = Object.keys(V2_ROUTER_ADDRESSES).map(
   (chainId) => parseInt(chainId),
 );
 
 export const TESTNET_CHAIN_IDS = [
+  ChainId.MODE,
   ChainId.GOERLI,
   ChainId.SEPOLIA,
   ChainId.POLYGON_MUMBAI,
@@ -123,6 +126,7 @@ export type SupportedL1ChainId = (typeof L1_CHAIN_IDS)[number];
  * The expectation is that all of these networks have immediate transaction confirmation.
  */
 export const L2_CHAIN_IDS = [
+  ChainId.MODE,
   ChainId.ARBITRUM_ONE,
   ChainId.ARBITRUM_GOERLI,
   ChainId.OPTIMISM,
@@ -143,26 +147,28 @@ export function getChainPriority(chainId: ChainId): number {
     case ChainId.GOERLI:
     case ChainId.SEPOLIA:
       return 0;
+    case ChainId.MODE:
+      return 1;
     case ChainId.ARBITRUM_ONE:
     case ChainId.ARBITRUM_GOERLI:
-      return 1;
+      return 2;
     case ChainId.OPTIMISM:
     case ChainId.OPTIMISM_GOERLI:
-      return 2;
+      return 3;
     case ChainId.POLYGON:
     case ChainId.POLYGON_MUMBAI:
-      return 3;
-    case ChainId.BASE:
       return 4;
-    case ChainId.BNB:
+    case ChainId.BASE:
       return 5;
-    case ChainId.AVALANCHE:
+    case ChainId.BNB:
       return 6;
+    case ChainId.AVALANCHE:
+      return 7;
     case ChainId.CELO:
     case ChainId.CELO_ALFAJORES:
-      return 7;
-    case ChainId.BLAST:
       return 8;
+    case ChainId.BLAST:
+      return 9;
     default:
       return Infinity;
   }

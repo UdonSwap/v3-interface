@@ -73,6 +73,9 @@ export const COMMON_BASES: ChainCurrencyList = {
     WBTC,
     WRAPPED_NATIVE_CURRENCY[ChainId.MAINNET] as Token,
   ],
+  [ChainId.MODE]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.MODE] as Token,
+  ],
   [ChainId.GOERLI]: [
     nativeOnChain(ChainId.GOERLI),
     WRAPPED_NATIVE_CURRENCY[ChainId.GOERLI] as Token,

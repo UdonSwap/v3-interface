@@ -132,7 +132,7 @@ export function transformSwapRouteToGetQuoteResult(
     blockNumber: blockNumber.toString(),
     amount: amount.quotient.toString(),
     amountDecimals: amount.toExact(),
-    quote: quote. .toString(),
+    quote: quote.toString(),
     quoteDecimals: quote.toExact(),
     quoteGasAdjusted: quoteGasAdjusted.quotient.toString(),
     quoteGasAdjustedDecimals: quoteGasAdjusted.toExact(),

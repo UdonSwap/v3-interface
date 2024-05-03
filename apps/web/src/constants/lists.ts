@@ -18,6 +18,8 @@ const KLEROS_LIST = 't2crtokens.eth'
 const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 const WRAPPED_LIST = 'wrapped.tokensoft.eth'
 
+// mode testnet token list api
+export const MODE_LIST = "https://api.udonswap.org/tokens"
 export const OPTIMISM_LIST = 'https://static.optimism.io/optimism.tokenlist.json'
 export const ARBITRUM_LIST = 'https://bridge.arbitrum.io/token-list-42161.json'
 export const CELO_LIST = 'https://celo-org.github.io/celo-token-list/celo.tokenlist.json'
@@ -48,6 +50,7 @@ export const DEFAULT_INACTIVE_LIST_URLS: string[] = [
   WRAPPED_LIST,
   SET_LIST,
   ARBITRUM_LIST,
+  MODE_LIST,
   OPTIMISM_LIST,
   CELO_LIST,
   PLASMA_BNB_LIST,
