@@ -84,6 +84,7 @@ const GQL_MAINNET_CHAINS = [
   Chain.Avalanche,
   Chain.Base,
   Chain.Blast,
+  Chain.Mode,
 ] as const;
 
 /** Used for making graphql queries to all chains supported by the graphql backend. Must be mutable for some apollo typechecking. */
@@ -116,6 +117,7 @@ export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: InterfaceGqlChain } = {
   [ChainId.AVALANCHE]: Chain.Avalanche,
   [ChainId.BASE]: Chain.Base,
   [ChainId.BLAST]: Chain.Blast,
+  [ChainId.MODE]: Chain.Mode,
 };
 
 export function chainIdToBackendName(chainId: number | undefined) {
@@ -181,6 +183,7 @@ const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: InterfaceGqlChain } = {
   avalanche: Chain.Avalanche,
   base: Chain.Base,
   blast: Chain.Blast,
+  mode:Chain.Mode,
 };
 
 /**
@@ -235,6 +238,7 @@ const CHAIN_NAME_TO_CHAIN_ID: { [key in InterfaceGqlChain]: ChainId } = {
   [Chain.Avalanche]: ChainId.AVALANCHE,
   [Chain.Base]: ChainId.BASE,
   [Chain.Blast]: ChainId.BLAST,
+  [Chain.Mode]: ChainId.MODE,
 };
 
 export function isSupportedGQLChain(chain: Chain): chain is InterfaceGqlChain {
@@ -274,6 +278,7 @@ export const BACKEND_SUPPORTED_CHAINS = [
   Chain.Bnb,
   Chain.Celo,
   Chain.Blast,
+  Chain.Mode,
 ] as const;
 export const BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS = [ChainId.AVALANCHE] as const;
 

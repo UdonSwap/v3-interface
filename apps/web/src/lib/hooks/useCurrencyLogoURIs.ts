@@ -19,7 +19,8 @@ type Network =
   | "celo"
   | "avalanchec"
   | "base"
-  | "blast";
+  | "blast"
+  | "mode";
 
 export function chainIdToNetworkName(networkId: ChainId): Network {
   switch (networkId) {
@@ -41,6 +42,8 @@ export function chainIdToNetworkName(networkId: ChainId): Network {
       return "base";
     case ChainId.BLAST:
       return "blast";
+    case ChainId.MODE:
+      return "mode";
     default:
       return "ethereum";
   }
@@ -49,6 +52,7 @@ export function chainIdToNetworkName(networkId: ChainId): Network {
 export function getNativeLogoURI(chainId: ChainId = ChainId.MAINNET): string {
   switch (chainId) {
     case ChainId.POLYGON:
+    case ChainId.MODE:
     case ChainId.POLYGON_MUMBAI:
       return MaticLogo;
     case ChainId.BNB:
@@ -75,6 +79,7 @@ function getTokenLogoURI(
     ChainId.BNB,
     ChainId.AVALANCHE,
     ChainId.BASE,
+    ChainId.MODE,
   ];
   if (isCelo(chainId) && address === nativeOnChain(chainId).wrapped.address) {
     return CeloLogo;

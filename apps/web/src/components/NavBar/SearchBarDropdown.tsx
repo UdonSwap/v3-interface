@@ -283,36 +283,36 @@ function SearchBarDropdownContents({
       </Box>
     );
 
-  const collectionSearchResults =
-    collections.length > 0 ? (
-      <SearchBarDropdownSection
-        hoveredIndex={hoveredIndex}
-        startingIndex={showCollectionsFirst ? 0 : tokens.length}
-        setHoveredIndex={setHoveredIndex}
-        toggleOpen={toggleOpen}
-        suggestions={collections}
-        eventProperties={{
-          suggestion_type: NavBarSearchTypes.COLLECTION_SUGGESTION,
-          ...eventProperties,
-        }}
-        header={<Trans>NFT collections</Trans>}
-      />
-    ) : (
-      <Box className={styles.notFoundContainer}>No NFT collections found.</Box>
-    );
+  // const collectionSearchResults =
+  //   collections.length > 0 ? (
+  //     <SearchBarDropdownSection
+  //       hoveredIndex={hoveredIndex}
+  //       startingIndex={showCollectionsFirst ? 0 : tokens.length}
+  //       setHoveredIndex={setHoveredIndex}
+  //       toggleOpen={toggleOpen}
+  //       suggestions={collections}
+  //       eventProperties={{
+  //         suggestion_type: NavBarSearchTypes.COLLECTION_SUGGESTION,
+  //         ...eventProperties,
+  //       }}
+  //       header={<Trans>NFT collections</Trans>}
+  //     />
+  //   ) : (
+  //     <Box className={styles.notFoundContainer}>No NFT collections found.</Box>
+  //   );
 
   return hasInput ? (
     // Empty or Up to 8 combined tokens and nfts
     <Column gap="20">
       {showCollectionsFirst ? (
         <>
-          {collectionSearchResults}
+          {/* {collectionSearchResults} */}
           {tokenSearchResults}
         </>
       ) : (
         <>
           {tokenSearchResults}
-          {collectionSearchResults}
+          {/* {collectionSearchResults} */}
         </>
       )}
     </Column>
@@ -351,7 +351,7 @@ function SearchBarDropdownContents({
           isLoading={!trendingTokenData}
         />
       )}
-      {Boolean(!isTokenPage && !shouldDisableNFTRoutes) && (
+      {/* {Boolean(!isTokenPage && !shouldDisableNFTRoutes) && (
         <SearchBarDropdownSection
           hoveredIndex={hoveredIndex}
           startingIndex={
@@ -367,11 +367,11 @@ function SearchBarDropdownContents({
             suggestion_type: NavBarSearchTypes.COLLECTION_TRENDING,
             ...eventProperties,
           }}
-          header={<Trans>Popular NFT collections</Trans>}
-          headerIcon={<TrendingArrow />}
-          isLoading={trendingCollectionsAreLoading}
+          // header={<Trans>Popular NFT collections</Trans>}
+          // headerIcon={<TrendingArrow />}
+          // isLoading={trendingCollectionsAreLoading}
         />
-      )}
+      )} */}
     </Column>
   );
 }
