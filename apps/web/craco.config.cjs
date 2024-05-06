@@ -143,7 +143,7 @@ module.exports = {
           if (plugin instanceof ModuleScopePlugin) {
             plugin.allowedPaths.push(
               path.join(
-                __dirname,
+                __dirname, 
                 "..",
                 "..",
                 "node_modules/@vanilla-extract/webpack-plugin",
