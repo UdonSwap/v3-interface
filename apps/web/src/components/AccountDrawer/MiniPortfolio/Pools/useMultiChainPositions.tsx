@@ -73,6 +73,7 @@ const DEFAULT_CHAINS = [
   ChainId.BNB,
   ChainId.AVALANCHE,
   ChainId.BLAST,
+  ChainId.MODE,
 ];
 
 type UseMultiChainPositionsData = {
