@@ -35,7 +35,6 @@ export function useOutageBanners(): Record<ChainId, boolean> {
     [ChainId.OPTIMISM]: useFeatureFlag(FeatureFlags.OutageBannerOptimism),
     [ChainId.ARBITRUM_ONE]: useFeatureFlag(FeatureFlags.OutageBannerArbitrum),
     [ChainId.POLYGON]: useFeatureFlag(FeatureFlags.OutageBannerPolygon),
-
     [ChainId.MAINNET]: false,
     [ChainId.MODE]: false,
     [ChainId.GOERLI]: false,

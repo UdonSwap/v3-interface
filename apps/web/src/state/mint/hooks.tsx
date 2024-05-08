@@ -264,6 +264,12 @@ export function useDerivedMintInfo(
     currencyAAmount &&
     currencyBalances?.[Field.CURRENCY_A]?.lessThan(currencyAAmount)
   ) {
+    console.log(
+      "checking amount for A",
+      currencyAAmount,
+      " ",
+      currencyBalances,
+    );
     error = (
       <Trans>
         Insufficient {{ symbol: currencies[Field.CURRENCY_A]?.symbol }} balance

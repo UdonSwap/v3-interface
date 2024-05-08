@@ -47,7 +47,7 @@ export const PUBLIC_RPC_URLS: Record<SupportedInterfaceChain, string[]> = {
     "https://rpc.ankr.com/eth",
     "https://eth-mainnet.public.blastapi.io",
   ],
-  [ChainId.MODE]: ["https://sepolia.mode.network"],
+  [ChainId.MODE]: ["https://sepolia.explorer.mode.network/"],
   [ChainId.GOERLI]: [
     // "Safe" URLs
     "https://rpc.goerli.mudit.blog/",
@@ -154,7 +154,7 @@ export const APP_RPC_URLS: Record<SupportedInterfaceChain, string[]> = {
     `https://mainnet.infura.io/v3/${INFURA_KEY}`,
     QUICKNODE_MAINNET_RPC_URL,
   ],
-  [ChainId.MODE]: ["https://sepolia.mode.network"],
+  [ChainId.MODE]: ["https://sepolia.explorer.mode.network/"],
   [ChainId.GOERLI]: [`https://goerli.infura.io/v3/${INFURA_KEY}`],
   [ChainId.SEPOLIA]: [`https://sepolia.infura.io/v3/${INFURA_KEY}`],
   [ChainId.OPTIMISM]: [`https://optimism-mainnet.infura.io/v3/${INFURA_KEY}`],

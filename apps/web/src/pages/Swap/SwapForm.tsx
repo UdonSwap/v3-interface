@@ -181,7 +181,7 @@ export function SwapForm({
     inputTax,
     outputTax,
   } = derivedSwapInfo;
-
+  console.log("trade value...", trade);
   const [inputTokenHasTax, outputTokenHasTax] = useMemo(
     () => [!inputTax.equalTo(0), !outputTax.equalTo(0)],
     [inputTax, outputTax],
@@ -572,7 +572,10 @@ export function SwapForm({
     isClassicTrade(trade) && largerPriceImpact && priceImpactSeverity > 3;
 
   const prevTrade = usePrevious(trade);
+
   useEffect(() => {
+    console.log("trade..........................", trade);
+    console.log("prevTrade.....................", prevTrade);
     if (!trade || prevTrade === trade) return; // no new swap quote to log
 
     sendAnalyticsEvent(SwapEventName.SWAP_QUOTE_RECEIVED, {

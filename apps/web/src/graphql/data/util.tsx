@@ -128,6 +128,7 @@ export function chainIdToBackendName(chainId: number | undefined) {
 
 const GQL_CHAINS = [
   ChainId.MAINNET,
+  ChainId.MODE,
   ChainId.OPTIMISM,
   ChainId.POLYGON,
   ChainId.ARBITRUM_ONE,

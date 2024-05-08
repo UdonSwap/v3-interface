@@ -140,6 +140,7 @@ export const formatSwapQuoteReceivedEventProperties = (
   swapQuoteLatencyMs: number | undefined,
   outputFeeFiatValue: number | undefined,
 ) => {
+  console.log("Received...............................")
   return {
     ...formatCommonPropertiesForTrade(
       trade,
