@@ -183,7 +183,7 @@ const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: InterfaceGqlChain } = {
   avalanche: Chain.Avalanche,
   base: Chain.Base,
   blast: Chain.Blast,
-  mode:Chain.Mode,
+  mode: Chain.Mode,
 };
 
 /**

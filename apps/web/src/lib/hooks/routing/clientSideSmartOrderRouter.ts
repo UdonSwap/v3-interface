@@ -22,6 +22,7 @@ import { transformSwapRouteToGetQuoteResult } from "utils/transformSwapRouteToGe
 
 const CLIENT_SIDE_ROUTING_ALLOW_LIST = [
   ChainId.MAINNET,
+  ChainId.MODE,
   ChainId.OPTIMISM,
   ChainId.OPTIMISM_GOERLI,
   ChainId.ARBITRUM_ONE,
@@ -87,19 +88,19 @@ async function getQuote(
   const currencyIn = tokenInIsNative
     ? nativeOnChain(tokenIn.chainId)
     : new Token(
-        tokenIn.chainId,
-        tokenIn.address,
-        tokenIn.decimals,
-        tokenIn.symbol,
-      );
+      tokenIn.chainId,
+      tokenIn.address,
+      tokenIn.decimals,
+      tokenIn.symbol,
+    );
   const currencyOut = tokenOutIsNative
     ? nativeOnChain(tokenOut.chainId)
     : new Token(
-        tokenOut.chainId,
-        tokenOut.address,
-        tokenOut.decimals,
-        tokenOut.symbol,
-      );
+      tokenOut.chainId,
+      tokenOut.address,
+      tokenOut.decimals,
+      tokenOut.symbol,
+    );
 
   const baseCurrency =
     tradeType === TradeType.EXACT_INPUT ? currencyIn : currencyOut;

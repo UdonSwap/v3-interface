@@ -2,6 +2,7 @@ import { ChainId } from "udonswap-sdk-core";
 
 const BLOCK_EXPLORER_PREFIXES: { [chainId: number]: string } = {
   [ChainId.MAINNET]: "https://etherscan.io",
+  [ChainId.MODE]: "https://sepolia.explorer.mode.network",
   [ChainId.GOERLI]: "https://goerli.etherscan.io",
   [ChainId.SEPOLIA]: "https://sepolia.etherscan.io",
   [ChainId.ARBITRUM_ONE]: "https://arbiscan.io",

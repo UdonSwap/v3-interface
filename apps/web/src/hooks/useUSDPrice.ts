@@ -35,6 +35,10 @@ const ETH_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Currency> } = {
     nativeOnChain(ChainId.MAINNET),
     50e18,
   ),
+  [ChainId.MODE]: CurrencyAmount.fromRawAmount(
+    nativeOnChain(ChainId.MODE),
+    10e18,
+  ),
   [ChainId.ARBITRUM_ONE]: CurrencyAmount.fromRawAmount(
     nativeOnChain(ChainId.ARBITRUM_ONE),
     10e18,
