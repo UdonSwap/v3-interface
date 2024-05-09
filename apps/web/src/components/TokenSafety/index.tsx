@@ -30,6 +30,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: 100%;
+  background: #000000;
   padding: 32px 40px;
   display: flex;
   flex-flow: column;
@@ -60,9 +61,16 @@ const StyledButton = styled(ButtonPrimary)`
 
 const StyledCancelButton = styled(ButtonText)`
   margin-top: 16px;
-  color: ${({ theme }) => theme.neutral2};
+  color: black;
+  border-radius: 7px;
+  padding: 5px 10px;
   font-weight: 535;
-  font-size: 14px;
+  border: 1px solid white;
+  background: white;
+  &:hover {
+    background: #fef100;
+    color: #000000;
+  }
 `;
 
 const StyledCloseButton = styled(StyledButton)`
@@ -129,7 +137,7 @@ const ExplorerContainer = styled.div`
   height: 32px;
   margin-top: 10px;
   font-size: 20px;
-  background-color: ${({ theme }) => theme.accent2};
+  background-color:#1c1924 !important;
   color: ${({ theme }) => theme.accent1};
   border-radius: 8px;
   padding: 2px 12px;
