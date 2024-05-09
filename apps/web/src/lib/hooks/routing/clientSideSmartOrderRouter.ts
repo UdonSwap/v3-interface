@@ -84,7 +84,6 @@ async function getQuote(
   const tokenOutIsNative = Object.values(SwapRouterNativeAssets).includes(
     tokenOut.address as SwapRouterNativeAssets,
   );
-  console.log("tokenInIsNative........................", tokenInIsNative)
   const currencyIn = tokenInIsNative
     ? nativeOnChain(tokenIn.chainId)
     : new Token(
