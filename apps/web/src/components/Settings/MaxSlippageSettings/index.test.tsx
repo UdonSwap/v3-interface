@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import store from "state";
 import { updateUserSlippageTolerance } from "state/user/reducer";
 import { SlippageTolerance } from "state/user/types";

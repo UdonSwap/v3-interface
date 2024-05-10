@@ -1,4 +1,4 @@
-import { ChainId, WETH9 } from "udonswap-sdk-core";
+import { ChainId, WETH9 } from "udonswap-core";
 import { formatTimestamp } from "components/AccountDrawer/MiniPortfolio/formatTimestamp";
 import { DAI, WRAPPED_NATIVE_CURRENCY } from "constants/tokens";
 import { useCurrency } from "hooks/Tokens";

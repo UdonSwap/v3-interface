@@ -1,6 +1,6 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { Percent, Price, Token } from "udonswap-sdk-core";
-import { Position } from "udonswap-v3-sdk";
+import { Percent, Price, Token } from "udonswap-core";
+import { Position } from "udonswap-v3";
 import RangeBadge from "components/Badge/RangeBadge";
 import DoubleCurrencyLogo from "components/DoubleLogo";
 import HoverInlineText from "components/HoverInlineText";

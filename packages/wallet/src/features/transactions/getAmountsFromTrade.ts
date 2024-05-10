@@ -1,4 +1,4 @@
-import { TradeType } from "udonswap-sdk-core";
+import { TradeType } from "udonswap-core";
 import {
   ConfirmedSwapTransactionInfo,
   ExactInputSwapTransactionInfo,

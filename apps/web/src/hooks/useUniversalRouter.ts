@@ -1,13 +1,13 @@
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { BigNumber } from "@ethersproject/bignumber";
 import { CustomUserProperties, SwapEventName } from "@uniswap/analytics-events";
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import {
   FlatFeeOptions,
   SwapRouter,
   UNIVERSAL_ROUTER_ADDRESS,
-} from "udonswap-universal-router-sdk";
-import { FeeOptions, toHex } from "udonswap-v3-sdk";
+} from "udonswap-sdk-universal-router";
+import { FeeOptions, toHex } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import { getConnection } from "connection";

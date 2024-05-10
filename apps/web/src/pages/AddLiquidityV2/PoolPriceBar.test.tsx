@@ -1,4 +1,4 @@
-import { Price, WETH9 } from "udonswap-sdk-core";
+import { Price, WETH9 } from "udonswap-core";
 import { USDC_MAINNET } from "constants/tokens";
 import { Field } from "state/mint/actions";
 import { render, screen } from "test-utils/render";

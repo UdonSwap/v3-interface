@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import { filter } from "wallet/src/components/TokenSelector/filter";
 import { TokenOption } from "wallet/src/components/TokenSelector/types";
 import { ChainId } from "wallet/src/constants/chains";

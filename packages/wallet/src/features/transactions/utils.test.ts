@@ -1,4 +1,4 @@
-import { CurrencyAmount } from "udonswap-sdk-core";
+import { CurrencyAmount } from "udonswap-core";
 import {
   hasSufficientFundsIncludingGas,
   isOffline,

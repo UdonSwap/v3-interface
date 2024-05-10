@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { OrderContent } from "components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal";
 import Column, { ColumnCenter } from "components/Column";

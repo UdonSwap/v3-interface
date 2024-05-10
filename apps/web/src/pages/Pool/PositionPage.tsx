@@ -13,8 +13,8 @@ import {
   Percent,
   Price,
   Token,
-} from "udonswap-sdk-core";
-import { NonfungiblePositionManager, Pool, Position } from "udonswap-v3-sdk";
+} from "udonswap-core";
+import { NonfungiblePositionManager, Pool, Position } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, Trace } from "analytics";
 import Badge from "components/Badge";

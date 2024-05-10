@@ -1,6 +1,6 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { CurrencyAmount, WETH9 } from "udonswap-sdk-core";
-import { FeeAmount, Pool } from "udonswap-v3-sdk";
+import { CurrencyAmount, WETH9 } from "udonswap-core";
+import { FeeAmount, Pool } from "udonswap-v3";
 import { USDC_MAINNET } from "constants/tokens";
 import { useToken } from "hooks/Tokens";
 import { PoolState, usePool } from "hooks/usePools";

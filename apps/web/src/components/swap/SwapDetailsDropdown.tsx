@@ -3,7 +3,7 @@ import {
   InterfaceElementName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import { TraceEvent, useTrace } from "analytics";
 import AnimatedDropdown from "components/AnimatedDropdown";
 import Column from "components/Column";

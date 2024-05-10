@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Fraction, Percent } from "udonswap-core";
 import JSBI from "jsbi";
 
 const ONE = new Fraction(1, 1);

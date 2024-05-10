@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { DeltaArrow } from "components/Tokens/TokenDetails/Delta";
 import { LDO, NATIVE_CHAIN_ID, UNI, USDC_BASE } from "constants/tokens";

@@ -2,7 +2,7 @@ import {
   ChainId,
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
   WETH9,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { DAI } from "constants/tokens";
 import {
   AssetActivityPartsFragment,

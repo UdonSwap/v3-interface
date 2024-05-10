@@ -3,7 +3,7 @@ import {
   InterfaceElementName,
   SharedEventName,
 } from "@uniswap/analytics-events";
-import { Position } from "udonswap-v3-sdk";
+import { Position } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import Row from "components/Row";

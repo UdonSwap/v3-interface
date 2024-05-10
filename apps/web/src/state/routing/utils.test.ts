@@ -1,4 +1,4 @@
-import { ChainId, Currency, Token, TradeType } from "udonswap-sdk-core";
+import { ChainId, Currency, Token, TradeType } from "udonswap-core";
 import { nativeOnChain } from "constants/tokens";
 
 import {

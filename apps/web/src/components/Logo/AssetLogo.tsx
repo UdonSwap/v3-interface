@@ -1,4 +1,4 @@
-import { ChainId, Currency } from "udonswap-sdk-core";
+import { ChainId, Currency } from "udonswap-core";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import React from "react";
 import styled from "styled-components";

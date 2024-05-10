@@ -1,4 +1,4 @@
-import { ChainId, Token as InterfaceToken } from "udonswap-sdk-core";
+import { ChainId, Token as InterfaceToken } from "udonswap-core";
 import { DAI, USDC_MAINNET, USDT, WBTC, nativeOnChain } from "constants/tokens";
 import {
   Chain,

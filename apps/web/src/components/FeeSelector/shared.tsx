@@ -1,5 +1,5 @@
-import { ChainId, SUPPORTED_CHAINS } from "udonswap-sdk-core";
-import { FeeAmount } from "udonswap-v3-sdk";
+import { ChainId, SUPPORTED_CHAINS } from "udonswap-core";
+import { FeeAmount } from "udonswap-v3";
 import { Trans } from "i18n";
 import type { ReactNode } from "react";
 

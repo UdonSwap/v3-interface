@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import useHttpLocations from "hooks/useHttpLocations";
 import { useMemo } from "react";
 import { isAddress } from "utilities/src/addresses";
@@ -20,8 +20,7 @@ type Network =
   | "celo"
   | "avalanchec"
   | "base"
-  | "blast"
-
+  | "blast";
 
 export function chainIdToNetworkName(networkId: ChainId): Network {
   switch (networkId) {
@@ -94,12 +93,12 @@ function getTokenLogoURI(
 export default function useCurrencyLogoURIs(
   currency:
     | {
-      isNative?: boolean;
-      isToken?: boolean;
-      address?: string;
-      chainId: number;
-      logoURI?: string | null;
-    }
+        isNative?: boolean;
+        isToken?: boolean;
+        address?: string;
+        chainId: number;
+        logoURI?: string | null;
+      }
     | null
     | undefined,
 ): string[] {

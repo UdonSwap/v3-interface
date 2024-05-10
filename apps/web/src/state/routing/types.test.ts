@@ -1,4 +1,4 @@
-import { CurrencyAmount, TradeType } from "udonswap-sdk-core";
+import { CurrencyAmount, TradeType } from "udonswap-core";
 import { DAI, USDC_MAINNET } from "constants/tokens";
 import { LIMIT_ORDER_TRADE } from "test-utils/constants";
 

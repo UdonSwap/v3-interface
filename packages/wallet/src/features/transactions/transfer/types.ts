@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";
 import { ChainId } from "wallet/src/constants/chains";
 import { AssetType, NFTAssetType } from "wallet/src/entities/assets";

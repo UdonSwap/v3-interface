@@ -1,9 +1,4 @@
-import {
-  ChainId,
-  Currency,
-  CurrencyAmount,
-  TradeType,
-} from "udonswap-sdk-core";
+import { ChainId, Currency, CurrencyAmount, TradeType } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import {
   CancelLimitsDialog,
@@ -31,7 +26,7 @@ import { Divider, ThemedText } from "theme/components";
 import { UniswapXOrderStatus } from "types/uniswapx";
 import { ExplorerDataType, getExplorerLink } from "utils/getExplorerLink";
 
-import { PERMIT2_ADDRESS } from "udonswap-permit2-sdk";
+import { PERMIT2_ADDRESS } from "udonswap-permit2";
 import { sendAnalyticsEvent } from "analytics";
 import { cancelMultipleUniswapXOrders } from "components/AccountDrawer/MiniPortfolio/Activity/utils";
 import AlertTriangleFilled from "components/Icons/AlertTriangleFilled";

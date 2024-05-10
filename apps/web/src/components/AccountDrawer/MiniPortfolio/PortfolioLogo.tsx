@@ -1,4 +1,4 @@
-import { ChainId, Currency } from "udonswap-sdk-core";
+import { ChainId, Currency } from "udonswap-core";
 import blankTokenUrl from "assets/svg/blank_token.svg";
 import { ReactComponent as UnknownStatus } from "assets/svg/contract-interaction.svg";
 import { MissingImageLogo } from "components/Logo/AssetLogo";

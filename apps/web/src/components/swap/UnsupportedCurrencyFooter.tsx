@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { ButtonEmpty } from "components/Button";
 import Card, { OutlineCard } from "components/Card";

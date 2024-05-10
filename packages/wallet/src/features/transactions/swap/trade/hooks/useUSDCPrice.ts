@@ -5,7 +5,7 @@ import {
   Price,
   Token,
   TradeType,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { ChainId } from "wallet/src/constants/chains";
 import { PollingInterval } from "wallet/src/constants/misc";
 import {

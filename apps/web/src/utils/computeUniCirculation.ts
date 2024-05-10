@@ -1,5 +1,5 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { CurrencyAmount, Token } from "udonswap-sdk-core";
+import { CurrencyAmount, Token } from "udonswap-core";
 import JSBI from "jsbi";
 
 import { STAKING_GENESIS } from "../state/stake/hooks";

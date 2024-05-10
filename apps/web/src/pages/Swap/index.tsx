@@ -1,5 +1,5 @@
 import { InterfacePageName } from "@uniswap/analytics-events";
-import { ChainId, Currency } from "udonswap-sdk-core";
+import { ChainId, Currency } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { Trace } from "analytics";
 import { NetworkAlert } from "components/NetworkAlert/NetworkAlert";

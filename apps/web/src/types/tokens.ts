@@ -1,3 +1,3 @@
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 
 export class UserAddedToken extends Token {}

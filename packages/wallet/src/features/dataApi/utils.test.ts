@@ -1,5 +1,5 @@
 import { ApolloError } from "@apollo/client";
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import {
   Chain,
   Token as GQLToken,

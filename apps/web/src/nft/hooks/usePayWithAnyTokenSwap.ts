@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import { Allowance } from "hooks/usePermit2Allowance";
 import { buildAllTradeRouteInputs } from "nft/utils/tokenRoutes";
 import { useEffect } from "react";

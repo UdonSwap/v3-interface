@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { DAI, NATIVE_CHAIN_ID, nativeOnChain } from "constants/tokens";
 import { gqlTokenToCurrencyInfo } from "graphql/data/types";
 import {

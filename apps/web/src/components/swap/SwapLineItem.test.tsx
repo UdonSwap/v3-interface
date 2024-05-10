@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import { InterfaceTrade } from "state/routing/types";
 import {
   LIMIT_ORDER_TRADE,

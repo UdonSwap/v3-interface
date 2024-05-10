@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 
 export function currencyId(currency?: Currency): string {
   if (currency?.isNative) return "ETH";

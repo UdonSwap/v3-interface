@@ -1,10 +1,5 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import {
-  ChainId,
-  Currency,
-  CurrencyAmount,
-  TradeType,
-} from "udonswap-sdk-core";
+import { ChainId, Currency, CurrencyAmount, TradeType } from "udonswap-core";
 import UniswapXBolt from "assets/svg/bolt.svg";
 import { nativeOnChain } from "constants/tokens";
 import { ChainTokenMap, useAllTokensMultichain } from "hooks/Tokens";

@@ -1,4 +1,4 @@
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import { ButtonPrimary } from "components/Button";
 import { AutoColumn } from "components/Column";
 import CurrencyLogo from "components/Logo/CurrencyLogo";
@@ -137,7 +137,7 @@ const ExplorerContainer = styled.div`
   height: 32px;
   margin-top: 10px;
   font-size: 20px;
-  background-color:#1c1924 !important;
+  background-color: #1c1924 !important;
   color: ${({ theme }) => theme.accent1};
   border-radius: 8px;
   padding: 2px 12px;

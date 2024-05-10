@@ -1,5 +1,5 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { ParentSize } from "@visx/responsive";
 import QueryTokenLogo from "components/Logo/QueryTokenLogo";
 import Row from "components/Row";
@@ -260,7 +260,7 @@ function TokenTable({
       timePeriod,
       tokenSortRank,
       tokens,
-    ]
+    ],
   );
 
   const showLoadingSkeleton = loading || !!error;

@@ -1,4 +1,4 @@
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import { ChainId } from "wallet/src/constants/chains";
 import { Trade } from "wallet/src/features/transactions/swap/trade/types";
 

@@ -4,7 +4,7 @@ import {
   JsonRpcSigner,
   Web3Provider,
 } from "@ethersproject/providers";
-import { ChainId, CurrencyAmount } from "udonswap-sdk-core";
+import { ChainId, CurrencyAmount } from "udonswap-core";
 import { DAI, nativeOnChain } from "constants/tokens";
 import { act, renderHook } from "test-utils/render";
 

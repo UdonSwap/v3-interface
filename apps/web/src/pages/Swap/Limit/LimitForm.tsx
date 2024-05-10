@@ -5,8 +5,8 @@ import {
   SharedEventName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount, Token } from "udonswap-sdk-core";
-import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-universal-router-sdk";
+import { Currency, CurrencyAmount, Token } from "udonswap-core";
+import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-sdk-universal-router";
 import { useWeb3React } from "@web3-react/core";
 import { Trace, TraceEvent } from "analytics";
 import {

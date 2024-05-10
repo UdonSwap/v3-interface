@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { EtherscanLogo } from "components/Icons/Etherscan";
 import { ExplorerIcon } from "components/Icons/ExplorerIcon";
 import CurrencyLogo from "components/Logo/CurrencyLogo";

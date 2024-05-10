@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 
 import {
   SerializableTransactionReceipt,

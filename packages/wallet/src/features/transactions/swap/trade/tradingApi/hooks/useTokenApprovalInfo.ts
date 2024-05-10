@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import { uniswapUrls } from "uniswap/src/constants/urls";
 import { useRestQuery } from "uniswap/src/data/rest";
 import { logger } from "utilities/src/logger/logger";

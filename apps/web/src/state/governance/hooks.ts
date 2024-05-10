@@ -18,7 +18,7 @@ import {
   GOVERNANCE_ALPHA_V1_ADDRESSES,
   GOVERNANCE_BRAVO_ADDRESSES,
   Token,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { LATEST_GOVERNOR_INDEX } from "constants/governance";
 import { POLYGON_PROPOSAL_TITLE } from "constants/proposals/polygon_proposal_title";

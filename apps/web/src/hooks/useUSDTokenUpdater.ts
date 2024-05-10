@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import tryParseCurrencyAmount from "lib/utils/tryParseCurrencyAmount";
 import { useMemo } from "react";
 import { NumberType, useFormatter } from "utils/formatNumbers";

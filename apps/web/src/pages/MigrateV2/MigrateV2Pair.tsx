@@ -8,14 +8,14 @@ import {
   Price,
   Token,
   V2_FACTORY_ADDRESSES,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import {
   FeeAmount,
   Pool,
   Position,
   TickMath,
   priceToClosestTick,
-} from "udonswap-v3-sdk";
+} from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import Badge from "components/Badge";

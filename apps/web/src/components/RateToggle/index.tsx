@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import { ToggleElement, ToggleWrapper } from "components/Toggle/MultiToggle";
 
 // the order of displayed base currencies from left to right is always in sort order

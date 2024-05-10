@@ -3,7 +3,7 @@ import {
   TICK_SPACINGS,
   TickMath,
   nearestUsableTick,
-} from "udonswap-v3-sdk";
+} from "udonswap-v3";
 import { useMemo } from "react";
 import { Bound } from "state/mint/v3/actions";
 

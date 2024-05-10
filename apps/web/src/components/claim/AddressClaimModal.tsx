@@ -1,5 +1,5 @@
 import { isAddress } from "@ethersproject/address";
-import { CurrencyAmount, Token } from "udonswap-sdk-core";
+import { CurrencyAmount, Token } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { Trans } from "i18n";
 import { useState } from "react";

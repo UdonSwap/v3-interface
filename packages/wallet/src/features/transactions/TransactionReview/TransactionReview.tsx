@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { FadeInUp, FadeOut } from "react-native-reanimated";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import {
   AnimatedFlex,
   Button,

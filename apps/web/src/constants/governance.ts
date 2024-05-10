@@ -5,7 +5,7 @@ import {
   GOVERNANCE_BRAVO_ADDRESSES,
   TIMELOCK_ADDRESSES,
   UNI_ADDRESSES,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 
 export const COMMON_CONTRACT_NAMES: Record<
   number,

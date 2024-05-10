@@ -1,4 +1,4 @@
-import { ChainId, SOCKS_CONTROLLER_ADDRESSES, Token } from "udonswap-sdk-core";
+import { ChainId, SOCKS_CONTROLLER_ADDRESSES, Token } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { useMemo } from "react";
 import { useTokenBalance } from "state/connection/hooks";

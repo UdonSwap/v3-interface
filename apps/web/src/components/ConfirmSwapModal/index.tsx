@@ -2,7 +2,7 @@ import {
   SwapEventName,
   SwapPriceUpdateUserResponse,
 } from "@uniswap/analytics-events";
-import { Currency, Percent } from "udonswap-sdk-core";
+import { Currency, Percent } from "udonswap-core";
 import { sendAnalyticsEvent } from "analytics";
 import { AutoColumn } from "components/Column";
 import { MODAL_TRANSITION_DURATION } from "components/Modal";

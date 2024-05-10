@@ -1,4 +1,4 @@
-import { ChainId, Currency } from "udonswap-sdk-core";
+import { ChainId, Currency } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { ButtonLight } from "components/Button";
@@ -263,7 +263,7 @@ export default function SendCurrencyInputForm({
   const maxInputAmount = maxAmountSpend(currencyBalance);
   const showMaxButton = Boolean(
     maxInputAmount?.greaterThan(0) &&
-      !parsedTokenAmount?.equalTo(maxInputAmount)
+      !parsedTokenAmount?.equalTo(maxInputAmount),
   );
 
   const [tokenSelectorOpen, setTokenSelectorOpen] = useState(false);
@@ -273,7 +273,7 @@ export default function SendCurrencyInputForm({
         asSupportedChain(chainId) ??
           (ChainId.MAINNET as SupportedInterfaceChain)
       ].currency,
-    [chainId]
+    [chainId],
   );
   const fiatCurrencyEqualsTransferCurrency =
     !!inputCurrency && fiatCurrency.equals(inputCurrency);
@@ -302,7 +302,7 @@ export default function SendCurrencyInputForm({
         [inputInFiat ? "exactAmountFiat" : "exactAmountToken"]: newValue,
       }));
     },
-    [inputInFiat, setSendState]
+    [inputInFiat, setSendState],
   );
 
   const handleSelectCurrency = useCallback(
@@ -334,7 +334,7 @@ export default function SendCurrencyInputForm({
       fiatCurrency,
       onCurrencyChange,
       setSendState,
-    ]
+    ],
   );
 
   const toggleFiatInputAmountEnabled = useCallback(() => {
@@ -370,7 +370,7 @@ export default function SendCurrencyInputForm({
     () => ({
       onlyShowCurrenciesWithBalance: Boolean(account),
     }),
-    [account]
+    [account],
   );
 
   return (

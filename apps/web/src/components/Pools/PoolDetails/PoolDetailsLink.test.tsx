@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { USDC_MAINNET } from "constants/tokens";
 import store from "state";
 import { addSerializedToken } from "state/user/reducer";

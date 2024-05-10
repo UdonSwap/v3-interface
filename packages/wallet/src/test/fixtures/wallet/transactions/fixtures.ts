@@ -1,5 +1,5 @@
 import { TransactionRequest } from "@ethersproject/providers";
-import { TradeType } from "udonswap-sdk-core";
+import { TradeType } from "udonswap-core";
 import { ChainId } from "wallet/src/constants/chains";
 import { AssetType } from "wallet/src/entities/assets";
 import { finalizeTransaction } from "wallet/src/features/transactions/slice";

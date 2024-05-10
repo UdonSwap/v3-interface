@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount } from "udonswap-sdk-core";
+import { ChainId, CurrencyAmount } from "udonswap-core";
 import {
   ConfirmedIcon,
   LogoContainer,

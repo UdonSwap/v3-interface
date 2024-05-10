@@ -1,5 +1,5 @@
 import { QueryResult } from "@apollo/client";
-import { ChainId, Currency } from "udonswap-sdk-core";
+import { ChainId, Currency } from "udonswap-core";
 import { TDPChartState } from "components/Tokens/TokenDetails/ChartSection";
 import { Warning } from "constants/tokenSafety";
 import { PropsWithChildren, createContext, useContext } from "react";

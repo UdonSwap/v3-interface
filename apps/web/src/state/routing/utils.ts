@@ -1,15 +1,15 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { MixedRouteSDK } from "udonswap-router-sdk";
+import { MixedRouteSDK } from "udonswap-router";
 import {
   Currency,
   CurrencyAmount,
   Percent,
   Token,
   TradeType,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { DutchOrderInfo, DutchOrderInfoJSON } from "udonswapx-sdk";
-import { Pair, Route as V2Route } from "udonswap-v2";
-import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3-sdk";
+import { Pair, Route as V2Route } from "udonswap-v2-sdk";
+import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3";
 import { BIPS_BASE } from "constants/misc";
 import { isAvalanche, isBsc, isPolygon, nativeOnChain } from "constants/tokens";
 import { toSlippagePercent } from "utils/slippage";

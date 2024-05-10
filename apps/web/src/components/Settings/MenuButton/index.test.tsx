@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import { useUserSlippageTolerance } from "state/user/hooks";
 import { SlippageTolerance } from "state/user/types";
 import { mocked } from "test-utils/mocked";

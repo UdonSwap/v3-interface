@@ -3,8 +3,8 @@ import {
   InterfaceElementName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
-import { Pair } from "udonswap-v2";
+import { Currency, CurrencyAmount } from "udonswap-core";
+import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import {

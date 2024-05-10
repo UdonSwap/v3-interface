@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import ms from "ms";
 import { darkTheme } from "theme/colors";
 

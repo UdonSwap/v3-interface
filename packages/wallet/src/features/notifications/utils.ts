@@ -1,4 +1,4 @@
-import { Currency, TradeType } from "udonswap-sdk-core";
+import { Currency, TradeType } from "udonswap-core";
 import i18n from "uniswap/src/i18n/i18n";
 import { CHAIN_INFO } from "wallet/src/constants/chains";
 import { toSupportedChainId } from "wallet/src/features/chains/utils";

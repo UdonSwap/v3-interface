@@ -1,4 +1,4 @@
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import { ZERO_ADDRESS } from "constants/misc";
 import { getTokenPageTitle } from "./utils";
 

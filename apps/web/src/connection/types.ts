@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { Web3ReactHooks } from "@web3-react/core";
 import { Connector } from "@web3-react/types";
 

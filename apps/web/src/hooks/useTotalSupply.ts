@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Token } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Token } from "udonswap-core";
 import { useSingleCallResult } from "lib/hooks/multicall";
 import { useMemo } from "react";
 

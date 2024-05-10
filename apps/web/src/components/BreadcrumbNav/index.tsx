@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import Row from "components/Row";
 import Tooltip, { TooltipSize } from "components/Tooltip";
 import useCopyClipboard from "hooks/useCopyClipboard";

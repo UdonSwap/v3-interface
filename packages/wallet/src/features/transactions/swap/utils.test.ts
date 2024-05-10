@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, TradeType } from "udonswap-sdk-core";
-import { Route } from "udonswap-v3-sdk";
+import { Currency, CurrencyAmount, TradeType } from "udonswap-core";
+import { Route } from "udonswap-v3";
 import { ChainId } from "wallet/src/constants/chains";
 import { UNI, WBTC, wrappedNativeCurrency } from "wallet/src/constants/tokens";
 import { NativeCurrency } from "wallet/src/features/tokens/NativeCurrency";

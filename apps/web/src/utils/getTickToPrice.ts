@@ -1,5 +1,5 @@
-import { Price, Token } from "udonswap-sdk-core";
-import { tickToPrice } from "udonswap-v3-sdk";
+import { Price, Token } from "udonswap-core";
+import { tickToPrice } from "udonswap-v3";
 
 export function getTickToPrice(
   baseToken?: Token,

@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import styled from "styled-components";
 
 import CurrencyLogo from "../Logo/CurrencyLogo";

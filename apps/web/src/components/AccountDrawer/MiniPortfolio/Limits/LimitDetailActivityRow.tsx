@@ -1,4 +1,4 @@
-import { CurrencyAmount, Price } from "udonswap-sdk-core";
+import { CurrencyAmount, Price } from "udonswap-core";
 import {
   useOpenOffchainActivityModal,
   useOrderAmounts,

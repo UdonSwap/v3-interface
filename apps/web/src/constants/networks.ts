@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { SupportedInterfaceChain } from "constants/chains";
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY;

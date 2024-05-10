@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import Row from "components/Row";
 import { Trans } from "i18n";
 import { X } from "react-feather";

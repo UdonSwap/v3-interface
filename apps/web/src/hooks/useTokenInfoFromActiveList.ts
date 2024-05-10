@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { useMemo } from "react";
 import { useCombinedActiveList } from "state/lists/hooks";

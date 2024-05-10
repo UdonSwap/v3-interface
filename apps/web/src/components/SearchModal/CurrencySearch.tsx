@@ -2,7 +2,7 @@ import {
   InterfaceEventName,
   InterfaceModalName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { Trace } from "analytics";
 import { ChainSelector } from "components/NavBar/ChainSelector";

@@ -1,5 +1,5 @@
-import { ChainId, TradeType as MockTradeType, Token } from "udonswap-sdk-core";
-import { PERMIT2_ADDRESS } from "udonswap-universal-router-sdk";
+import { ChainId, TradeType as MockTradeType, Token } from "udonswap-core";
+import { PERMIT2_ADDRESS } from "udonswap-sdk-universal-router";
 import {
   DAI as MockDAI,
   USDC_MAINNET as MockUSDC_MAINNET,

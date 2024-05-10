@@ -3,8 +3,8 @@ import {
   MaxAllowanceTransferAmount,
   PERMIT2_ADDRESS,
   PermitSingle,
-} from "udonswap-permit2-sdk";
-import { CurrencyAmount, Token } from "udonswap-sdk-core";
+} from "udonswap-permit2";
+import { CurrencyAmount, Token } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { useContract } from "hooks/useContract";
 import { useSingleCallResult } from "lib/hooks/multicall";

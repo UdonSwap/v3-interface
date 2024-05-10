@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import CurrencyLogo from "components/Logo/CurrencyLogo";
 import Row from "components/Row";
 import { PrefetchBalancesWrapper } from "graphql/data/apollo/TokenBalancesProvider";

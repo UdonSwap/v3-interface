@@ -1,6 +1,6 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { ChainId, Currency, WETH9 } from "udonswap-sdk-core";
-import { FeeAmount, Pool, Position } from "udonswap-v3-sdk";
+import { ChainId, Currency, WETH9 } from "udonswap-core";
+import { FeeAmount, Pool, Position } from "udonswap-v3";
 import { USDC_MAINNET } from "constants/tokens";
 import { PoolData } from "graphql/data/pools/usePoolData";
 import { Token } from "graphql/thegraph/__generated__/types-and-hooks";

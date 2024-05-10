@@ -4,7 +4,7 @@ import {
   Fraction,
   Price,
   Token,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { parseUnits } from "ethers/lib/utils";
 import JSBI from "jsbi";
 import { useStablecoinAmountFromFiatValue } from "./useStablecoinPrice";

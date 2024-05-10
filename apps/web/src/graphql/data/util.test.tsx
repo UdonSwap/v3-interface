@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { Chain } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
 import {
   getValidUrlChainName,

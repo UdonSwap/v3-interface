@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 
 export function largerPercentValue(a?: Percent, b?: Percent) {
   if (a && b) {

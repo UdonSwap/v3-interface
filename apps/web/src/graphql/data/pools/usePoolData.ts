@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { V2_BIPS } from "graphql/data/pools/useTopPools";
 import { chainIdToBackendName } from "graphql/data/util";
 import ms from "ms";

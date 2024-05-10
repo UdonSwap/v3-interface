@@ -1,4 +1,4 @@
-import { Fraction, TradeType } from "udonswap-sdk-core";
+import { Fraction, TradeType } from "udonswap-core";
 import { BigNumber } from "ethers/lib/ethers";
 import { Trans } from "i18n";
 import JSBI from "jsbi";

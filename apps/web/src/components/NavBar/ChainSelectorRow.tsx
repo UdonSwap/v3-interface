@@ -1,5 +1,5 @@
 import { BrowserEvent, SharedEventName } from "@uniswap/analytics-events";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import Loader from "components/Icons/LoadingSpinner";

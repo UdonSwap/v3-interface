@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { USDC_MAINNET } from "constants/tokens";
 import { render } from "test-utils/render";
 

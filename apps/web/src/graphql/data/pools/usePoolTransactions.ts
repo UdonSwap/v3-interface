@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { chainIdToBackendName } from "graphql/data/util";
 import { useCallback, useMemo, useRef } from "react";
 import {

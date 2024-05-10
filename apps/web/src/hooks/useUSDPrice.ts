@@ -5,7 +5,7 @@ import {
   CurrencyAmount,
   Price,
   TradeType,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { nativeOnChain } from "constants/tokens";
 import {
   PollingInterval,

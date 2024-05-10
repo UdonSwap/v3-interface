@@ -1,6 +1,6 @@
 import { InterfaceEventName } from "@uniswap/analytics-events";
-import { ChainId, Percent } from "udonswap-sdk-core";
-import { WETH_ADDRESS as getWethAddress } from "udonswap-universal-router-sdk";
+import { ChainId, Percent } from "udonswap-core";
+import { WETH_ADDRESS as getWethAddress } from "udonswap-sdk-universal-router";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent } from "analytics";
 import { BIPS_BASE, ZERO_PERCENT } from "constants/misc";

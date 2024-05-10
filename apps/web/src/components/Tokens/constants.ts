@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 
 // Breakpoints specifically for the token pages
 // TODO(WEB-2968): Deprecate these in the new .info project

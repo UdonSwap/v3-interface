@@ -1,7 +1,7 @@
-import { Protocol } from "udonswap-router-sdk";
-import { Currency, Percent, TradeType } from "udonswap-sdk-core";
-import { Pair } from "udonswap-v2";
-import { FeeAmount } from "udonswap-v3-sdk";
+import { Protocol } from "udonswap-router";
+import { Currency, Percent, TradeType } from "udonswap-core";
+import { Pair } from "udonswap-v2-sdk";
+import { FeeAmount } from "udonswap-v3";
 import { ClassicTrade } from "state/routing/types";
 
 export interface RoutingDiagramEntry {

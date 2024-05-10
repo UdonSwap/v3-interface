@@ -1,5 +1,5 @@
 import { AddressZero } from "@ethersproject/constants";
-import { MixedRouteSDK, ONE, Protocol, Trade } from "udonswap-router-sdk";
+import { MixedRouteSDK, ONE, Protocol, Trade } from "udonswap-router";
 import {
   ChainId,
   Currency,
@@ -9,14 +9,14 @@ import {
   Price,
   Token,
   TradeType,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import {
   DutchOrderInfo,
   DutchOrderInfoJSON,
   DutchOrderTrade as IDutchOrderTrade,
 } from "udonswapx-sdk";
-import { Route as V2Route } from "udonswap-v2";
-import { Route as V3Route } from "udonswap-v3-sdk";
+import { Route as V2Route } from "udonswap-v2-sdk";
+import { Route as V3Route } from "udonswap-v3";
 import { ZERO_PERCENT } from "constants/misc";
 import { BigNumber } from "ethers/lib/ethers";
 import { SignatureType } from "state/signatures/types";

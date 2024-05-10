@@ -1,7 +1,7 @@
 import { ApolloError, QueryHookOptions } from "@apollo/client";
 import { BigNumber } from "ethers";
 import { useMemo } from "react";
-import { TradeType } from "udonswap-sdk-core";
+import { TradeType } from "udonswap-core";
 import { ROUTING_API_PATH } from "uniswap/src/data/constants";
 import { useRestQuery } from "uniswap/src/data/rest";
 import { GqlResult } from "uniswap/src/data/types";

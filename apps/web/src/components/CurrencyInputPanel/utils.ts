@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 
 export function formatCurrencySymbol(currency?: Currency): string | undefined {
   return currency && currency.symbol && currency.symbol.length > 20

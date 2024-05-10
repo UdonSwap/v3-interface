@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import {
   FormatterRule,
   StandardCurrency,

@@ -1,9 +1,12 @@
-import { Protocol } from "udonswap-router-sdk";
-import { Currency, CurrencyAmount, TradeType } from "udonswap-sdk-core";
+import { Protocol } from "udonswap-router";
+import { Currency, CurrencyAmount, TradeType } from "udonswap-core";
 // This file is lazy-loaded, so the import of smart-order-router is intentional.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import { routeAmountsToString, SwapRoute } from "udonswap-smart-order-router";
-import { Pool } from "udonswap-v3-sdk";
+import {
+  routeAmountsToString,
+  SwapRoute,
+} from " udonswap-smart-order-router-v3";
+import { Pool } from "udonswap-v3";
 import {
   ClassicQuoteData,
   QuoteResult,

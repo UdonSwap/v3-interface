@@ -1,4 +1,4 @@
-import { ChainId as MockChainId } from "udonswap-sdk-core";
+import { ChainId as MockChainId } from "udonswap-core";
 import {
   DAI as MockDAI,
   USDC_MAINNET as MockUSDC_MAINNET,

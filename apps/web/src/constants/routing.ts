@@ -1,5 +1,5 @@
 // a list of tokens by chain
-import { ChainId, Currency, Token, WETH9 } from "udonswap-sdk-core";
+import { ChainId, Currency, Token, WETH9 } from "udonswap-core";
 
 import {
   ARB,
@@ -74,9 +74,7 @@ export const COMMON_BASES: ChainCurrencyList = {
     WBTC,
     WRAPPED_NATIVE_CURRENCY[ChainId.MAINNET] as Token,
   ],
-  [ChainId.MODE]: [DAI_MODE,
-    WRAPPED_NATIVE_CURRENCY[ChainId.MODE] as Token,
-  ],
+  [ChainId.MODE]: [DAI_MODE, WRAPPED_NATIVE_CURRENCY[ChainId.MODE] as Token],
   [ChainId.GOERLI]: [
     nativeOnChain(ChainId.GOERLI),
     WRAPPED_NATIVE_CURRENCY[ChainId.GOERLI] as Token,

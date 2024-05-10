@@ -1,5 +1,5 @@
-import { ChainId, Token } from "udonswap-sdk-core";
-import { Pool, Position } from "udonswap-v3-sdk";
+import { ChainId, Token } from "udonswap-core";
+import { Pool, Position } from "udonswap-v3";
 import { useAllTokensMultichain } from "hooks/Tokens";
 import { atom, useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";

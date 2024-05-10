@@ -1,5 +1,5 @@
-import { Currency, Token } from "udonswap-sdk-core";
-import { FeeAmount } from "udonswap-v3-sdk";
+import { Currency, Token } from "udonswap-core";
+import { FeeAmount } from "udonswap-v3";
 import useBlockNumber from "lib/hooks/useBlockNumber";
 import ms from "ms";
 import { useMemo } from "react";

@@ -5,7 +5,7 @@ import {
   Price,
   Token,
   TradeType,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import tryParseCurrencyAmount from "lib/utils/tryParseCurrencyAmount";
 import { useMemo, useRef } from "react";
@@ -32,7 +32,7 @@ import {
   USDC_POLYGON_MUMBAI,
   USDC_SEPOLIA,
   USDT_BSC,
-  DAI_MODE
+  DAI_MODE,
 } from "../constants/tokens";
 
 // Stablecoin amounts used when calculating spot price for a given currency.

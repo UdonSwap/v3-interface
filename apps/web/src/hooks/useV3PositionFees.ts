@@ -1,6 +1,6 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
-import { Pool } from "udonswap-v3-sdk";
+import { Currency, CurrencyAmount } from "udonswap-core";
+import { Pool } from "udonswap-v3";
 import { useSingleCallResult } from "lib/hooks/multicall";
 import useBlockNumber from "lib/hooks/useBlockNumber";
 import { useEffect, useState } from "react";

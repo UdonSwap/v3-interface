@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount } from "udonswap-sdk-core";
+import { ChainId, CurrencyAmount } from "udonswap-core";
 import { CyHttpMessages } from "cypress/types/net-stubbing";
 import {
   DAI,

@@ -1,4 +1,4 @@
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import { SerializedToken } from "state/user/types";
 
 export function serializeToken(token: Token): SerializedToken {

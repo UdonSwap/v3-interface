@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import { isWeb } from "ui/src";
 import {
   TokenSelector,

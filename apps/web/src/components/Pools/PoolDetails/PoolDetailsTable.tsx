@@ -1,4 +1,4 @@
-import { Pool } from "udonswap-v3-sdk";
+import { Pool } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import useMultiChainPositions from "components/AccountDrawer/MiniPortfolio/Pools/useMultiChainPositions";
 import Column from "components/Column";

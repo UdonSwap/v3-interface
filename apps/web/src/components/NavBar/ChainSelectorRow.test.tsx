@@ -1,4 +1,4 @@
-import { ChainId, SUPPORTED_CHAINS } from "udonswap-sdk-core";
+import { ChainId, SUPPORTED_CHAINS } from "udonswap-core";
 import { render } from "test-utils/render";
 
 import ChainSelectorRow from "./ChainSelectorRow";

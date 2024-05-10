@@ -1,6 +1,6 @@
-import { Protocol } from "udonswap-router-sdk";
-import { Currency } from "udonswap-sdk-core";
-import { FeeAmount } from "udonswap-v3-sdk";
+import { Protocol } from "udonswap-router";
+import { Currency } from "udonswap-core";
+import { FeeAmount } from "udonswap-v3";
 import Badge from "components/Badge";
 import DoubleCurrencyLogo from "components/DoubleLogo";
 import CurrencyLogo from "components/Logo/CurrencyLogo";

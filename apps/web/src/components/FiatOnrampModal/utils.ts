@@ -1,4 +1,4 @@
-import { ChainId, WETH9 } from "udonswap-sdk-core";
+import { ChainId, WETH9 } from "udonswap-core";
 import {
   MATIC_MAINNET,
   USDC_ARBITRUM,

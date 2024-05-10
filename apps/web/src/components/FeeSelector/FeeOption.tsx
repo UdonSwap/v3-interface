@@ -1,4 +1,4 @@
-import { FeeAmount } from "udonswap-v3-sdk";
+import { FeeAmount } from "udonswap-v3";
 import { ButtonRadioChecked } from "components/Button";
 import { AutoColumn } from "components/Column";
 import { useFeeTierDistribution } from "hooks/useFeeTierDistribution";

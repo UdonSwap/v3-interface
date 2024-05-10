@@ -1,4 +1,4 @@
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import { flattenObjectOfObjects, unnestObject } from "./objects";
 
 const DAI = new Token(

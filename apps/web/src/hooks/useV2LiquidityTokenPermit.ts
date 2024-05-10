@@ -1,4 +1,4 @@
-import { CurrencyAmount, Token } from "udonswap-sdk-core";
+import { CurrencyAmount, Token } from "udonswap-core";
 
 import { PermitInfo, PermitType, useERC20Permit } from "./useERC20Permit";
 import useTransactionDeadline from "./useTransactionDeadline";

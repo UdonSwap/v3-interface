@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import Column from "components/Column";
 import CurrencyLogo from "components/Logo/CurrencyLogo";
 import Row from "components/Row";

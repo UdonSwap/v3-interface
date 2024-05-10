@@ -2,8 +2,8 @@ import {
   FeePoolSelectAction,
   LiquidityEventName,
 } from "@uniswap/analytics-events";
-import { Currency } from "udonswap-sdk-core";
-import { FeeAmount } from "udonswap-v3-sdk";
+import { Currency } from "udonswap-core";
+import { FeeAmount } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import { ButtonGray } from "components/Button";
@@ -97,9 +97,9 @@ export default function FeeSelector({
           [FeeAmount.LOW]: PoolState.NOT_EXISTS,
           [FeeAmount.MEDIUM]: PoolState.NOT_EXISTS,
           [FeeAmount.HIGH]: PoolState.NOT_EXISTS,
-        }
+        },
       ),
-    [pools]
+    [pools],
   );
 
   const [showOptions, setShowOptions] = useState(false);
@@ -117,7 +117,7 @@ export default function FeeSelector({
       });
       handleFeePoolSelect(fee);
     },
-    [handleFeePoolSelect, trace]
+    [handleFeePoolSelect, trace],
   );
 
   useEffect(() => {
@@ -186,7 +186,7 @@ export default function FeeSelector({
                     <Trans>
                       {{
                         fee: formatDelta(
-                          parseFloat(FEE_AMOUNT_DETAIL[feeAmount].label)
+                          parseFloat(FEE_AMOUNT_DETAIL[feeAmount].label),
                         ),
                       }}{" "}
                       fee tier

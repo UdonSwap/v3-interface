@@ -4,8 +4,8 @@ import {
   Price,
   Token,
   V3_CORE_FACTORY_ADDRESSES,
-} from "udonswap-sdk-core";
-import { FeeAmount, Pool, TICK_SPACINGS, tickToPrice } from "udonswap-v3-sdk";
+} from "udonswap-core";
+import { FeeAmount, Pool, TICK_SPACINGS, tickToPrice } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { TickData, Ticks } from "graphql/thegraph/AllV3TicksQuery";
 import { useAllV3TicksQuery } from "graphql/thegraph/__generated__/types-and-hooks";

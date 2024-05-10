@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import {
   Amount,
   Chain,

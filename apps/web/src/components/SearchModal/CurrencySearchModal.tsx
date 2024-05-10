@@ -1,4 +1,4 @@
-import { Currency, Token } from "udonswap-sdk-core";
+import { Currency, Token } from "udonswap-core";
 import TokenSafety from "components/TokenSafety";
 import { memo, useCallback, useEffect, useState } from "react";
 

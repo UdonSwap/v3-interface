@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import { render } from "test-utils/render";
 
 import { ActivitySection } from "./ActivitySection";

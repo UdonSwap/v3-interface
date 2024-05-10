@@ -1,6 +1,6 @@
 import { TransactionReceipt } from "@ethersproject/abstract-provider";
 import { NEVER_RELOAD } from "@uniswap/redux-multicall";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import useCurrentBlockTimestamp from "hooks/useCurrentBlockTimestamp";
 import useBlockNumber, {

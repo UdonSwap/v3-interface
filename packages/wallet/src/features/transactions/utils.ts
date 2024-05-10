@@ -1,6 +1,6 @@
 import { NetInfoState } from "@react-native-community/netinfo";
 import { BigNumber, providers } from "ethers";
-import { CurrencyAmount, NativeCurrency } from "udonswap-sdk-core";
+import { CurrencyAmount, NativeCurrency } from "udonswap-core";
 import { v4 as uuid } from "uuid";
 import { ChainId } from "wallet/src/constants/chains";
 import {

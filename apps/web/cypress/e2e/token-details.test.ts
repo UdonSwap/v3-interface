@@ -1,4 +1,4 @@
-import { ChainId, WETH9 } from "udonswap-sdk-core";
+import { ChainId, WETH9 } from "udonswap-core";
 import { shortenAddress } from "utilities/src/addresses";
 import { ARB, UNI } from "../../src/constants/tokens";
 import { getTestSelector } from "../utils";

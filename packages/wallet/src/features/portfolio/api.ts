@@ -3,7 +3,7 @@ import {
   Currency,
   CurrencyAmount,
   NativeCurrency as NativeCurrencyClass,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import ERC20_ABI from "uniswap/src/abis/erc20.json";
 import { useRestQuery } from "uniswap/src/data/rest";
 import { ChainId } from "wallet/src/constants/chains";

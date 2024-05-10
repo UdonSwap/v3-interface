@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { DEFAULT_TXN_DISMISS_MS } from "constants/misc";
 
 export enum PopupType {

@@ -1,5 +1,5 @@
-import { PERMIT2_ADDRESS } from "udonswap-permit2-sdk";
-import { CurrencyAmount, Token } from "udonswap-sdk-core";
+import { PERMIT2_ADDRESS } from "udonswap-permit2";
+import { CurrencyAmount, Token } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { AVERAGE_L1_BLOCK_TIME } from "constants/chainInfo";
 import {

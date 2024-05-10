@@ -1,10 +1,4 @@
-import {
-  Currency,
-  CurrencyAmount,
-  Percent,
-  Price,
-  Token,
-} from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Percent, Price, Token } from "udonswap-core";
 import { NATIVE_CHAIN_ID } from "constants/tokens";
 import {
   InterfaceTrade,
@@ -140,7 +134,7 @@ export const formatSwapQuoteReceivedEventProperties = (
   swapQuoteLatencyMs: number | undefined,
   outputFeeFiatValue: number | undefined,
 ) => {
-  console.log("Received...............................")
+  console.log("Received...............................");
   return {
     ...formatCommonPropertiesForTrade(
       trade,

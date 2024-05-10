@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import useTokenLogoSource from "hooks/useAssetLogoSource";
 import { useMemo } from "react";
 import { useTheme } from "styled-components";

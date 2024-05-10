@@ -1,5 +1,5 @@
 import JSBI from "jsbi";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import { ChainId } from "wallet/src/constants/chains";
 import {
   ValueType,

@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { Scrim } from "components/AccountDrawer";
 import AnimatedDropdown from "components/AnimatedDropdown";
@@ -51,8 +51,11 @@ const MenuFlyout = styled(AutoColumn)`
   min-width: 20.125rem;
   background-color: rgb(19, 17, 24);
   border: 1px solid ${({ theme }) => theme.surface3};
-  box-shadow: rgba(0, 0, 0, 0.01) 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 4px 8px,
-    rgba(0, 0, 0, 0.04) 0px 16px 24px, rgba(0, 0, 0, 0.01) 0px 24px 32px;
+  box-shadow:
+    rgba(0, 0, 0, 0.01) 0px 0px 1px,
+    rgba(0, 0, 0, 0.04) 0px 4px 8px,
+    rgba(0, 0, 0, 0.04) 0px 16px 24px,
+    rgba(0, 0, 0, 0.01) 0px 24px 32px;
   border-radius: 12px;
   position: absolute;
   top: 100%;
@@ -120,7 +123,7 @@ export default function SettingsTab({
 }) {
   const { chainId: connectedChainId } = useWeb3React();
   const showDeadlineSettings = Boolean(
-    chainId && !L2_CHAIN_IDS.includes(chainId)
+    chainId && !L2_CHAIN_IDS.includes(chainId),
   );
   const node = useRef<HTMLDivElement | null>(null);
   const isOpen = useModalIsOpen(ApplicationModal.SETTINGS);
@@ -128,7 +131,7 @@ export default function SettingsTab({
   const closeModal = useCloseModal();
   const closeMenu = useCallback(
     () => closeModal(ApplicationModal.SETTINGS),
-    [closeModal]
+    [closeModal],
   );
   const toggleMenu = useToggleSettingsMenu();
 
@@ -165,7 +168,7 @@ export default function SettingsTab({
         </AnimatedDropdown>
       </>
     ),
-    [autoSlippage, showDeadlineSettings, showRoutingSettings, trade]
+    [autoSlippage, showDeadlineSettings, showRoutingSettings, trade],
   );
 
   return (

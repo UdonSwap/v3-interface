@@ -5,9 +5,9 @@ import {
   EffectProviders,
   StaticProvider,
 } from "redux-saga-test-plan/providers";
-import { Protocol } from "udonswap-router-sdk";
-import { TradeType } from "udonswap-sdk-core";
-import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-universal-router-sdk";
+import { TradeType } from "udonswap-core";
+import { Protocol } from "udonswap-router";
+import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-sdk-universal-router";
 import { ChainId } from "wallet/src/constants/chains";
 import { DAI } from "wallet/src/constants/tokens";
 import { NativeCurrency } from "wallet/src/features/tokens/NativeCurrency";

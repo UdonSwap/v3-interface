@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { getChainInfo } from "constants/chainInfo";
 import { isSupportedChain, SupportedInterfaceChain } from "constants/chains";
 import { CSSProperties, FunctionComponent } from "react";

@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount, WETH9 } from "udonswap-sdk-core";
+import { ChainId, CurrencyAmount, WETH9 } from "udonswap-core";
 import { DAI, USDC_MAINNET } from "constants/tokens";
 import { SignatureType } from "state/signatures/types";
 import { render, screen } from "test-utils/render";

@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 
 export function normalizePriceImpact(priceImpact: Percent): number {
   return Number(priceImpact.multiply(-1).toFixed(3));

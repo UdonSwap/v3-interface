@@ -3,8 +3,8 @@ import {
   InterfaceElementName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount, Percent } from "udonswap-sdk-core";
-import { Pair } from "udonswap-v2";
+import { Currency, CurrencyAmount, Percent } from "udonswap-core";
+import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import { AutoColumn } from "components/Column";
@@ -276,13 +276,13 @@ const SwapCurrencyInputPanel = forwardRef<
       label,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const [modalOpen, setModalOpen] = useState(false);
     const { account, chainId } = useWeb3React();
     const selectedCurrencyBalance = useCurrencyBalance(
       account ?? undefined,
-      currency ?? undefined
+      currency ?? undefined,
     );
     const theme = useTheme();
     const { formatCurrencyAmount } = useFormatter();
@@ -482,7 +482,7 @@ const SwapCurrencyInputPanel = forwardRef<
         )}
       </InputPanel>
     );
-  }
+  },
 );
 SwapCurrencyInputPanel.displayName = "SwapCurrencyInputPanel";
 

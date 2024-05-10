@@ -1,5 +1,5 @@
-import { Price, WETH9 } from "udonswap-sdk-core";
-import { FeeAmount, Pool } from "udonswap-v3-sdk";
+import { Price, WETH9 } from "udonswap-core";
+import { FeeAmount, Pool } from "udonswap-v3";
 import { PositionInfo } from "components/AccountDrawer/MiniPortfolio/Pools/cache";
 import { USDC_MAINNET } from "constants/tokens";
 import { render, screen } from "test-utils/render";

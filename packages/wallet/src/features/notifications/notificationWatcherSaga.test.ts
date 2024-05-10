@@ -1,5 +1,5 @@
 import { expectSaga } from "redux-saga-test-plan";
-import { TradeType } from "udonswap-sdk-core";
+import { TradeType } from "udonswap-core";
 import { getNativeAddress } from "wallet/src/constants/addresses";
 import { ChainId } from "wallet/src/constants/chains";
 import { AssetType } from "wallet/src/entities/assets";

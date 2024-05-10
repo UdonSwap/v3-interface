@@ -1,6 +1,6 @@
 import { TransactionRequest } from "@ethersproject/abstract-provider";
 import { Web3Provider } from "@ethersproject/providers";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { CosignedV2DutchOrder, DutchOrder } from "udonswapx-sdk";
 import {
   getYear,
@@ -15,7 +15,7 @@ import { Permit2 } from "uniswap/src/abis/types";
 import { TransactionStatus } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
 import { didUserReject } from "utils/swapErrorToUserReadableMessage";
 
-import { PERMIT2_ADDRESS } from "udonswap-permit2-sdk";
+import { PERMIT2_ADDRESS } from "udonswap-permit2";
 import { BigNumber, ContractTransaction } from "ethers/lib/ethers";
 import { useContract } from "hooks/useContract";
 import { useCallback } from "react";

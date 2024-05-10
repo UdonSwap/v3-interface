@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, TradeType } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, TradeType } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { Field } from "components/swap/constants";
 import { useConnectionReady } from "connection/eagerlyConnect";

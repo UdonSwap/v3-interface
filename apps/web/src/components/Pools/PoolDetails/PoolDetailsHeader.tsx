@@ -1,4 +1,4 @@
-import { ChainId, Percent } from "udonswap-sdk-core";
+import { ChainId, Percent } from "udonswap-core";
 import blankTokenUrl from "assets/svg/blank_token.svg";
 import {
   BreadcrumbNavContainer,

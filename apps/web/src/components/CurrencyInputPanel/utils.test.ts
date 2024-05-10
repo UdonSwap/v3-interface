@@ -1,4 +1,4 @@
-import { ChainId, Token } from "udonswap-sdk-core";
+import { ChainId, Token } from "udonswap-core";
 import { DAI } from "constants/tokens";
 
 import { formatCurrencySymbol } from "./utils";

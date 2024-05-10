@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import AddressInputPanel from "components/AddressInputPanel";
 import CurrencyInputPanel from "components/CurrencyInputPanel";
 import { Trans } from "i18n";

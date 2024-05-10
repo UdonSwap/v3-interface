@@ -1,5 +1,5 @@
-import { Token } from "udonswap-sdk-core";
-import { tickToPrice } from "udonswap-v3-sdk";
+import { Token } from "udonswap-core";
+import { tickToPrice } from "udonswap-v3";
 import { TickProcessed } from "hooks/usePoolTickData";
 import JSBI from "jsbi";
 

@@ -1,11 +1,5 @@
 import { formatEther as ethersFormatEther } from "@ethersproject/units";
-import {
-  Currency,
-  CurrencyAmount,
-  Percent,
-  Price,
-  Token,
-} from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Percent, Price, Token } from "udonswap-core";
 import {
   DEFAULT_LOCAL_CURRENCY,
   LOCAL_CURRENCY_SYMBOL_DISPLAY_TYPE,

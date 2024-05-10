@@ -1,13 +1,13 @@
-import { Trade } from "udonswap-router-sdk";
+import { Trade } from "udonswap-router";
 import {
   Currency,
   CurrencyAmount,
   Fraction,
   Percent,
   TradeType,
-} from "udonswap-sdk-core";
-import { Pair } from "udonswap-v2";
-import { FeeAmount } from "udonswap-v3-sdk";
+} from "udonswap-core";
+import { Pair } from "udonswap-v2-sdk";
+import { FeeAmount } from "udonswap-v3";
 import { DefaultTheme } from "styled-components";
 
 import {

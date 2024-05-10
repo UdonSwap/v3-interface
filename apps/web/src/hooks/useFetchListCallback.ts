@@ -1,5 +1,5 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { TokenList } from "@uniswap/token-lists";
 import { RPC_PROVIDERS } from "constants/providers";
 import getTokenList from "lib/hooks/useTokenList/fetchTokenList";

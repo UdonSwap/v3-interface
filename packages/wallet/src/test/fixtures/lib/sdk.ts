@@ -1,4 +1,4 @@
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import { getWrappedNativeAddress } from "wallet/src/constants/addresses";
 import { ChainId } from "wallet/src/constants/chains";
 

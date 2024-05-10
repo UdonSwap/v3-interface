@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { AnyAction } from "redux";
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import { NumberType } from "utilities/src/format/types";
 import { useLocalizationContext } from "wallet/src/features/language/LocalizationContext";
 import {

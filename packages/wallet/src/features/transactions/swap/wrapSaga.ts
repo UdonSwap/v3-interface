@@ -1,6 +1,6 @@
 import { Contract, providers } from "ethers";
 import { call } from "typed-redux-saga";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import { Weth } from "uniswap/src/abis/types";
 import WETH_ABI from "uniswap/src/abis/weth.json";
 import { logger } from "utilities/src/logger/logger";

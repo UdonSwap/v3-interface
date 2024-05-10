@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Price } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Fraction, Price } from "udonswap-core";
 import { parseUnits } from "ethers/lib/utils";
 import JSBI from "jsbi";
 import { useMemo } from "react";

@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { TokenList } from "@uniswap/token-lists";
 import { RecentConnectionMeta } from "connection/types";
 import { SupportedLocale } from "constants/locales";

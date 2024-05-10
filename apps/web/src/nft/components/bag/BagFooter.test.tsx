@@ -1,7 +1,7 @@
 import { BigNumber } from "@ethersproject/bignumber";
 import { parseEther } from "@ethersproject/units";
-import { ChainId, CurrencyAmount, Percent } from "udonswap-sdk-core";
-import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-universal-router-sdk";
+import { ChainId, CurrencyAmount, Percent } from "udonswap-core";
+import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-sdk-universal-router";
 import { useWeb3React } from "@web3-react/core";
 import { nativeOnChain } from "constants/tokens";
 import {

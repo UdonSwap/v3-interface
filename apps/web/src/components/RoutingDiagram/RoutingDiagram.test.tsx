@@ -1,6 +1,6 @@
-import { Protocol } from "udonswap-router-sdk";
-import { Currency, Percent } from "udonswap-sdk-core";
-import { FeeAmount } from "udonswap-v3-sdk";
+import { Protocol } from "udonswap-router";
+import { Currency, Percent } from "udonswap-core";
+import { FeeAmount } from "udonswap-v3";
 import { DAI, USDC_MAINNET, WBTC } from "constants/tokens";
 import { render } from "test-utils/render";
 import { RoutingDiagramEntry } from "utils/getRoutingDiagramEntries";

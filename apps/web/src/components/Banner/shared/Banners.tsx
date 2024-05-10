@@ -1,5 +1,5 @@
 import { InterfacePageName } from "@uniswap/analytics-events";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import {
   OutageBanner,
   getOutageBannerSessionStorageKey,

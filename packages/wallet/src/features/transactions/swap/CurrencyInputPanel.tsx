@@ -14,7 +14,7 @@ import {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import {
   AnimatedFlex,
   Flex,

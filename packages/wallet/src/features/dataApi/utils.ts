@@ -1,6 +1,6 @@
 import { ApolloError } from "@apollo/client";
 import { useRef } from "react";
-import { Token } from "udonswap-sdk-core";
+import { Token } from "udonswap-core";
 import {
   Chain,
   ContractInput,

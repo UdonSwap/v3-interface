@@ -5,7 +5,7 @@ import {
   CurrencyAmount,
   Percent,
   TradeType,
-} from "udonswap-sdk-core";
+} from "udonswap-core";
 import { ZERO_PERCENT } from "constants/misc";
 import useIsWindowVisible from "hooks/useIsWindowVisible";
 import { useMemo } from "react";

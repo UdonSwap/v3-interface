@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import { isSupportedChain, isUniswapXSupportedChain } from "constants/chains";
 import { mocked } from "test-utils/mocked";
 import { fireEvent, render, screen, waitFor } from "test-utils/render";

@@ -1,4 +1,4 @@
-import { PERMIT2_ADDRESS } from "udonswap-permit2-sdk";
+import { PERMIT2_ADDRESS } from "udonswap-permit2";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent } from "analytics";
 import {

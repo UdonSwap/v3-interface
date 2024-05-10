@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { MouseoverTooltip } from "components/Tooltip";
 import { getChainInfo } from "constants/chainInfo";
 import { TokenQueryData } from "graphql/data/Token";

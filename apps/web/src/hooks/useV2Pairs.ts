@@ -1,11 +1,7 @@
 import { Interface } from "@ethersproject/abi";
-import {
-  Currency,
-  CurrencyAmount,
-  V2_FACTORY_ADDRESSES,
-} from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, V2_FACTORY_ADDRESSES } from "udonswap-core";
 import IUniswapV2PairJSON from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { Pair, computePairAddress } from "udonswap-v2";
+import { Pair, computePairAddress } from "udonswap-v2-sdk";
 import { useMultipleContractSingleData } from "lib/hooks/multicall";
 import { useMemo } from "react";
 

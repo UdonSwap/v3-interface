@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { getChainInfoOrDefault, L2ChainInfo } from "constants/chainInfo";
 import { Trans } from "i18n";

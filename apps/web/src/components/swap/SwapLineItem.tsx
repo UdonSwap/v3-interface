@@ -1,9 +1,4 @@
-import {
-  Currency,
-  CurrencyAmount,
-  Percent,
-  TradeType,
-} from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Percent, TradeType } from "udonswap-core";
 import { formatTimestamp } from "components/AccountDrawer/MiniPortfolio/formatTimestamp";
 import { LoadingRow } from "components/Loader/styled";
 import RouterLabel from "components/RouterLabel";

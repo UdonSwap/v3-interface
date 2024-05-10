@@ -3,7 +3,7 @@ import { SwapEventName } from "@uniswap/analytics-events";
 import { BigNumberish, providers } from "ethers";
 import { Statsig } from "statsig-react-native";
 import { call, delay, fork, put, race, select, take } from "typed-redux-saga";
-import { TradeType } from "udonswap-sdk-core";
+import { TradeType } from "udonswap-core";
 import {
   FeatureFlags,
   getFeatureFlagName,

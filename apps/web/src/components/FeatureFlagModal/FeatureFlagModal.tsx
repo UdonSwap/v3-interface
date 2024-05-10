@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { SmallButtonPrimary } from "components/Button";
 import Column from "components/Column";
 import {

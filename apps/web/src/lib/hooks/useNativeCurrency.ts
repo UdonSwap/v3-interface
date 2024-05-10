@@ -1,4 +1,4 @@
-import { ChainId, NativeCurrency, Token } from "udonswap-sdk-core";
+import { ChainId, NativeCurrency, Token } from "udonswap-core";
 import { nativeOnChain } from "constants/tokens";
 import { useMemo } from "react";
 

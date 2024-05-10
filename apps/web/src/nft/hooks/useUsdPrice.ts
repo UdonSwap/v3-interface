@@ -1,5 +1,5 @@
 import { formatEther } from "@ethersproject/units";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { useUSDPrice } from "hooks/useUSDPrice";
 import useNativeCurrency from "lib/hooks/useNativeCurrency";
 import tryParseCurrencyAmount from "lib/utils/tryParseCurrencyAmount";

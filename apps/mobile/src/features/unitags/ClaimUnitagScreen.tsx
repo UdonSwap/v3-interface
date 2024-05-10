@@ -16,7 +16,7 @@ import { SafeKeyboardOnboardingScreen } from "src/features/onboarding/SafeKeyboa
 import { UnitagName } from "src/features/unitags/UnitagName";
 import { OnboardingScreens, Screens, UnitagScreens } from "src/screens/Screens";
 import { useAddBackButton } from "src/utils/useAddBackButton";
-import { ADDRESS_ZERO } from "udonswap-v3-sdk";
+import { ADDRESS_ZERO } from "udonswap-v3";
 import {
   AnimatePresence,
   AnimatedFlex,

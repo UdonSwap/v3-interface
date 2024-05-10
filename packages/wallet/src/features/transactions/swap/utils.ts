@@ -1,12 +1,12 @@
 import { BigNumber } from "ethers";
-import { Protocol } from "udonswap-router-sdk";
-import { Currency, Percent, TradeType } from "udonswap-sdk-core";
+import { Currency, Percent, TradeType } from "udonswap-core";
+import { Protocol } from "udonswap-router";
 import {
   FlatFeeOptions,
   SwapOptions as UniversalRouterSwapOptions,
   SwapRouter as UniversalSwapRouter,
-} from "udonswap-universal-router-sdk";
-import { FeeOptions } from "udonswap-v3-sdk";
+} from "udonswap-sdk-universal-router";
+import { FeeOptions } from "udonswap-v3";
 import { AppTFunction } from "ui/src/i18n/types";
 import { CurrencyId } from "uniswap/src/types/currency";
 import { NumberType } from "utilities/src/format/types";

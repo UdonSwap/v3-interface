@@ -5,7 +5,7 @@ import {
   InterfaceElementName,
   NFTEventName,
 } from "@uniswap/analytics-events";
-import { ChainId, Currency, CurrencyAmount, Token } from "udonswap-sdk-core";
+import { ChainId, Currency, CurrencyAmount, Token } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent, sendAnalyticsEvent } from "analytics";
 import { useToggleAccountDrawer } from "components/AccountDrawer/MiniPortfolio/hooks";

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { TradeType } from "udonswap-sdk-core";
+import { TradeType } from "udonswap-core";
 import { FeatureFlags } from "uniswap/src/features/experiments/flags";
 import { useFeatureFlag } from "uniswap/src/features/experiments/hooks";
 import { ChainId } from "wallet/src/constants/chains";

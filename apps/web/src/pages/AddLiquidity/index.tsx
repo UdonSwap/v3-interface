@@ -12,8 +12,8 @@ import {
   CurrencyAmount,
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
   Percent,
-} from "udonswap-sdk-core";
-import { FeeAmount, NonfungiblePositionManager } from "udonswap-v3-sdk";
+} from "udonswap-core";
+import { FeeAmount, NonfungiblePositionManager } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent, sendAnalyticsEvent, useTrace } from "analytics";
 import { useToggleAccountDrawer } from "components/AccountDrawer/MiniPortfolio/hooks";

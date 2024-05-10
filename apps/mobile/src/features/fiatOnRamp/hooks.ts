@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "src/app/hooks";
 import { Delay } from "src/components/layout/Delayed";
 import { FiatOnRampCurrency } from "src/features/fiatOnRamp/types";
-import { Currency } from "udonswap-sdk-core";
+import { Currency } from "udonswap-core";
 import { ColorTokens, useSporeColors } from "ui/src";
 import { uniswapUrls } from "uniswap/src/constants/urls";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";

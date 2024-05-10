@@ -6,14 +6,15 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
 } from "@apollo/client";
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 
 import store from "../../state/index";
 
 const CHAIN_SUBGRAPH_URL: Record<number, string> = {
   [ChainId.MAINNET]:
     "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3?source=uniswap",
-  [ChainId.MODE]: "https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn",
+  [ChainId.MODE]:
+    "https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn",
   [ChainId.ARBITRUM_ONE]:
     "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-arbitrum-one?source=uniswap",
   [ChainId.OPTIMISM]:

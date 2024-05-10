@@ -1,6 +1,6 @@
-import { Percent, TradeType } from "udonswap-sdk-core";
-import { FlatFeeOptions } from "udonswap-universal-router-sdk";
-import { FeeOptions } from "udonswap-v3-sdk";
+import { Percent, TradeType } from "udonswap-core";
+import { FlatFeeOptions } from "udonswap-sdk-universal-router";
+import { FeeOptions } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import { BigNumber } from "ethers/lib/ethers";
 import { PermitSignature } from "hooks/usePermitAllowance";

@@ -1,4 +1,4 @@
-import { ChainId, Currency, CurrencyAmount, Percent } from "udonswap-sdk-core";
+import { ChainId, Currency, CurrencyAmount, Percent } from "udonswap-core";
 import { Field, SwapTab } from "components/swap/constants";
 import { parsedQueryString } from "hooks/useParsedQueryString";
 import { ParsedQs } from "qs";

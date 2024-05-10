@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { DynamicConfigs } from "uniswap/src/features/experiments/configs";
 import { useDynamicConfig } from "uniswap/src/features/experiments/hooks";
 

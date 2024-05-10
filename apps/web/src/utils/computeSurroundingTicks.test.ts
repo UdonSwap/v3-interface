@@ -1,5 +1,5 @@
-import { Price, Token } from "udonswap-sdk-core";
-import { FeeAmount, TICK_SPACINGS } from "udonswap-v3-sdk";
+import { Price, Token } from "udonswap-core";
+import { FeeAmount, TICK_SPACINGS } from "udonswap-v3";
 import { TickData } from "graphql/thegraph/AllV3TicksQuery";
 import { TickProcessed } from "hooks/usePoolTickData";
 import JSBI from "jsbi";

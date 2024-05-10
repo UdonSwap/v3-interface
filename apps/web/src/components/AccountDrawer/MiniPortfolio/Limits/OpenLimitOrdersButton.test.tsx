@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { useOpenLimitOrders } from "components/AccountDrawer/MiniPortfolio/Activity/hooks";
 import { OpenLimitOrdersButton } from "components/AccountDrawer/MiniPortfolio/Limits/OpenLimitOrdersButton";
 import { mocked } from "test-utils/mocked";

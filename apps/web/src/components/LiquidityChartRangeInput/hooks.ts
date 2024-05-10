@@ -1,5 +1,5 @@
-import { Currency } from "udonswap-sdk-core";
-import { FeeAmount } from "udonswap-v3-sdk";
+import { Currency } from "udonswap-core";
+import { FeeAmount } from "udonswap-v3";
 import { TickProcessed, usePoolActiveLiquidity } from "hooks/usePoolTickData";
 import { useCallback, useMemo } from "react";
 

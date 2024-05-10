@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Fraction, Percent } from "udonswap-core";
 import { Trans } from "i18n";
 import { Text } from "rebass";
 import { ThemedText } from "theme/components";

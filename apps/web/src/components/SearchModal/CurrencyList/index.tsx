@@ -3,7 +3,7 @@ import {
   InterfaceElementName,
   InterfaceEventName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import Loader from "components/Icons/LoadingSpinner";

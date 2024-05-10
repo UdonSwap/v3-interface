@@ -2,13 +2,13 @@ import { MaxUint256 } from "@ethersproject/constants";
 import { SwapEventName } from "@uniswap/analytics-events";
 import { providers } from "ethers";
 import { useCallback, useEffect, useMemo } from "react";
-import { PERMIT2_ADDRESS } from "udonswap-permit2-sdk";
-import { Currency, CurrencyAmount, TradeType } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, TradeType } from "udonswap-core";
+import { PERMIT2_ADDRESS } from "udonswap-permit2";
 import {
   FlatFeeOptions,
   UNIVERSAL_ROUTER_ADDRESS,
-} from "udonswap-universal-router-sdk";
-import { FeeOptions } from "udonswap-v3-sdk";
+} from "udonswap-sdk-universal-router";
+import { FeeOptions } from "udonswap-v3";
 import ERC20_ABI from "uniswap/src/abis/erc20.json";
 import { Erc20 } from "uniswap/src/abis/types";
 import { logger } from "utilities/src/logger/logger";

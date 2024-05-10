@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-sdk-core";
+import { ChainId } from "udonswap-core";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { SearchToken } from "graphql/data/SearchTokens";
 import { TokenQueryData } from "graphql/data/Token";

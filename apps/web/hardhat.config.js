@@ -1,5 +1,5 @@
-import { ChainId } from "udonswap-sdk-core";
-import { UNIVERSAL_ROUTER_CREATION_BLOCK } from "udonswap-universal-router-sdk";
+import { ChainId } from "udonswap-core";
+import { UNIVERSAL_ROUTER_CREATION_BLOCK } from "udonswap-sdk-universal-router";
 
 /* eslint-env node */
 require("dotenv").config();

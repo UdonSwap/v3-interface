@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-sdk-core";
+import { Percent } from "udonswap-core";
 import Expand from "components/Expand";
 import QuestionHelper from "components/QuestionHelper";
 import Row, { RowBetween } from "components/Row";
@@ -68,7 +68,7 @@ export default function MaxSlippageSettings({
   // instead of a placeholder.
   const [slippageInput, setSlippageInput] = useState(defaultSlippageInputValue);
   const [slippageError, setSlippageError] = useState<SlippageError | false>(
-    false
+    false,
   );
 
   // If user has previously entered a custom slippage, we want to show the settings expanded by default.

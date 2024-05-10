@@ -1,5 +1,5 @@
 import { Interface } from "@ethersproject/abi";
-import { Currency, CurrencyAmount, Token } from "udonswap-sdk-core";
+import { Currency, CurrencyAmount, Token } from "udonswap-core";
 import { useWeb3React } from "@web3-react/core";
 import JSBI from "jsbi";
 import {

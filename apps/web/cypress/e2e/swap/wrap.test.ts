@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount, WETH9 } from "udonswap-sdk-core";
+import { ChainId, CurrencyAmount, WETH9 } from "udonswap-core";
 
 import { getBalance, getTestSelector } from "../../utils";
 

@@ -1,15 +1,15 @@
 import dayjs from "dayjs";
 import { BigNumber, TypedDataField, providers } from "ethers";
 import { useCallback } from "react";
+import { Currency, CurrencyAmount } from "udonswap-core";
 import {
   AllowanceProvider,
   AllowanceTransfer,
   MaxUint160,
   PERMIT2_ADDRESS,
   PermitSingle,
-} from "udonswap-permit2-sdk";
-import { Currency, CurrencyAmount } from "udonswap-sdk-core";
-import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-universal-router-sdk";
+} from "udonswap-permit2";
+import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-sdk-universal-router";
 import { logger } from "utilities/src/logger/logger";
 import { useAsyncData } from "utilities/src/react/hooks";
 import { currentTimeInSeconds, inXMinutesUnix } from "utilities/src/time/time";
