@@ -67,7 +67,7 @@
     "udonswap-permit2": "1.0.1",
     "udonswap-router": "1.0.1",
     "udonswap-sdk-universal-router": "1.0.0",
-    "udonswap-v2-sdk": "1.0.2",
+    "udonswap-v2-sdk-sdk": "1.0.2",
     "udonswap-v3": "1.0.2",
     "ui": "workspace:^",
     "uniswap": "workspace:^",

@@ -6,7 +6,7 @@ import {
   Percent,
   TradeType,
 } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk";
+import { Pair } from "udonswap-v2-sdk-sdk";
 import { FeeAmount } from "udonswap-v3";
 import { DefaultTheme } from "styled-components";
 

@@ -6,9 +6,8 @@ import { isAddress } from "utilities/src/addresses";
 import EthereumLogo from "../../assets/images/ethereum-logo.png";
 import AvaxLogo from "../../assets/svg/avax_logo.svg";
 import BnbLogo from "../../assets/svg/bnb-logo.svg";
-import CeloLogo from "../../assets/svg/celo_logo.svg";
 import MaticLogo from "../../assets/svg/matic-token-icon.svg";
-import { NATIVE_CHAIN_ID, isCelo, nativeOnChain } from "../../constants/tokens";
+import { NATIVE_CHAIN_ID, nativeOnChain } from "../../constants/tokens";
 
 type Network =
   | "ethereum"
@@ -17,7 +16,6 @@ type Network =
   | "optimism"
   | "polygon"
   | "smartchain"
-  | "celo"
   | "avalanchec"
   | "base"
   | "blast";
@@ -34,8 +32,6 @@ export function chainIdToNetworkName(networkId: ChainId): Network {
       return "polygon";
     case ChainId.BNB:
       return "smartchain";
-    case ChainId.CELO:
-      return "celo";
     case ChainId.AVALANCHE:
       return "avalanchec";
     case ChainId.BASE:
@@ -57,9 +53,6 @@ export function getNativeLogoURI(chainId: ChainId = ChainId.MAINNET): string {
       return MaticLogo;
     case ChainId.BNB:
       return BnbLogo;
-    case ChainId.CELO:
-    case ChainId.CELO_ALFAJORES:
-      return CeloLogo;
     case ChainId.AVALANCHE:
       return AvaxLogo;
     default:
@@ -81,9 +74,6 @@ function getTokenLogoURI(
     ChainId.BASE,
     ChainId.MODE,
   ];
-  if (isCelo(chainId) && address === nativeOnChain(chainId).wrapped.address) {
-    return CeloLogo;
-  }
 
   if (networksWithUrls.includes(chainId)) {
     return `https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/${networkName}/assets/${address}/logo.png`;

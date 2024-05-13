@@ -5,9 +5,9 @@ import {
   Token,
   TradeType,
 } from "udonswap-core";
-// This file is lazy-loaded, so the import of smart-order-router is intentional.
+// This file is lazy-loaded, so the import of smart-order-router-v3 is intentional.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import { AlphaRouter, AlphaRouterConfig } from "udonswap-smart-order-router";
+import { AlphaRouter, AlphaRouterConfig } from "udonswap-smart-order-router-v3";
 import { asSupportedChain } from "constants/chains";
 import { RPC_PROVIDERS } from "constants/providers";
 import { nativeOnChain } from "constants/tokens";
@@ -31,8 +31,6 @@ const CLIENT_SIDE_ROUTING_ALLOW_LIST = [
   ChainId.POLYGON_MUMBAI,
   ChainId.GOERLI,
   ChainId.SEPOLIA,
-  ChainId.CELO_ALFAJORES,
-  ChainId.CELO,
   ChainId.BNB,
   ChainId.AVALANCHE,
   ChainId.BASE,

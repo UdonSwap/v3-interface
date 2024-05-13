@@ -1,7 +1,7 @@
 import { getCreate2Address } from "@ethersproject/address";
 import { keccak256, pack } from "@ethersproject/solidity";
 import { Token, V2_FACTORY_ADDRESSES } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk";
+import { Pair } from "udonswap-v2-sdk-sdk";
 import { useWeb3React } from "@web3-react/core";
 import MigrateSushiPositionCard from "components/PositionCard/Sushi";
 import MigrateV2PositionCard from "components/PositionCard/V2";

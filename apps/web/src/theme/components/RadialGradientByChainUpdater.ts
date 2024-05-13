@@ -103,18 +103,7 @@ export default function RadialGradientByChainUpdater(): null {
           : polygonLightGradient;
         break;
       }
-      case ChainId.CELO:
-      case ChainId.CELO_ALFAJORES: {
-        setBackground(backgroundResetStyles);
-        const celoLightGradient =
-          "radial-gradient(100% 100% at 50% 0%, rgba(186, 228, 210, 0) 0%, rgba(252, 243, 249, 0) 49.48%, rgba(255, 255, 255, 0) 100%), #FFFFFF";
-        const celoDarkGradient =
-          "radial-gradient(100% 100% at 50% 0%, rgba(20, 49, 37, 0) 0%, rgba(12, 31, 23, 0) 49.48%, rgba(31, 33, 40, 0) 100%, rgba(31, 33, 40, 0) 100%), #0D0E0E";
-        backgroundRadialGradientElement.style.background = darkMode
-          ? celoDarkGradient
-          : celoLightGradient;
-        break;
-      }
+
       case ChainId.BNB: {
         setBackground(backgroundResetStyles);
         const bscLightGradient =

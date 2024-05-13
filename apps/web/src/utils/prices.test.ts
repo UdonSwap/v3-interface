@@ -1,6 +1,6 @@
 import { Trade } from "udonswap-router";
 import { CurrencyAmount, Percent, TradeType } from "udonswap-core";
-import { Pair, Route as V2Route } from "udonswap-v2-sdk";
+import { Pair, Route as V2Route } from "udonswap-v2-sdk-sdk";
 import { Route as V3Route } from "udonswap-v3";
 import JSBI from "jsbi";
 import {

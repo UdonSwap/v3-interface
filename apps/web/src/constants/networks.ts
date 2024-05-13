@@ -100,14 +100,6 @@ export const PUBLIC_RPC_URLS: Record<SupportedInterfaceChain, string[]> = {
     // "Safe" URLs
     "https://goerli.optimism.io",
   ],
-  [ChainId.CELO]: [
-    // "Safe" URLs
-    `https://forno.celo.org`,
-  ],
-  [ChainId.CELO_ALFAJORES]: [
-    // "Safe" URLs
-    `https://alfajores-forno.celo-testnet.org`,
-  ],
   [ChainId.BNB]: [
     // "Safe" URLs
     "https://endpoints.omniatech.io/v1/bsc/mainnet/public",
@@ -171,10 +163,6 @@ export const APP_RPC_URLS: Record<SupportedInterfaceChain, string[]> = {
   [ChainId.POLYGON]: [`https://polygon-mainnet.infura.io/v3/${INFURA_KEY}`],
   [ChainId.POLYGON_MUMBAI]: [
     `https://polygon-mumbai.infura.io/v3/${INFURA_KEY}`,
-  ],
-  [ChainId.CELO]: [`https://celo-mainnet.infura.io/v3/${INFURA_KEY}`],
-  [ChainId.CELO_ALFAJORES]: [
-    `https://celo-alfajores.infura.io/v3/${INFURA_KEY}`,
   ],
   [ChainId.BNB]: [QUICKNODE_BNB_RPC_URL],
   [ChainId.AVALANCHE]: [`https://avalanche-mainnet.infura.io/v3/${INFURA_KEY}`],

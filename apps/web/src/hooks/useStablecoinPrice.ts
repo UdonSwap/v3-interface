@@ -17,8 +17,6 @@ import { useRoutingAPITrade } from "state/routing/useRoutingAPITrade";
 
 import { SupportedInterfaceChain, asSupportedChain } from "constants/chains";
 import {
-  CUSD_CELO,
-  CUSD_CELO_ALFAJORES,
   DAI_OPTIMISM,
   USDB_BLAST,
   USDC_ARBITRUM,
@@ -45,7 +43,6 @@ export const STABLECOIN_AMOUNT_OUT: {
   [ChainId.ARBITRUM_ONE]: CurrencyAmount.fromRawAmount(USDC_ARBITRUM, 10_000e6),
   [ChainId.OPTIMISM]: CurrencyAmount.fromRawAmount(DAI_OPTIMISM, 10_000e18),
   [ChainId.POLYGON]: CurrencyAmount.fromRawAmount(USDC_POLYGON, 10_000e6),
-  [ChainId.CELO]: CurrencyAmount.fromRawAmount(CUSD_CELO, 10_000e18),
   [ChainId.BNB]: CurrencyAmount.fromRawAmount(USDT_BSC, 100e18),
   [ChainId.AVALANCHE]: CurrencyAmount.fromRawAmount(USDC_AVALANCHE, 10_000e6),
   [ChainId.BASE]: CurrencyAmount.fromRawAmount(USDC_BASE, 10_000e6),
@@ -61,10 +58,6 @@ export const STABLECOIN_AMOUNT_OUT: {
   ),
   [ChainId.POLYGON_MUMBAI]: CurrencyAmount.fromRawAmount(
     USDC_POLYGON_MUMBAI,
-    10_000e6,
-  ),
-  [ChainId.CELO_ALFAJORES]: CurrencyAmount.fromRawAmount(
-    CUSD_CELO_ALFAJORES,
     10_000e6,
   ),
   [ChainId.BLAST]: CurrencyAmount.fromRawAmount(USDB_BLAST, 10_000e18),

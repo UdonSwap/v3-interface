@@ -11,8 +11,6 @@ import { ReactComponent as base } from "./ChainSymbols/base.svg";
 import { ReactComponent as mode } from "./ChainSymbols/mode.svg";
 // import { ReactComponent as blastLight } from "./ChainSymbols/blast_light.svg";
 import { ReactComponent as bnb } from "./ChainSymbols/bnb.svg";
-import { ReactComponent as celo } from "./ChainSymbols/celo.svg";
-import { ReactComponent as celoLight } from "./ChainSymbols/celo_light.svg";
 import { ReactComponent as ethereum } from "./ChainSymbols/ethereum.svg";
 import { ReactComponent as optimism } from "./ChainSymbols/optimism.svg";
 import { ReactComponent as polygon } from "./ChainSymbols/polygon.svg";

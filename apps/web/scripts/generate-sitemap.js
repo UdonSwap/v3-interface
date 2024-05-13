@@ -33,7 +33,7 @@ const chains = [
   "POLYGON",
   "BASE",
   "BNB",
-  "CELO",
+ 
 ];
 
 const nftTopCollectionsQuery = `

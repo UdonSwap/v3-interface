@@ -38,10 +38,6 @@ describe("Routing", () => {
       const symbols = COMMON_BASES[ChainId.POLYGON].map((coin) => coin.symbol);
       expect(symbols).toEqual(["MATIC", "WETH", "USDC", "DAI", "USDT", "WBTC"]);
     });
-    it("contains all coins for celo", () => {
-      const symbols = COMMON_BASES[ChainId.CELO].map((coin) => coin.symbol);
-      expect(symbols).toEqual(["CELO", "cEUR", "cUSD", "ETH", "USDC", "WBTC"]);
-    });
     it("contains all coins for bsc", () => {
       const symbols = COMMON_BASES[ChainId.BNB].map((coin) => coin.symbol);
       expect(symbols).toEqual([

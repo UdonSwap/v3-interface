@@ -147,7 +147,6 @@ export enum Chain {
   Base = 'BASE',
   Blast = 'BLAST',
   Bnb = 'BNB',
-  Celo = 'CELO',
   Ethereum = 'ETHEREUM',
   EthereumGoerli = 'ETHEREUM_GOERLI',
   EthereumSepolia = 'ETHEREUM_SEPOLIA',

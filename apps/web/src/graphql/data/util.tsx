@@ -77,7 +77,6 @@ export function isPricePoint(p: PricePoint | undefined): p is PricePoint {
 const GQL_MAINNET_CHAINS = [
   Chain.Ethereum,
   Chain.Polygon,
-  Chain.Celo,
   Chain.Optimism,
   Chain.Arbitrum,
   Chain.Bnb,
@@ -107,8 +106,6 @@ export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: InterfaceGqlChain } = {
   [ChainId.SEPOLIA]: Chain.EthereumSepolia,
   [ChainId.POLYGON]: Chain.Polygon,
   [ChainId.POLYGON_MUMBAI]: Chain.Polygon,
-  [ChainId.CELO]: Chain.Celo,
-  [ChainId.CELO_ALFAJORES]: Chain.Celo,
   [ChainId.ARBITRUM_ONE]: Chain.Arbitrum,
   [ChainId.ARBITRUM_GOERLI]: Chain.Arbitrum,
   [ChainId.OPTIMISM]: Chain.Optimism,
@@ -132,7 +129,6 @@ const GQL_CHAINS = [
   ChainId.OPTIMISM,
   ChainId.POLYGON,
   ChainId.ARBITRUM_ONE,
-  ChainId.CELO,
 ] as const;
 type GqlChainsType = (typeof GQL_CHAINS)[number];
 
@@ -177,7 +173,6 @@ export function gqlToCurrency(
 const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: InterfaceGqlChain } = {
   ethereum: Chain.Ethereum,
   polygon: Chain.Polygon,
-  celo: Chain.Celo,
   arbitrum: Chain.Arbitrum,
   optimism: Chain.Optimism,
   bnb: Chain.Bnb,
@@ -232,7 +227,6 @@ const CHAIN_NAME_TO_CHAIN_ID: { [key in InterfaceGqlChain]: ChainId } = {
   [Chain.EthereumGoerli]: ChainId.GOERLI,
   [Chain.EthereumSepolia]: ChainId.SEPOLIA,
   [Chain.Polygon]: ChainId.POLYGON,
-  [Chain.Celo]: ChainId.CELO,
   [Chain.Optimism]: ChainId.OPTIMISM,
   [Chain.Arbitrum]: ChainId.ARBITRUM_ONE,
   [Chain.Bnb]: ChainId.BNB,
@@ -277,7 +271,6 @@ export const BACKEND_SUPPORTED_CHAINS = [
   Chain.Polygon,
   Chain.Base,
   Chain.Bnb,
-  Chain.Celo,
   Chain.Blast,
   Chain.Mode,
 ] as const;

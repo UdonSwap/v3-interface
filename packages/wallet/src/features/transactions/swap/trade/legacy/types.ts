@@ -119,7 +119,7 @@ export type V2PoolInRoute = {
   amountOut?: string;
 
   // no used in the interface
-  // avoid returning it from the client-side smart-order-router
+  // avoid returning it from the client-side smart-order-router-v3
   address?: string;
 };
 

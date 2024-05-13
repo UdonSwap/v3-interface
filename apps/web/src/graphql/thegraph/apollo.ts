@@ -21,8 +21,6 @@ const CHAIN_SUBGRAPH_URL: Record<number, string> = {
     "https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis?source=uniswap",
   [ChainId.POLYGON]:
     "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon?source=uniswap",
-  [ChainId.CELO]:
-    "https://api.thegraph.com/subgraphs/name/jesse-sawa/uniswap-celo?source=uniswap",
   [ChainId.BNB]:
     "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-bsc?source=uniswap",
   [ChainId.AVALANCHE]:
@@ -79,10 +77,6 @@ export const chainToApolloClient: Record<
   [ChainId.POLYGON]: new ApolloClient({
     cache: new InMemoryCache(),
     uri: CHAIN_SUBGRAPH_URL[ChainId.POLYGON],
-  }),
-  [ChainId.CELO]: new ApolloClient({
-    cache: new InMemoryCache(),
-    uri: CHAIN_SUBGRAPH_URL[ChainId.CELO],
   }),
   [ChainId.BNB]: new ApolloClient({
     cache: new InMemoryCache(),

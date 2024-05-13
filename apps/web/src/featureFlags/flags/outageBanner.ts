@@ -44,8 +44,6 @@ export function useOutageBanners(): Record<ChainId, boolean> {
     [ChainId.ARBITRUM_GOERLI]: false,
     [ChainId.ARBITRUM_SEPOLIA]: false,
     [ChainId.POLYGON_MUMBAI]: false,
-    [ChainId.CELO]: false,
-    [ChainId.CELO_ALFAJORES]: false,
     [ChainId.GNOSIS]: false,
     [ChainId.MOONBEAM]: false,
     [ChainId.BNB]: false,

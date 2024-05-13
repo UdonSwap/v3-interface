@@ -11,8 +11,6 @@ const BLOCK_EXPLORER_PREFIXES: { [chainId: number]: string } = {
   [ChainId.OPTIMISM_GOERLI]: "https://goerli-optimism.etherscan.io",
   [ChainId.POLYGON]: "https://polygonscan.com",
   [ChainId.POLYGON_MUMBAI]: "https://mumbai.polygonscan.com",
-  [ChainId.CELO]: "https://celoscan.io",
-  [ChainId.CELO_ALFAJORES]: "https://alfajores-blockscout.celo-testnet.org",
   [ChainId.BNB]: "https://bscscan.com",
   [ChainId.AVALANCHE]: "https://snowtrace.io",
   [ChainId.BASE]: "https://basescan.org",

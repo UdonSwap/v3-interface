@@ -7,7 +7,6 @@ import {
   ARBITRUM_LIST,
   AVALANCHE_LIST,
   BASE_LIST,
-  CELO_LIST,
   OPTIMISM_LIST,
   MODE_LIST,
   PLASMA_BNB_LIST,
@@ -42,8 +41,6 @@ export function getBlocksPerMainnetEpochForChainId(
       return 4;
     case ChainId.AVALANCHE:
       return 6;
-    case ChainId.CELO:
-      return 2;
     default:
       return 1;
   }
@@ -223,28 +220,6 @@ const CHAIN_INFO: ChainInfoMap = {
       symbol: "mMATIC",
       decimals: 18,
     },
-  },
-  [ChainId.CELO]: {
-    networkType: NetworkType.L1,
-    blockWaitMsBeforeWarning: ms(`10m`),
-    bridge: "https://www.portalbridge.com/#/transfer",
-    docs: "https://docs.celo.org/",
-    explorer: "https://celoscan.io/",
-    infoLink: "https://info.uniswap.org/#/celo/",
-    label: "Celo",
-    nativeCurrency: { name: "Celo", symbol: "CELO", decimals: 18 },
-    defaultListUrl: CELO_LIST,
-  },
-  [ChainId.CELO_ALFAJORES]: {
-    networkType: NetworkType.L1,
-    blockWaitMsBeforeWarning: ms(`10m`),
-    bridge: "https://www.portalbridge.com/#/transfer",
-    docs: "https://docs.celo.org/",
-    explorer: "https://alfajores-blockscout.celo-testnet.org/",
-    infoLink: "https://info.uniswap.org/#/celo/",
-    label: "Celo Alfajores",
-    nativeCurrency: { name: "Celo", symbol: "CELO", decimals: 18 },
-    defaultListUrl: CELO_LIST,
   },
   [ChainId.BNB]: {
     networkType: NetworkType.L1,

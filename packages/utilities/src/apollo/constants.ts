@@ -7,5 +7,4 @@ export const SUBSCRIPTION_CHAINIDS = [
   ChainId.BNB,
   ChainId.OPTIMISM,
   ChainId.POLYGON,
-  ChainId.CELO,
 ];

@@ -72,10 +72,10 @@ export function ChainConnectivityWarning() {
             network connection.
           </Trans>
         )}{" "}
-        {(info as L2ChainInfo).statusPage !== undefined && (
+        {(info as unknown as L2ChainInfo).statusPage !== undefined && (
           <span>
             <Trans>Check network status</Trans>{" "}
-            <Link href={(info as L2ChainInfo).statusPage || ""}>
+            <Link href={(info as unknown as L2ChainInfo).statusPage || ""}>
               <Trans>here.</Trans>
             </Link>
           </span>

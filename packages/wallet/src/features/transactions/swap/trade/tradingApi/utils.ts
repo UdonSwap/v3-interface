@@ -7,7 +7,7 @@ import {
   TradeType,
 } from "udonswap-core";
 import { MixedRouteSDK } from "udonswap-router";
-import { Pair, Route as V2Route } from "udonswap-v2-sdk";
+import { Pair, Route as V2Route } from "udonswap-v2-sdk-sdk";
 import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3";
 import { logger } from "utilities/src/logger/logger";
 import { MAX_AUTO_SLIPPAGE_TOLERANCE } from "wallet/src/constants/transactions";

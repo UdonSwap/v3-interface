@@ -51,10 +51,6 @@ const ETH_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Currency> } = {
     nativeOnChain(ChainId.POLYGON),
     10_000e18,
   ),
-  [ChainId.CELO]: CurrencyAmount.fromRawAmount(
-    nativeOnChain(ChainId.CELO),
-    10e18,
-  ),
 };
 
 function useETHPrice(currency?: Currency): {

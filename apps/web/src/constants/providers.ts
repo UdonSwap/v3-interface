@@ -29,8 +29,6 @@ export const RPC_PROVIDERS = {
   [ChainId.ARBITRUM_GOERLI]: getAppProvider(ChainId.ARBITRUM_GOERLI),
   [ChainId.POLYGON]: getAppProvider(ChainId.POLYGON),
   [ChainId.POLYGON_MUMBAI]: getAppProvider(ChainId.POLYGON_MUMBAI),
-  [ChainId.CELO]: getAppProvider(ChainId.CELO),
-  [ChainId.CELO_ALFAJORES]: getAppProvider(ChainId.CELO_ALFAJORES),
   [ChainId.BNB]: getAppProvider(ChainId.BNB),
   [ChainId.AVALANCHE]: getAppProvider(ChainId.AVALANCHE),
   [ChainId.BASE]: getAppProvider(ChainId.BASE),

@@ -74,13 +74,7 @@ export const USDC_POLYGON_MUMBAI = new Token(
   "USDC",
   "USD Coin",
 );
-export const USDC_CELO = new Token(
-  ChainId.CELO,
-  "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
-  6,
-  "USDC",
-  "USD Coin",
-);
+
 export const USDC_BASE = new Token(
   ChainId.BASE,
   "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
@@ -203,62 +197,62 @@ export const WETH_POLYGON = new Token(
   "WETH",
   "Wrapped Ether",
 );
-const CELO_CELO = new Token(
-  ChainId.CELO,
-  "0x471EcE3750Da237f93B8E339c536989b8978a438",
-  18,
-  "CELO",
-  "Celo",
-);
-export const CUSD_CELO = new Token(
-  ChainId.CELO,
-  "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-  18,
-  "cUSD",
-  "Celo Dollar",
-);
-export const CEUR_CELO = new Token(
-  ChainId.CELO,
-  "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
-  18,
-  "cEUR",
-  "Celo Euro Stablecoin",
-);
-export const PORTAL_ETH_CELO = new Token(
-  ChainId.CELO,
-  "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
-  18,
-  "ETH",
-  "Portal Ether",
-);
-export const WBTC_CELO = new Token(
-  ChainId.CELO,
-  "0xd71Ffd0940c920786eC4DbB5A12306669b5b81EF",
-  18,
-  "WBTC",
-  "Wrapped BTC",
-);
-const CELO_CELO_ALFAJORES = new Token(
-  ChainId.CELO_ALFAJORES,
-  "0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9",
-  18,
-  "CELO",
-  "Celo",
-);
-export const CUSD_CELO_ALFAJORES = new Token(
-  ChainId.CELO_ALFAJORES,
-  "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1",
-  18,
-  "CUSD",
-  "Celo Dollar",
-);
-export const CEUR_CELO_ALFAJORES = new Token(
-  ChainId.CELO_ALFAJORES,
-  "0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F",
-  18,
-  "CEUR",
-  "Celo Euro Stablecoin",
-);
+// const CELO_CELO = new Token(
+//   ChainId.CELO,
+//   "0x471EcE3750Da237f93B8E339c536989b8978a438",
+//   18,
+//   "CELO",
+//   "Celo",
+// );
+// export const CUSD_CELO = new Token(
+//   ChainId.CELO,
+//   "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+//   18,
+//   "cUSD",
+//   "Celo Dollar",
+// );
+// export const CEUR_CELO = new Token(
+//   ChainId.CELO,
+//   "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+//   18,
+//   "cEUR",
+//   "Celo Euro Stablecoin",
+// );
+// export const PORTAL_ETH_CELO = new Token(
+//   ChainId.CELO,
+//   "0x66803FB87aBd4aaC3cbB3fAd7C3aa01f6F3FB207",
+//   18,
+//   "ETH",
+//   "Portal Ether",
+// );
+// export const WBTC_CELO = new Token(
+//   ChainId.CELO,
+//   "0xd71Ffd0940c920786eC4DbB5A12306669b5b81EF",
+//   18,
+//   "WBTC",
+//   "Wrapped BTC",
+// );
+// const CELO_CELO_ALFAJORES = new Token(
+//   ChainId.CELO_ALFAJORES,
+//   "0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9",
+//   18,
+//   "CELO",
+//   "Celo",
+// );
+// export const CUSD_CELO_ALFAJORES = new Token(
+//   ChainId.CELO_ALFAJORES,
+//   "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1",
+//   18,
+//   "CUSD",
+//   "Celo Dollar",
+// );
+// export const CEUR_CELO_ALFAJORES = new Token(
+//   ChainId.CELO_ALFAJORES,
+//   "0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F",
+//   18,
+//   "CEUR",
+//   "Celo Euro Stablecoin",
+// );
 
 export const USDC_BSC = new Token(
   ChainId.BNB,
@@ -476,20 +470,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
       "WMATIC",
       "Wrapped MATIC",
     ),
-    [ChainId.CELO]: new Token(
-      ChainId.CELO,
-      "0x471ece3750da237f93b8e339c536989b8978a438",
-      18,
-      "CELO",
-      "Celo native asset",
-    ),
-    [ChainId.CELO_ALFAJORES]: new Token(
-      ChainId.CELO_ALFAJORES,
-      "0xf194afdf50b03e69bd7d057c1aa9e10c9954e4c9",
-      18,
-      "CELO",
-      "Celo native asset",
-    ),
+
     [ChainId.BNB]: new Token(
       ChainId.BNB,
       "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -513,22 +494,22 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     ),
   };
 
-export function isCelo(
-  chainId: number,
-): chainId is ChainId.CELO | ChainId.CELO_ALFAJORES {
-  return chainId === ChainId.CELO_ALFAJORES || chainId === ChainId.CELO;
-}
+// export function isCelo(
+//   chainId: number,
+// ): chainId is ChainId.CELO | ChainId.CELO_ALFAJORES {
+//   return chainId === ChainId.CELO_ALFAJORES || chainId === ChainId.CELO;
+// }
 
-function getCeloNativeCurrency(chainId: number) {
-  switch (chainId) {
-    case ChainId.CELO_ALFAJORES:
-      return CELO_CELO_ALFAJORES;
-    case ChainId.CELO:
-      return CELO_CELO;
-    default:
-      throw new Error("Not celo");
-  }
-}
+// function getCeloNativeCurrency(chainId: number) {
+//   switch (chainId) {
+//     case ChainId.CELO_ALFAJORES:
+//       return CELO_CELO_ALFAJORES;
+//     case ChainId.CELO:
+//       return CELO_CELO;
+//     default:
+//       throw new Error("Not celo");
+//   }
+// }
 
 export function isPolygon(
   chainId: number,
@@ -630,8 +611,6 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
   let nativeCurrency: NativeCurrency | Token;
   if (isPolygon(chainId)) {
     nativeCurrency = new PolygonNativeCurrency(chainId);
-  } else if (isCelo(chainId)) {
-    nativeCurrency = getCeloNativeCurrency(chainId);
   } else if (isBsc(chainId)) {
     nativeCurrency = new BscNativeCurrency(chainId);
   } else if (isAvalanche(chainId)) {
@@ -655,8 +634,6 @@ export const TOKEN_SHORTHANDS: {
     [ChainId.POLYGON_MUMBAI]: USDC_POLYGON_MUMBAI.address,
     [ChainId.BNB]: USDC_BSC.address,
     [ChainId.BASE]: USDC_BASE.address,
-    [ChainId.CELO]: USDC_CELO.address,
-    [ChainId.CELO_ALFAJORES]: USDC_CELO.address,
     [ChainId.GOERLI]: USDC_GOERLI.address,
     [ChainId.SEPOLIA]: USDC_SEPOLIA.address,
     [ChainId.AVALANCHE]: USDC_AVALANCHE.address,
@@ -674,8 +651,6 @@ const STABLECOINS: { [chainId in ChainId]: Token[] } = {
   [ChainId.POLYGON_MUMBAI]: [USDC_POLYGON_MUMBAI],
   [ChainId.BNB]: [USDC_BSC],
   [ChainId.BASE]: [USDC_BASE],
-  [ChainId.CELO]: [USDC_CELO],
-  [ChainId.CELO_ALFAJORES]: [USDC_CELO],
   [ChainId.GOERLI]: [USDC_GOERLI],
   [ChainId.SEPOLIA]: [USDC_SEPOLIA],
   [ChainId.AVALANCHE]: [USDC_AVALANCHE],

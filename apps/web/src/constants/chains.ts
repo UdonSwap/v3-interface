@@ -12,8 +12,6 @@ export const CHAIN_IDS_TO_NAMES = {
   [ChainId.SEPOLIA]: "sepolia",
   [ChainId.POLYGON]: "polygon",
   [ChainId.POLYGON_MUMBAI]: "polygon_mumbai",
-  [ChainId.CELO]: "celo",
-  [ChainId.CELO_ALFAJORES]: "celo_alfajores",
   [ChainId.ARBITRUM_ONE]: "arbitrum",
   [ChainId.ARBITRUM_GOERLI]: "arbitrum_goerli",
   [ChainId.OPTIMISM]: "optimism",
@@ -74,7 +72,6 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   ChainId.MAINNET,
   ChainId.MODE,
   ChainId.POLYGON,
-  ChainId.CELO,
   ChainId.OPTIMISM,
   ChainId.ARBITRUM_ONE,
   ChainId.BNB,
@@ -101,7 +98,6 @@ export const TESTNET_CHAIN_IDS = [
   ChainId.POLYGON_MUMBAI,
   ChainId.ARBITRUM_GOERLI,
   ChainId.OPTIMISM_GOERLI,
-  ChainId.CELO_ALFAJORES,
 ] as const;
 
 /**
@@ -113,8 +109,6 @@ export const L1_CHAIN_IDS = [
   ChainId.SEPOLIA,
   ChainId.POLYGON,
   ChainId.POLYGON_MUMBAI,
-  ChainId.CELO,
-  ChainId.CELO_ALFAJORES,
   ChainId.BNB,
   ChainId.AVALANCHE,
 ] as const;
@@ -163,9 +157,6 @@ export function getChainPriority(chainId: ChainId): number {
       return 5;
     case ChainId.AVALANCHE:
       return 6;
-    case ChainId.CELO:
-    case ChainId.CELO_ALFAJORES:
-      return 7;
     case ChainId.BLAST:
       return 8;
     default:

@@ -1,7 +1,7 @@
 import { Percent, TradeType } from "udonswap-core";
 // This is allowed in test files.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import { V3Route } from "udonswap-smart-order-router";
+import { V3Route } from "udonswap-smart-order-router-v3";
 import { ClassicTrade, QuoteMethod } from "state/routing/types";
 import {
   TEST_POOL_13,

@@ -15,7 +15,7 @@ import {
   DutchOrderInfoJSON,
   DutchOrderTrade as IDutchOrderTrade,
 } from "udonswapx-sdk";
-import { Route as V2Route } from "udonswap-v2-sdk";
+import { Route as V2Route } from "udonswap-v2-sdk-sdk";
 import { Route as V3Route } from "udonswap-v3";
 import { ZERO_PERCENT } from "constants/misc";
 import { BigNumber } from "ethers/lib/ethers";
@@ -122,7 +122,7 @@ export type V2PoolInRoute = {
   amountOut?: string;
 
   // not used in the interface
-  // avoid returning it from the client-side smart-order-router
+  // avoid returning it from the client-side smart-order-router-v3
   address?: string;
 };
 
