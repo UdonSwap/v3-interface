@@ -58,19 +58,7 @@ export function getChainUI(
         bgColor: "#FF042033",
         textColor: "#FF0420",
       };
-    case ChainId.CELO:
-    case ChainId.CELO_ALFAJORES:
-      return darkMode
-        ? {
-            Symbol: celo,
-            bgColor: "#FCFF5233",
-            textColor: "#FCFF52",
-          }
-        : {
-            Symbol: celoLight,
-            bgColor: "#FCFF5299",
-            textColor: "#655947",
-          };
+
     case ChainId.AVALANCHE:
       return {
         Symbol: avax,

@@ -4279,8 +4279,8 @@ __metadata:
   linkType: hard
 
 "@floating-ui/react@npm:^0.26.6":
-  version: 0.26.13
-  resolution: "@floating-ui/react@npm:0.26.13"
+  version: 0.26.14
+  resolution: "@floating-ui/react@npm:0.26.14"
   dependencies:
     "@floating-ui/react-dom": ^2.0.0
     "@floating-ui/utils": ^0.2.0
@@ -4288,7 +4288,7 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: d058edbbf9f4c440f2248e24145a3d59fec5a4fd88037f1d11ec5ab3562cc07da1a89023fee9c157df6e0dc7f6bd95f25698761bf1c0c8b4d868a201c2844459
+  checksum: 81e9d215d33fdbe243f5ce9ba139e90a131a84a7a1f2d853b5591d31186e0a5542a2ee2eee76a9d24db1487698bf11c84a2767fe28c7186803b9b9c58cd92f97
   languageName: node
   linkType: hard
 
@@ -12836,12 +12836,12 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:>=16.9.0, @types/react@npm:^18.0.15":
-  version: 18.3.1
-  resolution: "@types/react@npm:18.3.1"
+  version: 18.3.2
+  resolution: "@types/react@npm:18.3.2"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: 9224ef319a0c2b7f66e7e7f06012aa5eb638a6c76c9742843eab1a5d243f2bed5ff829ddbb41efd60d33a266420528adfcb84cb93f238b00e905f98c3a355768
+  checksum: d0b8b9d0ede6cd28dbbe34106d914b5e3652d9d7aa9d0f32fe6171506b6fc7c826d9d6571642976a5422bd29c5022fd893a710ed59a1177a0c1df8e02cf17ffe
   languageName: node
   linkType: hard
 
@@ -13757,11 +13757,12 @@ __metadata:
     ts-jest: ^29.1.1
     tsafe: 1.6.4
     typescript: 5.3.3
-    udonswap-core: 1.0.0
-    udonswap-router: 1.0.0
-    udonswap-smart-order-router-v3: 1.0.0
-    udonswap-v2-sdk: 1.0.1
-    udonswap-v3: 1.0.1
+    udonswap-core: 1.0.1
+    udonswap-router: 1.0.1
+    udonswap-smart-order-router: 1.0.7
+    udonswap-v2-sdk: 1.0.2
+    udonswap-v3: 1.0.2
+    udonswapx-sdk: 1.0.0
     uniswap: "workspace:^"
     use-resize-observer: 9.1.0
     utilities: "workspace:^"
@@ -18756,15 +18757,15 @@ __metadata:
   linkType: hard
 
 "cli-table3@npm:^0.6.2, cli-table3@npm:^0.6.3, cli-table3@npm:~0.6.1":
-  version: 0.6.4
-  resolution: "cli-table3@npm:0.6.4"
+  version: 0.6.5
+  resolution: "cli-table3@npm:0.6.5"
   dependencies:
     "@colors/colors": 1.5.0
     string-width: ^4.2.0
   dependenciesMeta:
     "@colors/colors":
       optional: true
-  checksum: 0942d9977c05b31e9c7e0172276246b3ac2124c2929451851c01dbf5fc9b3d40cc4e1c9d468ff26dd3cfd18617963fe227b4cfeeae2881b70f302d69d792b5bb
+  checksum: ab7afbf4f8597f1c631f3ee6bb3481d0bfeac8a3b81cffb5a578f145df5c88003b6cfff46046a7acae86596fdd03db382bfa67f20973b6b57425505abc47e42c
   languageName: node
   linkType: hard
 
@@ -22229,9 +22230,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.762
-  resolution: "electron-to-chromium@npm:1.4.762"
-  checksum: f5bfb8601a98fbf0e26190e786fe004a3c447708967eca1fbbdf2af994729ee1ee087daa6c185ba7f237adf9ff944c867840bf778d22b260a11400a1a2456555
+  version: 1.4.763
+  resolution: "electron-to-chromium@npm:1.4.763"
+  checksum: e32a2ed7e8b305cb01577caf26d9f0f206a476279983b28a577322045786fdec4088c9382a40b357c4590b619877cb49afe985837078642fa96d2bd526c2f84f
   languageName: node
   linkType: hard
 
@@ -25883,8 +25884,8 @@ __metadata:
   linkType: hard
 
 "glob@npm:^10.2.2, glob@npm:^10.3.10":
-  version: 10.3.14
-  resolution: "glob@npm:10.3.14"
+  version: 10.3.15
+  resolution: "glob@npm:10.3.15"
   dependencies:
     foreground-child: ^3.1.0
     jackspeak: ^2.3.6
@@ -25893,7 +25894,7 @@ __metadata:
     path-scurry: ^1.11.0
   bin:
     glob: dist/esm/bin.mjs
-  checksum: 6fb26013e6ee1cc0fe099c746f5870783612082342eeeca80031446ca8839acc13243015056e4f3158d7c4260d32f37ff1c2aad9c273672ed0911c8262316041
+  checksum: c7aeae0b4eea0dfedc6682b71a8ad4d1ea9dfec0f2440571f916e1918c046824c8d441bbe1965c06fede025a0726c6daab5ae8019afe667364f43776eaaf9044
   languageName: node
   linkType: hard
 
@@ -27240,9 +27241,9 @@ __metadata:
   linkType: hard
 
 "immutable@npm:^4.0.0-rc.12":
-  version: 4.3.5
-  resolution: "immutable@npm:4.3.5"
-  checksum: 0e25dd5c314421faede9e1122ab26cdb638cc3edc8678c4a75dee104279b12621a30c80a480fae7f68bc7e81672f1e672e454dc0fdc7e6cf0af10809348387b8
+  version: 4.3.6
+  resolution: "immutable@npm:4.3.6"
+  checksum: 3afd020be988ec9ba42c1e585b88858970beba91332ac04ac11446722c7e5da03d5956f5049806573d29dfee25f69262297cb7f3bd6b16fc83a175a0176c6c2a
   languageName: node
   linkType: hard
 
@@ -34027,9 +34028,9 @@ __metadata:
   linkType: hard
 
 "nwsapi@npm:^2.2.0, nwsapi@npm:^2.2.2":
-  version: 2.2.9
-  resolution: "nwsapi@npm:2.2.9"
-  checksum: 3ab2bc47d5507a76e2fdee5aae7ea2875c6def912d0401126cad3e39825a7decb7a02622810c855a7902bd31e917e606b37882dca12b0ae54b4d3b70275de927
+  version: 2.2.10
+  resolution: "nwsapi@npm:2.2.10"
+  checksum: 5f1d361b38c47ab49727d5ea8bbfeb5867ae6de0e538eec9a8b77c88005ddde36d8b930e0730b50ee5e5dda949112c0f9ffed1bf15e7e1b3cd9cfa319f5a9b6f
   languageName: node
   linkType: hard
 
@@ -35030,12 +35031,12 @@ __metadata:
   linkType: hard
 
 "path-scurry@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "path-scurry@npm:1.11.0"
+  version: 1.11.1
+  resolution: "path-scurry@npm:1.11.1"
   dependencies:
     lru-cache: ^10.2.0
     minipass: ^5.0.0 || ^6.0.2 || ^7.0.0
-  checksum: 79732c6a4d989846632d3ff8a441fabb8ea197ecdc7f328ea0f1694d611ed9bd3f0c940582d91c7dd108a29898866212a359d1a9b92ca69c4dbb16ebeae86b73
+  checksum: 890d5abcd593a7912dcce7cf7c6bf7a0b5648e3dee6caf0712c126ca0a65c7f3d7b9d769072a4d1baf370f61ce493ab5b038d59988688e0c5f3f646ee3c69023
   languageName: node
   linkType: hard
 
@@ -38141,8 +38142,8 @@ __metadata:
   linkType: hard
 
 "react-remove-scroll@npm:^2.3.0":
-  version: 2.5.9
-  resolution: "react-remove-scroll@npm:2.5.9"
+  version: 2.5.10
+  resolution: "react-remove-scroll@npm:2.5.10"
   dependencies:
     react-remove-scroll-bar: ^2.3.6
     react-style-singleton: ^2.2.1
@@ -38155,7 +38156,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: e88cb20fdbed90796a3ed556025ad3f02d9b260c32d5a7a6ab5300100ba30454ad0ae047823252b063bb0d7bf50a885e02ab5e2f70125fa56953f114661f1d6f
+  checksum: 2a926718b93e783732a2b369fec1349beaa187e8110ff6fa41940668a2826e59de1ee617dfc2bb5bbf5ad3a186d06b388baf56f9f0553fcac76cf9cec4b83eb0
   languageName: node
   linkType: hard
 
@@ -43461,9 +43462,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-core@npm:1.0.0, udonswap-core@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "udonswap-core@npm:1.0.0"
+"udonswap-core@npm:1.0.1, udonswap-core@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "udonswap-core@npm:1.0.1"
   dependencies:
     "@ethersproject/address": ^5.0.2
     big.js: ^5.2.2
@@ -43471,7 +43472,7 @@ __metadata:
     jsbi: ^3.1.4
     tiny-invariant: ^1.1.0
     toformat: ^2.0.0
-  checksum: 39aad8ce616440aa224d7a60df8521512a6ad24459f89ae6b690df4ff50272e49fb266dd3c2408a06fe7065611a9caccb7dd8f9b4747a257e045d879884ca3b2
+  checksum: 9cbc1132ab2cf1b8631c67ed087813bebcc8151af02beeebc64bc8f468ffa40acf22a5bd5bd620d21378e15648259d1e8625e2c8ec679a1804a19e90b8b86a72
   languageName: node
   linkType: hard
 
@@ -43485,13 +43486,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-permit2@npm:1.0.0, udonswap-permit2@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "udonswap-permit2@npm:1.0.0"
+"udonswap-permit2@npm:1.0.1":
+  version: 1.0.1
+  resolution: "udonswap-permit2@npm:1.0.1"
   dependencies:
     ethers: ^5.3.1
     tiny-invariant: ^1.3.1
-  checksum: 968df746d5e1ee5e64b463d6033ed5a77137f08854590d5f53ce0b1970d051a7dd6ecc62b0700874341a6807f6b1ab0b844cc0b5735d8aa7a92d10906fd443ef
+  checksum: affdb5c4be88bd5954bdc024cd36e9c21be7abed2aac24613a00b4b9961c5aafef74f9fbc59ab483c8efff325512a7054917f6e2b1ec325a2d13681cb2de7c73
   languageName: node
   linkType: hard
 
@@ -43509,17 +43510,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-router@npm:1.0.0, udonswap-router@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "udonswap-router@npm:1.0.0"
+"udonswap-router@npm:1.0.1":
+  version: 1.0.1
+  resolution: "udonswap-router@npm:1.0.1"
   dependencies:
     "@ethersproject/abi": ^5.5.0
     "@ethersproject/bignumber": ^5.7.0
     "@uniswap/swap-router-contracts": ^1.1.0
-    udonswap-core: ^1.0.0
-    udonswap-v2-sdk: ^1.0.1
-    udonswap-v3: ^1.0.1
-  checksum: 8d1eeaea86a2751362c215bfe449797bdcaced6ff4ca7038baf8e560ef657f6a6eb6b45fed9cd74941507b6e31cf116baded8c2ec8b1694a6c8633bcdbecf4eb
+    udonswap-core: ^1.0.1
+    udonswap-v2-sdk: ^1.0.2
+    udonswap-v3: ^1.0.2
+  checksum: a25ca525666a948db3269447deb1651c104c4abd93ac2b9cf86bd93dffe2b869eca6e00d30a8976ece58e216b464fe715d74d24b5c5e58e43522d537556d298b
   languageName: node
   linkType: hard
 
@@ -43537,7 +43538,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-sdk-universal-router@npm:1.0.0, udonswap-sdk-universal-router@npm:^1.0.0":
+"udonswap-sdk-universal-router@npm:1.0.0":
   version: 1.0.0
   resolution: "udonswap-sdk-universal-router@npm:1.0.0"
   dependencies:
@@ -43554,9 +43555,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-smart-order-router-v3@npm:1.0.0":
-  version: 1.0.0
-  resolution: "udonswap-smart-order-router-v3@npm:1.0.0"
+"udonswap-smart-order-router@npm:1.0.7":
+  version: 1.0.7
+  resolution: "udonswap-smart-order-router@npm:1.0.7"
   dependencies:
     "@eth-optimism/sdk": ^3.2.2
     "@types/brotli": ^1.3.4
@@ -43577,15 +43578,32 @@ __metadata:
     mnemonist: ^0.38.3
     node-cache: ^5.1.2
     stats-lite: ^2.2.0
-    udonswap-core: ^1.0.0
-    udonswap-permit2: ^1.0.0
-    udonswap-router: ^1.0.0
-    udonswap-sdk-universal-router: ^1.0.0
-    udonswap-v2-sdk: ^1.0.1
-    udonswap-v3: ^1.0.1
+    udonswap-permit2-sdk: ^1.0.0
+    udonswap-router-sdk: ^1.0.0
+    udonswap-sdk-core: ^1.0.2
+    udonswap-universal-router-sdk: ^1.0.0
+    udonswap-v2: ^1.0.7
+    udonswap-v3-sdk: ^1.0.1
   peerDependencies:
     jsbi: ^3.2.0
-  checksum: f0ff7c0731e8d2734d3d4967d54f5077b9bd7a8bce1224ad920603790a6e67ddd6093692a32f79d4936b371fc26f25d6e290b1bf92a47a01da21be421a734021
+  checksum: ef0c20649fa682977b6ea46b0e82fb1c2489a567886926e03bd4cbbbc4ae71754614960cab733ff1200010d9a76a1b2c8dffc83f6243ebd32b20c59010660c83
+  languageName: node
+  linkType: hard
+
+"udonswap-universal-router-sdk@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "udonswap-universal-router-sdk@npm:1.0.0"
+  dependencies:
+    "@uniswap/universal-router": ^1.6.0
+    bignumber.js: ^9.0.2
+    ethers: ^5.3.1
+    udonswap-permit2-sdk: ^1.0.0
+    udonswap-router-sdk: ^1.0.0
+    udonswap-sdk-core: ^1.0.2
+    udonswap-universal-router: ^1.6.1
+    udonswap-v2: ^1.0.7
+    udonswap-v3-sdk: ^1.0.1
+  checksum: 5a2f76df1dd01a04ba433a96d2f85b77140373ecd06d3d5d1f3783218a2f9c13abd5b66f04586729acd40d5b7328e788b3ad474ed695eafd6cbc70fb96b08f7c
   languageName: node
   linkType: hard
 
@@ -43600,16 +43618,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-v2-sdk@npm:1.0.1, udonswap-v2-sdk@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "udonswap-v2-sdk@npm:1.0.1"
+"udonswap-v2-sdk@npm:1.0.2, udonswap-v2-sdk@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "udonswap-v2-sdk@npm:1.0.2"
   dependencies:
     "@ethersproject/address": ^5.0.0
     "@ethersproject/solidity": ^5.0.0
     tiny-invariant: ^1.1.0
     tiny-warning: ^1.0.3
-    udonswap-core: ^1.0.0
-  checksum: 83e6b6b4f2d796eb75c8387fd1c2d3400bf475ed9de9c29f92c982b3e94a1ad53383e6bde064d182522444d0274e0342f86e76ec5050cfff3d5244030c863c29
+    udonswap-core: ^1.0.1
+  checksum: b9918de46a8c599536fa70ca61e401b86665782db9f76a7cba32452fd88915e01de579ee5d83245c3d98bfcdffea23f74adc841893a35509947db1f6caf32cf5
   languageName: node
   linkType: hard
 
@@ -43643,9 +43661,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"udonswap-v3@npm:1.0.1, udonswap-v3@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "udonswap-v3@npm:1.0.1"
+"udonswap-v3@npm:1.0.2, udonswap-v3@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "udonswap-v3@npm:1.0.2"
   dependencies:
     "@ethersproject/abi": ^5.0.12
     "@ethersproject/solidity": ^5.0.9
@@ -43654,8 +43672,21 @@ __metadata:
     "@uniswap/v3-staker": 1.0.0
     tiny-invariant: ^1.1.0
     tiny-warning: ^1.0.3
-    udonswap-core: ^1.0.0
-  checksum: f38cad145e984e23d32c310db5f6e3a7edf046f0e938a1088a73bcd0f5164dab9f1619da1e0112cc74f9b68bd0ab73a1534926d9ace49f1e05577741e018e3ce
+    udonswap-core: ^1.0.1
+  checksum: a6123940a36bc1403648cd16ce6649a7eae7394ad46c39f8ca97497022a7a7a75d3dda950bb8b62a80dc4c1aae0733f12f48da582d0de7f65d5a95e2b680d6b9
+  languageName: node
+  linkType: hard
+
+"udonswapx-sdk@npm:1.0.0":
+  version: 1.0.0
+  resolution: "udonswapx-sdk@npm:1.0.0"
+  dependencies:
+    "@ethersproject/bytes": ^5.7.0
+    "@ethersproject/providers": ^5.7.0
+    ethers: ^5.7.0
+    udonswap-permit2-sdk: ^1.0.0
+    udonswap-sdk-core: ^1.0.2
+  checksum: 1e73c170f3844e7844477c97c204f2de99731a4b96411635a924011924eb1bf6812f12810dead6127ea19d7208fba3f02a1538dd1a94555a086a45f2f7b8422c
   languageName: node
   linkType: hard
 
@@ -44066,7 +44097,7 @@ __metadata:
     statsig-react-native: 4.11.0
     typechain: 5.2.0
     typescript: 5.3.3
-    udonswap-core: 1.0.0
+    udonswap-core: 1.0.1
     utilities: "workspace:^"
   languageName: unknown
   linkType: soft
@@ -44580,7 +44611,7 @@ __metadata:
     react-test-renderer: 18.2.0
     subscriptions-transport-ws: 0.11.0
     typescript: 5.3.3
-    udonswap-core: 1.0.0
+    udonswap-core: 1.0.1
     zen-observable-ts: 1.2.5
   languageName: unknown
   linkType: soft
@@ -45119,12 +45150,12 @@ __metadata:
     statsig-react-native: 4.11.0
     typed-redux-saga: 1.5.0
     typescript: 5.3.3
-    udonswap-core: 1.0.0
-    udonswap-permit2: 1.0.0
-    udonswap-router: 1.0.0
+    udonswap-core: 1.0.1
+    udonswap-permit2: 1.0.1
+    udonswap-router: 1.0.1
     udonswap-sdk-universal-router: 1.0.0
-    udonswap-v2-sdk: 1.0.1
-    udonswap-v3: 1.0.1
+    udonswap-v2-sdk: 1.0.2
+    udonswap-v3: 1.0.2
     ui: "workspace:^"
     uniswap: "workspace:^"
     utilities: "workspace:^"

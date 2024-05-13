@@ -27,7 +27,7 @@
     "react-native-device-info": "10.0.2",
     "react-test-renderer": "18.2.0",
     "subscriptions-transport-ws": "0.11.0",
-    "udonswap-core": "1.0.0",
+    "udonswap-core": "1.0.1",
     "zen-observable-ts": "1.2.5"
   },
   "devDependencies": {

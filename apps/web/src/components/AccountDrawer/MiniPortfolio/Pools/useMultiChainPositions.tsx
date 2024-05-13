@@ -70,7 +70,6 @@ const DEFAULT_CHAINS = [
   ChainId.ARBITRUM_ONE,
   ChainId.OPTIMISM,
   ChainId.POLYGON,
-  ChainId.CELO,
   ChainId.BNB,
   ChainId.AVALANCHE,
   ChainId.BLAST,

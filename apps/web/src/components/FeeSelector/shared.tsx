@@ -14,8 +14,6 @@ export const FEE_AMOUNT_DETAIL: Record<
       ChainId.ARBITRUM_ONE,
       ChainId.MODE,
       ChainId.BNB,
-      ChainId.CELO,
-      ChainId.CELO_ALFAJORES,
       ChainId.MAINNET,
       ChainId.OPTIMISM,
       ChainId.POLYGON,

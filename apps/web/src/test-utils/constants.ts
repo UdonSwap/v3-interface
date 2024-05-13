@@ -7,7 +7,7 @@ import {
 } from "udonswap-core";
 // This is a test file, so the import of smart-order-router is allowed.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import { V3Route } from " udonswap-smart-order-router-v3";
+import { V3Route } from "udonswap-smart-order-router";
 import { FeeAmount, Pool } from "udonswap-v3";
 import { DAI, USDC_MAINNET, nativeOnChain } from "constants/tokens";
 import { BigNumber } from "ethers/lib/ethers";
