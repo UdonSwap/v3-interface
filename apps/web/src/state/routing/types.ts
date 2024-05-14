@@ -15,7 +15,7 @@ import {
   DutchOrderInfoJSON,
   DutchOrderTrade as IDutchOrderTrade,
 } from "udonswapx-sdk";
-import { Route as V2Route } from "udonswap-v2-sdk-sdk";
+import { Route as V2Route } from "udonswap-v2-sdk";
 import { Route as V3Route } from "udonswap-v3";
 import { ZERO_PERCENT } from "constants/misc";
 import { BigNumber } from "ethers/lib/ethers";

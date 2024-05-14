@@ -1,7 +1,7 @@
 import { Interface } from "@ethersproject/abi";
 import StakingRewardsJSON from "@uniswap/liquidity-staker/build/StakingRewards.json";
 import { ChainId, CurrencyAmount, Token } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk-sdk";
+import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import useCurrentBlockTimestamp from "hooks/useCurrentBlockTimestamp";
 import JSBI from "jsbi";

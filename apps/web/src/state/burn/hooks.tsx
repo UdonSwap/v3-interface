@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount, Percent, Token } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk-sdk";
+import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import { Trans } from "i18n";
 import JSBI from "jsbi";

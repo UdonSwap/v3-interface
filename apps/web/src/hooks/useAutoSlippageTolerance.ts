@@ -5,7 +5,7 @@ import {
   Trade,
 } from "udonswap-router";
 import { Currency, CurrencyAmount, Percent, TradeType } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk-sdk";
+import { Pair } from "udonswap-v2-sdk";
 import { Pool } from "udonswap-v3";
 import { useWeb3React } from "@web3-react/core";
 import {

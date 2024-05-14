@@ -8,7 +8,7 @@ import {
   TradeType,
 } from "udonswap-core";
 import { DutchOrderInfo, DutchOrderInfoJSON } from "udonswapx-sdk";
-import { Pair, Route as V2Route } from "udonswap-v2-sdk-sdk";
+import { Pair, Route as V2Route } from "udonswap-v2-sdk";
 import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3";
 import { BIPS_BASE } from "constants/misc";
 import { isAvalanche, isBsc, isPolygon, nativeOnChain } from "constants/tokens";

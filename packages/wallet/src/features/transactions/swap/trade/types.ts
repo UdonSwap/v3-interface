@@ -3,7 +3,7 @@ import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 import { providers } from "ethers";
 import { Currency, CurrencyAmount, Percent, TradeType } from "udonswap-core";
 import { MixedRouteSDK, Trade as RouterSDKTrade } from "udonswap-router";
-import { Route as V2RouteSDK } from "udonswap-v2-sdk-sdk";
+import { Route as V2RouteSDK } from "udonswap-v2-sdk";
 import { Route as V3RouteSDK } from "udonswap-v3";
 import { PollingInterval } from "wallet/src/constants/misc";
 import { QuoteResponse } from "wallet/src/data/tradingApi/__generated__/index";

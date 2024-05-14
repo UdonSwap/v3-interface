@@ -1,6 +1,6 @@
 import { IRoute, Protocol } from "udonswap-router";
 import { Currency, CurrencyAmount } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk-sdk";
+import { Pair } from "udonswap-v2-sdk";
 import { Pool } from "udonswap-v3";
 import { ClassicTrade } from "state/routing/types";
 import {
