@@ -120,7 +120,6 @@ const TextButton = styled(ThemedText.DeprecatedMain)`
   color: ${({ theme }) => theme.accent1};
   :hover {
     cursor: pointer;
-    text-decoration: underline;
   }
 `;
 

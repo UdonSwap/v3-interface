@@ -784,9 +784,9 @@ function AddLiquidity() {
               >
                 <MediumOnly>
                   <ButtonText onClick={clearAll}>
-                    <ThemedText.DeprecatedBlue fontSize="12px">
+                    <div style={{color:"#9657EB"}}>
                       <Trans>Clear all</Trans>
-                    </ThemedText.DeprecatedBlue>
+                    </div>
                   </ButtonText>
                 </MediumOnly>
               </Row>

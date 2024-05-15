@@ -19,7 +19,6 @@ const CautionTriangle = styled(AlertTriangle)`
 `;
 const Link = styled(ExternalLink)`
   color: ${({ theme }) => theme.black};
-  text-decoration: underline;
 `;
 const TitleRow = styled.div`
   align-items: center;

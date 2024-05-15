@@ -43,7 +43,7 @@ const FocusedOutlineCard = styled(Card)<{ pulsing: boolean }>`
   animation: ${({ pulsing, theme }) => pulsing && pulse(theme.accent1)} 0.6s
     linear;
   align-self: center;
-  background: rgb(19, 17, 24) !important;
+  background:Transparent;
 `;
 
 const Select = styled.div`

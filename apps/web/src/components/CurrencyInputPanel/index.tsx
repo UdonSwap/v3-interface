@@ -70,7 +70,7 @@ const CurrencySelect = styled(ButtonGray)<{
 }>`
   align-items: center;
   background-color: ${({ selected, theme }) =>
-    selected ? "transparent" : "#ffffff"};
+    selected ? "#000000" : "#ffffff"};
   opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
   color: ${({ selected, theme }) => (selected ? "#000000" : "#9657EB")};
   box-shadow: ${({ selected }) =>

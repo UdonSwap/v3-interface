@@ -14,7 +14,7 @@ import {
 } from "theme/components";
 import { shortenAddress } from "utilities/src/addresses";
 
-import Circle from "../../assets/images/blue-loader.svg";
+import Circle from "../../assets/images/circle.gif";
 import tokenLogo from "../../assets/images/token-logo.png";
 import useENS from "../../hooks/useENS";
 import {
