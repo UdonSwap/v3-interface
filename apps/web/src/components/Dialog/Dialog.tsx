@@ -150,7 +150,7 @@ export function Dialog(props: DialogProps) {
     <Modal $scrollOverlay isOpen={props.isVisible} onDismiss={props.onCancel}>
       <Container gap="lg">
         <Row gap="10px" width="100%" padding="4px 0px" justify="end" align="center">
-          <GetHelp />
+          {/* <GetHelp /> */}
           <CloseIcon data-testid="Dialog-closeButton" onClick={props.onCancel} />
         </Row>
         <DialogContent {...props} />

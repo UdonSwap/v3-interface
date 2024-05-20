@@ -133,7 +133,7 @@ export function SendReviewModal({
             </ThemedText.SubHeader>
           </Row>
           <Row justify="right" gap="10px">
-            <GetHelp />
+            {/* <GetHelp /> */}
             <StyledReviewCloseIcon onClick={onDismiss} />
           </Row>
         </Row>

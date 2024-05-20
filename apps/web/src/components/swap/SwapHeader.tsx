@@ -106,7 +106,7 @@ export default function SwapHeader({
             <Trans>Limit</Trans>
           </SwapHeaderTabButton>
         )}
-        {sendEnabled && (
+        
           <SwapHeaderTabButton
             as={pathname === "/send" ? "h1" : "button"}
             role="button"
@@ -117,7 +117,7 @@ export default function SwapHeader({
           >
             <Trans>Send</Trans>
           </SwapHeaderTabButton>
-        )}
+        
       </HeaderButtonContainer>
       {currentTab === SwapTab.Swap && (
         <RowFixed>

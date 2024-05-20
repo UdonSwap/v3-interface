@@ -159,7 +159,7 @@ function VolumeChartSection({ chainId }: { chainId: number }) {
     <SectionContainer>
       <RowBetween>
         <SectionTitle>
-          <Trans>Uniswap volume</Trans>
+          <Trans>Udonswap volume</Trans>
         </SectionTitle>
         <div style={{ position: "absolute", right: 0 }}>
           <StyledTimePeriodSelector
@@ -236,7 +236,7 @@ function TVLChartSection({ chainId }: { chainId: number }) {
     const currentTVL = lastEntry?.values.reduce((acc, curr) => acc + curr, 0);
     return (
       <MinimalStatDisplay
-        title={<Trans>Uniswap TVL</Trans>}
+        title={<Trans>Udonswap TVL</Trans>}
         value={currentTVL}
       />
     );
@@ -245,7 +245,7 @@ function TVLChartSection({ chainId }: { chainId: number }) {
   return (
     <SectionContainer>
       <SectionTitle>
-        <Trans>Uniswap TVL</Trans>
+        <Trans>Udonswap TVL</Trans>
       </SectionTitle>
       {(() => {
         if (dataQuality === DataQuality.INVALID) {

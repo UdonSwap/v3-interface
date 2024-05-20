@@ -103,7 +103,7 @@ describe("UniswapX Orders", () => {
     );
   });
 
-  it("can swap exact-in trades using uniswapX", () => {
+  it("can swap exact-in trades using UdonswapX", () => {
     // Setup a swap
     cy.get("#swap-currency-input .token-amount-input").type("300");
     cy.wait("@quote");
@@ -113,7 +113,7 @@ describe("UniswapX Orders", () => {
     cy.contains("Confirm swap").click();
     cy.wait("@eth_signTypedData_v4");
     cy.contains("Swap submitted");
-    cy.contains("Learn more about swapping with UniswapX");
+    cy.contains("Learn more about swapping with UdonswapX");
 
     // Return filled order status from uniswapx api
     cy.intercept(OrderStatusEndpoint, {
@@ -124,7 +124,7 @@ describe("UniswapX Orders", () => {
     cy.contains("Swap success!");
   });
 
-  it("can swap exact-out trades using uniswapX", () => {
+  it("can swap exact-out trades using UdonswapX", () => {
     // Setup a swap
     cy.get("#swap-currency-output .token-amount-input").type("300");
     cy.wait("@quote");
@@ -134,7 +134,7 @@ describe("UniswapX Orders", () => {
     cy.contains("Confirm swap").click();
     cy.wait("@eth_signTypedData_v4");
     cy.contains("Swap submitted");
-    cy.contains("Learn more about swapping with UniswapX");
+    cy.contains("Learn more about swapping with UdonswapX");
 
     // Return filled order status from uniswapx api
     cy.intercept(OrderStatusEndpoint, {
@@ -145,7 +145,7 @@ describe("UniswapX Orders", () => {
     cy.contains("Swap success!");
   });
 
-  it("renders proper view if uniswapx order expires", () => {
+  it("renders proper view if UdonswapX order expires", () => {
     // Setup a swap
     cy.get("#swap-currency-input .token-amount-input").type("300");
     cy.wait("@quote");
@@ -163,7 +163,7 @@ describe("UniswapX Orders", () => {
     cy.contains("Order expired");
   });
 
-  it("renders proper view if uniswapx order has insufficient funds", () => {
+  it("renders proper view if UdonswapX order has insufficient funds", () => {
     // Setup a swap
     cy.get("#swap-currency-input .token-amount-input").type("300");
     cy.wait("@quote");
@@ -181,7 +181,7 @@ describe("UniswapX Orders", () => {
     cy.contains("Insufficient balance");
   });
 
-  it("cancels a pending uniswapx order", () => {
+  it("cancels a pending UdonswapX order", () => {
     // Setup a swap
     cy.get("#swap-currency-input .token-amount-input").type("300");
     cy.wait("@quote");

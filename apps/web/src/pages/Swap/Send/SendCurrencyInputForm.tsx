@@ -103,12 +103,11 @@ const NumericalInputMimic = styled.span`
 
 const NumericalInputSymbolContainer = styled.span<{ showPlaceholder: boolean }>`
   user-select: none;
-  color: #a6a0bb;
   ${NumericalInputFontStyle}
   ${({ showPlaceholder }) =>
     showPlaceholder &&
     css`
-      color: ${({ theme }) => theme.neutral3};
+      color:#ffffffbd;
     `}
 `;
 
@@ -127,6 +126,22 @@ const MaxButton = styled(ButtonLight)`
   padding: 2px 8px;
   font-size: 14px;
   line-height: 20px;
+  background-color: rgb(56, 37, 83);
+  border: none;
+  color: ${({ theme }) => theme.accent1};
+  cursor: pointer;
+  font-size: 14px;
+  border-radius:0.4rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
+  margin:10px;
+  :hover {
+    opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
+    background-color: rgb(56, 37, 83);
+    color: ${({ theme }) => theme.accent1};
+    box-shadow:none;
+  }
 `;
 const StyledDropDown = styled(DropDown)`
   ${ClickableStyle}

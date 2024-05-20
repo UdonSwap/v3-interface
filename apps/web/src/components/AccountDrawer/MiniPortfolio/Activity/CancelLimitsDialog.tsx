@@ -121,7 +121,7 @@ export function CancelLimitsDialog(
             justify="end"
             align="center"
           >
-            <GetHelp />
+            {/* <GetHelp /> */}
             <CloseIcon onClick={onCancel} />
           </Row>
           <LogoContainer>{icon}</LogoContainer>
