@@ -8,6 +8,7 @@
     "@ethersproject/keccak256": "5.7.0",
     "@manypkg/cli": "^0.19.2",
     "assert": "2.1.0",
+    "axios": "1.7.2",
     "danger": "11.2.6",
     "depcheck": "1.4.7",
     "dotenv-cli": "^7.0.0",
