@@ -148,7 +148,7 @@ function VolumeChartSection({ chainId }: { chainId: number }) {
   if (isSmallScreen) {
     return (
       <MinimalStatDisplay
-        title={<Trans>Uniswap volume</Trans>}
+        title={<Trans>Udonswap volume</Trans>}
         value={cumulativeVolume}
         time={<Trans>Past month</Trans>}
       />
