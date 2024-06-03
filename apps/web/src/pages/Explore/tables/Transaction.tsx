@@ -115,10 +115,15 @@ export function Transaction() {
           </table>
         </div>
         <div className={allpool.content}>
-          <table className={allpool.table}>
-            <tbody>
-              {!loading &&
-                transactions.map((transaction, index) => (
+          {loading && (
+            <div style={{ textAlign: "center" }}>
+              <span className={allpool.loader}></span>
+            </div>
+          )}
+          {!loading && (
+            <table className={allpool.table}>
+              <tbody>
+                {transactions.map((transaction, index) => (
                   <React.Fragment key={index}>
                     {transaction.burns.map((burn, index) => (
                       <tr className={allpool.row} key={index}>
@@ -182,8 +187,9 @@ export function Transaction() {
                     ))}
                   </React.Fragment>
                 ))}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </div>

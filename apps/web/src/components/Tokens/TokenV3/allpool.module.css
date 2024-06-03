@@ -113,7 +113,7 @@
   position: sticky;
 }
 .content {
-  height: 400px;
+  height: 420px;
   overflow-y: scroll;
   width: 100%;
   position: relative;
@@ -361,7 +361,7 @@
 .content .row {
   width: 100%;
   display: flex;
-  min-height: 50px;
+  min-height: 55px;
   position: relative;
   background-color: #18151f;
   margin-bottom: 5px;

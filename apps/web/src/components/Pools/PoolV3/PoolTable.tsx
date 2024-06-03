@@ -107,7 +107,11 @@ export function PoolTable() {
           </table>
         </div>
         <div className={allpool.content}>
-          {loading && <div className={allpool.loader}>Loading...</div>}
+          {loading && (
+            <div style={{ textAlign: "center" }}>
+              <span className={allpool.loader}></span>
+            </div>
+          )}
           {!loading && (
             <table className={allpool.table}>
               <tbody>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import allpool from "./allpool.module.css";
 import axios from "axios";
 import { GRAPH_ENDPOINT } from "constants/lists";
+import { Tooltip, Button } from "@nextui-org/react";
 
 // Define the types for the data
 interface TokenDayData {
@@ -86,19 +87,25 @@ export function TokenTable() {
             <thead>
               <tr className={allpool.row}>
                 <th className={allpool.column1}>#</th>
+
                 <th className={allpool.column2}>Token name</th>
                 <th className={allpool.column3}>Price (USD)</th>
                 <th className={allpool.column4}>1 day</th>
                 <th className={allpool.column5}>7 days</th>
-                <th className={allpool.column6}>FDV (USD)</th>
+
+                <th className={allpool.column6}>FDV (USD) </th>
+
                 <th className={allpool.column7}>1d Volume (USD)</th>
               </tr>
             </thead>
           </table>
         </div>
         <div className={allpool.content}>
-          {loading && <div className={allpool.loader}>Loading...</div>}
-          {!loading && (
+          {loading ? (
+            <div style={{ textAlign: "center" }}>
+              <span className={allpool.loader}></span>
+            </div>
+          ) : (
             <table className={allpool.table}>
               <tbody>
                 {tokens.map((token, index) => {

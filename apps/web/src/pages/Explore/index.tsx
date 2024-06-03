@@ -139,7 +139,14 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
     // scroll to tab navbar on initial page mount only
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const scrollToNavWrapper = () => {
+    if (tabNavRef.current) {
+      const offsetTop =
+        tabNavRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: offsetTop - 90, behavior: "smooth" });
+    }
+    setCurrentTab(Pages.findIndex((page) => page.key === ExploreTab.Pools));
+  };
   const [currentTab, setCurrentTab] = useState(initialKey);
 
   // to allow backward navigation between tabs
@@ -196,10 +203,12 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
 
               <div className="flexbtn">
                 <a>
-                  <button>View Existing Pools ↓</button>
+                  <button onClick={scrollToNavWrapper}>
+                    View Existing Pools ↓
+                  </button>
                 </a>
                 <span>or</span>
-                <a>
+                <a href="/add/ETH">
                   <button>Create Your Position Now! →</button>
                 </a>
               </div>
@@ -238,7 +247,7 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
           </TabBar>
           <FiltersContainer>
             <NetworkFilter />
-            <TimeSelector />
+            {/* <TimeSelector /> */}
             <SearchBar />
           </FiltersContainer>
         </NavWrapper>
