@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import allpool from "components/Tokens/TokenV3/allpool.module.css";
 import axios from "axios";
+import { GRAPH_ENDPOINT } from "../../../constants/lists";
 
 // Define the types for the data
 interface Token {
@@ -43,12 +44,11 @@ export function PoolTable() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(GRAPH_ENDPOINT);
     const fetchData = async () => {
       try {
-        const response = await axios.post(
-          "https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis?source=uniswap",
-          {
-            query: `
+        const response = await axios.post(GRAPH_ENDPOINT, {
+          query: `
             {
                 pools(first: 100, orderBy: txCount, orderDirection: desc) {
                   id
@@ -76,8 +76,7 @@ export function PoolTable() {
                 }
               }
           `,
-          },
-        );
+        });
         setPools(response.data.data.pools);
         setLoading(false);
       } catch (error) {

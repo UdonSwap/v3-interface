@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import allpool from "./allpool.module.css";
 import axios from "axios";
+import { GRAPH_ENDPOINT } from "constants/lists";
 
 // Define the types for the data
 interface TokenDayData {
@@ -37,10 +38,8 @@ export function TokenTable() {
   useEffect(() => {
     const fetchTokens = async () => {
       try {
-        const response = await axios.post(
-          "https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis?source=uniswap",
-          {
-            query: `
+        const response = await axios.post(GRAPH_ENDPOINT, {
+          query: `
               {
                 tokens(first: 25, orderDirection: desc, orderBy: volumeUSD) {
                   id
@@ -56,8 +55,7 @@ export function TokenTable() {
                 }
               }
             `,
-          },
-        );
+        });
         setTokens(response.data.data.tokens);
         setLoading(false);
       } catch (error) {
