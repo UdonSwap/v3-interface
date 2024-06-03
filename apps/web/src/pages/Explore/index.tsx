@@ -184,12 +184,12 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
                 <h1 style={{ margin: "0" }}>EARN WITH YOUR LIQUIDITY</h1>
                 <div className="flexDiv">
                   <div className="flexDiv1">
-                    <div style={{ fontSize: "18px" }}>Udonswap volume</div>
-                    <div style={{ fontSize: "32px" }}>$103.69m</div>
+                    <div className="volume">Udonswap volume</div>
+                    <div className="volume">$103.69m</div>
                   </div>
                   <div className="flexDiv1">
-                    <div style={{ fontSize: "18px" }}>Udonswap TVL</div>
-                    <div style={{ fontSize: "32px" }}>$539.72m</div>
+                    <div className="volume">Udonswap TVL</div>
+                    <div className="volume">$539.72m</div>
                   </div>
                 </div>
               </div>
