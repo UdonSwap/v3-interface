@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import allpool from "components/Tokens/TokenV3/allpool.module.css";
 import axios from "axios";
+import { GRAPH_ENDPOINT } from "constants/lists";
 
 interface Transaction {
   burns: {
@@ -33,10 +34,8 @@ export function Transaction() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(
-          "https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis?source=uniswap",
-          {
-            query: `
+        const response = await axios.post(GRAPH_ENDPOINT, {
+          query: `
               query MyQuery {
                 transactions(first: 100, orderBy: timestamp, orderDirection: desc) {
                   burns {
@@ -63,8 +62,7 @@ export function Transaction() {
                 }
               }
             `,
-          },
-        );
+        });
         setTransactions(response.data.data.transactions);
         setLoading(false);
       } catch (error) {
