@@ -94,9 +94,9 @@
   justify-content: flex-end;
 }
 .content .table {
-  /* overflow-x: auto; */
+  overflow-x: auto;
   overscroll-behavior-x: none;
-  background-color: #18151f;
+
   width: fit-content;
   /* display: flex; */
   min-width: 100%;
@@ -105,7 +105,7 @@
   margin-bottom: 2px;
   scrollbar-width: none;
 }
-.content .table:hover {
+.content .row:hover {
   background: #ffffff12;
 }
 .head {
@@ -113,8 +113,8 @@
   position: sticky;
 }
 .content {
-  height: 275px;
-  /* overflow-y: scroll; */
+  height: 400px;
+  overflow-y: scroll;
   width: 100%;
   position: relative;
   /* overflow-x: auto; */
@@ -363,6 +363,8 @@
   display: flex;
   min-height: 50px;
   position: relative;
+  background-color: #18151f;
+  margin-bottom: 5px;
   padding: 0px 12px;
   scrollbar-width: none;
 }
