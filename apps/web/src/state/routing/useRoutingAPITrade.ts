@@ -108,6 +108,7 @@ export function useRoutingAPITrade<TTradeType extends TradeType>(
     error,
     currentData,
   } = useGetQuoteQueryState(queryArgs);
+
   useGetQuoteQuery(skipFetch || !isWindowVisible ? skipToken : queryArgs, {
     // Price-fetching is informational and costly, so it's done less frequently.
     pollingInterval:
@@ -117,6 +118,7 @@ export function useRoutingAPITrade<TTradeType extends TradeType>(
     // If latest quote from cache was fetched > 2m ago, instantly repoll for another instead of waiting for next poll period
     refetchOnMountOrArgChange: 2 * 60,
   });
+
 
   const isFetching = currentData !== tradeResult || !currentData;
 
