@@ -5,6 +5,7 @@ import { isUniswapXSupportedChain } from "constants/chains";
 import ms from "ms";
 import { logSwapQuoteRequest } from "tracing/swapFlowLoggers";
 import { trace } from "tracing/trace";
+// import axios from 'axios';
 
 import {
   GetQuoteArgs,
@@ -20,7 +21,7 @@ import {
 } from "./types";
 import { isExactInput, transformQuoteToTrade } from "./utils";
 
-const UNISWAP_GATEWAY_DNS_URL = process.env.REACT_APP_UNISWAP_GATEWAY_DNS;
+const UNISWAP_GATEWAY_DNS_URL = process.env.REACT_APP_UNISWAP_BASE_API_URL;
 if (UNISWAP_GATEWAY_DNS_URL === undefined) {
   throw new Error(
     `UNISWAP_GATEWAY_DNS_URL must be defined environment variables`,
@@ -28,10 +29,10 @@ if (UNISWAP_GATEWAY_DNS_URL === undefined) {
 }
 
 const CLIENT_PARAMS = {
-  protocols: [Protocol.V2, Protocol.V3, Protocol.MIXED],
+  protocols: [Protocol.V3],
 };
 
-const protocols: Protocol[] = [Protocol.V2, Protocol.V3, Protocol.MIXED];
+const protocols: Protocol[] = [Protocol.V3];
 
 // routing API quote query params: https://github.com/Uniswap/routing-api/blob/main/lib/handlers/quote/schema/quote-schema.ts
 const DEFAULT_QUERY_PARAMS = {
@@ -101,33 +102,52 @@ export const routingApi = createApi({
             } = args;
 
             const requestBody = {
+              tokenInAddress: tokenIn,
               tokenInChainId,
-              tokenIn,
+              tokenOutAddress: tokenOut,
               tokenOutChainId,
-              tokenOut,
               amount,
               sendPortionEnabled,
-              type: isExactInput(tradeType) ? "EXACT_INPUT" : "EXACT_OUTPUT",
+              type: isExactInput(tradeType) ? "exactIn" : "exactOut",
               intent:
                 args.routerPreference === INTERNAL_ROUTER_PREFERENCE_PRICE
                   ? QuoteIntent.Pricing
                   : QuoteIntent.Quote,
-              configs: getRoutingAPIConfig(args),
+              configs: JSON.stringify(getRoutingAPIConfig(args)), // Ensure configs are converted to a string
             };
 
             try {
               return trace.child(
                 { name: "Quote on server", op: "quote.server" },
                 async () => {
+                  // Function to convert object to query string
+                  function toQueryString(params: any) {
+                    return Object.keys(params)
+                      .map(
+                        (key) =>
+                          encodeURIComponent(key) +
+                          "=" +
+                          encodeURIComponent(params[key]),
+                      )
+                      .join("&");
+                  }
+
+                  // Convert requestBody to query string
+                  const queryString = toQueryString(requestBody);
+
+                  // Append query string to URL
+                  const url = `https://0p1ecyveab.execute-api.us-east-1.amazonaws.com/prod/quote?${queryString}`;
+                  console.log("url...", url);
                   const response = await fetch({
-                    method: "POST",
-                    url: `${UNISWAP_GATEWAY_DNS_URL}/quote`,
-                    body: JSON.stringify(requestBody),
+                    url: url,
+                    method: "GET",
                     headers: {
-                      "x-request-source": "uniswap-web",
+                      // "x-request-source": "uniswap-web",
+                      "Content-Type": "application/json",
                     },
                   });
 
+                  console.log("response.................", response);
                   if (response.error) {
                     try {
                       // cast as any here because we do a runtime check on it being an object before indexing into .errorCode
