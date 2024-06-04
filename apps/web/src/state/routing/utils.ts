@@ -88,10 +88,10 @@ export function computeRoutes(
         mixedRoute:
           !isOnlyV3 && !isOnlyV2
             ? new MixedRouteSDK(
-                route.map(parsePoolOrPair),
-                currencyIn,
-                currencyOut,
-              )
+              route.map(parsePoolOrPair),
+              currencyIn,
+              currencyOut,
+            )
             : null,
         inputAmount: CurrencyAmount.fromRawAmount(currencyIn, rawAmountIn),
         outputAmount: CurrencyAmount.fromRawAmount(currencyOut, rawAmountOut),
@@ -165,23 +165,23 @@ function getTradeCurrencies(
   const currencyIn = tokenInIsNative
     ? nativeOnChain(tokenInChainId)
     : parseToken({
-        address: tokenInAddress,
-        chainId: tokenInChainId,
-        decimals: tokenInDecimals,
-        symbol: tokenInSymbol,
-        buyFeeBps: serializedTokenIn?.buyFeeBps,
-        sellFeeBps: serializedTokenIn?.sellFeeBps,
-      });
+      address: tokenInAddress,
+      chainId: tokenInChainId,
+      decimals: tokenInDecimals,
+      symbol: tokenInSymbol,
+      buyFeeBps: serializedTokenIn?.buyFeeBps,
+      sellFeeBps: serializedTokenIn?.sellFeeBps,
+    });
   const currencyOut = tokenOutIsNative
     ? nativeOnChain(tokenOutChainId)
     : parseToken({
-        address: tokenOutAddress,
-        chainId: tokenOutChainId,
-        decimals: tokenOutDecimals,
-        symbol: tokenOutSymbol,
-        buyFeeBps: serializedTokenOut?.buyFeeBps,
-        sellFeeBps: serializedTokenOut?.sellFeeBps,
-      });
+      address: tokenOutAddress,
+      chainId: tokenOutChainId,
+      decimals: tokenOutDecimals,
+      symbol: tokenOutSymbol,
+      buyFeeBps: serializedTokenOut?.buyFeeBps,
+      sellFeeBps: serializedTokenOut?.sellFeeBps,
+    });
 
   if (!isUniswapXTrade) {
     return [currencyIn, currencyOut];
@@ -206,7 +206,7 @@ function getSwapFee(
 
 function getClassicTradeDetails(
   args: GetQuoteArgs,
-  data: URAQuoteResponse,
+  data: any,
 ): {
   gasUseEstimate?: number;
   gasUseEstimateUSD?: number;
@@ -214,25 +214,31 @@ function getClassicTradeDetails(
   routes?: RouteResult[];
   swapFee?: SwapFeeInfo;
 } {
-  const classicQuote =
-    data.routing === URAQuoteType.CLASSIC
-      ? data.quote
-      : data.allQuotes.find(isClassicQuoteResponse)?.quote;
+  console.log("getClassicTradeDetails............calling")
+  console.log("data.routing...", data.routing)
+  console.log("data...", data)
+  // const classicQuote =
+  //   data.routing === URAQuoteType.CLASSIC
+  //     ? data.quote
+  //     : data.allQuotes.find(isClassicQuoteResponse)?.quote;
 
+  const classicQuote = data.quote
+
+  console.log("classicQuote----", classicQuote)
   if (!classicQuote) {
     return {};
   }
 
   return {
-    gasUseEstimate: classicQuote.gasUseEstimate
-      ? parseFloat(classicQuote.gasUseEstimate)
+    gasUseEstimate: data.gasUseEstimate
+      ? parseFloat(data.gasUseEstimate)
       : undefined,
-    gasUseEstimateUSD: classicQuote.gasUseEstimateUSD
-      ? parseFloat(classicQuote.gasUseEstimateUSD)
+    gasUseEstimateUSD: data.gasUseEstimateUSD
+      ? parseFloat(data.gasUseEstimateUSD)
       : undefined,
-    blockNumber: classicQuote.blockNumber,
-    routes: computeRoutes(args, classicQuote.route),
-    swapFee: getSwapFee(classicQuote),
+    blockNumber: data.blockNumber,
+    routes: computeRoutes(args, data.route),
+    swapFee: getSwapFee(data),
   };
 }
 
@@ -268,16 +274,17 @@ export async function transformQuoteToTrade(
 ): Promise<TradeResult> {
   const { tradeType, needsWrapIfUniswapX, routerPreference, account, amount } =
     args;
+  console.log("data======", data)
+  // const showUniswapXTrade =
+  //   data.routing === URAQuoteType.DUTCH_LIMIT &&
+  //   routerPreference === RouterPreference.X;
 
-  const showUniswapXTrade =
-    data.routing === URAQuoteType.DUTCH_LIMIT &&
-    routerPreference === RouterPreference.X;
-
-  const [currencyIn, currencyOut] = getTradeCurrencies(args, showUniswapXTrade);
+  const [currencyIn, currencyOut] = getTradeCurrencies(args, false);
 
   const { gasUseEstimateUSD, blockNumber, routes, gasUseEstimate, swapFee } =
     getClassicTradeDetails(args, data);
 
+  console.log("....", gasUseEstimateUSD, blockNumber, routes, gasUseEstimate, swapFee)
   const usdCostPerGas = getUSDCostPerGas(gasUseEstimateUSD, gasUseEstimate);
 
   const approveInfo = await getApproveInfo(

@@ -182,18 +182,19 @@ export const routingApi = createApi({
                   }
 
                   const uraQuoteResponse = response.data as URAQuoteResponse;
+
                   const tradeResult = await transformQuoteToTrade(
                     args,
                     uraQuoteResponse,
                     QuoteMethod.ROUTING_API,
                   );
+                  console.log("trade resulttttt", tradeResult);
                   return { data: { ...tradeResult, latencyMs: trace.now() } };
                 },
               );
             } catch (error: any) {
               console.warn(
-                `GetQuote failed on Unified Routing API, falling back to client: ${
-                  error?.message ?? error?.detail ?? error
+                `GetQuote failed on Unified Routing API, falling back to client: ${error?.message ?? error?.detail ?? error
                 }`,
               );
             }
