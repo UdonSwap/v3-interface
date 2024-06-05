@@ -71,7 +71,7 @@ export const BaseButton = styled(RebassButton)<BaseButtonProps>`
 `;
 
 export const ButtonPrimary = styled(BaseButton)`
-  background-color: #fef100;
+  background-color: white;
   color: #000000;
   font-size: 20px;
   &:focus {
@@ -225,7 +225,7 @@ export const ButtonText = styled(BaseButton)`
   width: fit-content;
   background: none;
   text-decoration: none;
-  
+
   &:hover {
     opacity: 0.9;
   }
@@ -553,7 +553,7 @@ export const ThemeButton = forwardRef<ThemeButtonRef, ThemeButtonProps>(
         {children}
       </BaseThemeButton>
     );
-  }
+  },
 );
 
 export const ButtonLight = ({ children, ...rest }: BaseButtonProps) => {

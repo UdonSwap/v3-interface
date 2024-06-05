@@ -140,19 +140,18 @@ const Navbar = ({ blur }: { blur: boolean }) => {
                 onClick={handleUniIconClick}
               />
             </Box>
-
-            <Row display={{ sm: "none", lg: "flex" }}>
-              <PageTabs />
-            </Row>
           </Box>
-          {/* <Box
+
+          <Box
             className={styles.searchContainer}
             {...(isNavSearchInputVisible && {
               display: "flex",
             })}
           >
-            <SearchBar />
-          </Box> */}
+            <Row display={{ sm: "none", lg: "flex" }}>
+              <PageTabs />
+            </Row>
+          </Box>
           <Box className={styles.rightSideContainer}>
             <Row gap="12">
               <Box

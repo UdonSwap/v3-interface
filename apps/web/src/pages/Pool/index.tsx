@@ -19,12 +19,7 @@ import { useNetworkSupportsV2 } from "hooks/useNetworkSupportsV2";
 import { useV3Positions } from "hooks/useV3Positions";
 import { Trans } from "i18n";
 import { useMemo } from "react";
-import {
-  AlertTriangle,
-  BookOpen,
-  ChevronsRight,
-  Inbox
-} from "react-feather";
+import { AlertTriangle, BookOpen, ChevronsRight, Inbox } from "react-feather";
 import { Link } from "react-router-dom";
 import { useUserHideClosedPositions } from "state/user/hooks";
 import styled, { css, useTheme } from "styled-components";
@@ -227,7 +222,7 @@ export default function Pool() {
       acc[p.liquidity?.isZero() ? 1 : 0].push(p);
       return acc;
     },
-    [[], []]
+    [[], []],
   ) ?? [[], []];
 
   const userSelectedPositionSet = useMemo(
@@ -235,11 +230,11 @@ export default function Pool() {
       ...openPositions,
       ...(userHideClosedPositions ? [] : closedPositions),
     ],
-    [closedPositions, openPositions, userHideClosedPositions]
+    [closedPositions, openPositions, userHideClosedPositions],
   );
 
   const filteredPositions = useFilterPossiblyMaliciousPositions(
-    userSelectedPositionSet
+    userSelectedPositionSet,
   );
 
   if (!isSupportedChain(chainId)) {
@@ -247,8 +242,6 @@ export default function Pool() {
   }
 
   const showConnectAWallet = Boolean(!account);
-
- 
 
   return (
     <Trace page={InterfacePageName.POOL_PAGE} shouldLogImpression>
@@ -260,10 +253,8 @@ export default function Pool() {
                 <ThemedText.LargeHeader>
                   <Trans>Positions</Trans>
                 </ThemedText.LargeHeader>
-               
               </Row>
               <ButtonRow>
-                
                 <ResponsiveButtonPrimary
                   data-cy="join-pool-button"
                   id="join-pool-button"
