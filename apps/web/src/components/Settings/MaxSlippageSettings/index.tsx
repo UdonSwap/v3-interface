@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import Expand from "components/Expand";
 import QuestionHelper from "components/QuestionHelper";
 import Row, { RowBetween } from "components/Row";

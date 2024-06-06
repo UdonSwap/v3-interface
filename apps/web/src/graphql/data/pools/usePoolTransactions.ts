@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { chainIdToBackendName } from "graphql/data/util";
 import { useCallback, useMemo, useRef } from "react";
 import {
@@ -70,23 +70,23 @@ export function usePoolTransactions(
     fetchMore: fetchMoreV2,
   } = useV2PairTransactionsQuery({
     variables: { first, address },
-    skip: protocolVersion !== ProtocolVersion.V2 || chainId !== ChainId.MAINNET,
+    skip: true // protocolVersion !== ProtocolVersion.V2 || chainId !== ChainId.MAINNET,
   });
   const loadingMore = useRef(false);
   const { transactions, loading, fetchMore, error } =
     protocolVersion === ProtocolVersion.V3
       ? {
-          transactions: dataV3?.v3Pool?.transactions,
-          loading: loadingV3,
-          fetchMore: fetchMoreV3,
-          error: errorV3,
-        }
+        transactions: dataV3?.v3Pool?.transactions,
+        loading: loadingV3,
+        fetchMore: fetchMoreV3,
+        error: errorV3,
+      }
       : {
-          transactions: dataV2?.v2Pair?.transactions,
-          loading: loadingV2,
-          fetchMore: fetchMoreV2,
-          error: errorV2,
-        };
+        transactions: dataV2?.v2Pair?.transactions,
+        loading: loadingV2,
+        fetchMore: fetchMoreV2,
+        error: errorV2,
+      };
 
   const loadMore = useCallback(
     ({ onComplete }: { onComplete?: () => void }) => {
@@ -104,25 +104,25 @@ export function usePoolTransactions(
           const mergedData =
             protocolVersion === ProtocolVersion.V3
               ? {
-                  v3Pool: {
-                    ...fetchMoreResult.v3Pool,
-                    transactions: [
-                      ...((prev as V3PoolTransactionsQuery).v3Pool
-                        ?.transactions ?? []),
-                      ...fetchMoreResult.v3Pool.transactions,
-                    ],
-                  },
-                }
+                v3Pool: {
+                  ...fetchMoreResult.v3Pool,
+                  transactions: [
+                    ...((prev as V3PoolTransactionsQuery).v3Pool
+                      ?.transactions ?? []),
+                    ...fetchMoreResult.v3Pool.transactions,
+                  ],
+                },
+              }
               : {
-                  v2Pair: {
-                    ...fetchMoreResult.v2Pair,
-                    transactions: [
-                      ...((prev as V2PairTransactionsQuery).v2Pair
-                        ?.transactions ?? []),
-                      ...fetchMoreResult.v2Pair.transactions,
-                    ],
-                  },
-                };
+                v2Pair: {
+                  ...fetchMoreResult.v2Pair,
+                  transactions: [
+                    ...((prev as V2PairTransactionsQuery).v2Pair
+                      ?.transactions ?? []),
+                    ...fetchMoreResult.v2Pair.transactions,
+                  ],
+                },
+              };
           loadingMore.current = false;
           return mergedData;
         },

@@ -1,4 +1,4 @@
-import { CurrencyAmount, Percent, Token } from "udonswap-core";
+import { CurrencyAmount, Percent, Token } from "sdkcore18";
 import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import { Trans } from "i18n";

@@ -1,4 +1,5 @@
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { NATIVE_CHAIN_ID } from "constants/tokens";
 import { supportedChainIdFromGQLChain } from "graphql/data/util";
 import {

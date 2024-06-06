@@ -1,10 +1,10 @@
 import { TransactionRequest } from "@ethersproject/abstract-provider";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { NATIVE_CHAIN_ID, nativeOnChain } from "constants/tokens";
 import { useCurrency } from "hooks/Tokens";
-import useENSAddress from "hooks/useENSAddress";
-import useENSName from "hooks/useENSName";
+// import useENSAddress from "hooks/useENSAddress";
+// import useENSName from "hooks/useENSName";
 import { GasSpeed, useTransactionGasFee } from "hooks/useTransactionGasFee";
 import { useUSDTokenUpdater } from "hooks/useUSDTokenUpdater";
 import { useCurrencyBalances } from "lib/hooks/useCurrencyBalance";
@@ -57,22 +57,22 @@ export function useDerivedSendInfo(state: SendState): SendInfo {
   const recipientInputUnitagUsername =
     validatedRecipientData?.unitag ?? recipientInputUnitag?.username;
   const recipientInputUnitagAddress = recipientInputUnitag?.address?.address;
-  const { address: recipientInputEnsAddress } = useENSAddress(
-    validatedRecipientData ? undefined : recipient,
-  );
+  // const { address: recipientInputEnsAddress } = useENSAddress(
+  //   validatedRecipientData ? undefined : recipient,
+  // );
   const validatedRecipientAddress = useMemo(() => {
     if (validatedRecipientData) {
       return validatedRecipientData.address;
     }
     return (
       isAddress(recipient) ||
-      isAddress(recipientInputEnsAddress) ||
+      // isAddress(recipientInputEnsAddress) ||
       isAddress(recipientInputUnitagAddress) ||
       undefined
     );
   }, [
     recipient,
-    recipientInputEnsAddress,
+    // recipientInputEnsAddress,
     recipientInputUnitagAddress,
     validatedRecipientData,
   ]);
@@ -81,16 +81,14 @@ export function useDerivedSendInfo(state: SendState): SendInfo {
     recipientInputUnitagUsername ? undefined : validatedRecipientAddress,
     Boolean(validatedRecipientAddress),
   );
-  const { ENSName } = useENSName(
-    validatedRecipientData?.ensName ? undefined : validatedRecipientAddress,
-  );
+  // const { ENSName } = useENSName(
+  //   validatedRecipientData?.ensName ? undefined : validatedRecipientAddress,
+  // );
   const recipientData = useMemo(() => {
     if (validatedRecipientAddress) {
       return {
         address: validatedRecipientAddress,
-        ensName: recipientInputEnsAddress
-          ? recipient
-          : validatedRecipientData?.ensName ?? ENSName ?? undefined,
+        ensName: undefined,
         unitag: recipientInputUnitagUsername ?? unitag?.username,
       };
     }
@@ -98,10 +96,10 @@ export function useDerivedSendInfo(state: SendState): SendInfo {
     return undefined;
   }, [
     validatedRecipientAddress,
-    recipientInputEnsAddress,
+    // recipientInputEnsAddress,
     recipient,
     validatedRecipientData?.ensName,
-    ENSName,
+    // ENSName,
     recipientInputUnitagUsername,
     unitag?.username,
   ]);

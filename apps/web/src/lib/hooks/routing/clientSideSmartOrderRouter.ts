@@ -1,13 +1,13 @@
 import {
   BigintIsh,
-  ChainId,
   CurrencyAmount,
   Token,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 // This file is lazy-loaded, so the import of smart-order-router-v3 is intentional.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import { AlphaRouter, AlphaRouterConfig } from "udonswap-smart-order-router-v3";
+import { AlphaRouter, AlphaRouterConfig } from "smartorderrouter18";
 import { asSupportedChain } from "constants/chains";
 import { RPC_PROVIDERS } from "constants/providers";
 import { nativeOnChain } from "constants/tokens";
@@ -21,19 +21,19 @@ import {
 import { transformSwapRouteToGetQuoteResult } from "utils/transformSwapRouteToGetQuoteResult";
 
 const CLIENT_SIDE_ROUTING_ALLOW_LIST = [
-  ChainId.MAINNET,
+  // ChainId.MAINNET,
   ChainId.MODE,
-  ChainId.OPTIMISM,
-  ChainId.OPTIMISM_GOERLI,
-  ChainId.ARBITRUM_ONE,
-  ChainId.ARBITRUM_GOERLI,
-  ChainId.POLYGON,
-  ChainId.POLYGON_MUMBAI,
-  ChainId.GOERLI,
-  ChainId.SEPOLIA,
-  ChainId.BNB,
-  ChainId.AVALANCHE,
-  ChainId.BASE,
+  // ChainId.OPTIMISM,
+  // ChainId.OPTIMISM_GOERLI,
+  // ChainId.ARBITRUM_ONE,
+  // ChainId.ARBITRUM_GOERLI,
+  // ChainId.POLYGON,
+  // ChainId.POLYGON_MUMBAI,
+  // ChainId.GOERLI,
+  // ChainId.SEPOLIA,
+  // ChainId.BNB,
+  // ChainId.AVALANCHE,
+  // ChainId.BASE,
 ];
 const routers = new Map<ChainId, AlphaRouter>();
 export function getRouter(chainId: ChainId): AlphaRouter {
@@ -85,19 +85,19 @@ async function getQuote(
   const currencyIn = tokenInIsNative
     ? nativeOnChain(tokenIn.chainId)
     : new Token(
-        tokenIn.chainId,
-        tokenIn.address,
-        tokenIn.decimals,
-        tokenIn.symbol,
-      );
+      tokenIn.chainId,
+      tokenIn.address,
+      tokenIn.decimals,
+      tokenIn.symbol,
+    );
   const currencyOut = tokenOutIsNative
     ? nativeOnChain(tokenOut.chainId)
     : new Token(
-        tokenOut.chainId,
-        tokenOut.address,
-        tokenOut.decimals,
-        tokenOut.symbol,
-      );
+      tokenOut.chainId,
+      tokenOut.address,
+      tokenOut.decimals,
+      tokenOut.symbol,
+    );
 
   const baseCurrency =
     tradeType === TradeType.EXACT_INPUT ? currencyIn : currencyOut;

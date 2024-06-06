@@ -1,13 +1,13 @@
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { BigNumber } from "@ethersproject/bignumber";
 import { CustomUserProperties, SwapEventName } from "@uniswap/analytics-events";
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import {
-  FlatFeeOptions,
+  // FlatFeeOptions,
   SwapRouter,
   UNIVERSAL_ROUTER_ADDRESS,
-} from "udonswap-sdk-universal-router";
-import { FeeOptions, toHex } from "udonswap-v3";
+} from "universalroutersdk18";
+import { FeeOptions, toHex } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import { getConnection } from "connection";
@@ -56,7 +56,7 @@ interface SwapOptions {
   slippageTolerance: Percent;
   permit?: PermitSignature;
   feeOptions?: FeeOptions;
-  flatFeeOptions?: FlatFeeOptions;
+  // flatFeeOptions?: FlatFeeOptions;
 }
 
 export function useUniversalRouterSwapCallback(
@@ -99,7 +99,7 @@ export function useUniversalRouterSwapCallback(
               deadlineOrPreviousBlockhash: deadline?.toString(),
               inputTokenPermit: options.permit,
               fee: options.feeOptions,
-              flatFee: options.flatFeeOptions,
+              // flatFee: options.flatFeeOptions,
             },
           );
           const tx = {
@@ -205,7 +205,7 @@ export function useUniversalRouterSwapCallback(
       options.slippageTolerance,
       options.permit,
       options.feeOptions,
-      options.flatFeeOptions,
+      // options.flatFeeOptions,
       fiatValues,
       portfolioBalanceUsd,
       analyticsContext,

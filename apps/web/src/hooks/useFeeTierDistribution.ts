@@ -1,5 +1,5 @@
-import { Currency, Token } from "udonswap-core";
-import { FeeAmount } from "udonswap-v3";
+import { Currency, Token } from "sdkcore18";
+import { FeeAmount } from "v3sdk18";
 import useBlockNumber from "lib/hooks/useBlockNumber";
 import ms from "ms";
 import { useMemo } from "react";
@@ -57,30 +57,30 @@ export function useFeeTierDistribution(
 
     const percentages =
       !isLoading &&
-      !error &&
-      distributions &&
-      poolStateVeryLow !== PoolState.LOADING &&
-      poolStateLow !== PoolState.LOADING &&
-      poolStateMedium !== PoolState.LOADING &&
-      poolStateHigh !== PoolState.LOADING
+        !error &&
+        distributions &&
+        poolStateVeryLow !== PoolState.LOADING &&
+        poolStateLow !== PoolState.LOADING &&
+        poolStateMedium !== PoolState.LOADING &&
+        poolStateHigh !== PoolState.LOADING
         ? {
-            [FeeAmount.LOWEST]:
-              poolStateVeryLow === PoolState.EXISTS
-                ? (distributions[FeeAmount.LOWEST] ?? 0) * 100
-                : undefined,
-            [FeeAmount.LOW]:
-              poolStateLow === PoolState.EXISTS
-                ? (distributions[FeeAmount.LOW] ?? 0) * 100
-                : undefined,
-            [FeeAmount.MEDIUM]:
-              poolStateMedium === PoolState.EXISTS
-                ? (distributions[FeeAmount.MEDIUM] ?? 0) * 100
-                : undefined,
-            [FeeAmount.HIGH]:
-              poolStateHigh === PoolState.EXISTS
-                ? (distributions[FeeAmount.HIGH] ?? 0) * 100
-                : undefined,
-          }
+          [FeeAmount.LOWEST]:
+            poolStateVeryLow === PoolState.EXISTS
+              ? (distributions[FeeAmount.LOWEST] ?? 0) * 100
+              : undefined,
+          [FeeAmount.LOW]:
+            poolStateLow === PoolState.EXISTS
+              ? (distributions[FeeAmount.LOW] ?? 0) * 100
+              : undefined,
+          [FeeAmount.MEDIUM]:
+            poolStateMedium === PoolState.EXISTS
+              ? (distributions[FeeAmount.MEDIUM] ?? 0) * 100
+              : undefined,
+          [FeeAmount.HIGH]:
+            poolStateHigh === PoolState.EXISTS
+              ? (distributions[FeeAmount.HIGH] ?? 0) * 100
+              : undefined,
+        }
         : undefined;
 
     return {

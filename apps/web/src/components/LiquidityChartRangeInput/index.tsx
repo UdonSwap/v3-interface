@@ -1,5 +1,5 @@
-import { Currency, Price, Token } from "udonswap-core";
-import { FeeAmount } from "udonswap-v3";
+import { Currency, Price, Token } from "sdkcore18";
+import { FeeAmount } from "v3sdk18";
 import { AutoColumn, ColumnCenter } from "components/Column";
 import Loader from "components/Icons/LoadingSpinner";
 import { useColor } from "hooks/useColor";

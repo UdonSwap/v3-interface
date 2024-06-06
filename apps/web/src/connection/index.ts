@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { CoinbaseWallet } from "@web3-react/coinbase-wallet";
 import { initializeConnector } from "@web3-react/core";
 import { GnosisSafe } from "@web3-react/gnosis-safe";
@@ -130,9 +130,8 @@ export const gnosisSafeConnection: Connection = {
 };
 
 export const walletConnectV2Connection: Connection = new (class
-  implements Connection
-{
-  private initializer = (actions: Actions, defaultChainId = ChainId.MAINNET) =>
+  implements Connection {
+  private initializer = (actions: Actions, defaultChainId = ChainId.MODE) =>
     new WalletConnectV2({ actions, defaultChainId, onError });
 
   type = ConnectionType.WALLET_CONNECT_V2;
@@ -223,7 +222,7 @@ const [web3CoinbaseWallet, web3CoinbaseWalletHooks] =
       new CoinbaseWallet({
         actions,
         options: {
-          url: APP_RPC_URLS[ChainId.MAINNET][0],
+          url: APP_RPC_URLS[ChainId.MODE][0],
           appName: "Uniswap",
           appLogoUrl: LOGO,
           reloadOnDisconnect: false,
@@ -239,8 +238,8 @@ const coinbaseWalletConnection: Connection = {
   shouldDisplay: () =>
     Boolean(
       (isMobile && !getIsInjectedMobileBrowser()) ||
-        !isMobile ||
-        getIsCoinbaseWalletBrowser(),
+      !isMobile ||
+      getIsCoinbaseWalletBrowser(),
     ),
   // If on a mobile browser that isn't the coinbase wallet browser, deeplink to the coinbase wallet app
   overrideActivate: () => {

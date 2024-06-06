@@ -1,4 +1,4 @@
-import { Token } from "udonswap-core";
+import { Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { useMemo } from "react";
 import { PositionDetails } from "types/position";

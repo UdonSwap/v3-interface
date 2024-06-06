@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Ether } from "udonswap-core";
+import { Ether } from "sdkcore18";
 import { CurrencyId } from "uniswap/src/types/currency";
 import { logger } from "utilities/src/logger/logger";
 import { ChainId } from "wallet/src/constants/chains";

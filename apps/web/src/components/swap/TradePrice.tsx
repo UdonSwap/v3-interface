@@ -1,4 +1,4 @@
-import { Currency, Price } from "udonswap-core";
+import { Currency, Price } from "sdkcore18";
 import { useUSDPrice } from "hooks/useUSDPrice";
 import tryParseCurrencyAmount from "lib/utils/tryParseCurrencyAmount";
 import { useCallback, useMemo, useState } from "react";

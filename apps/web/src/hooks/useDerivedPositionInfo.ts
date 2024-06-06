@@ -1,4 +1,4 @@
-import { Pool, Position } from "udonswap-v3";
+import { Pool, Position } from "v3sdk18";
 import { usePool } from "hooks/usePools";
 import { PositionDetails } from "types/position";
 

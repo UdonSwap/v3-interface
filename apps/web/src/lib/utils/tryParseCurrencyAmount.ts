@@ -1,5 +1,5 @@
 import { parseUnits } from "@ethersproject/units";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import JSBI from "jsbi";
 
 function truncateValue(value: string, decimals: number): string {

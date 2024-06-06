@@ -1,5 +1,5 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { ParentSize } from "@visx/responsive";
 import QueryTokenLogo from "components/Logo/QueryTokenLogo";
 import Row from "components/Row";

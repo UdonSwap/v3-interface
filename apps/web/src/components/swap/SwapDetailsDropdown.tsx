@@ -3,7 +3,7 @@ import {
   InterfaceElementName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Percent } from "udonswap-core";
+import { Currency, Percent, Price } from "sdkcore18";
 import { TraceEvent, useTrace } from "analytics";
 import AnimatedDropdown from "components/AnimatedDropdown";
 import Column from "components/Column";
@@ -85,7 +85,9 @@ export default function SwapDetailsDropdown(props: SwapDetailsProps) {
                 $loading={syncing}
                 data-testid="trade-price-container"
               >
-                <TradePrice price={trade.executionPrice} />
+                <TradePrice
+                  price={trade.executionPrice as Price<Currency, Currency>}
+                />
               </LoadingOpacityContainer>
             ) : loading || syncing ? (
               <ThemedText.DeprecatedMain fontSize={14}>

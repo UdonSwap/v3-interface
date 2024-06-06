@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { Token } from "udonswap-core";
+import { Token } from "sdkcore18";
 import {
   Amount,
   Chain,
@@ -197,8 +197,8 @@ export function deriveCurrencyAmountFromAssetResponse(
     tokenStandard === TokenStandard.Native
       ? NativeCurrency.onChain(chainId)
       : address && decimals
-      ? new Token(chainId, address, decimals)
-      : undefined;
+        ? new Token(chainId, address, decimals)
+        : undefined;
 
   const currencyAmount = getCurrencyAmount({
     value: quantity,

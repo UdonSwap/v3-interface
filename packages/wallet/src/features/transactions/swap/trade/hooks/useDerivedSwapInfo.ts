@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import { FeatureFlags } from "uniswap/src/features/experiments/flags";
 import { useFeatureFlag } from "uniswap/src/features/experiments/hooks";
 import { ChainId } from "wallet/src/constants/chains";
@@ -124,19 +124,19 @@ export function useDerivedSwapInfo(state: TransactionState): DerivedSwapInfo {
     () =>
       shouldGetQuote
         ? {
-            [CurrencyField.INPUT]:
-              exactCurrencyField === CurrencyField.INPUT
-                ? amountSpecified
-                : trade.trade?.inputAmount,
-            [CurrencyField.OUTPUT]:
-              exactCurrencyField === CurrencyField.OUTPUT
-                ? amountSpecified
-                : trade.trade?.outputAmount,
-          }
+          [CurrencyField.INPUT]:
+            exactCurrencyField === CurrencyField.INPUT
+              ? amountSpecified
+              : trade.trade?.inputAmount,
+          [CurrencyField.OUTPUT]:
+            exactCurrencyField === CurrencyField.OUTPUT
+              ? amountSpecified
+              : trade.trade?.outputAmount,
+        }
         : {
-            [CurrencyField.INPUT]: amountSpecified,
-            [CurrencyField.OUTPUT]: amountSpecified,
-          },
+          [CurrencyField.INPUT]: amountSpecified,
+          [CurrencyField.OUTPUT]: amountSpecified,
+        },
     [
       shouldGetQuote,
       exactCurrencyField,

@@ -4,7 +4,7 @@ import {
   PERMIT2_ADDRESS,
   PermitSingle,
 } from "udonswap-permit2";
-import { CurrencyAmount, Token } from "udonswap-core";
+import { CurrencyAmount, Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { useContract } from "hooks/useContract";
 import { useSingleCallResult } from "lib/hooks/multicall";

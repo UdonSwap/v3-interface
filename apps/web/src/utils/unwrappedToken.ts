@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { asSupportedChain } from "constants/chains";
 
 import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from "../constants/tokens";

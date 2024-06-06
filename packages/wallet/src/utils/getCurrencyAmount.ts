@@ -1,6 +1,6 @@
 import { parseUnits } from "@ethersproject/units";
 import { BigNumber } from "ethers";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import { convertScientificNotationToNumber } from "utilities/src/format/convertScientificNotation";
 import { logger } from "utilities/src/logger/logger";
 

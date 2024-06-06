@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 
 // Breakpoints specifically for the token pages
 // TODO(WEB-2968): Deprecate these in the new .info project
@@ -9,4 +9,4 @@ export const SMALL_MEDIA_BREAKPOINT = "540px";
 export const MOBILE_MEDIA_BREAKPOINT = "420px";
 
 // includes chains that the backend does not current source off-chain metadata for
-export const UNSUPPORTED_METADATA_CHAINS = [ChainId.BNB, ChainId.AVALANCHE];
+export const UNSUPPORTED_METADATA_CHAINS = [];

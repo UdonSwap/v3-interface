@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { DynamicConfigs } from "uniswap/src/features/experiments/configs";
 import { useDynamicConfig } from "uniswap/src/features/experiments/hooks";
 

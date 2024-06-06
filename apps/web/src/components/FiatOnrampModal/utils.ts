@@ -1,13 +1,8 @@
-import { ChainId, WETH9 } from "udonswap-core";
+import { ChainId, WETH9 } from "smartorderrouter18";
 import {
-  MATIC_MAINNET,
-  USDC_ARBITRUM,
-  USDC_MAINNET,
-  USDC_OPTIMISM,
-  USDC_POLYGON,
-  USDT,
-  WBTC,
-  WETH_POLYGON,
+  USDC_MODE,
+  USDT_MODE,
+  WBTC_MODE,
 } from "constants/tokens";
 import { validateUrlChainParam } from "graphql/data/util";
 import { Chain } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
@@ -15,15 +10,17 @@ import { Chain } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/t
 import { MoonpaySupportedCurrencyCode } from "./constants";
 
 type MoonpaySupportedChain =
-  | Chain.Ethereum
-  | Chain.Polygon
-  | Chain.Arbitrum
-  | Chain.Optimism;
+  // | Chain.Ethereum
+  | Chain.Mode
+// | Chain.Polygon
+// | Chain.Arbitrum
+// | Chain.Optimism;
 const moonPaySupportedChains = [
-  Chain.Ethereum,
-  Chain.Polygon,
-  Chain.Arbitrum,
-  Chain.Optimism,
+  Chain.Mode
+  // Chain.Ethereum,
+  // Chain.Polygon,
+  // Chain.Arbitrum,
+  // Chain.Optimism,
 ];
 
 const CURRENCY_CODES: {
@@ -32,27 +29,34 @@ const CURRENCY_CODES: {
     native: MoonpaySupportedCurrencyCode;
   };
 } = {
-  [Chain.Ethereum]: {
-    [WETH9[ChainId.MAINNET]?.address.toLowerCase()]: "weth",
-    [USDC_MAINNET.address.toLowerCase()]: "usdc",
-    [USDT.address.toLowerCase()]: "usdt",
-    [WBTC.address.toLowerCase()]: "wbtc",
-    [MATIC_MAINNET.address.toLowerCase()]: "polygon",
+  [Chain.Mode]: {
+    [WETH9[ChainId.MODE]?.address.toLowerCase()]: "weth",
+    [USDC_MODE.address.toLowerCase()]: "usdc",
+    [USDT_MODE.address.toLowerCase()]: "usdt",
+    [WBTC_MODE.address.toLowerCase()]: "wbtc",
     native: "eth",
   },
-  [Chain.Arbitrum]: {
-    [USDC_ARBITRUM.address.toLowerCase()]: "usdc_arbitrum",
-    native: "eth_arbitrum",
-  },
-  [Chain.Optimism]: {
-    [USDC_OPTIMISM.address.toLowerCase()]: "usdc_optimism",
-    native: "eth_optimism",
-  },
-  [Chain.Polygon]: {
-    [USDC_POLYGON.address.toLowerCase()]: "usdc_polygon",
-    [WETH_POLYGON.address.toLowerCase()]: "eth_polygon",
-    native: "matic_polygon",
-  },
+  // [Chain.Ethereum]: {
+  //   [WETH9[ChainId.MAINNET]?.address.toLowerCase()]: "weth",
+  //   [USDC_MAINNET.address.toLowerCase()]: "usdc",
+  //   [USDT.address.toLowerCase()]: "usdt",
+  //   [WBTC.address.toLowerCase()]: "wbtc",
+  //   [MATIC_MAINNET.address.toLowerCase()]: "polygon",
+  //   native: "eth",
+  // },
+  // [Chain.Arbitrum]: {
+  //   [USDC_ARBITRUM.address.toLowerCase()]: "usdc_arbitrum",
+  //   native: "eth_arbitrum",
+  // },
+  // [Chain.Optimism]: {
+  //   [USDC_OPTIMISM.address.toLowerCase()]: "usdc_optimism",
+  //   native: "eth_optimism",
+  // },
+  // [Chain.Polygon]: {
+  //   [USDC_POLYGON.address.toLowerCase()]: "usdc_polygon",
+  //   [WETH_POLYGON.address.toLowerCase()]: "eth_polygon",
+  //   native: "matic_polygon",
+  // },
 };
 
 export function getDefaultCurrencyCode(

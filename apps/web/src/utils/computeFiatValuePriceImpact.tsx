@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { BIPS_BASE } from "constants/misc";
 
 export function computeFiatValuePriceImpact(

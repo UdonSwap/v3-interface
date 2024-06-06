@@ -1,17 +1,17 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { MixedRouteSDK } from "udonswap-router";
+import { MixedRouteSDK, RouteV2 } from "routersdk18";
 import {
   Currency,
   CurrencyAmount,
   Percent,
   Token,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
 import { DutchOrderInfo, DutchOrderInfoJSON } from "udonswapx-sdk";
 import { Pair, Route as V2Route } from "udonswap-v2-sdk";
-import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3";
+import { FeeAmount, Pool, Route as V3Route } from "v3sdk18";
 import { BIPS_BASE } from "constants/misc";
-import { isAvalanche, isBsc, isPolygon, nativeOnChain } from "constants/tokens";
+import { nativeOnChain } from "constants/tokens";
 import { toSlippagePercent } from "utils/slippage";
 
 import { getApproveInfo, getWrapInfo } from "./gas";
@@ -45,9 +45,9 @@ import {
 } from "./types";
 
 interface RouteResult {
-  routev3: V3Route<Currency, Currency> | null;
-  routev2: V2Route<Currency, Currency> | null;
-  mixedRoute: MixedRouteSDK<Currency, Currency> | null;
+  routev2: V3Route<Currency, Currency> | null;
+  // routev2: V2Route<Currency, Currency> | null;
+  // mixedRoute: MixedRouteSDK<Currency, Currency> | null;
   inputAmount: CurrencyAmount<Currency>;
   outputAmount: CurrencyAmount<Currency>;
 }
@@ -79,20 +79,20 @@ export function computeRoutes(
       const isOnlyV3 = isVersionedRoute<V3PoolInRoute>(PoolType.V3Pool, route);
 
       return {
-        routev3: isOnlyV3
+        routev2: isOnlyV3
           ? new V3Route(route.map(parsePool), currencyIn, currencyOut)
           : null,
-        routev2: isOnlyV2
-          ? new V2Route(route.map(parsePair), currencyIn, currencyOut)
-          : null,
-        mixedRoute:
-          !isOnlyV3 && !isOnlyV2
-            ? new MixedRouteSDK(
-              route.map(parsePoolOrPair),
-              currencyIn,
-              currencyOut,
-            )
-            : null,
+        // routev2: isOnlyV2
+        //   ? new V2Route(route.map(parsePair), currencyIn, currencyOut)
+        //   : null,
+        // mixedRoute:
+        //   !isOnlyV3 && !isOnlyV2
+        //     ? new MixedRouteSDK(
+        //       route.map(parsePoolOrPair),
+        //       currencyIn,
+        //       currencyOut,
+        //     )
+        //     : null,
         inputAmount: CurrencyAmount.fromRawAmount(currencyIn, rawAmountIn),
         outputAmount: CurrencyAmount.fromRawAmount(currencyOut, rawAmountOut),
       };
@@ -103,8 +103,8 @@ export function computeRoutes(
   }
 }
 
-const parsePoolOrPair = (pool: V3PoolInRoute | V2PoolInRoute): Pool | Pair => {
-  return pool.type === PoolType.V3Pool ? parsePool(pool) : parsePair(pool);
+const parsePoolOrPair = (pool: V3PoolInRoute): Pool => {
+  return parsePool(pool)
 };
 
 function isVersionedRoute<T extends V2PoolInRoute | V3PoolInRoute>(
@@ -214,9 +214,6 @@ function getClassicTradeDetails(
   routes?: RouteResult[];
   swapFee?: SwapFeeInfo;
 } {
-  console.log("getClassicTradeDetails............calling")
-  console.log("data.routing...", data.routing)
-  console.log("data...", data)
   // const classicQuote =
   //   data.routing === URAQuoteType.CLASSIC
   //     ? data.quote
@@ -274,7 +271,6 @@ export async function transformQuoteToTrade(
 ): Promise<TradeResult> {
   const { tradeType, needsWrapIfUniswapX, routerPreference, account, amount } =
     args;
-  console.log("data======", data)
   // const showUniswapXTrade =
   //   data.routing === URAQuoteType.DUTCH_LIMIT &&
   //   routerPreference === RouterPreference.X;
@@ -286,15 +282,29 @@ export async function transformQuoteToTrade(
 
   console.log("....", gasUseEstimateUSD, blockNumber, routes, gasUseEstimate, swapFee)
   const usdCostPerGas = getUSDCostPerGas(gasUseEstimateUSD, gasUseEstimate);
-
+  console.log("usdCostPerGas", usdCostPerGas)
   const approveInfo = await getApproveInfo(
     account,
     currencyIn,
     amount,
     usdCostPerGas,
   );
-
+  console.log("approveInfo", approveInfo)
   const classicTrade = new ClassicTrade({
+    // v2Routes:
+    //   routes
+    //     ?.filter(
+    //       (
+    //         r,
+    //       ): r is RouteResult & {
+    //         routev2: NonNullable<RouteResult["routev2"]>;
+    //       } => r.routev2 !== null,
+    //     )
+    //     .map(({ routev2, inputAmount, outputAmount }) => ({
+    //       routev2,
+    //       inputAmount,
+    //       outputAmount,
+    //     })) ?? [],
     v2Routes:
       routes
         ?.filter(
@@ -309,34 +319,20 @@ export async function transformQuoteToTrade(
           inputAmount,
           outputAmount,
         })) ?? [],
-    v3Routes:
-      routes
-        ?.filter(
-          (
-            r,
-          ): r is RouteResult & {
-            routev3: NonNullable<RouteResult["routev3"]>;
-          } => r.routev3 !== null,
-        )
-        .map(({ routev3, inputAmount, outputAmount }) => ({
-          routev3,
-          inputAmount,
-          outputAmount,
-        })) ?? [],
-    mixedRoutes:
-      routes
-        ?.filter(
-          (
-            r,
-          ): r is RouteResult & {
-            mixedRoute: NonNullable<RouteResult["mixedRoute"]>;
-          } => r.mixedRoute !== null,
-        )
-        .map(({ mixedRoute, inputAmount, outputAmount }) => ({
-          mixedRoute,
-          inputAmount,
-          outputAmount,
-        })) ?? [],
+    // mixedRoutes:
+    //   routes
+    //     ?.filter(
+    //       (
+    //         r,
+    //       ): r is RouteResult & {
+    //         mixedRoute: NonNullable<RouteResult["mixedRoute"]>;
+    //       } => r.mixedRoute !== null,
+    //     )
+    //     .map(({ mixedRoute, inputAmount, outputAmount }) => ({
+    //       mixedRoute,
+    //       inputAmount,
+    //       outputAmount,
+    //     })) ?? [],
     tradeType,
     gasUseEstimateUSD,
     gasUseEstimate,
@@ -347,41 +343,43 @@ export async function transformQuoteToTrade(
     swapFee,
   });
 
+  console.log("classic trade", classicTrade)
+
   // If the top-level URA quote type is DUTCH_LIMIT, then UniswapX is better for the user
-  const isUniswapXBetter = data.routing === URAQuoteType.DUTCH_LIMIT;
-  if (isUniswapXBetter) {
-    const orderInfo = toDutchOrderInfo(data.quote.orderInfo);
-    const swapFee = getSwapFee(data.quote);
-    const wrapInfo = await getWrapInfo(
-      needsWrapIfUniswapX,
-      account,
-      currencyIn.chainId,
-      amount,
-      usdCostPerGas,
-    );
+  // const isUniswapXBetter = false //data.routing === URAQuoteType.DUTCH_LIMIT;
+  // if (isUniswapXBetter) {
+  //   const orderInfo = toDutchOrderInfo(data.quote.orderInfo);
+  //   const swapFee = getSwapFee(data.quote);
+  //   const wrapInfo = await getWrapInfo(
+  //     needsWrapIfUniswapX,
+  //     account,
+  //     currencyIn.chainId,
+  //     amount,
+  //     usdCostPerGas,
+  //   );
 
-    const uniswapXTrade = new DutchOrderTrade({
-      currencyIn,
-      currenciesOut: [currencyOut],
-      orderInfo,
-      tradeType,
-      quoteId: data.quote.quoteId,
-      requestId: data.quote.requestId,
-      classicGasUseEstimateUSD: classicTrade.totalGasUseEstimateUSD,
-      wrapInfo,
-      approveInfo,
-      auctionPeriodSecs: data.quote.auctionPeriodSecs,
-      startTimeBufferSecs: data.quote.startTimeBufferSecs,
-      deadlineBufferSecs: data.quote.deadlineBufferSecs,
-      slippageTolerance: toSlippagePercent(data.quote.slippageTolerance),
-      swapFee,
-    });
+  //   const uniswapXTrade = new DutchOrderTrade({
+  //     currencyIn,
+  //     currenciesOut: [currencyOut],
+  //     orderInfo,
+  //     tradeType,
+  //     quoteId: data.quote.quoteId,
+  //     requestId: data.quote.requestId,
+  //     classicGasUseEstimateUSD: classicTrade.totalGasUseEstimateUSD,
+  //     wrapInfo,
+  //     approveInfo,
+  //     auctionPeriodSecs: data.quote.auctionPeriodSecs,
+  //     startTimeBufferSecs: data.quote.startTimeBufferSecs,
+  //     deadlineBufferSecs: data.quote.deadlineBufferSecs,
+  //     slippageTolerance: toSlippagePercent(data.quote.slippageTolerance),
+  //     swapFee,
+  //   });
 
-    return {
-      state: QuoteState.SUCCESS,
-      trade: uniswapXTrade,
-    };
-  }
+  //   return {
+  //     state: QuoteState.SUCCESS,
+  //     trade: uniswapXTrade,
+  //   };
+  // }
 
   return { state: QuoteState.SUCCESS, trade: classicTrade };
 }
@@ -403,8 +401,8 @@ function parseToken({
     symbol,
     undefined,
     false,
-    buyFeeBpsBN,
-    sellFeeBpsBN,
+    // buyFeeBpsBN,
+    // sellFeeBpsBN,
   );
 }
 
@@ -439,9 +437,9 @@ export function isExactInput(tradeType: TradeType): boolean {
 
 export function currencyAddressForSwapQuote(currency: Currency): string {
   if (currency.isNative) {
-    if (isPolygon(currency.chainId)) return SwapRouterNativeAssets.MATIC;
-    if (isBsc(currency.chainId)) return SwapRouterNativeAssets.BNB;
-    if (isAvalanche(currency.chainId)) return SwapRouterNativeAssets.AVAX;
+    // if (isPolygon(currency.chainId)) return SwapRouterNativeAssets.MATIC;
+    // if (isBsc(currency.chainId)) return SwapRouterNativeAssets.BNB;
+    // if (isAvalanche(currency.chainId)) return SwapRouterNativeAssets.AVAX;
     return SwapRouterNativeAssets.ETH;
   }
 

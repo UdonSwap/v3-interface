@@ -3,7 +3,7 @@ import {
   InterfaceElementName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount, Percent } from "udonswap-core";
+import { Currency, CurrencyAmount, Percent } from "sdkcore18";
 import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
@@ -202,17 +202,17 @@ const StyledTokenName = styled.span<{ active?: boolean }>`
 `;
 
 const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
-background-color: rgb(56, 37, 83);
+  background-color: rgb(56, 37, 83);
   border: none;
   color: ${({ theme }) => theme.accent1};
   cursor: pointer;
   font-size: 14px;
-  border-radius:0.4rem;
+  border-radius: 0.4rem;
   font-weight: 500;
   opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
   padding: 4px 10px;
   pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
-  margin:10px;
+  margin: 10px;
   :hover {
     opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
   }

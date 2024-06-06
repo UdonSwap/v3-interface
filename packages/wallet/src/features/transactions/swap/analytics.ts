@@ -1,6 +1,6 @@
 import { SwapEventName } from "@uniswap/analytics-events";
 import { useEffect } from "react";
-import { Currency, TradeType } from "udonswap-core";
+import { Currency, TradeType } from "sdkcore18";
 import { NumberType } from "utilities/src/format/types";
 import {
   LocalizationContextState,

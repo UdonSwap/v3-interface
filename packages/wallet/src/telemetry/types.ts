@@ -7,7 +7,7 @@ import {
   SwapEventName,
 } from "@uniswap/analytics-events";
 import { providers } from "ethers";
-import { Protocol } from "udonswap-router";
+import { Protocol } from "routersdk18";
 import { UnitagClaimContext } from "uniswap/src/features/unitags/types";
 import { TraceProps } from "utilities/src/telemetry/trace/Trace";
 import { ChainId } from "wallet/src/constants/chains";
@@ -162,21 +162,21 @@ export type WalletEventProperties = {
   } & SwapTradeBaseProperties;
   [SwapEventName.SWAP_ESTIMATE_GAS_CALL_FAILED]: {
     error?:
-      | ApolloError
-      | FetchBaseQueryError
-      | SerializedError
-      | Error
-      | string;
+    | ApolloError
+    | FetchBaseQueryError
+    | SerializedError
+    | Error
+    | string;
     txRequest?: providers.TransactionRequest;
   } & SwapTradeBaseProperties;
   [SharedEventName.TERMS_OF_SERVICE_ACCEPTED]: {
     address: string;
   };
   [WalletEventName.TokenSelected]: TraceProps &
-    AssetDetailsBaseProperties &
-    SearchResultContextProperties & {
-      field: CurrencyField;
-    };
+  AssetDetailsBaseProperties &
+  SearchResultContextProperties & {
+    field: CurrencyField;
+  };
   [WalletEventName.TransferSubmitted]: TransferProperties;
   [WalletEventName.TransferCompleted]: TransferProperties;
   [UnitagEventName.UnitagBannerActionTaken]: {

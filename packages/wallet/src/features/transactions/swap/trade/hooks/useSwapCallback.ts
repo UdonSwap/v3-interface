@@ -1,7 +1,7 @@
 import { SwapEventName } from "@uniswap/analytics-events";
 import { providers } from "ethers";
 import { useMemo } from "react";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import { logger } from "utilities/src/logger/logger";
 import { setHasSubmittedHoldToSwap } from "wallet/src/features/behaviorHistory/slice";
 import { GasFeeResult } from "wallet/src/features/gas/types";

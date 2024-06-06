@@ -1,6 +1,6 @@
 import { ApolloError } from "@apollo/client";
 import { useRef } from "react";
-import { Token } from "udonswap-core";
+import { Token } from "sdkcore18";
 import {
   Chain,
   ContractInput,
@@ -114,13 +114,13 @@ export function buildCurrency({
 
   return isNonNativeAddress(chainId, address)
     ? new Token(
-        chainId,
-        address,
-        decimals,
-        symbol ?? undefined,
-        name ?? undefined,
-        bypassChecksum
-      )
+      chainId,
+      address,
+      decimals,
+      symbol ?? undefined,
+      name ?? undefined,
+      bypassChecksum
+    )
     : NativeCurrency.onChain(chainId);
 }
 

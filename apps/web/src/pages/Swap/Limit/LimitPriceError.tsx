@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import Column from "components/Column";
 import { LimitPriceErrorType } from "components/CurrencyInputPanel/LimitPriceInputPanel/useCurrentPriceAdjustment";
 import Row from "components/Row";

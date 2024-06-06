@@ -1,4 +1,4 @@
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import {
   ConfirmedSwapTransactionInfo,
   ExactInputSwapTransactionInfo,
@@ -19,11 +19,11 @@ export function getAmountsFromTrade(
 
   return typeInfo.tradeType === TradeType.EXACT_OUTPUT
     ? {
-        inputCurrencyAmountRaw: typeInfo.expectedInputCurrencyAmountRaw,
-        outputCurrencyAmountRaw: typeInfo.outputCurrencyAmountRaw,
-      }
+      inputCurrencyAmountRaw: typeInfo.expectedInputCurrencyAmountRaw,
+      outputCurrencyAmountRaw: typeInfo.outputCurrencyAmountRaw,
+    }
     : {
-        inputCurrencyAmountRaw: typeInfo.inputCurrencyAmountRaw,
-        outputCurrencyAmountRaw: typeInfo.expectedOutputCurrencyAmountRaw,
-      };
+      inputCurrencyAmountRaw: typeInfo.inputCurrencyAmountRaw,
+      outputCurrencyAmountRaw: typeInfo.expectedOutputCurrencyAmountRaw,
+    };
 }

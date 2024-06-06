@@ -1,4 +1,5 @@
-import { ChainId, Currency, CurrencyAmount, Percent } from "udonswap-core";
+import { Currency, CurrencyAmount, Percent } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { Field, SwapTab } from "components/swap/constants";
 import { parsedQueryString } from "hooks/useParsedQueryString";
 import { ParsedQs } from "qs";
@@ -99,7 +100,7 @@ export const SwapAndLimitContext = createContext<SwapAndLimitContextType>({
     inputCurrency: undefined,
     outputCurrency: undefined,
   },
-  chainId: ChainId.MAINNET,
+  chainId: ChainId.MODE,
   currentTab: SwapTab.Swap,
   setCurrentTab: () => undefined,
 });

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";
 import { NumberType } from "utilities/src/format/types";
 import { useAppFiatCurrencyInfo } from "wallet/src/features/fiatCurrency/hooks";

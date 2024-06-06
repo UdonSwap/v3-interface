@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { getVersionUpgrade, VersionUpgrade } from '@uniswap/token-lists'
+import { getVersionUpgrade, VersionUpgrade } from 'udonswap-token-lists'
 import tokenSafetyLookup from 'constants/tokenSafetyLookup'
 
 import { ListsState } from 'state/lists/types'

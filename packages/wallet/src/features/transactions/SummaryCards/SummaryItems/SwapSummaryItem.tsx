@@ -1,5 +1,5 @@
 import { createElement, useMemo } from "react";
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import { ONE_MINUTE_MS } from "utilities/src/time/time";
 import { SplitLogo } from "wallet/src/components/CurrencyLogo/SplitLogo";
 import { useLocalizationContext } from "wallet/src/features/language/LocalizationContext";

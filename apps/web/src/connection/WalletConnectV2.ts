@@ -1,6 +1,6 @@
-import { ChainId } from "udonswap-core";
+// import { ChainId } from "smartorderrouter18";
 import {
-  URI_AVAILABLE,
+  // URI_AVAILABLE,
   WalletConnect,
   WalletConnectConstructorArgs,
 } from "@web3-react/walletconnect-v2";

@@ -5,7 +5,7 @@ import {
   Percent,
   Token,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
 import useAutoSlippageTolerance from "hooks/useAutoSlippageTolerance";
 import { useDebouncedTrade } from "hooks/useDebouncedTrade";
 import { useMemo } from "react";

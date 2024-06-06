@@ -2,7 +2,7 @@ import {
   SwapEventName,
   SwapPriceUpdateUserResponse,
 } from "@uniswap/analytics-events";
-import { Currency, Percent } from "udonswap-core";
+import { Currency, Percent } from "sdkcore18";
 import { sendAnalyticsEvent } from "analytics";
 import { AutoColumn } from "components/Column";
 import { MODAL_TRANSITION_DURATION } from "components/Modal";
@@ -103,9 +103,10 @@ export function ConfirmSwapModal({
   // Get status depending on swap type
   const swapStatus = useSwapTransactionStatus(swapResult);
   const uniswapXOrder = useOrder(
-    swapResult?.type === TradeFillType.UniswapX
-      ? swapResult.response.orderHash
-      : "",
+    "",
+    // swapResult?.type === TradeFillType.UniswapX
+    //   ? swapResult.response.orderHash
+    //   : "",
   );
 
   // Has the transaction been confirmed onchain?

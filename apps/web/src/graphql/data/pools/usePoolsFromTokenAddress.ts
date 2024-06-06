@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import {
   PoolTableSortState,
   TablePool,
@@ -43,7 +43,7 @@ export function usePoolsFromTokenAddress(
       first: DEFAULT_QUERY_SIZE,
       tokenAddress,
     },
-    skip: chainId !== ChainId.MAINNET,
+    skip: true // chainId !== ChainId.MAINNET,
   });
   const loading = loadingV3 || loadingV2;
 
@@ -54,7 +54,7 @@ export function usePoolsFromTokenAddress(
     ({ onComplete }: { onComplete?: () => void }) => {
       if (
         loadingMoreV3.current ||
-        (loadingMoreV2.current && chainId === ChainId.MAINNET)
+        (loadingMoreV2.current && false)
       ) {
         return;
       }
@@ -70,7 +70,7 @@ export function usePoolsFromTokenAddress(
         updateQuery: (prev, { fetchMoreResult }) => {
           if (!fetchMoreResult || !prev || !Object.keys(prev).length)
             return prev;
-          if (!loadingMoreV2.current || chainId !== ChainId.MAINNET)
+          if (!loadingMoreV2.current || true)
             onComplete?.();
           const mergedData = {
             topV3Pools: [
@@ -82,27 +82,27 @@ export function usePoolsFromTokenAddress(
           return mergedData;
         },
       });
-      chainId === ChainId.MAINNET &&
-        fetchMoreV2({
-          variables: {
-            cursor:
-              dataV2?.topV2Pairs?.[dataV2.topV2Pairs.length - 1]?.totalLiquidity
-                ?.value,
-          },
-          updateQuery: (prev, { fetchMoreResult }) => {
-            if (!fetchMoreResult || !prev || !Object.keys(prev).length)
-              return prev;
-            if (!loadingMoreV3.current) onComplete?.();
-            const mergedData = {
-              topV2Pairs: [
-                ...(prev.topV2Pairs ?? []).slice(),
-                ...(fetchMoreResult.topV2Pairs ?? []).slice(),
-              ],
-            };
-            loadingMoreV2.current = false;
-            return mergedData;
-          },
-        });
+      // false &&
+      //   fetchMoreV2({
+      //     variables: {
+      //       cursor:
+      //         dataV2?.topV2Pairs?.[dataV2.topV2Pairs.length - 1]?.totalLiquidity
+      //           ?.value,
+      //     },
+      //     updateQuery: (prev, { fetchMoreResult }) => {
+      //       if (!fetchMoreResult || !prev || !Object.keys(prev).length)
+      //         return prev;
+      //       if (!loadingMoreV3.current) onComplete?.();
+      //       const mergedData = {
+      //         topV2Pairs: [
+      //           ...(prev.topV2Pairs ?? []).slice(),
+      //           ...(fetchMoreResult.topV2Pairs ?? []).slice(),
+      //         ],
+      //       };
+      //       loadingMoreV2.current = false;
+      //       return mergedData;
+      //     },
+      //   });
     },
     [chainId, dataV2?.topV2Pairs, dataV3?.topV3Pools, fetchMoreV2, fetchMoreV3],
   );

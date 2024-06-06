@@ -1,5 +1,5 @@
-import { NativeCurrency, Token } from "udonswap-core";
-import { TokenInfo } from "@uniswap/token-lists";
+import { NativeCurrency, Token } from "sdkcore18";
+import { TokenInfo } from "udonswap-token-lists";
 import { isAddress } from "utilities/src/addresses";
 
 const alwaysTrue = () => true;

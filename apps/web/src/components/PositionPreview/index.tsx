@@ -1,5 +1,5 @@
-import { Currency } from "udonswap-core";
-import { Position } from "udonswap-v3";
+import { Currency } from "sdkcore18";
+import { Position } from "v3sdk18";
 import RangeBadge from "components/Badge/RangeBadge";
 import { LightCard } from "components/Card";
 import { AutoColumn } from "components/Column";

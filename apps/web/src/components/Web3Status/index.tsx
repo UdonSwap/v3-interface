@@ -13,7 +13,7 @@ import { IconWrapper } from "components/Identicon/StatusIcon";
 import { getConnection } from "connection";
 import { useConnectionReady } from "connection/eagerlyConnect";
 import { getRecentConnectionMeta } from "connection/meta";
-import useENSName from "hooks/useENSName";
+// import useENSName from "hooks/useENSName";
 import useLast from "hooks/useLast";
 import { navSearchInputVisibleSize } from "hooks/useScreenSize";
 import { Trans } from "i18n";
@@ -89,7 +89,7 @@ const Web3StatusConnected = styled(Web3StatusGeneric)<{
   font-weight: 500;
   :hover {
     color: ${({ pending, theme }) => (pending ? "#FFFFFF" : "#FEF100")};
-    border:none;
+    border: none;
   }
 
   @media only screen and (max-width: ${({ theme }) =>
@@ -143,21 +143,21 @@ const StyledConnectButton = styled.button`
 
 function Web3StatusInner() {
   const switchingChain = useAppSelector(
-    (state) => state.wallets.switchingChain
+    (state) => state.wallets.switchingChain,
   );
   const ignoreWhileSwitchingChain = useCallback(
     () => !switchingChain,
-    [switchingChain]
+    [switchingChain],
   );
   const connectionReady = useConnectionReady();
   const activeWeb3 = useWeb3React();
   const lastWeb3 = useLast(useWeb3React(), ignoreWhileSwitchingChain);
   const { account, connector } = useMemo(
     () => (activeWeb3.account ? activeWeb3 : lastWeb3),
-    [activeWeb3, lastWeb3]
+    [activeWeb3, lastWeb3],
   );
   const { unitag } = useUnitagByAddressWithoutFlag(account, Boolean(account));
-  const { ENSName, loading: ENSLoading } = useENSName(account);
+  // const { ENSName, loading: ENSLoading } = useENSName(account);
   const connection = getConnection(connector);
   const dispatch = useAppDispatch();
 
@@ -178,8 +178,8 @@ function Web3StatusInner() {
   const initialConnection = useRef(getRecentConnectionMeta());
   const isConnectionInitializing = Boolean(
     initialConnection.current?.address === account &&
-      initialConnection.current?.ENSName &&
-      ENSLoading
+      initialConnection.current?.ENSName,
+    // && ENSLoading,
   );
   const isConnectionInitialized = connectionReady && !isConnectionInitializing;
   // Clear the initial connection once initialized so it does not interfere with subsequent connections.
@@ -190,18 +190,18 @@ function Web3StatusInner() {
   }, [isConnectionInitialized]);
   // Persist the connection if it changes, so it can be used to initialize the next session's connection.
   useEffect(() => {
-    if (account || ENSName) {
+    if (account) {
       const { rdns } = connection.getProviderInfo();
       dispatch(
         updateRecentConnectionMeta({
           type: connection.type,
           address: account,
-          ENSName: ENSName ?? undefined,
+          ENSName: undefined,
           rdns,
-        })
+        }),
       );
     }
-  }, [ENSName, account, connection, dispatch]);
+  }, [undefined, account, connection, dispatch]);
 
   if (!isConnectionInitialized) {
     return (
@@ -252,9 +252,7 @@ function Web3StatusInner() {
             </RowBetween>
           ) : (
             <AddressAndChevronContainer>
-              <Text>
-                {unitag?.username ?? ENSName ?? shortenAddress(account)}
-              </Text>
+              <Text>{shortenAddress(account)}</Text>
               {unitag?.username && <Unitag size={18} />}
             </AddressAndChevronContainer>
           )}

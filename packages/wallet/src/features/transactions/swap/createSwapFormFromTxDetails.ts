@@ -1,4 +1,4 @@
-import { Currency, TradeType } from "udonswap-core";
+import { Currency, TradeType } from "sdkcore18";
 import { logger } from "utilities/src/logger/logger";
 import { AssetType, CurrencyAsset } from "wallet/src/entities/assets";
 import { getAmountsFromTrade } from "wallet/src/features/transactions/getAmountsFromTrade";

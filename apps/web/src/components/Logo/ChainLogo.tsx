@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { getChainInfo } from "constants/chainInfo";
 import { isSupportedChain, SupportedInterfaceChain } from "constants/chains";
 import { CSSProperties, FunctionComponent } from "react";
@@ -27,54 +27,54 @@ export function getChainUI(
   darkMode: boolean,
 ): ChainUI | undefined {
   switch (chainId) {
-    case ChainId.MAINNET:
-    case ChainId.GOERLI:
-    case ChainId.SEPOLIA:
-      return {
-        Symbol: ethereum,
-        bgColor: "#6B8AFF33",
-        textColor: "#6B8AFF",
-      };
-    case ChainId.POLYGON:
-    case ChainId.POLYGON_MUMBAI:
-      return {
-        Symbol: polygon,
-        bgColor: "#9558FF33",
-        textColor: "#9558FF",
-      };
-    case ChainId.ARBITRUM_ONE:
-    case ChainId.ARBITRUM_GOERLI:
-      return {
-        Symbol: arbitrum,
-        bgColor: "#00A3FF33",
-        textColor: "#00A3FF",
-      };
-    case ChainId.OPTIMISM:
-    case ChainId.OPTIMISM_GOERLI:
-      return {
-        Symbol: optimism,
-        bgColor: "#FF042033",
-        textColor: "#FF0420",
-      };
+    // case ChainId.MAINNET:
+    // case ChainId.GOERLI:
+    // case ChainId.SEPOLIA:
+    //   return {
+    //     Symbol: ethereum,
+    //     bgColor: "#6B8AFF33",
+    //     textColor: "#6B8AFF",
+    //   };
+    // case ChainId.POLYGON:
+    // case ChainId.POLYGON_MUMBAI:
+    //   return {
+    //     Symbol: polygon,
+    //     bgColor: "#9558FF33",
+    //     textColor: "#9558FF",
+    //   };
+    // case ChainId.ARBITRUM_ONE:
+    // case ChainId.ARBITRUM_GOERLI:
+    //   return {
+    //     Symbol: arbitrum,
+    //     bgColor: "#00A3FF33",
+    //     textColor: "#00A3FF",
+    //   };
+    // case ChainId.OPTIMISM:
+    // case ChainId.OPTIMISM_GOERLI:
+    //   return {
+    //     Symbol: optimism,
+    //     bgColor: "#FF042033",
+    //     textColor: "#FF0420",
+    //   };
 
-    case ChainId.AVALANCHE:
-      return {
-        Symbol: avax,
-        bgColor: "#E8414233",
-        textColor: "#E84142",
-      };
-    case ChainId.BNB:
-      return {
-        Symbol: bnb,
-        bgColor: "#EAB20033",
-        textColor: "#EAB200",
-      };
-    case ChainId.BASE:
-      return {
-        Symbol: base,
-        bgColor: "#0052FF33",
-        textColor: "#0052FF",
-      };
+    // case ChainId.AVALANCHE:
+    //   return {
+    //     Symbol: avax,
+    //     bgColor: "#E8414233",
+    //     textColor: "#E84142",
+    //   };
+    // case ChainId.BNB:
+    //   return {
+    //     Symbol: bnb,
+    //     bgColor: "#EAB20033",
+    //     textColor: "#EAB200",
+    //   };
+    // case ChainId.BASE:
+    //   return {
+    //     Symbol: base,
+    //     bgColor: "#0052FF33",
+    //     textColor: "#0052FF",
+    //   };
 
     case ChainId.MODE:
       return darkMode

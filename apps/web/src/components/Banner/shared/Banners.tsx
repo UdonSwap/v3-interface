@@ -1,5 +1,5 @@
 import { InterfacePageName } from "@uniswap/analytics-events";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import {
   OutageBanner,
   getOutageBannerSessionStorageKey,
@@ -27,7 +27,7 @@ export function Banners() {
       const validatedChainId = getValidUrlChainId(maybeChainName);
       return validatedChainId !== undefined;
     });
-    return chainName ? getValidUrlChainId(chainName) : ChainId.MAINNET;
+    return chainName ? getValidUrlChainId(chainName) : ChainId.MODE;
   }, [pathname]);
   const currentPageHasManualOutage = manualOutage?.chainId === pageChainId;
 

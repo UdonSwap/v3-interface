@@ -1,10 +1,9 @@
 import {
-  ChainId,
-  MULTICALL_ADDRESSES,
   Token,
-  NONFUNGIBLE_POSITION_MANAGER_ADDRESSES as V3NFT_ADDRESSES,
-} from "udonswap-core";
-import type { AddressMap } from "udonswap-smart-order-router-v3";
+} from "sdkcore18";
+import type { ChainId, AddressMap } from "smartorderrouter18";
+import { MULTICALL_ADDRESS, NONFUNGIBLE_POSITION_MANAGER_ADDRESSES as V3NFT_ADDRESSES } from 'constants/addresses'
+
 import NFTPositionManagerJSON from "@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json";
 import MulticallJSON from "@uniswap/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json";
 import { useWeb3React } from "@web3-react/core";
@@ -80,7 +79,7 @@ export function useInterfaceMulticallContracts(
   chainIds: ChainId[],
 ): ContractMap<UniswapInterfaceMulticall> {
   return useContractMultichain<UniswapInterfaceMulticall>(
-    MULTICALL_ADDRESSES,
+    MULTICALL_ADDRESS,
     MulticallJSON.abi,
     chainIds,
   );

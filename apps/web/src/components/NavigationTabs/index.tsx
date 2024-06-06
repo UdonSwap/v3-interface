@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import SettingsTab from "components/Settings";
 import { Trans } from "i18n";

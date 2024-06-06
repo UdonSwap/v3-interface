@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { ReactComponent as MenuIcon } from "assets/images/menu.svg";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { CheckMark } from "components/Icons/CheckMark";
@@ -194,7 +194,7 @@ export const TokenDetailsHeader = () => {
               >
                 <StyledExternalLink href={explorerUrl}>
                   <ActionButton>
-                    {currency.chainId === ChainId.MAINNET ? (
+                    {/* {currency.chainId === ChainId.MAINNET ? (
                       <EtherscanLogo
                         width="18px"
                         height="18px"
@@ -206,7 +206,12 @@ export const TokenDetailsHeader = () => {
                         height="18px"
                         fill={theme.neutral1}
                       />
-                    )}
+                    )} */}
+                    <ExplorerIcon
+                      width="18px"
+                      height="18px"
+                      fill={theme.neutral1}
+                    />
                     {isMobileScreen && (
                       <ThemedText.BodyPrimary>
                         <Trans>Explorer</Trans>

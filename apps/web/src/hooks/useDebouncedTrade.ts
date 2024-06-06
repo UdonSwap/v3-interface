@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Percent, TradeType } from "udonswap-core";
+import { Currency, CurrencyAmount, Percent, TradeType } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { WRAPPED_NATIVE_CURRENCY } from "constants/tokens";
 import { useMemo } from "react";
@@ -86,7 +86,7 @@ export function useDebouncedTrade(
     const weth = WRAPPED_NATIVE_CURRENCY[chainId];
     return Boolean(
       (amountSpecified.currency.isNative && weth?.equals(otherCurrency)) ||
-        (otherCurrency.isNative && weth?.equals(amountSpecified.currency)),
+      (otherCurrency.isNative && weth?.equals(amountSpecified.currency)),
     );
   }, [amountSpecified, chainId, otherCurrency]);
 

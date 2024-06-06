@@ -1,4 +1,5 @@
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import Badge from "components/Badge";
 import { ChainLogo } from "components/Logo/ChainLogo";
@@ -130,10 +131,7 @@ function TransactionSubmittedContent({
       .catch(() => setSuccess(false));
   }, [connector, logoURL, token]);
 
-  const explorerText =
-    chainId === ChainId.MAINNET
-      ? t`View on  Etherscan`
-      : t`View on Block Explorer`;
+  const explorerText = t`View on Block Explorer`;
 
   return (
     <Wrapper>

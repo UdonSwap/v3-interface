@@ -2,16 +2,16 @@ import type { TransactionResponse } from "@ethersproject/providers";
 import MerkleDistributorJSON from "@uniswap/merkle-distributor/build/MerkleDistributor.json";
 import {
   CurrencyAmount,
-  MERKLE_DISTRIBUTOR_ADDRESS,
   Token,
-} from "udonswap-core";
+} from "sdkcore18";
+import { MERKLE_DISTRIBUTOR_ADDRESS } from 'constants/addresses'
 import { useWeb3React } from "@web3-react/core";
 import JSBI from "jsbi";
 import { useSingleCallResult } from "lib/hooks/multicall";
 import { useEffect, useState } from "react";
 
 import { isAddress } from "utilities/src/addresses";
-import { UNI } from "../../constants/tokens";
+// import { UNI } from "../../constants/tokens";
 import { useContract } from "../../hooks/useContract";
 import { calculateGasMargin } from "../../utils/calculateGasMargin";
 import { useTransactionAdder } from "../transactions/hooks";
@@ -167,8 +167,8 @@ export function useUserHasAvailableClaim(
   // user is in blob and contract marks as unclaimed
   return Boolean(
     userClaimData &&
-      !isClaimedResult.loading &&
-      isClaimedResult.result?.[0] === false,
+    !isClaimedResult.loading &&
+    isClaimedResult.result?.[0] === false,
   );
 }
 
@@ -179,7 +179,7 @@ export function useUserUnclaimedAmount(
   const userClaimData = useUserClaimData(account);
   const canClaim = useUserHasAvailableClaim(account);
 
-  const uni = chainId ? UNI[chainId] : undefined;
+  const uni = undefined //chainId ? UNI[chainId] : undefined;
   if (!uni) return undefined;
   if (!canClaim || !userClaimData) {
     return CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(0));

@@ -1,6 +1,6 @@
 import { ApolloError, NetworkStatus } from "@apollo/client";
 import { useMemo } from "react";
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import { uniswapUrls } from "uniswap/src/constants/urls";
 import { useRestQuery } from "uniswap/src/data/rest";
 import { logger } from "utilities/src/logger/logger";

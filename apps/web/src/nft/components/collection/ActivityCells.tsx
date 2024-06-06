@@ -1,5 +1,5 @@
 import { InterfacePageName, NFTEventName } from "@uniswap/analytics-events";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import { MouseoverTooltip } from "components/Tooltip";
 import { Trans } from "i18n";
@@ -208,7 +208,7 @@ export const AddressCell = ({
     >
       <AddressLink
         href={getExplorerLink(
-          chainId ?? ChainId.MAINNET,
+          chainId ?? ChainId.MODE,
           address ?? "",
           ExplorerDataType.ADDRESS,
         )}

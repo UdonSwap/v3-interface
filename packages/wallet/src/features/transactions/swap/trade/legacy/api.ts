@@ -1,7 +1,7 @@
 import { ApolloError, QueryHookOptions } from "@apollo/client";
 import { BigNumber } from "ethers";
 import { useMemo } from "react";
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import { ROUTING_API_PATH } from "uniswap/src/data/constants";
 import { useRestQuery } from "uniswap/src/data/rest";
 import { GqlResult } from "uniswap/src/data/types";
@@ -85,10 +85,10 @@ export function useQuoteQuery(
 
     const recipientParams = recipient
       ? {
-          recipient,
-          slippageTolerance,
-          deadline,
-        }
+        recipient,
+        slippageTolerance,
+        deadline,
+      }
       : undefined;
 
     const simulatedParams =
@@ -99,20 +99,20 @@ export function useQuoteQuery(
     // permit2 signature data if applicable
     const permit2Params = permitSignatureInfo
       ? {
-          permitSignature: permitSignatureInfo.signature,
-          permitAmount: BigNumber.from(
-            permitSignatureInfo.permitMessage.details.amount
-          ).toString(),
-          permitExpiration: BigNumber.from(
-            permitSignatureInfo.permitMessage.details.expiration
-          ).toString(),
-          permitSigDeadline: BigNumber.from(
-            permitSignatureInfo.permitMessage.sigDeadline
-          ).toString(),
-          permitNonce: BigNumber.from(
-            permitSignatureInfo.permitMessage.details.nonce
-          ).toString(),
-        }
+        permitSignature: permitSignatureInfo.signature,
+        permitAmount: BigNumber.from(
+          permitSignatureInfo.permitMessage.details.amount
+        ).toString(),
+        permitExpiration: BigNumber.from(
+          permitSignatureInfo.permitMessage.details.expiration
+        ).toString(),
+        permitSigDeadline: BigNumber.from(
+          permitSignatureInfo.permitMessage.sigDeadline
+        ).toString(),
+        permitNonce: BigNumber.from(
+          permitSignatureInfo.permitMessage.details.nonce
+        ).toString(),
+      }
       : undefined;
 
     return {

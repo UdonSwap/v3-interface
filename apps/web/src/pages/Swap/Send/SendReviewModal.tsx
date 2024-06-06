@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { ButtonPrimary } from "components/Button";
@@ -147,7 +147,7 @@ export function SendReviewModal({
                 <PortfolioLogo
                   currencies={[inputCurrency]}
                   size="36px"
-                  chainId={chainId ?? ChainId.MAINNET}
+                  chainId={chainId ?? ChainId.MODE}
                 />
               }
             />
@@ -191,7 +191,7 @@ export function SendReviewModal({
               <Trans>Network cost</Trans>
             </ThemedText.BodySmall>
             <Row width="min-content" gap="xs">
-              <ChainLogo chainId={chainId ?? ChainId.MAINNET} size={16} />
+              <ChainLogo chainId={chainId ?? ChainId.MODE} size={16} />
               <ThemedText.BodySmall>{gasFeeFormatted}</ThemedText.BodySmall>
             </Row>
           </Row>

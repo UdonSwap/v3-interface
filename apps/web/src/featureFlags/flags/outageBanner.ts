@@ -1,5 +1,5 @@
 import { ApolloError } from "@apollo/client";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { atomWithReset, useResetAtom, useUpdateAtom } from "jotai/utils";
 import { ProtocolVersion } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
 import { FeatureFlags } from "uniswap/src/features/experiments/flags";
@@ -32,27 +32,27 @@ export function useUpdateManualOutage({
 
 export function useOutageBanners(): Record<ChainId, boolean> {
   return {
-    [ChainId.OPTIMISM]: useFeatureFlag(FeatureFlags.OutageBannerOptimism),
-    [ChainId.ARBITRUM_ONE]: useFeatureFlag(FeatureFlags.OutageBannerArbitrum),
-    [ChainId.POLYGON]: useFeatureFlag(FeatureFlags.OutageBannerPolygon),
-    [ChainId.MAINNET]: false,
+    // [ChainId.OPTIMISM]: useFeatureFlag(FeatureFlags.OutageBannerOptimism),
+    // [ChainId.ARBITRUM_ONE]: useFeatureFlag(FeatureFlags.OutageBannerArbitrum),
+    // [ChainId.POLYGON]: useFeatureFlag(FeatureFlags.OutageBannerPolygon),
+    // [ChainId.MAINNET]: false,
     [ChainId.MODE]: false,
-    [ChainId.GOERLI]: false,
-    [ChainId.SEPOLIA]: false,
-    [ChainId.OPTIMISM_GOERLI]: false,
-    [ChainId.OPTIMISM_SEPOLIA]: false,
-    [ChainId.ARBITRUM_GOERLI]: false,
-    [ChainId.ARBITRUM_SEPOLIA]: false,
-    [ChainId.POLYGON_MUMBAI]: false,
-    [ChainId.GNOSIS]: false,
-    [ChainId.MOONBEAM]: false,
-    [ChainId.BNB]: false,
-    [ChainId.AVALANCHE]: false,
-    [ChainId.BASE_GOERLI]: false,
-    [ChainId.BASE]: false,
-    [ChainId.ZORA_SEPOLIA]: false,
-    [ChainId.ZORA]: false,
-    [ChainId.ROOTSTOCK]: false,
-    [ChainId.BLAST]: false,
+    // [ChainId.GOERLI]: false,
+    // [ChainId.SEPOLIA]: false,
+    // [ChainId.OPTIMISM_GOERLI]: false,
+    // [ChainId.OPTIMISM_SEPOLIA]: false,
+    // [ChainId.ARBITRUM_GOERLI]: false,
+    // [ChainId.ARBITRUM_SEPOLIA]: false,
+    // [ChainId.POLYGON_MUMBAI]: false,
+    // [ChainId.GNOSIS]: false,
+    // [ChainId.MOONBEAM]: false,
+    // [ChainId.BNB]: false,
+    // [ChainId.AVALANCHE]: false,
+    // [ChainId.BASE_GOERLI]: false,
+    // [ChainId.BASE]: false,
+    // [ChainId.ZORA_SEPOLIA]: false,
+    // [ChainId.ZORA]: false,
+    // [ChainId.ROOTSTOCK]: false,
+    // [ChainId.BLAST]: false,
   };
 }

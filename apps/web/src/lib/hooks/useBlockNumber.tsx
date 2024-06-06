@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { RPC_PROVIDERS } from "constants/providers";
 import useIsWindowVisible from "hooks/useIsWindowVisible";
@@ -58,15 +58,15 @@ export function BlockNumberProvider({ children }: PropsWithChildren) {
     setChainBlock((chainBlock) => {
       if (chainBlock.chainId === chainId) {
         if (!chainBlock.block || chainBlock.block < block) {
-          const mainnetBlock =
-            chainId === ChainId.MAINNET ? block : chainBlock.mainnetBlock;
+          const mainnetBlock = chainBlock.mainnetBlock;
           return { chainId, block, mainnetBlock };
         }
-      } else if (chainId === ChainId.MAINNET) {
-        if (!chainBlock.mainnetBlock || chainBlock.mainnetBlock < block) {
-          return { ...chainBlock, mainnetBlock: block };
-        }
       }
+      //  else if (chainId === ChainId.MAINNET) {
+      //   if (!chainBlock.mainnetBlock || chainBlock.mainnetBlock < block) {
+      //     return { ...chainBlock, mainnetBlock: block };
+      //   }
+      // }
       return chainBlock;
     });
   }, []);
@@ -97,9 +97,9 @@ export function BlockNumberProvider({ children }: PropsWithChildren) {
 
   // Poll once for the mainnet block number using the network provider.
   useEffect(() => {
-    RPC_PROVIDERS[ChainId.MAINNET]
+    RPC_PROVIDERS[ChainId.MODE]
       .getBlockNumber()
-      .then((block) => onChainBlock(ChainId.MAINNET, block))
+      .then((block) => onChainBlock(ChainId.MODE, block))
       // swallow errors - it's ok if this fails, as we'll try again if we activate mainnet
       .catch(() => undefined);
   }, [onChainBlock]);

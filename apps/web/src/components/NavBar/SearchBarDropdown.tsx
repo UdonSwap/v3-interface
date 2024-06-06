@@ -2,7 +2,7 @@ import {
   InterfaceSectionName,
   NavBarSearchTypes,
 } from "@uniswap/analytics-events";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { useTrace } from "analytics";
 import clsx from "clsx";
@@ -11,7 +11,7 @@ import { ChainLogo } from "components/Logo/ChainLogo";
 import { SearchToken } from "graphql/data/SearchTokens";
 import useTrendingTokens from "graphql/data/TrendingTokens";
 import { useTrendingCollections } from "graphql/data/nft/TrendingCollections";
-import { BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS } from "graphql/data/util";
+// import { BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS } from "graphql/data/util";
 import { useDisableNFTRoutes } from "hooks/useDisableNFTRoutes";
 import { useIsNftPage } from "hooks/useIsNftPage";
 import { Trans } from "i18n";
@@ -130,10 +130,7 @@ interface SearchBarDropdownProps {
 export const SearchBarDropdown = (props: SearchBarDropdownProps) => {
   const { isLoading } = props;
   const { chainId } = useWeb3React();
-  const showChainComingSoonBadge =
-    chainId &&
-    BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS.includes(chainId) &&
-    !isLoading;
+  const showChainComingSoonBadge = chainId && false && !isLoading;
 
   return (
     <Column
@@ -377,12 +374,12 @@ function SearchBarDropdownContents({
 }
 
 function ComingSoonText({ chainId }: { chainId: ChainId }) {
-  switch (chainId) {
-    case ChainId.AVALANCHE:
-      return (
-        <Trans>Coming soon: search and explore tokens on Avalanche Chain</Trans>
-      );
-    default:
-      return null;
-  }
+  // switch (chainId) {
+  //   case ChainId.AVALANCHE:
+  //     return (
+  //       <Trans>Coming soon: search and explore tokens on Avalanche Chain</Trans>
+  //     );
+  //   default:
+  return null;
+  // }
 }

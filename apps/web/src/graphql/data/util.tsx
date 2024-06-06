@@ -1,7 +1,8 @@
 import { OperationVariables, QueryResult } from "@apollo/client";
 import { DeepPartial } from "@apollo/client/utilities";
 import * as Sentry from "@sentry/react";
-import { ChainId, Currency, Token } from "udonswap-core";
+import { Currency, Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { AVERAGE_L1_BLOCK_TIME } from "constants/chainInfo";
 import {
   NATIVE_CHAIN_ID,
@@ -101,34 +102,34 @@ const UX_SUPPORTED_GQL_CHAINS = [
 type InterfaceGqlChain = (typeof UX_SUPPORTED_GQL_CHAINS)[number];
 
 export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: InterfaceGqlChain } = {
-  [ChainId.MAINNET]: Chain.Ethereum,
-  [ChainId.GOERLI]: Chain.EthereumGoerli,
-  [ChainId.SEPOLIA]: Chain.EthereumSepolia,
-  [ChainId.POLYGON]: Chain.Polygon,
-  [ChainId.POLYGON_MUMBAI]: Chain.Polygon,
-  [ChainId.ARBITRUM_ONE]: Chain.Arbitrum,
-  [ChainId.ARBITRUM_GOERLI]: Chain.Arbitrum,
-  [ChainId.OPTIMISM]: Chain.Optimism,
-  [ChainId.OPTIMISM_GOERLI]: Chain.Optimism,
-  [ChainId.BNB]: Chain.Bnb,
-  [ChainId.AVALANCHE]: Chain.Avalanche,
-  [ChainId.BASE]: Chain.Base,
-  [ChainId.BLAST]: Chain.Blast,
+  // [ChainId.MAINNET]: Chain.Ethereum,
+  // [ChainId.GOERLI]: Chain.EthereumGoerli,
+  // [ChainId.SEPOLIA]: Chain.EthereumSepolia,
+  // [ChainId.POLYGON]: Chain.Polygon,
+  // [ChainId.POLYGON_MUMBAI]: Chain.Polygon,
+  // [ChainId.ARBITRUM_ONE]: Chain.Arbitrum,
+  // [ChainId.ARBITRUM_GOERLI]: Chain.Arbitrum,
+  // [ChainId.OPTIMISM]: Chain.Optimism,
+  // [ChainId.OPTIMISM_GOERLI]: Chain.Optimism,
+  // [ChainId.BNB]: Chain.Bnb,
+  // [ChainId.AVALANCHE]: Chain.Avalanche,
+  // [ChainId.BASE]: Chain.Base,
+  // [ChainId.BLAST]: Chain.Blast,
   [ChainId.MODE]: Chain.Mode,
 };
 
 export function chainIdToBackendName(chainId: number | undefined) {
   return chainId && CHAIN_ID_TO_BACKEND_NAME[chainId]
     ? CHAIN_ID_TO_BACKEND_NAME[chainId]
-    : CHAIN_ID_TO_BACKEND_NAME[ChainId.MAINNET];
+    : CHAIN_ID_TO_BACKEND_NAME[ChainId.MODE];
 }
 
 const GQL_CHAINS = [
-  ChainId.MAINNET,
+  // ChainId.MAINNET,
   ChainId.MODE,
-  ChainId.OPTIMISM,
-  ChainId.POLYGON,
-  ChainId.ARBITRUM_ONE,
+  // ChainId.OPTIMISM,
+  // ChainId.POLYGON,
+  // ChainId.ARBITRUM_ONE,
 ] as const;
 type GqlChainsType = (typeof GQL_CHAINS)[number];
 
@@ -223,17 +224,27 @@ export function validateUrlChainParam(chainName: string | undefined) {
 }
 
 const CHAIN_NAME_TO_CHAIN_ID: { [key in InterfaceGqlChain]: ChainId } = {
-  [Chain.Ethereum]: ChainId.MAINNET,
-  [Chain.EthereumGoerli]: ChainId.GOERLI,
-  [Chain.EthereumSepolia]: ChainId.SEPOLIA,
-  [Chain.Polygon]: ChainId.POLYGON,
-  [Chain.Optimism]: ChainId.OPTIMISM,
-  [Chain.Arbitrum]: ChainId.ARBITRUM_ONE,
-  [Chain.Bnb]: ChainId.BNB,
-  [Chain.Avalanche]: ChainId.AVALANCHE,
-  [Chain.Base]: ChainId.BASE,
-  [Chain.Blast]: ChainId.BLAST,
+  // [Chain.Ethereum]: ChainId.MAINNET,
+  // [Chain.EthereumGoerli]: ChainId.GOERLI,
+  // [Chain.EthereumSepolia]: ChainId.SEPOLIA,
+  // [Chain.Polygon]: ChainId.POLYGON,
+  // [Chain.Optimism]: ChainId.OPTIMISM,
+  // [Chain.Arbitrum]: ChainId.ARBITRUM_ONE,
+  // [Chain.Bnb]: ChainId.BNB,
+  // [Chain.Avalanche]: ChainId.AVALANCHE,
+  // [Chain.Base]: ChainId.BASE,
+  // [Chain.Blast]: ChainId.BLAST,
   [Chain.Mode]: ChainId.MODE,
+  [Chain.Arbitrum]: ChainId.MODE,
+  [Chain.Avalanche]: ChainId.MODE,
+  [Chain.Base]: ChainId.MODE,
+  [Chain.Blast]: ChainId.MODE,
+  [Chain.Bnb]: ChainId.MODE,
+  [Chain.Ethereum]: ChainId.MODE,
+  [Chain.EthereumGoerli]: ChainId.MODE,
+  [Chain.EthereumSepolia]: ChainId.MODE,
+  [Chain.Optimism]: ChainId.MODE,
+  [Chain.Polygon]: ChainId.MODE,
 };
 
 export function isSupportedGQLChain(chain: Chain): chain is InterfaceGqlChain {
@@ -274,7 +285,7 @@ export const BACKEND_SUPPORTED_CHAINS = [
   Chain.Blast,
   Chain.Mode,
 ] as const;
-export const BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS = [ChainId.AVALANCHE] as const;
+// export const BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS = [ChainId.AVALANCHE] as const;
 
 export function isBackendSupportedChain(
   chain: Chain,

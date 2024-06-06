@@ -1,13 +1,13 @@
-import { Trade } from "udonswap-router";
+import { Trade } from "routersdk18";
 import {
   Currency,
   CurrencyAmount,
   Fraction,
   Percent,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
 import { Pair } from "udonswap-v2-sdk";
-import { FeeAmount } from "udonswap-v3";
+import { FeeAmount } from "v3sdk18";
 import { DefaultTheme } from "styled-components";
 
 import {
@@ -62,7 +62,7 @@ function computeRealizedLPFeePercent(
               const fee =
                 pool instanceof Pair
                   ? // not currently possible given protocol check above, but not fatal
-                    FeeAmount.MEDIUM
+                  FeeAmount.MEDIUM
                   : pool.fee;
               return currentFee.multiply(
                 ONE_HUNDRED_PERCENT.subtract(new Fraction(fee, 1_000_000)),

@@ -1,5 +1,6 @@
 import { InterfacePageName } from "@uniswap/analytics-events";
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { Trace } from "analytics";
 import { NetworkAlert } from "components/NetworkAlert/NetworkAlert";
@@ -43,7 +44,7 @@ export default function SwapPage({ className }: { className?: string }) {
 
   const { chainId: connectedChainId } = useWeb3React();
   const supportedChainId = asSupportedChain(connectedChainId);
-  const chainId = supportedChainId || ChainId.MAINNET;
+  const chainId = supportedChainId || ChainId.MODE;
 
   const parsedQs = useParsedQueryString();
   const parsedCurrencyState = useMemo(() => {

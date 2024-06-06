@@ -1,9 +1,10 @@
 import {
-  ChainId,
-  NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
   WETH9,
-} from "udonswap-core";
-import { DAI } from "constants/tokens";
+} from "sdkcore18";
+import { NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from 'constants/addresses'
+
+import { ChainId } from "smartorderrouter18"
+import { DAI_MODE } from "constants/tokens";
 import {
   AssetActivityPartsFragment,
   Chain,
@@ -28,17 +29,17 @@ const MockRecipientAddress = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
 export const MockSenderAddress = "0x50EC05ADe8280758E2077fcBC08D878D4aef79C3";
 
 export const mockTransactionDetailsPartsFragment: TransactionDetailsPartsFragment =
-  {
-    __typename: "TransactionDetails",
-    id: "tx123",
-    type: TransactionType.Swap,
-    from: "0xSenderAddress",
-    to: "0xRecipientAddress",
-    hash: "0xHashValue",
-    nonce: 123,
-    status: TransactionStatus.Confirmed,
-    assetChanges: [],
-  };
+{
+  __typename: "TransactionDetails",
+  id: "tx123",
+  type: TransactionType.Swap,
+  from: "0xSenderAddress",
+  to: "0xRecipientAddress",
+  hash: "0xHashValue",
+  nonce: 123,
+  status: TransactionStatus.Confirmed,
+  assetChanges: [],
+};
 
 const mockAssetActivityPartsFragment = {
   __typename: "AssetActivity",
@@ -78,10 +79,10 @@ const mockSwapOrderDetailsPartsFragment = {
   orderStatus: SwapOrderStatus.Open,
   inputToken: {
     __typename: "Token",
-    id: DAI.address,
+    id: DAI_MODE.address,
     name: "DAI",
-    symbol: DAI.symbol,
-    address: DAI.address,
+    symbol: DAI_MODE.symbol,
+    address: DAI_MODE.address,
     decimals: 18,
     chain: Chain.Ethereum,
     standard: TokenStandard.Erc20,
@@ -226,10 +227,10 @@ export const mockTokenTransferOutPartsFragment: TokenTransferPartsFragment = {
   direction: TransactionDirection.Out,
   asset: {
     __typename: "Token",
-    id: DAI.address,
+    id: DAI_MODE.address,
     name: "DAI",
     symbol: "DAI",
-    address: DAI.address,
+    address: DAI_MODE.address,
     decimals: 18,
     chain: Chain.Ethereum,
     standard: TokenStandard.Erc20,
@@ -376,14 +377,14 @@ const mockTokenApprovalPartsFragment: TokenApprovalPartsFragment = {
   __typename: "TokenApproval",
   id: "tokenApprovalId",
   tokenStandard: TokenStandard.Erc20,
-  approvedAddress: DAI.address,
+  approvedAddress: DAI_MODE.address,
   quantity: "50",
   asset: {
     __typename: "Token",
     id: "tokenId",
     name: "DAI",
     symbol: "DAI",
-    address: DAI.address,
+    address: DAI_MODE.address,
     decimals: 18,
     chain: Chain.Ethereum,
     standard: TokenStandard.Erc20,
@@ -524,7 +525,7 @@ export const MockRemoveLiquidity = {
   ...mockAssetActivityPartsFragment,
   details: {
     ...commonTransactionDetailsFields,
-    to: NONFUNGIBLE_POSITION_MANAGER_ADDRESSES[ChainId.MAINNET],
+    to: NONFUNGIBLE_POSITION_MANAGER_ADDRESSES[ChainId.MODE],
     type: TransactionType.Receive,
     assetChanges: [
       mockTokenTransferInPartsFragment,

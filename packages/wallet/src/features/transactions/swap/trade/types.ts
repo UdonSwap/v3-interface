@@ -1,10 +1,10 @@
 import { SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 import { providers } from "ethers";
-import { Currency, CurrencyAmount, Percent, TradeType } from "udonswap-core";
-import { MixedRouteSDK, Trade as RouterSDKTrade } from "udonswap-router";
+import { Currency, CurrencyAmount, Percent, TradeType } from "sdkcore18";
+import { MixedRouteSDK, Trade as RouterSDKTrade } from "routersdk18";
 import { Route as V2RouteSDK } from "udonswap-v2-sdk";
-import { Route as V3RouteSDK } from "udonswap-v3";
+import { Route as V3RouteSDK } from "v3sdk18";
 import { PollingInterval } from "wallet/src/constants/misc";
 import { QuoteResponse } from "wallet/src/data/tradingApi/__generated__/index";
 import { QuoteResult } from "wallet/src/features/transactions/swap/trade/legacy/types";
@@ -107,13 +107,13 @@ export enum ApprovalAction {
 
 export type TokenApprovalInfo =
   | {
-      action:
-        | ApprovalAction.None
-        | ApprovalAction.Permit
-        | ApprovalAction.Unknown;
-      txRequest: null;
-    }
+    action:
+    | ApprovalAction.None
+    | ApprovalAction.Permit
+    | ApprovalAction.Unknown;
+    txRequest: null;
+  }
   | {
-      action: ApprovalAction.Approve | ApprovalAction.Permit2Approve;
-      txRequest: providers.TransactionRequest;
-    };
+    action: ApprovalAction.Approve | ApprovalAction.Permit2Approve;
+    txRequest: providers.TransactionRequest;
+  };

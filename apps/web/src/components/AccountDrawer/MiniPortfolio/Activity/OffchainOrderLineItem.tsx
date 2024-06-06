@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from "udonswap-core";
+import { Currency, CurrencyAmount, Price } from "sdkcore18";
 import { DetailLineItem, LineItemData } from "components/swap/DetailLineItem";
 import TradePrice from "components/swap/TradePrice";
 import { Trans } from "i18n";

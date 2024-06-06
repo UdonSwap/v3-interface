@@ -1,12 +1,12 @@
 import { formatEther } from "@ethersproject/units";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useUSDPrice } from "hooks/useUSDPrice";
 import useNativeCurrency from "lib/hooks/useNativeCurrency";
 import tryParseCurrencyAmount from "lib/utils/tryParseCurrencyAmount";
 import { GenieAsset } from "nft/types";
 
 export const useNativeUsdPrice = (
-  chainId: number = ChainId.MAINNET,
+  chainId: number = ChainId.MODE,
 ): number => {
   const nativeCurrency = useNativeCurrency(chainId);
   const parsedAmount = tryParseCurrencyAmount("1", nativeCurrency);
@@ -19,7 +19,7 @@ export function useUsdPriceofNftAsset(asset: GenieAsset): string | undefined {
 
   return fetchedPriceData && asset?.priceInfo?.ETHPrice
     ? (
-        parseFloat(formatEther(asset?.priceInfo?.ETHPrice)) * fetchedPriceData
-      ).toString()
+      parseFloat(formatEther(asset?.priceInfo?.ETHPrice)) * fetchedPriceData
+    ).toString()
     : "";
 }

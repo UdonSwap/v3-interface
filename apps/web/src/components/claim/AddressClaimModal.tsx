@@ -1,5 +1,5 @@
 import { isAddress } from "@ethersproject/address";
-import { CurrencyAmount, Token } from "udonswap-core";
+import { CurrencyAmount, Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { Trans } from "i18n";
 import { useState } from "react";
@@ -16,7 +16,7 @@ import { shortenAddress } from "utilities/src/addresses";
 
 import Circle from "../../assets/images/circle.gif";
 import tokenLogo from "../../assets/images/token-logo.png";
-import useENS from "../../hooks/useENS";
+// import useENS from "../../hooks/useENS";
 import {
   useClaimCallback,
   useUserHasAvailableClaim,
@@ -71,7 +71,7 @@ export default function AddressClaimModal({
   isOpen: boolean;
   onDismiss: () => void;
 }) {
-  const { chainId } = useWeb3React();
+  const { chainId, account } = useWeb3React();
 
   // state for smart contract input
   const [typed, setTyped] = useState("");
@@ -80,18 +80,18 @@ export default function AddressClaimModal({
   }
 
   // monitor for third party recipient of claim
-  const { address: parsedAddress } = useENS(typed);
+  // const { address: parsedAddress } = useENS(typed);
 
   // used for UI loading states
   const [attempting, setAttempting] = useState<boolean>(false);
 
   // monitor the status of the claim from contracts and txns
-  const { claimCallback } = useClaimCallback(parsedAddress);
+  const { claimCallback } = useClaimCallback(account);
   const unclaimedAmount: CurrencyAmount<Token> | undefined =
-    useUserUnclaimedAmount(parsedAddress);
+    useUserUnclaimedAmount(account);
 
   // check if the user has something available
-  const hasAvailableClaim = useUserHasAvailableClaim(parsedAddress);
+  const hasAvailableClaim = useUserHasAvailableClaim(account);
 
   const [hash, setHash] = useState<string | undefined>();
 
@@ -163,13 +163,13 @@ export default function AddressClaimModal({
               </Trans>
             </ThemedText.DeprecatedSubHeader>
             <AddressInputPanel value={typed} onChange={handleRecipientType} />
-            {parsedAddress && !hasAvailableClaim && (
+            {account && !hasAvailableClaim && (
               <ThemedText.DeprecatedError error={true}>
                 <Trans>Address has no available claim</Trans>
               </ThemedText.DeprecatedError>
             )}
             <ButtonPrimary
-              disabled={!isAddress(parsedAddress ?? "") || !hasAvailableClaim}
+              disabled={!isAddress(account ?? "") || !hasAvailableClaim}
               padding="16px 16px"
               width="100%"
               $borderRadius="12px"
@@ -214,14 +214,12 @@ export default function AddressClaimModal({
                   <Trans>{{ unclaimedUni }} UNI</Trans>
                 </Text>
               )}
-              {parsedAddress && (
+              {account && (
                 <ThemedText.DeprecatedLargeHeader
                   fontWeight={535}
                   color="black"
                 >
-                  <Trans>
-                    for {{ address: shortenAddress(parsedAddress) }}
-                  </Trans>
+                  <Trans>for {{ address: shortenAddress(account) }}</Trans>
                 </ThemedText.DeprecatedLargeHeader>
               )}
             </AutoColumn>

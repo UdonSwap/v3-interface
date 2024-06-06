@@ -1,6 +1,8 @@
 import { BigNumber } from "@ethersproject/bignumber";
 import type { TransactionResponse } from "@ethersproject/providers";
-import { ChainId, SUPPORTED_CHAINS, Token } from "udonswap-core";
+import { Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
+import { ALL_SUPPORTED_CHAIN_IDS } from "constants/chains";
 import { useWeb3React } from "@web3-react/core";
 import { getTransactionStatus } from "components/AccountDrawer/MiniPortfolio/Activity/parseLocal";
 import { SwapResult } from "hooks/useSwapCallback";
@@ -74,7 +76,7 @@ export function useTransactionCanceller() {
 
 export function useMultichainTransactions(): [TransactionDetails, ChainId][] {
   const state = useAppSelector((state) => state.transactions);
-  return SUPPORTED_CHAINS.flatMap((chainId) =>
+  return ALL_SUPPORTED_CHAIN_IDS.flatMap((chainId) =>
     state[chainId]
       ? Object.values(state[chainId]).map(
           (tx): [TransactionDetails, ChainId] => [tx, chainId],

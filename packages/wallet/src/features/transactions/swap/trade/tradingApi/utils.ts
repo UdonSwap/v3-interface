@@ -5,10 +5,10 @@ import {
   Percent,
   Token,
   TradeType,
-} from "udonswap-core";
-import { MixedRouteSDK } from "udonswap-router";
+} from "sdkcore18";
+import { MixedRouteSDK } from "routersdk18";
 import { Pair, Route as V2Route } from "udonswap-v2-sdk";
-import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3";
+import { FeeAmount, Pool, Route as V3Route } from "v3sdk18";
 import { logger } from "utilities/src/logger/logger";
 import { MAX_AUTO_SLIPPAGE_TOLERANCE } from "wallet/src/constants/transactions";
 import {
@@ -73,12 +73,12 @@ export function transformTradingApiResponseToTrade(
 
   const swapFee: SwapFee | undefined =
     data?.quote.portionAmount !== undefined &&
-    data?.quote?.portionBips !== undefined
+      data?.quote?.portionBips !== undefined
       ? {
-          recipient: data.quote.portionRecipient,
-          percent: new Percent(data.quote.portionBips, "10000"),
-          amount: data?.quote.portionAmount,
-        }
+        recipient: data.quote.portionRecipient,
+        percent: new Percent(data.quote.portionBips, "10000"),
+        amount: data?.quote.portionAmount,
+      }
       : undefined;
 
   return new Trade({
@@ -112,12 +112,12 @@ export function computeRoutesTradingApi(
   quoteResponse?: QuoteResponse
 ):
   | {
-      routev3: V3Route<Currency, Currency> | null;
-      routev2: V2Route<Currency, Currency> | null;
-      mixedRoute: MixedRouteSDK<Currency, Currency> | null;
-      inputAmount: CurrencyAmount<Currency>;
-      outputAmount: CurrencyAmount<Currency>;
-    }[]
+    routev3: V3Route<Currency, Currency> | null;
+    routev2: V2Route<Currency, Currency> | null;
+    mixedRoute: MixedRouteSDK<Currency, Currency> | null;
+    inputAmount: CurrencyAmount<Currency>;
+    outputAmount: CurrencyAmount<Currency>;
+  }[]
   | undefined {
   // TODO : remove quote type check for Uniswap X integration
   if (
@@ -186,25 +186,25 @@ export function computeRoutesTradingApi(
       return {
         routev3: isOnlyV3
           ? new V3Route(
-              route.map(parseV3PoolApi),
-              parsedCurrencyIn,
-              parsedCurrencyOut
-            )
+            route.map(parseV3PoolApi),
+            parsedCurrencyIn,
+            parsedCurrencyOut
+          )
           : null,
         routev2: isOnlyV2
           ? new V2Route(
-              route.map(parseV2PairApi),
-              parsedCurrencyIn,
-              parsedCurrencyOut
-            )
+            route.map(parseV2PairApi),
+            parsedCurrencyIn,
+            parsedCurrencyOut
+          )
           : null,
         mixedRoute:
           !isOnlyV3 && !isOnlyV2
             ? new MixedRouteSDK(
-                route.map(parseMixedRouteApi),
-                parsedCurrencyIn,
-                parsedCurrencyOut
-              )
+              route.map(parseMixedRouteApi),
+              parsedCurrencyIn,
+              parsedCurrencyOut
+            )
             : null,
         inputAmount,
         outputAmount,
@@ -397,10 +397,10 @@ export function validateTrade({
         ? trade.quoteData.quote?.quote
         : trade.quoteData.quote?.amount
       : isClassicQuote(trade.quoteData?.quote?.quote)
-      ? exactCurrencyField === CurrencyField.INPUT
-        ? trade.quoteData.quote.quote.input?.amount
-        : trade.quoteData.quote.quote.output?.amount
-      : undefined;
+        ? exactCurrencyField === CurrencyField.INPUT
+          ? trade.quoteData.quote.quote.input?.amount
+          : trade.quoteData.quote.quote.output?.amount
+        : undefined;
 
   const tokenAddressesMatch = inputsMatch && outputsMatch;
   const exactAmountsMatch = exactAmount?.toExact() !== exactAmountFromQuote;
@@ -408,8 +408,7 @@ export function validateTrade({
   if (!(tokenAddressesMatch && exactAmountsMatch)) {
     logger.error(
       new Error(
-        `Mismatched ${
-          !tokenAddressesMatch ? "address" : "exact amount"
+        `Mismatched ${!tokenAddressesMatch ? "address" : "exact amount"
         } in swap trade`
       ),
       {

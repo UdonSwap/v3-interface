@@ -1,5 +1,6 @@
 import { InterfacePageName } from "@uniswap/analytics-events";
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { Trace } from "analytics";
 import {
@@ -88,7 +89,7 @@ function useSwapInitialInputCurrency() {
 
 function TDPSwapComponent() {
   const { address, currency, currencyChain, warning } = useTDPContext();
-  const appChainId = useWeb3React().chainId ?? ChainId.MAINNET;
+  const appChainId = useWeb3React().chainId ?? ChainId.MODE;
   const navigate = useNavigate();
 
   const handleCurrencyChange = useCallback(

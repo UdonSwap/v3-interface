@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { Flex, Text } from "ui/src";
 import { useLocalizationContext } from "wallet/src/features/language/LocalizationContext";
 import { FeeOnTransferWarning } from "wallet/src/features/transactions/swap/modals/FeeOnTransferWarning";

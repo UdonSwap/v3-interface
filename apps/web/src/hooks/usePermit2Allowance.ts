@@ -1,5 +1,5 @@
 import { PERMIT2_ADDRESS } from "udonswap-permit2";
-import { CurrencyAmount, Token } from "udonswap-core";
+import { CurrencyAmount, Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { AVERAGE_L1_BLOCK_TIME } from "constants/chainInfo";
 import {
@@ -51,9 +51,9 @@ interface AllowanceRequired {
 export type Allowance =
   | { state: AllowanceState.LOADING }
   | {
-      state: AllowanceState.ALLOWED;
-      permitSignature?: PermitSignature;
-    }
+    state: AllowanceState.ALLOWED;
+    permitSignature?: PermitSignature;
+  }
   | AllowanceRequired;
 
 export default function usePermit2Allowance(

@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import AppJsonRpcProvider from "rpc/AppJsonRpcProvider";
 
 import ConfiguredJsonRpcProvider from "rpc/ConfiguredJsonRpcProvider";
@@ -19,18 +19,18 @@ function getAppProvider(chainId: SupportedInterfaceChain) {
 
 /** These are the only JsonRpcProviders used directly by the interface. */
 export const RPC_PROVIDERS = {
-  [ChainId.MAINNET]: getAppProvider(ChainId.MAINNET),
+  // [ChainId.MAINNET]: getAppProvider(ChainId.MAINNET),
   [ChainId.MODE]: getAppProvider(ChainId.MODE),
-  [ChainId.GOERLI]: getAppProvider(ChainId.GOERLI),
-  [ChainId.SEPOLIA]: getAppProvider(ChainId.SEPOLIA),
-  [ChainId.OPTIMISM]: getAppProvider(ChainId.OPTIMISM),
-  [ChainId.OPTIMISM_GOERLI]: getAppProvider(ChainId.OPTIMISM_GOERLI),
-  [ChainId.ARBITRUM_ONE]: getAppProvider(ChainId.ARBITRUM_ONE),
-  [ChainId.ARBITRUM_GOERLI]: getAppProvider(ChainId.ARBITRUM_GOERLI),
-  [ChainId.POLYGON]: getAppProvider(ChainId.POLYGON),
-  [ChainId.POLYGON_MUMBAI]: getAppProvider(ChainId.POLYGON_MUMBAI),
-  [ChainId.BNB]: getAppProvider(ChainId.BNB),
-  [ChainId.AVALANCHE]: getAppProvider(ChainId.AVALANCHE),
-  [ChainId.BASE]: getAppProvider(ChainId.BASE),
-  [ChainId.BLAST]: getAppProvider(ChainId.BLAST),
+  // [ChainId.GOERLI]: getAppProvider(ChainId.GOERLI),
+  // [ChainId.SEPOLIA]: getAppProvider(ChainId.SEPOLIA),
+  // [ChainId.OPTIMISM]: getAppProvider(ChainId.OPTIMISM),
+  // [ChainId.OPTIMISM_GOERLI]: getAppProvider(ChainId.OPTIMISM_GOERLI),
+  // [ChainId.ARBITRUM_ONE]: getAppProvider(ChainId.ARBITRUM_ONE),
+  // [ChainId.ARBITRUM_GOERLI]: getAppProvider(ChainId.ARBITRUM_GOERLI),
+  // [ChainId.POLYGON]: getAppProvider(ChainId.POLYGON),
+  // [ChainId.POLYGON_MUMBAI]: getAppProvider(ChainId.POLYGON_MUMBAI),
+  // [ChainId.BNB]: getAppProvider(ChainId.BNB),
+  // [ChainId.AVALANCHE]: getAppProvider(ChainId.AVALANCHE),
+  // [ChainId.BASE]: getAppProvider(ChainId.BASE),
+  // [ChainId.BLAST]: getAppProvider(ChainId.BLAST),
 } satisfies Record<SupportedInterfaceChain, AppJsonRpcProvider>;

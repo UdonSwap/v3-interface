@@ -1,4 +1,4 @@
-import { CurrencyAmount } from "udonswap-core";
+import { CurrencyAmount } from "sdkcore18";
 import { URADutchOrderQuoteResponse } from "state/routing/types";
 import { USDC_MAINNET } from "../../../src/constants/tokens";
 import { getBalance, getTestSelector } from "../../utils";

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import { Flex, Icons, Text, TouchableArea } from "ui/src";
 import { iconSizes } from "ui/src/theme";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";

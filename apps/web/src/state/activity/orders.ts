@@ -1,4 +1,4 @@
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import ms from "ms";
 import { useEffect, useState } from "react";

@@ -11,26 +11,26 @@ import { getExploreTitle } from "./getExploreTitle";
 // High-traffic pages (index and /swap) should not be lazy-loaded.
 import Swap from "./Swap";
 
-const NftExplore = lazy(() => import("nft/pages/explore"));
-const Collection = lazy(() => import("nft/pages/collection"));
-const Profile = lazy(() => import("nft/pages/profile"));
-const Asset = lazy(() => import("nft/pages/asset/Asset"));
+// const NftExplore = lazy(() => import("nft/pages/explore"));
+// const Collection = lazy(() => import("nft/pages/collection"));
+// const Profile = lazy(() => import("nft/pages/profile"));
+// const Asset = lazy(() => import("nft/pages/asset/Asset"));
 const AddLiquidityWithTokenRedirects = lazy(
   () => import("pages/AddLiquidity/redirects"),
 );
-const AddLiquidityV2WithTokenRedirects = lazy(
-  () => import("pages/AddLiquidityV2/redirects"),
-);
+// const AddLiquidityV2WithTokenRedirects = lazy(
+//   () => import("pages/AddLiquidityV2/redirects"),
+// );
 const RedirectExplore = lazy(() => import("pages/Explore/redirects"));
 
-const MigrateV2 = lazy(() => import("pages/MigrateV2"));
-const MigrateV2Pair = lazy(() => import("pages/MigrateV2/MigrateV2Pair"));
+// const MigrateV2 = lazy(() => import("pages/MigrateV2"));
+// const MigrateV2Pair = lazy(() => import("pages/MigrateV2/MigrateV2Pair"));
 const NotFound = lazy(() => import("pages/NotFound"));
 const Pool = lazy(() => import("pages/Pool"));
 const PositionPage = lazy(() => import("pages/Pool/PositionPage"));
 const PoolDetails = lazy(() => import("pages/PoolDetails"));
-const PoolFinder = lazy(() => import("pages/PoolFinder"));
-const RemoveLiquidity = lazy(() => import("pages/RemoveLiquidity"));
+// const PoolFinder = lazy(() => import("pages/PoolFinder"));
+// const RemoveLiquidity = lazy(() => import("pages/RemoveLiquidity"));
 const RemoveLiquidityV3 = lazy(() => import("pages/RemoveLiquidity/V3"));
 const TokenDetails = lazy(() => import("pages/TokenDetails"));
 const Vote = lazy(() => import("pages/Vote"));

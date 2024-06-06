@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import Row from "components/Row";
 import Tooltip, { TooltipSize } from "components/Tooltip";
 import useCopyClipboard from "hooks/useCopyClipboard";
@@ -30,7 +30,8 @@ export const BreadcrumbNavLink = styled(Link)`
   text-decoration: none;
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0) rgba(222, 255, 2, 0.35) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0) rgba(222, 255, 2, 0.35) rgba(0, 0, 0, 0)
+    rgba(0, 0, 0, 0);
   border-image: initial;
 
   &:hover {

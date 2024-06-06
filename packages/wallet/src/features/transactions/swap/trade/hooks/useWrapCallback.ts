@@ -1,6 +1,6 @@
 import { providers } from "ethers";
 import { useMemo } from "react";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import { logger } from "utilities/src/logger/logger";
 import { isWrapAction } from "wallet/src/features/transactions/swap/utils";
 import {

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import { ApprovalState, useApproval } from "lib/hooks/useApproval";
 import { useCallback } from "react";
 

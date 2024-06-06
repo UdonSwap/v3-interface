@@ -4,7 +4,7 @@ import {
   Fraction,
   Price,
   Token,
-} from "udonswap-core";
+} from "sdkcore18";
 import { parseUnits } from "ethers/lib/utils";
 import JSBI from "jsbi";
 import { useStablecoinAmountFromFiatValue } from "./useStablecoinPrice";
@@ -19,9 +19,9 @@ function useMarketPrice(baseCurrency?: Currency, quoteCurrency?: Currency) {
   const baseCurrencyUSDPrice = useUSDPrice(
     baseCurrency
       ? CurrencyAmount.fromRawAmount(
-          baseCurrency,
-          JSBI.BigInt(parseUnits("1", baseCurrency?.decimals)),
-        )
+        baseCurrency,
+        JSBI.BigInt(parseUnits("1", baseCurrency?.decimals)),
+      )
       : undefined,
     baseCurrency,
   );
@@ -32,9 +32,9 @@ function useMarketPrice(baseCurrency?: Currency, quoteCurrency?: Currency) {
   const quoteCurrencyUSDPrice = useUSDPrice(
     quoteCurrency
       ? CurrencyAmount.fromRawAmount(
-          quoteCurrency,
-          JSBI.BigInt(parseUnits("1", quoteCurrency?.decimals)),
-        )
+        quoteCurrency,
+        JSBI.BigInt(parseUnits("1", quoteCurrency?.decimals)),
+      )
       : undefined,
     quoteCurrency,
   );

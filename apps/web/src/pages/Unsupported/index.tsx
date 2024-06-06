@@ -1,7 +1,7 @@
 import React from "react";
 import "./unsupported.css";
 import network from "../../assets/images/network.gif";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import useSelectChain from "hooks/useSelectChain";
 import useSyncChainQuery from "hooks/useSyncChainQuery";
 import { useCallback, useState } from "react";

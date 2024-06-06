@@ -1,4 +1,4 @@
-import { Token } from "udonswap-core";
+import { Token } from "sdkcore18";
 import Badge, { BadgeVariant } from "components/Badge";
 import { Trans } from "i18n";
 import { transparentize } from "polished";

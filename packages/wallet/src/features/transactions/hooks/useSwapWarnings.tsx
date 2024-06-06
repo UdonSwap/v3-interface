@@ -2,7 +2,7 @@ import { useNetInfo } from "@react-native-community/netinfo";
 import { TFunction } from "i18next";
 import _ from "lodash";
 import { useTranslation } from "react-i18next";
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { isWeb } from "ui/src";
 import { normalizePriceImpact } from "utilities/src/format/normalizePriceImpact";
 import { useMemoCompare } from "utilities/src/react/hooks";

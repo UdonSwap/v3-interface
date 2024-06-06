@@ -5,10 +5,10 @@ import {
   Percent,
   Token,
   TradeType,
-} from "udonswap-core";
-import { MixedRouteSDK } from "udonswap-router";
+} from "sdkcore18";
+import { MixedRouteSDK } from "routersdk18";
 import { Pair, Route as V2Route } from "udonswap-v2-sdk";
-import { FeeAmount, Pool, Route as V3Route } from "udonswap-v3";
+import { FeeAmount, Pool, Route as V3Route } from "v3sdk18";
 import { MAX_AUTO_SLIPPAGE_TOLERANCE } from "wallet/src/constants/transactions";
 import { NativeCurrency } from "wallet/src/features/tokens/NativeCurrency";
 import {
@@ -43,12 +43,12 @@ export function transformQuoteToTrade(
 
   const swapFee: SwapFee | undefined =
     quoteResult?.portionAmount !== undefined &&
-    quoteResult?.portionBips !== undefined
+      quoteResult?.portionBips !== undefined
       ? {
-          recipient: quoteResult.portionRecipient,
-          percent: new Percent(quoteResult.portionBips, "10000"),
-          amount: quoteResult.portionAmount,
-        }
+        recipient: quoteResult.portionRecipient,
+        percent: new Percent(quoteResult.portionBips, "10000"),
+        amount: quoteResult.portionAmount,
+      }
       : undefined;
 
   return new Trade({
@@ -100,12 +100,12 @@ export function computeRoutes(
   quoteResult?: Pick<QuoteResult, "route">
 ):
   | {
-      routev3: V3Route<Currency, Currency> | null;
-      routev2: V2Route<Currency, Currency> | null;
-      mixedRoute: MixedRouteSDK<Currency, Currency> | null;
-      inputAmount: CurrencyAmount<Currency>;
-      outputAmount: CurrencyAmount<Currency>;
-    }[]
+    routev3: V3Route<Currency, Currency> | null;
+    routev2: V2Route<Currency, Currency> | null;
+    mixedRoute: MixedRouteSDK<Currency, Currency> | null;
+    inputAmount: CurrencyAmount<Currency>;
+    outputAmount: CurrencyAmount<Currency>;
+  }[]
   | undefined {
   if (!quoteResult || !quoteResult.route) {
     return;
@@ -159,25 +159,25 @@ export function computeRoutes(
       return {
         routev3: isOnlyV3
           ? new V3Route(
-              route.map(parsePool),
-              parsedCurrencyIn,
-              parsedCurrencyOut
-            )
+            route.map(parsePool),
+            parsedCurrencyIn,
+            parsedCurrencyOut
+          )
           : null,
         routev2: isOnlyV2
           ? new V2Route(
-              route.map(parsePair),
-              parsedCurrencyIn,
-              parsedCurrencyOut
-            )
+            route.map(parsePair),
+            parsedCurrencyIn,
+            parsedCurrencyOut
+          )
           : null,
         mixedRoute:
           !isOnlyV3 && !isOnlyV2
             ? new MixedRouteSDK(
-                route.map(parsePoolOrPair),
-                parsedCurrencyIn,
-                parsedCurrencyOut
-              )
+              route.map(parsePoolOrPair),
+              parsedCurrencyIn,
+              parsedCurrencyOut
+            )
             : null,
         inputAmount,
         outputAmount,

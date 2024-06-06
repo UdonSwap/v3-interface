@@ -1,5 +1,5 @@
 import { SkipToken, skipToken } from "@reduxjs/toolkit/query/react";
-import { Currency, CurrencyAmount, TradeType } from "udonswap-core";
+import { Currency, CurrencyAmount, TradeType } from "sdkcore18";
 import { useMemo } from "react";
 import {
   GetQuoteArgs,
@@ -40,28 +40,28 @@ export function useRoutingAPIArguments({
   return useMemo(
     () =>
       !tokenIn ||
-      !tokenOut ||
-      !amount ||
-      tokenIn.equals(tokenOut) ||
-      tokenIn.wrapped.equals(tokenOut.wrapped)
+        !tokenOut ||
+        !amount ||
+        tokenIn.equals(tokenOut) ||
+        tokenIn.wrapped.equals(tokenOut.wrapped)
         ? skipToken
         : {
-            account,
-            amount: amount.quotient.toString(),
-            tokenInAddress: currencyAddressForSwapQuote(tokenIn),
-            tokenInChainId: tokenIn.chainId,
-            tokenInDecimals: tokenIn.wrapped.decimals,
-            tokenInSymbol: tokenIn.wrapped.symbol,
-            tokenOutAddress: currencyAddressForSwapQuote(tokenOut),
-            tokenOutChainId: tokenOut.wrapped.chainId,
-            tokenOutDecimals: tokenOut.wrapped.decimals,
-            tokenOutSymbol: tokenOut.wrapped.symbol,
-            routerPreference,
-            tradeType,
-            needsWrapIfUniswapX: tokenIn.isNative,
-            uniswapXForceSyntheticQuotes,
-            sendPortionEnabled,
-          },
+          account,
+          amount: amount.quotient.toString(),
+          tokenInAddress: currencyAddressForSwapQuote(tokenIn),
+          tokenInChainId: tokenIn.chainId,
+          tokenInDecimals: tokenIn.wrapped.decimals,
+          tokenInSymbol: tokenIn.wrapped.symbol,
+          tokenOutAddress: currencyAddressForSwapQuote(tokenOut),
+          tokenOutChainId: tokenOut.wrapped.chainId,
+          tokenOutDecimals: tokenOut.wrapped.decimals,
+          tokenOutSymbol: tokenOut.wrapped.symbol,
+          routerPreference,
+          tradeType,
+          needsWrapIfUniswapX: tokenIn.isNative,
+          uniswapXForceSyntheticQuotes,
+          sendPortionEnabled,
+        },
     [
       account,
       amount,

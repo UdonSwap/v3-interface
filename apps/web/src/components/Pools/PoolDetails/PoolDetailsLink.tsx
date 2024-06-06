@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { EtherscanLogo } from "components/Icons/Etherscan";
 import { ExplorerIcon } from "components/Icons/ExplorerIcon";
 import CurrencyLogo from "components/Logo/CurrencyLogo";
@@ -217,7 +217,7 @@ export function PoolDetailsLink({
             data-testid={`explorer-url-${explorerUrl}`}
           >
             <ExplorerWrapper>
-              {chainId === ChainId.MAINNET ? (
+              {/* {chainId === ChainId.MAINNET ? (
                 <EtherscanLogo
                   width="16px"
                   height="16px"
@@ -229,7 +229,14 @@ export function PoolDetailsLink({
                   height="16px"
                   fill={theme.neutral1}
                 />
-              )}
+              )} */}
+              {
+                <ExplorerIcon
+                  width="16px"
+                  height="16px"
+                  fill={theme.neutral1}
+                />
+              }
             </ExplorerWrapper>
           </ExternalLink>
         )}

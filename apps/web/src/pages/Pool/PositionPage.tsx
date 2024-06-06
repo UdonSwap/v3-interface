@@ -6,15 +6,15 @@ import {
   LiquiditySource,
 } from "@uniswap/analytics-events";
 import {
-  ChainId,
   Currency,
   CurrencyAmount,
   Fraction,
   Percent,
   Price,
   Token,
-} from "udonswap-core";
-import { NonfungiblePositionManager, Pool, Position } from "udonswap-v3";
+} from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
+import { NonfungiblePositionManager, Pool, Position } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, Trace } from "analytics";
 import Badge from "components/Badge";
@@ -1029,7 +1029,7 @@ function PositionPageContent() {
                       <AutoColumn gap="md">
                         <RowBetween>
                           <LinkedCurrency
-                            chainId={chainId ?? ChainId.MAINNET}
+                            chainId={chainId ?? ChainId.MODE}
                             currency={currencyQuote}
                           />
                           <RowFixed>
@@ -1053,7 +1053,7 @@ function PositionPageContent() {
                         </RowBetween>
                         <RowBetween>
                           <LinkedCurrency
-                            chainId={chainId ?? ChainId.MAINNET}
+                            chainId={chainId ?? ChainId.MODE}
                             currency={currencyBase}
                           />
                           <RowFixed>

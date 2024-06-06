@@ -1,5 +1,5 @@
 import { InterfaceEventName } from "@uniswap/analytics-events";
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent } from "analytics";
 import { Trans } from "i18n";

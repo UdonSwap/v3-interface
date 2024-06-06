@@ -1,4 +1,4 @@
-import { FeeAmount } from "udonswap-v3";
+import { FeeAmount } from "v3sdk18";
 import { ButtonGray } from "components/Button";
 import { OutlineCard } from "components/Card";
 import { AutoColumn } from "components/Column";

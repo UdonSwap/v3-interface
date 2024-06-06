@@ -1,4 +1,4 @@
-import { Currency, TradeType } from "udonswap-core";
+import { Currency, TradeType } from "sdkcore18";
 import i18n from "uniswap/src/i18n/i18n";
 import { CHAIN_INFO } from "wallet/src/constants/chains";
 import { toSupportedChainId } from "wallet/src/features/chains/utils";
@@ -55,14 +55,14 @@ export const formApproveNotificationTitle = (
   const address = shortenAddress(spender);
   return txStatus === TransactionStatus.Success
     ? i18n.t("notification.transaction.approve.success", {
-        currencySymbol: currencyDisplayText,
-        address,
-      })
+      currencySymbol: currencyDisplayText,
+      address,
+    })
     : txStatus === TransactionStatus.Canceled
-    ? i18n.t("notification.transaction.approve.canceled", {
+      ? i18n.t("notification.transaction.approve.canceled", {
         currencySymbol: currencyDisplayText,
       })
-    : i18n.t("notification.transaction.approve.fail", {
+      : i18n.t("notification.transaction.approve.fail", {
         currencySymbol: currencyDisplayText,
         address,
       });
@@ -106,15 +106,15 @@ export const formSwapNotificationTitle = (
 
   return txStatus === TransactionStatus.Success
     ? i18n.t("notification.transaction.swap.success", {
-        inputCurrencyAmountWithSymbol,
-        outputCurrencyAmountWithSymbol,
-      })
+      inputCurrencyAmountWithSymbol,
+      outputCurrencyAmountWithSymbol,
+    })
     : txStatus === TransactionStatus.Canceled
-    ? i18n.t("notification.transaction.swap.canceled", {
+      ? i18n.t("notification.transaction.swap.canceled", {
         inputCurrencySymbol,
         outputCurrencySymbol,
       })
-    : i18n.t("notification.transaction.swap.fail", {
+      : i18n.t("notification.transaction.swap.fail", {
         inputCurrencyAmountWithSymbol,
         outputCurrencyAmountWithSymbol,
       });
@@ -148,27 +148,27 @@ export const formWrapNotificationTitle = (
   if (unwrapped) {
     return txStatus === TransactionStatus.Success
       ? i18n.t("notification.transaction.unwrap.success", {
-          inputCurrencyAmountWithSymbol,
-          outputCurrencyAmountWithSymbol,
-        })
+        inputCurrencyAmountWithSymbol,
+        outputCurrencyAmountWithSymbol,
+      })
       : txStatus === TransactionStatus.Canceled
-      ? i18n.t("notification.transaction.unwrap.canceled", {
+        ? i18n.t("notification.transaction.unwrap.canceled", {
           inputCurrencySymbol,
         })
-      : i18n.t("notification.transaction.unwrap.fail", {
+        : i18n.t("notification.transaction.unwrap.fail", {
           inputCurrencyAmountWithSymbol,
         });
   }
   return txStatus === TransactionStatus.Success
     ? i18n.t("notification.transaction.wrap.success", {
-        inputCurrencyAmountWithSymbol,
-        outputCurrencyAmountWithSymbol,
-      })
+      inputCurrencyAmountWithSymbol,
+      outputCurrencyAmountWithSymbol,
+    })
     : txStatus === TransactionStatus.Canceled
-    ? i18n.t("notification.transaction.wrap.canceled", {
+      ? i18n.t("notification.transaction.wrap.canceled", {
         inputCurrencySymbol,
       })
-    : i18n.t("notification.transaction.wrap.fail", {
+      : i18n.t("notification.transaction.wrap.fail", {
         inputCurrencyAmountWithSymbol,
       });
 };
@@ -245,14 +245,14 @@ const formTransferTxTitle = (
   if (txType === TransactionType.Send) {
     return txStatus === TransactionStatus.Success
       ? i18n.t("notification.transaction.transfer.success", {
-          tokenNameOrAddress,
-          walletNameOrAddress,
-        })
+        tokenNameOrAddress,
+        walletNameOrAddress,
+      })
       : txStatus === TransactionStatus.Canceled
-      ? i18n.t("notification.transaction.transfer.canceled", {
+        ? i18n.t("notification.transaction.transfer.canceled", {
           tokenNameOrAddress,
         })
-      : i18n.t("notification.transaction.transfer.fail", {
+        : i18n.t("notification.transaction.transfer.fail", {
           tokenNameOrAddress,
           walletNameOrAddress,
         });

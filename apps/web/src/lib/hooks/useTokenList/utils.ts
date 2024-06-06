@@ -1,4 +1,4 @@
-import { TokenInfo, TokenList } from '@uniswap/token-lists'
+import { TokenInfo, TokenList } from 'udonswap-token-lists'
 import { TokenFromList } from 'state/lists/tokenFromList'
 
 type TokenMap = Readonly<{ [tokenAddress: string]: { token: TokenFromList; list?: TokenList } }>

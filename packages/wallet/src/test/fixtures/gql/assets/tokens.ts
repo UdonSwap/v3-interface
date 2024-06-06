@@ -1,4 +1,4 @@
-import { Token as SDKToken } from "udonswap-core";
+import { Token as SDKToken } from "sdkcore18";
 import {
   Currency,
   HistoryDuration,

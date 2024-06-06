@@ -1,6 +1,6 @@
 import { AnyAction } from "@reduxjs/toolkit";
 import { useCallback } from "react";
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { flowToModalName } from "wallet/src/components/TokenSelector/flowToModalName";
 import { AssetType } from "wallet/src/entities/assets";
 import { SearchContext } from "wallet/src/features/search/SearchContext";

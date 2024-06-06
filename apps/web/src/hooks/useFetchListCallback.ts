@@ -1,6 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { ChainId } from "udonswap-core";
-import { TokenList } from "@uniswap/token-lists";
+import { ChainId } from "smartorderrouter18";
+import { TokenList } from "udonswap-token-lists";
 import { RPC_PROVIDERS } from "constants/providers";
 import getTokenList from "lib/hooks/useTokenList/fetchTokenList";
 import resolveENSContentHash from "lib/utils/resolveENSContentHash";
@@ -21,7 +21,7 @@ export function useFetchListCallback(): (
       return getTokenList(
         listUrl,
         (ensName: string) =>
-          resolveENSContentHash(ensName, RPC_PROVIDERS[ChainId.MAINNET]),
+          resolveENSContentHash(ensName, RPC_PROVIDERS[ChainId.MODE]),
         skipValidation,
       )
         .then((tokenList) => {

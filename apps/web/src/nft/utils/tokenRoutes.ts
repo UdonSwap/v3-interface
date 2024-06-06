@@ -1,7 +1,7 @@
-import { IRoute, Protocol } from "udonswap-router";
-import { Currency, CurrencyAmount } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk";
-import { Pool } from "udonswap-v3";
+import { IRoute, Protocol } from "routersdk18";
+import { Currency, CurrencyAmount } from "sdkcore18";
+// import { Pair } from "udonswap-v2-sdk";
+import { Pool } from "v3sdk18";
 import { ClassicTrade } from "state/routing/types";
 import {
   TokenAmountInput,
@@ -20,7 +20,7 @@ interface TradeTokenInputAmounts {
 }
 
 interface Swap {
-  route: IRoute<Currency, Currency, Pair | Pool>;
+  route: IRoute<Currency, Currency, Pool>;
   inputAmount: CurrencyAmount<Currency>;
   outputAmount: CurrencyAmount<Currency>;
 }
@@ -54,56 +54,56 @@ function buildTradeRouteInputAmounts(
   };
 }
 
-function buildPool(pool: Pair | Pool): TradePoolInput {
+function buildPool(pool: Pool): TradePoolInput {
   const isPool = "fee" in pool;
 
   return {
-    pair: !isPool
-      ? {
-          tokenAmountA: {
-            amount: pool.reserve0.quotient.toString(),
-            token: {
-              address: pool.token0.address,
-              chainId: pool.token0.chainId,
-              decimals: pool.token0.decimals,
-              isNative: pool.token0.isNative,
-            },
-          },
-          tokenAmountB: {
-            amount: pool.reserve1.quotient.toString(),
-            token: {
-              address: pool.token1.address,
-              chainId: pool.token1.chainId,
-              decimals: pool.token1.decimals,
-              isNative: pool.token1.isNative,
-            },
-          },
-        }
-      : undefined,
+    // pair: !isPool
+    //   ? {
+    //     tokenAmountA: {
+    //       amount: pool.reserve0.quotient.toString(),
+    //       token: {
+    //         address: pool.token0.address,
+    //         chainId: pool.token0.chainId,
+    //         decimals: pool.token0.decimals,
+    //         isNative: pool.token0.isNative,
+    //       },
+    //     },
+    //     tokenAmountB: {
+    //       amount: pool.reserve1.quotient.toString(),
+    //       token: {
+    //         address: pool.token1.address,
+    //         chainId: pool.token1.chainId,
+    //         decimals: pool.token1.decimals,
+    //         isNative: pool.token1.isNative,
+    //       },
+    //     },
+    //   }
+    //   : undefined,
     pool: isPool
       ? {
-          fee: pool.fee,
-          liquidity: pool.liquidity.toString(),
-          sqrtRatioX96: pool.sqrtRatioX96.toString(),
-          tickCurrent: pool.tickCurrent.toString(),
-          tokenA: {
-            address: pool.token0.address,
-            chainId: pool.token0.chainId,
-            decimals: pool.token0.decimals,
-            isNative: pool.token0.isNative,
-          },
-          tokenB: {
-            address: pool.token1.address,
-            chainId: pool.token1.chainId,
-            decimals: pool.token1.decimals,
-            isNative: pool.token1.isNative,
-          },
-        }
+        fee: pool.fee,
+        liquidity: pool.liquidity.toString(),
+        sqrtRatioX96: pool.sqrtRatioX96.toString(),
+        tickCurrent: pool.tickCurrent.toString(),
+        tokenA: {
+          address: pool.token0.address,
+          chainId: pool.token0.chainId,
+          decimals: pool.token0.decimals,
+          isNative: pool.token0.isNative,
+        },
+        tokenB: {
+          address: pool.token1.address,
+          chainId: pool.token1.chainId,
+          decimals: pool.token1.decimals,
+          isNative: pool.token1.isNative,
+        },
+      }
       : undefined,
   };
 }
 
-function buildPools(pools: (Pair | Pool)[]): TradePoolInput[] {
+function buildPools(pools: (Pool)[]): TradePoolInput[] {
   return pools.map((pool) => buildPool(pool));
 }
 
@@ -129,13 +129,13 @@ export function buildAllTradeRouteInputs(trade: ClassicTrade): {
   const swaps = trade.swaps;
 
   for (const swap of swaps) {
-    if (swap.route.protocol === Protocol.MIXED) {
-      mixedTokenTradeRouteInputs.push(buildTradeRouteInput(swap));
-    } else if (swap.route.protocol === Protocol.V2) {
-      v2TokenTradeRouteInputs.push(buildTradeRouteInput(swap));
-    } else {
-      v3TokenTradeRouteInputs.push(buildTradeRouteInput(swap));
-    }
+    // if (swap.route.protocol === Protocol.MIXED) {
+    //   mixedTokenTradeRouteInputs.push(buildTradeRouteInput(swap));
+    // } else if (swap.route.protocol === Protocol.V2) {
+    //   v2TokenTradeRouteInputs.push(buildTradeRouteInput(swap));
+    // } else {
+    v3TokenTradeRouteInputs.push(buildTradeRouteInput(swap));
+    // }
   }
 
   return {

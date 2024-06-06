@@ -1,4 +1,4 @@
-import { Price, Token } from "udonswap-core";
+import { Price, Token } from "sdkcore18";
 import {
   FeeAmount,
   TICK_SPACINGS,
@@ -6,7 +6,7 @@ import {
   encodeSqrtRatioX96,
   nearestUsableTick,
   priceToClosestTick,
-} from "udonswap-v3";
+} from "v3sdk18";
 import JSBI from "jsbi";
 
 export function tryParsePrice(

@@ -1,5 +1,6 @@
-import { ChainId, CurrencyAmount, Token } from "udonswap-core";
-import { FeeAmount } from "udonswap-v3";
+import { CurrencyAmount, Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
+import { FeeAmount } from "v3sdk18";
 import { ChartHeader } from "components/Charts/ChartHeader";
 import { Chart } from "components/Charts/ChartModel";
 import {
@@ -215,7 +216,7 @@ export default function ChartSection(props: ChartSectionProps) {
       timePeriod,
       tokenA: currencyA.wrapped,
       tokenB: currencyB.wrapped,
-      chainId: supportedChainIdFromGQLChain(props.chain) ?? ChainId.MAINNET,
+      chainId: supportedChainIdFromGQLChain(props.chain) ?? ChainId.MODE,
     };
 
     // TODO(WEB-3740): Integrate BE tick query, remove special casing for liquidity chart

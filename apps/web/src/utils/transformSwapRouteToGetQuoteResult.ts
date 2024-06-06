@@ -1,12 +1,12 @@
-import { Protocol } from "udonswap-router";
-import { Currency, CurrencyAmount, TradeType } from "udonswap-core";
+import { Protocol } from "routersdk18";
+import { Currency, CurrencyAmount, TradeType } from "sdkcore18";
 // This file is lazy-loaded, so the import of smart-order-router-v3 is intentional.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import {
   routeAmountsToString,
   SwapRoute,
-} from "udonswap-smart-order-router-v3";
-import { Pool } from "udonswap-v3";
+} from "smartorderrouter18";
+import { Pool } from "v3sdk18";
 import {
   ClassicQuoteData,
   QuoteResult,
@@ -37,10 +37,7 @@ export function transformSwapRouteToGetQuoteResult(
   for (const subRoute of route) {
     const { amount, quote, tokenPath } = subRoute;
 
-    const pools =
-      subRoute.protocol === Protocol.V2
-        ? subRoute.route.pairs
-        : subRoute.route.pools;
+    const pools = subRoute.route.pools;
     const curRoute: (V3PoolInRoute | V2PoolInRoute)[] = [];
     for (let i = 0; i < pools.length; i++) {
       const nextPool = pools[i];
@@ -85,46 +82,47 @@ export function transformSwapRouteToGetQuoteResult(
           amountIn: edgeAmountIn,
           amountOut: edgeAmountOut,
         });
-      } else {
-        const reserve0 = nextPool.reserve0;
-        const reserve1 = nextPool.reserve1;
-
-        curRoute.push({
-          type: "v2-pool",
-          tokenIn: {
-            chainId: tokenIn.chainId,
-            decimals: tokenIn.decimals,
-            address: tokenIn.address,
-            symbol: tokenIn.symbol,
-          },
-          tokenOut: {
-            chainId: tokenOut.chainId,
-            decimals: tokenOut.decimals,
-            address: tokenOut.address,
-            symbol: tokenOut.symbol,
-          },
-          reserve0: {
-            token: {
-              chainId: reserve0.currency.wrapped.chainId,
-              decimals: reserve0.currency.wrapped.decimals,
-              address: reserve0.currency.wrapped.address,
-              symbol: reserve0.currency.wrapped.symbol,
-            },
-            quotient: reserve0.quotient.toString(),
-          },
-          reserve1: {
-            token: {
-              chainId: reserve1.currency.wrapped.chainId,
-              decimals: reserve1.currency.wrapped.decimals,
-              address: reserve1.currency.wrapped.address,
-              symbol: reserve1.currency.wrapped.symbol,
-            },
-            quotient: reserve1.quotient.toString(),
-          },
-          amountIn: edgeAmountIn,
-          amountOut: edgeAmountOut,
-        });
       }
+      // else {
+      //   const reserve0 = nextPool.reserve0;
+      //   const reserve1 = nextPool.reserve1;
+
+      //   curRoute.push({
+      //     type: "v2-pool",
+      //     tokenIn: {
+      //       chainId: tokenIn.chainId,
+      //       decimals: tokenIn.decimals,
+      //       address: tokenIn.address,
+      //       symbol: tokenIn.symbol,
+      //     },
+      //     tokenOut: {
+      //       chainId: tokenOut.chainId,
+      //       decimals: tokenOut.decimals,
+      //       address: tokenOut.address,
+      //       symbol: tokenOut.symbol,
+      //     },
+      //     reserve0: {
+      //       token: {
+      //         chainId: reserve0.currency.wrapped.chainId,
+      //         decimals: reserve0.currency.wrapped.decimals,
+      //         address: reserve0.currency.wrapped.address,
+      //         symbol: reserve0.currency.wrapped.symbol,
+      //       },
+      //       quotient: reserve0.quotient.toString(),
+      //     },
+      //     reserve1: {
+      //       token: {
+      //         chainId: reserve1.currency.wrapped.chainId,
+      //         decimals: reserve1.currency.wrapped.decimals,
+      //         address: reserve1.currency.wrapped.address,
+      //         symbol: reserve1.currency.wrapped.symbol,
+      //       },
+      //       quotient: reserve1.quotient.toString(),
+      //     },
+      //     amountIn: edgeAmountIn,
+      //     amountOut: edgeAmountOut,
+      //   });
+      // }
     }
 
     routeResponse.push(curRoute);

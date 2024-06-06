@@ -1,4 +1,4 @@
-import { Token } from "udonswap-core";
+import { Token } from "sdkcore18";
 import { PriceChartData } from "components/Charts/PriceChart";
 import { SingleHistogramData } from "components/Charts/VolumeChart/renderer";
 import { ChartType } from "components/Charts/utils";

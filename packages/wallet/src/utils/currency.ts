@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { LocalizationContextState } from "wallet/src/features/language/LocalizationContext";
 import { getValidAddress, shortenAddress } from "wallet/src/utils/addresses";
 import {

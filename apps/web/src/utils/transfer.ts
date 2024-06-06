@@ -1,6 +1,7 @@
 import { TransactionRequest } from "@ethersproject/abstract-provider";
 import type { Web3Provider } from "@ethersproject/providers";
-import { ChainId, Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { useWeb3React } from "@web3-react/core";
 import { useCallback } from "react";
 import ERC20_ABI from "uniswap/src/abis/erc20.json";

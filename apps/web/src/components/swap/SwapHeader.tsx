@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { Trans } from "i18n";
 import { useSwapAndLimitContext, useSwapContext } from "state/swap/hooks";
 import styled from "styled-components";
@@ -52,10 +52,7 @@ export default function SwapHeader({
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (
-      PathnameToTab[pathname] === SwapTab.Limit &&
-      (!limitsEnabled || chainId !== ChainId.MAINNET)
-    ) {
+    if (PathnameToTab[pathname] === SwapTab.Limit && (!limitsEnabled || true)) {
       navigate(`/${SwapTab.Swap}`, { replace: true });
       return;
     }
@@ -64,7 +61,7 @@ export default function SwapHeader({
   }, [chainId, limitsEnabled, navigate, pathname, setCurrentTab]);
 
   // Limits is only available on mainnet for now
-  if (chainId !== ChainId.MAINNET && currentTab === SwapTab.Limit) {
+  if (true && currentTab === SwapTab.Limit) {
     setCurrentTab(SwapTab.Swap);
   }
 
@@ -94,7 +91,7 @@ export default function SwapHeader({
         >
           <Trans>Swap</Trans>
         </SwapHeaderTabButton>
-        {limitsEnabled && chainId === ChainId.MAINNET && (
+        {limitsEnabled && false && (
           <SwapHeaderTabButton
             as={pathname === "/limit" ? "h1" : "button"}
             role="button"
@@ -106,18 +103,17 @@ export default function SwapHeader({
             <Trans>Limit</Trans>
           </SwapHeaderTabButton>
         )}
-        
-          <SwapHeaderTabButton
-            as={pathname === "/send" ? "h1" : "button"}
-            role="button"
-            $isActive={currentTab === SwapTab.Send}
-            onClick={() => {
-              onTab(SwapTab.Send);
-            }}
-          >
-            <Trans>Send</Trans>
-          </SwapHeaderTabButton>
-        
+
+        <SwapHeaderTabButton
+          as={pathname === "/send" ? "h1" : "button"}
+          role="button"
+          $isActive={currentTab === SwapTab.Send}
+          onClick={() => {
+            onTab(SwapTab.Send);
+          }}
+        >
+          <Trans>Send</Trans>
+        </SwapHeaderTabButton>
       </HeaderButtonContainer>
       {currentTab === SwapTab.Swap && (
         <RowFixed>

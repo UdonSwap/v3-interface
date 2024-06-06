@@ -1,4 +1,5 @@
-import { ChainId, NativeCurrency, Token } from "udonswap-core";
+import { NativeCurrency, Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { nativeOnChain } from "constants/tokens";
 import { useMemo } from "react";
 
@@ -10,7 +11,7 @@ export default function useNativeCurrency(
       chainId
         ? nativeOnChain(chainId)
         : // display mainnet when not connected
-          nativeOnChain(ChainId.MAINNET),
+        nativeOnChain(ChainId.MODE),
     [chainId],
   );
 }
