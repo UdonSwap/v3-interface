@@ -7,7 +7,7 @@ import {
   TradeType,
 } from "sdkcore18";
 import { MixedRouteSDK } from "routersdk18";
-import { Pair, Route as V2Route } from "udonswap-v2-sdk";
+// import { Pair, Route as V2Route } from "udonswap-v2-sdk";
 import { FeeAmount, Pool, Route as V3Route } from "v3sdk18";
 import { logger } from "utilities/src/logger/logger";
 import { MAX_AUTO_SLIPPAGE_TOLERANCE } from "wallet/src/constants/transactions";
@@ -85,18 +85,18 @@ export function transformTradingApiResponseToTrade(
     quoteData: { quote: data, quoteType: QuoteType.TradingApi },
     deadline,
     slippageTolerance: slippageTolerance ?? MAX_AUTO_SLIPPAGE_TOLERANCE,
+    // v2Routes:
+    //   routes?.flatMap((r) =>
+    //     r?.routev2 ? { ...r, routev2: r.routev2 } : []
+    //   ) ?? [],
     v2Routes:
       routes?.flatMap((r) =>
         r?.routev2 ? { ...r, routev2: r.routev2 } : []
       ) ?? [],
-    v3Routes:
-      routes?.flatMap((r) =>
-        r?.routev3 ? { ...r, routev3: r.routev3 } : []
-      ) ?? [],
-    mixedRoutes:
-      routes?.flatMap((r) =>
-        r?.mixedRoute ? { ...r, mixedRoute: r.mixedRoute } : []
-      ) ?? [],
+    // mixedRoutes:
+    //   routes?.flatMap((r) =>
+    //     r?.mixedRoute ? { ...r, mixedRoute: r.mixedRoute } : []
+    //   ) ?? [],
     tradeType,
     swapFee,
   });
@@ -112,8 +112,8 @@ export function computeRoutesTradingApi(
   quoteResponse?: QuoteResponse
 ):
   | {
-    routev3: V3Route<Currency, Currency> | null;
-    routev2: V2Route<Currency, Currency> | null;
+    routev2: V3Route<Currency, Currency> | null;
+    // routev2: V2Route<Currency, Currency> | null;
     mixedRoute: MixedRouteSDK<Currency, Currency> | null;
     inputAmount: CurrencyAmount<Currency>;
     outputAmount: CurrencyAmount<Currency>;
@@ -160,7 +160,7 @@ export function computeRoutesTradingApi(
     : parseTokenApi(tokenOut);
 
   try {
-    return quote.route.map((route) => {
+    return quote.route.map((route: any) => {
       if (route.length === 0) {
         throw new Error("Expected route to have at least one pair or pool");
       }
@@ -180,7 +180,7 @@ export function computeRoutesTradingApi(
         throw new Error("Expected both amountIn and amountOut to be present");
       }
 
-      const isOnlyV2 = isV2OnlyRouteApi(route);
+      // const isOnlyV2 = isV2OnlyRouteApi(route);
       const isOnlyV3 = isV3OnlyRouteApi(route);
 
       return {
@@ -191,21 +191,21 @@ export function computeRoutesTradingApi(
             parsedCurrencyOut
           )
           : null,
-        routev2: isOnlyV2
-          ? new V2Route(
-            route.map(parseV2PairApi),
-            parsedCurrencyIn,
-            parsedCurrencyOut
-          )
-          : null,
-        mixedRoute:
-          !isOnlyV3 && !isOnlyV2
-            ? new MixedRouteSDK(
-              route.map(parseMixedRouteApi),
-              parsedCurrencyIn,
-              parsedCurrencyOut
-            )
-            : null,
+        // routev2: isOnlyV2
+        //   ? new V2Route(
+        //     route.map(parseV2PairApi),
+        //     parsedCurrencyIn,
+        //     parsedCurrencyOut
+        //   )
+        //   : null,
+        // mixedRoute:
+        //   !isOnlyV3 && !isOnlyV2
+        //     ? new MixedRouteSDK(
+        //       route.map(parseMixedRouteApi),
+        //       parsedCurrencyIn,
+        //       parsedCurrencyOut
+        //     )
+        //     : null,
         inputAmount,
         outputAmount,
       };
@@ -229,8 +229,8 @@ function parseTokenApi(token: TradingApiTokenInRoute): Token {
     symbol,
     /**name=*/ undefined,
     false,
-    buyFeeBps ? BigNumber.from(buyFeeBps) : undefined,
-    sellFeeBps ? BigNumber.from(sellFeeBps) : undefined
+    // buyFeeBps ? BigNumber.from(buyFeeBps) : undefined,
+    // sellFeeBps ? BigNumber.from(sellFeeBps) : undefined
   );
 }
 
@@ -262,38 +262,38 @@ function parseV3PoolApi({
   );
 }
 
-function parseV2PairApi({ reserve0, reserve1 }: TradingApiV2PoolInRoute): Pair {
-  if (
-    !reserve0?.token ||
-    !reserve1?.token ||
-    !reserve0.quotient ||
-    !reserve1.quotient
-  ) {
-    throw new Error("Expected pool values to be present");
-  }
-  return new Pair(
-    CurrencyAmount.fromRawAmount(
-      parseTokenApi(reserve0.token),
-      reserve0.quotient
-    ),
-    CurrencyAmount.fromRawAmount(
-      parseTokenApi(reserve1.token),
-      reserve1.quotient
-    )
-  );
-}
+// function parseV2PairApi({ reserve0, reserve1 }: TradingApiV2PoolInRoute): Pair {
+//   if (
+//     !reserve0?.token ||
+//     !reserve1?.token ||
+//     !reserve0.quotient ||
+//     !reserve1.quotient
+//   ) {
+//     throw new Error("Expected pool values to be present");
+//   }
+//   return new Pair(
+//     CurrencyAmount.fromRawAmount(
+//       parseTokenApi(reserve0.token),
+//       reserve0.quotient
+//     ),
+//     CurrencyAmount.fromRawAmount(
+//       parseTokenApi(reserve1.token),
+//       reserve1.quotient
+//     )
+//   );
+// }
 
-function parseMixedRouteApi(
-  pool: TradingApiV2PoolInRoute | TradingApiV3PoolInRoute
-): Pair | Pool {
-  return pool.type === "v2-pool" ? parseV2PairApi(pool) : parseV3PoolApi(pool);
-}
+// function parseMixedRouteApi(
+//   pool: TradingApiV2PoolInRoute | TradingApiV3PoolInRoute
+// ): Pair | Pool {
+//   return pool.type === "v2-pool" ? parseV2PairApi(pool) : parseV3PoolApi(pool);
+// }
 
-function isV2OnlyRouteApi(
-  route: (TradingApiV2PoolInRoute | TradingApiV3PoolInRoute)[]
-): boolean {
-  return route.every((pool) => pool.type === "v2-pool");
-}
+// function isV2OnlyRouteApi(
+//   route: (TradingApiV2PoolInRoute | TradingApiV3PoolInRoute)[]
+// ): boolean {
+//   return route.every((pool) => pool.type === "v2-pool");
+// }
 
 function isV3OnlyRouteApi(
   route: (TradingApiV2PoolInRoute | TradingApiV3PoolInRoute)[]

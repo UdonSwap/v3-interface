@@ -4,7 +4,7 @@ import {
   SwapEventName,
 } from "@uniswap/analytics-events";
 import { Currency, CurrencyAmount } from "sdkcore18";
-import { Pair } from "udonswap-v2-sdk";
+// import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import {
@@ -204,7 +204,7 @@ interface CurrencyInputPanelProps {
   onCurrencySelect?: (currency: Currency) => void;
   currency?: Currency | null;
   hideBalance?: boolean;
-  pair?: Pair | null;
+  pair?: null;
   hideInput?: boolean;
   otherCurrency?: Currency | null;
   fiatValue?: { data?: number; isLoading: boolean };
@@ -287,16 +287,17 @@ export default function CurrencyInputPanel({
                 >
                   <Aligner>
                     <RowFixed>
-                      {pair ? (
-                        <span style={{ marginRight: "0.5rem" }}>
-                          <DoubleCurrencyLogo
-                            currency0={pair.token0}
-                            currency1={pair.token1}
-                            size={24}
-                            margin={true}
-                          />
-                        </span>
-                      ) : (
+                      {
+                        // pair ? (
+                        //   <span style={{ marginRight: "0.5rem" }}>
+                        //     <DoubleCurrencyLogo
+                        //       currency0={pair.token0}
+                        //       currency1={pair.token1}
+                        //       size={24}
+                        //       margin={true}
+                        //     />
+                        //   </span>
+                        // ) :
                         currency && (
                           <CurrencyLogo
                             style={{ marginRight: "0.5rem" }}
@@ -304,12 +305,13 @@ export default function CurrencyInputPanel({
                             size="24px"
                           />
                         )
-                      )}
-                      {pair ? (
-                        <StyledTokenName className="pair-name-container">
-                          {pair?.token0.symbol}:{pair?.token1.symbol}
-                        </StyledTokenName>
-                      ) : (
+                      }
+                      {
+                        // pair ? (
+                        //   <StyledTokenName className="pair-name-container">
+                        //     {pair?.token0.symbol}:{pair?.token1.symbol}
+                        //   </StyledTokenName>
+                        // ) :
                         <StyledTokenName
                           className="token-symbol-container"
                           active={Boolean(currency && currency.symbol)}
@@ -327,7 +329,7 @@ export default function CurrencyInputPanel({
                             <Trans>Select a token</Trans>
                           )}
                         </StyledTokenName>
-                      )}
+                      }
                     </RowFixed>
                     {onCurrencySelect && (
                       <StyledDropDown selected={!!currency} />

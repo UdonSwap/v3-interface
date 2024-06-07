@@ -3,7 +3,7 @@ import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 import { providers } from "ethers";
 import { Currency, CurrencyAmount, Percent, TradeType } from "sdkcore18";
 import { MixedRouteSDK, Trade as RouterSDKTrade } from "routersdk18";
-import { Route as V2RouteSDK } from "udonswap-v2-sdk";
+// import { Route as V2RouteSDK } from "udonswap-v2-sdk";
 import { Route as V3RouteSDK } from "v3sdk18";
 import { PollingInterval } from "wallet/src/constants/misc";
 import { QuoteResponse } from "wallet/src/data/tradingApi/__generated__/index";
@@ -37,21 +37,21 @@ export class Trade<
     readonly swapFee?: SwapFee;
     readonly deadline: number;
     readonly slippageTolerance: number;
+    // readonly v2Routes: {
+    //   routev2: V2RouteSDK<TInput, TOutput>;
+    //   inputAmount: CurrencyAmount<TInput>;
+    //   outputAmount: CurrencyAmount<TOutput>;
+    // }[];
     readonly v2Routes: {
-      routev2: V2RouteSDK<TInput, TOutput>;
+      routev2: V3RouteSDK<TInput, TOutput>;
       inputAmount: CurrencyAmount<TInput>;
       outputAmount: CurrencyAmount<TOutput>;
     }[];
-    readonly v3Routes: {
-      routev3: V3RouteSDK<TInput, TOutput>;
-      inputAmount: CurrencyAmount<TInput>;
-      outputAmount: CurrencyAmount<TOutput>;
-    }[];
-    readonly mixedRoutes: {
-      mixedRoute: MixedRouteSDK<TInput, TOutput>;
-      inputAmount: CurrencyAmount<TInput>;
-      outputAmount: CurrencyAmount<TOutput>;
-    }[];
+    // readonly mixedRoutes: {
+    //   mixedRoute: MixedRouteSDK<TInput, TOutput>;
+    //   inputAmount: CurrencyAmount<TInput>;
+    //   outputAmount: CurrencyAmount<TOutput>;
+    // }[];
     readonly tradeType: TTradeType;
   }) {
     super(routes);

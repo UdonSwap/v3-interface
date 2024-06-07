@@ -7,8 +7,8 @@ import {
   Token,
   TradeType,
 } from "sdkcore18";
-import { DutchOrderInfo, DutchOrderInfoJSON } from "udonswapx-sdk";
-import { Pair, Route as V2Route } from "udonswap-v2-sdk";
+import { DutchOrderInfo, DutchOrderInfoJSON } from "@uniswap/uniswapx-sdk";
+// import { Pair } from "udonswap-v2-sdk";
 import { FeeAmount, Pool, Route as V3Route } from "v3sdk18";
 import { BIPS_BASE } from "constants/misc";
 import { nativeOnChain } from "constants/tokens";
@@ -103,9 +103,9 @@ export function computeRoutes(
   }
 }
 
-const parsePoolOrPair = (pool: V3PoolInRoute): Pool => {
-  return parsePool(pool)
-};
+// const parsePoolOrPair = (pool: V3PoolInRoute): Pool => {
+//   return parsePool(pool)
+// };
 
 function isVersionedRoute<T extends V2PoolInRoute | V3PoolInRoute>(
   type: T["type"],
@@ -424,11 +424,11 @@ function parsePool({
   );
 }
 
-const parsePair = ({ reserve0, reserve1 }: V2PoolInRoute): Pair =>
-  new Pair(
-    CurrencyAmount.fromRawAmount(parseToken(reserve0.token), reserve0.quotient),
-    CurrencyAmount.fromRawAmount(parseToken(reserve1.token), reserve1.quotient),
-  );
+// const parsePair = ({ reserve0, reserve1 }: V2PoolInRoute): Pair =>
+//   new Pair(
+//     CurrencyAmount.fromRawAmount(parseToken(reserve0.token), reserve0.quotient),
+//     CurrencyAmount.fromRawAmount(parseToken(reserve1.token), reserve1.quotient),
+//   );
 
 // TODO(WEB-2050): Convert other instances of tradeType comparison to use this utility function
 export function isExactInput(tradeType: TradeType): boolean {

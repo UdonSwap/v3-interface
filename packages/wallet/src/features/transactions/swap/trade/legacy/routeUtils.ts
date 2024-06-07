@@ -6,8 +6,8 @@ import {
   Token,
   TradeType,
 } from "sdkcore18";
-import { MixedRouteSDK } from "routersdk18";
-import { Pair, Route as V2Route } from "udonswap-v2-sdk";
+// import { MixedRouteSDK } from "routersdk18";
+// import { Pair, Route as V2Route } from "udonswap-v2-sdk";
 import { FeeAmount, Pool, Route as V3Route } from "v3sdk18";
 import { MAX_AUTO_SLIPPAGE_TOLERANCE } from "wallet/src/constants/transactions";
 import { NativeCurrency } from "wallet/src/features/tokens/NativeCurrency";
@@ -55,6 +55,16 @@ export function transformQuoteToTrade(
     quoteData: { quote: quoteResult, quoteType: QuoteType.RoutingApi },
     deadline,
     slippageTolerance: slippageTolerance ?? MAX_AUTO_SLIPPAGE_TOLERANCE,
+    // v2Routes:
+    //   routes
+    //     ?.filter((r) => r.routev2 !== null)
+    //     .map(({ routev2, inputAmount, outputAmount }) => ({
+    //       // should figure out how to properly type the inner route type
+    //       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    //       routev2: routev2!,
+    //       inputAmount,
+    //       outputAmount,
+    //     })) ?? [],
     v2Routes:
       routes
         ?.filter((r) => r.routev2 !== null)
@@ -65,26 +75,16 @@ export function transformQuoteToTrade(
           inputAmount,
           outputAmount,
         })) ?? [],
-    v3Routes:
-      routes
-        ?.filter((r) => r.routev3 !== null)
-        .map(({ routev3, inputAmount, outputAmount }) => ({
-          // should figure out how to properly type the inner route type
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          routev3: routev3!,
-          inputAmount,
-          outputAmount,
-        })) ?? [],
-    mixedRoutes:
-      routes
-        ?.filter((r) => r.mixedRoute !== null)
-        .map(({ mixedRoute, inputAmount, outputAmount }) => ({
-          // should figure out how to properly type the inner route type
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          mixedRoute: mixedRoute!,
-          inputAmount,
-          outputAmount,
-        })) ?? [],
+    // mixedRoutes:
+    //   routes
+    //     ?.filter((r) => r.mixedRoute !== null)
+    //     .map(({ mixedRoute, inputAmount, outputAmount }) => ({
+    //       // should figure out how to properly type the inner route type
+    //       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    //       mixedRoute: mixedRoute!,
+    //       inputAmount,
+    //       outputAmount,
+    //     })) ?? [],
     tradeType,
     swapFee,
   });
@@ -100,9 +100,9 @@ export function computeRoutes(
   quoteResult?: Pick<QuoteResult, "route">
 ):
   | {
-    routev3: V3Route<Currency, Currency> | null;
-    routev2: V2Route<Currency, Currency> | null;
-    mixedRoute: MixedRouteSDK<Currency, Currency> | null;
+    routev2: V3Route<Currency, Currency> | null;
+    // routev2: V2Route<Currency, Currency> | null;
+    // mixedRoute: MixedRouteSDK<Currency, Currency> | null;
     inputAmount: CurrencyAmount<Currency>;
     outputAmount: CurrencyAmount<Currency>;
   }[]
@@ -153,32 +153,32 @@ export function computeRoutes(
         throw new Error("Expected both amountIn and amountOut to be present");
       }
 
-      const isOnlyV2 = isV2OnlyRoute(route);
+      // const isOnlyV2 = isV2OnlyRoute(route);
       const isOnlyV3 = isV3OnlyRoute(route);
 
       return {
-        routev3: isOnlyV3
+        routev2: isOnlyV3
           ? new V3Route(
             route.map(parsePool),
             parsedCurrencyIn,
             parsedCurrencyOut
           )
           : null,
-        routev2: isOnlyV2
-          ? new V2Route(
-            route.map(parsePair),
-            parsedCurrencyIn,
-            parsedCurrencyOut
-          )
-          : null,
-        mixedRoute:
-          !isOnlyV3 && !isOnlyV2
-            ? new MixedRouteSDK(
-              route.map(parsePoolOrPair),
-              parsedCurrencyIn,
-              parsedCurrencyOut
-            )
-            : null,
+        // routev2: isOnlyV2
+        //   ? new V2Route(
+        //     route.map(parsePair),
+        //     parsedCurrencyIn,
+        //     parsedCurrencyOut
+        //   )
+        //   : null,
+        // mixedRoute:
+        //   !isOnlyV3 && !isOnlyV2
+        //     ? new MixedRouteSDK(
+        //       route.map(parsePoolOrPair),
+        //       parsedCurrencyIn,
+        //       parsedCurrencyOut
+        //     )
+        //     : null,
         inputAmount,
         outputAmount,
       };
@@ -204,14 +204,14 @@ const parseToken = ({
     symbol,
     name,
     false,
-    buyFeeBps ? BigNumber.from(buyFeeBps) : undefined,
-    sellFeeBps ? BigNumber.from(sellFeeBps) : undefined
+    // buyFeeBps ? BigNumber.from(buyFeeBps) : undefined,
+    // sellFeeBps ? BigNumber.from(sellFeeBps) : undefined
   );
 };
 
-const parsePoolOrPair = (pool: V3PoolInRoute | V2PoolInRoute): Pool | Pair => {
-  return pool.type === PoolType.V3Pool ? parsePool(pool) : parsePair(pool);
-};
+// const parsePoolOrPair = (pool: V3PoolInRoute | V2PoolInRoute): Pool | Pair => {
+//   return pool.type === PoolType.V3Pool ? parsePool(pool) : parsePair(pool);
+// };
 
 const parsePool = ({
   fee,
@@ -230,17 +230,17 @@ const parsePool = ({
     parseInt(tickCurrent, 10)
   );
 
-const parsePair = ({ reserve0, reserve1 }: V2PoolInRoute): Pair =>
-  new Pair(
-    CurrencyAmount.fromRawAmount(parseToken(reserve0.token), reserve0.quotient),
-    CurrencyAmount.fromRawAmount(parseToken(reserve1.token), reserve1.quotient)
-  );
+// const parsePair = ({ reserve0, reserve1 }: V2PoolInRoute): Pair =>
+//   new Pair(
+//     CurrencyAmount.fromRawAmount(parseToken(reserve0.token), reserve0.quotient),
+//     CurrencyAmount.fromRawAmount(parseToken(reserve1.token), reserve1.quotient)
+//   );
 
-function isV2OnlyRoute(
-  route: (V3PoolInRoute | V2PoolInRoute)[]
-): route is V2PoolInRoute[] {
-  return route.every((pool) => pool.type === PoolType.V2Pool);
-}
+// function isV2OnlyRoute(
+//   route: (V3PoolInRoute | V2PoolInRoute)[]
+// ): route is V2PoolInRoute[] {
+//   return route.every((pool) => pool.type === PoolType.V2Pool);
+// }
 
 function isV3OnlyRoute(
   route: (V3PoolInRoute | V2PoolInRoute)[]

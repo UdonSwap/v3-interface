@@ -7,12 +7,12 @@
 
 // const PAIR_INTERFACE = new Interface(IUniswapV2PairJSON.abi);
 
-export enum PairState {
-  LOADING,
-  NOT_EXISTS,
-  EXISTS,
-  INVALID,
-}
+// export enum PairState {
+//   LOADING,
+//   NOT_EXISTS,
+//   EXISTS,
+//   INVALID,
+// }
 
 // export function useV2Pairs(
 //   currencies: [Currency | undefined, Currency | undefined][],

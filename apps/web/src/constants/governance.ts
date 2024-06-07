@@ -5,7 +5,7 @@
 //   GOVERNANCE_BRAVO_ADDRESSES,
 //   TIMELOCK_ADDRESSES,
 //   UNI_ADDRESSES,
-// } from "udonswap-core";
+// } from "sdkcore18";
 
 // export const COMMON_CONTRACT_NAMES: Record<
 //   number,

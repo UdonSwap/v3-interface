@@ -1,7 +1,7 @@
 import { TransactionRequest } from "@ethersproject/abstract-provider";
 import { Web3Provider } from "@ethersproject/providers";
 import { ChainId } from "smartorderrouter18";
-import { CosignedV2DutchOrder, DutchOrder } from "udonswapx-sdk";
+import { CosignedV2DutchOrder, DutchOrder } from "@uniswap/uniswapx-sdk";
 import {
   getYear,
   isSameDay,

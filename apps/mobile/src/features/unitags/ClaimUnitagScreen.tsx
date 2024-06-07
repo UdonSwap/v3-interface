@@ -16,7 +16,6 @@ import { SafeKeyboardOnboardingScreen } from "src/features/onboarding/SafeKeyboa
 import { UnitagName } from "src/features/unitags/UnitagName";
 import { OnboardingScreens, Screens, UnitagScreens } from "src/screens/Screens";
 import { useAddBackButton } from "src/utils/useAddBackButton";
-import { ADDRESS_ZERO } from "udonswap-v3";
 import {
   AnimatePresence,
   AnimatedFlex,
@@ -33,6 +32,7 @@ import { fonts, iconSizes, imageSizes, spacing } from "ui/src/theme";
 import { uniswapUrls } from "uniswap/src/constants/urls";
 import { logger } from "utilities/src/logger/logger";
 import { ONE_SECOND_MS } from "utilities/src/time/time";
+import { ADDRESS_ZERO } from "v3sdk18";
 import { TextInput } from "wallet/src/components/input/TextInput";
 import { WarningModal } from "wallet/src/components/modals/WarningModal/WarningModal";
 import { LearnMoreLink } from "wallet/src/components/text/LearnMoreLink";

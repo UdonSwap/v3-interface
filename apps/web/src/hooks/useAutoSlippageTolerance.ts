@@ -4,8 +4,8 @@ import {
   Trade,
 } from "routersdk18";
 import { Currency, CurrencyAmount, Percent, TradeType } from "sdkcore18";
-import { Pair } from "udonswap-v2-sdk";
-import { Pool } from "v3sdk18";
+// import { Pair } from "udonswap-v2-sdk";
+// import { Pool } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import {
   L2_CHAIN_IDS,
