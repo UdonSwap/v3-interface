@@ -1,5 +1,6 @@
 import { MaxUint256, PERMIT2_ADDRESS } from "udonswap-permit2";
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+// import { ChainId } from "smartorderrouter18"
 import { SupportedInterfaceChain } from "constants/chains";
 import { RPC_PROVIDERS } from "constants/providers";
 import { WRAPPED_NATIVE_CURRENCY } from "constants/tokens";
@@ -28,12 +29,12 @@ export async function getApproveInfo(
 
   // routing-api under estimates gas for Arbitrum swaps so it inflates cost per gas by a lot
   // so disable showing approves for Arbitrum until routing-api gives more accurate gas estimates
-  if (
-    currency.chainId === ChainId.ARBITRUM_ONE ||
-    currency.chainId === ChainId.ARBITRUM_GOERLI
-  ) {
-    return { needsApprove: false };
-  }
+  // if (
+  //   currency.chainId === ChainId.ARBITRUM_ONE ||
+  //   currency.chainId === ChainId.ARBITRUM_GOERLI
+  // ) {
+  //   return { needsApprove: false };
+  // }
 
   const provider = RPC_PROVIDERS[currency.chainId as SupportedInterfaceChain];
   const tokenContract = getContract(

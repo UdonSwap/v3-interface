@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { SearchToken } from "graphql/data/SearchTokens";
 import { TokenQueryData } from "graphql/data/Token";
@@ -16,7 +16,7 @@ export default function QueryTokenLogo(
   const chainId =
     (props.token?.chain
       ? supportedChainIdFromGQLChain(props.token?.chain)
-      : ChainId.MAINNET) ?? ChainId.MAINNET;
+      : ChainId.MODE) ?? ChainId.MODE;
   const currency = props.token ? gqlToCurrency(props.token) : undefined;
   const logoUrl = props.token?.project?.logoUrl;
 

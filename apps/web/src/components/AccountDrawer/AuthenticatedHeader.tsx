@@ -4,7 +4,7 @@ import {
   InterfaceEventName,
   SharedEventName,
 } from "@uniswap/analytics-events";
-import { CurrencyAmount, Token } from "udonswap-core";
+import { CurrencyAmount, Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent, sendAnalyticsEvent } from "analytics";
 import { ButtonEmphasis, ButtonSize, ThemeButton } from "components/Button";
@@ -19,7 +19,7 @@ import { LoadingBubble } from "components/Tokens/loading";
 import { getConnection } from "connection";
 import { useTokenBalancesQuery } from "graphql/data/apollo/TokenBalancesProvider";
 import { useDisableNFTRoutes } from "hooks/useDisableNFTRoutes";
-import useENSName from "hooks/useENSName";
+// import useENSName from "hooks/useENSName";
 import { Trans, t } from "i18n";
 import {
   useProfilePageState,
@@ -122,7 +122,7 @@ export default function AuthenticatedHeader({
   openSettings: () => void;
 }) {
   const { connector } = useWeb3React();
-  const { ENSName } = useENSName(account);
+  // const { ENSName } = useENSName(account);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const closeModal = useCloseModal();
@@ -218,7 +218,7 @@ export default function AuthenticatedHeader({
       <HeaderWrapper>
         <Status
           account={account}
-          ensUsername={ENSName}
+          ensUsername={""}
           uniswapUsername={unitag?.username}
           connection={connection}
         />

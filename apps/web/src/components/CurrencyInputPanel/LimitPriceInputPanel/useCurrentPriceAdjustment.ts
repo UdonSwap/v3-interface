@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Price } from "udonswap-core";
+import { Currency, CurrencyAmount, Fraction, Price } from "sdkcore18";
 import { parseUnits } from "ethers/lib/utils";
 import JSBI from "jsbi";
 import { useMemo } from "react";
@@ -10,13 +10,13 @@ export enum LimitPriceErrorType {
 
 type CurrentPriceAdjustmentResult =
   | {
-      currentPriceAdjustment: number;
-      priceError?: LimitPriceErrorType.BELOW_MARKET;
-    }
+    currentPriceAdjustment: number;
+    priceError?: LimitPriceErrorType.BELOW_MARKET;
+  }
   | {
-      currentPriceAdjustment: undefined;
-      priceError: LimitPriceErrorType.CALCULATION_ERROR;
-    };
+    currentPriceAdjustment: undefined;
+    priceError: LimitPriceErrorType.CALCULATION_ERROR;
+  };
 
 export function useCurrentPriceAdjustment({
   parsedLimitPrice,

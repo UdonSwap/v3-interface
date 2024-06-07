@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { ButtonLight } from "components/Button";
 import Column from "components/Column";
@@ -272,7 +272,7 @@ const TokenSymbolText = styled(ThemedText.BodyPrimary)`
  * @returns JSX.Element showing the Token's Logo, Chain logo if non-mainnet, and Token Symbol
  */
 export const TokenLinkCell = ({ token }: { token: Token }) => {
-  const chainId = supportedChainIdFromGQLChain(token.chain) ?? ChainId.MAINNET;
+  const chainId = supportedChainIdFromGQLChain(token.chain) ?? ChainId.MODE;
   const unwrappedToken = unwrapToken(chainId, token);
   const isNative = unwrappedToken.address === NATIVE_CHAIN_ID;
   const nativeCurrency = nativeOnChain(chainId);

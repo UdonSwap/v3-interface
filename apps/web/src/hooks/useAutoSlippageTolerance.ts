@@ -1,12 +1,11 @@
 import {
-  MixedRoute,
   partitionMixedRouteByProtocol,
   Protocol,
   Trade,
-} from "udonswap-router";
-import { Currency, CurrencyAmount, Percent, TradeType } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk";
-import { Pool } from "udonswap-v3";
+} from "routersdk18";
+import { Currency, CurrencyAmount, Percent, TradeType } from "sdkcore18";
+// import { Pair } from "udonswap-v2-sdk";
+// import { Pool } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import {
   L2_CHAIN_IDS,
@@ -46,39 +45,42 @@ function guesstimateGas(
   if (trade) {
     let gas = 0;
     for (const { route } of trade.swaps) {
-      if (route.protocol === Protocol.V2) {
-        gas +=
-          V2_SWAP_BASE_GAS_ESTIMATE +
-          route.pools.length * V2_SWAP_HOP_GAS_ESTIMATE;
-      } else if (route.protocol === Protocol.V3) {
+      // if (route.protocol === Protocol.V2) {
+      //   gas +=
+      //     V2_SWAP_BASE_GAS_ESTIMATE +
+      //     route.pools.length * V2_SWAP_HOP_GAS_ESTIMATE;
+      // } else 
+      if (route.protocol === Protocol.V3) {
         // V3 gas costs scale on initialized ticks being crossed, but we don't have that data here.
         // We bake in some tick crossings into the base 100k cost.
         gas +=
           V3_SWAP_BASE_GAS_ESTIMATE +
           route.pools.length * V3_SWAP_HOP_GAS_ESTIMATE;
-      } else if (route.protocol === Protocol.MIXED) {
-        const sections = partitionMixedRouteByProtocol(
-          route as MixedRoute<Currency, Currency>,
-        );
-        gas += sections.reduce((gas, section) => {
-          if (section.every((pool) => pool instanceof Pool)) {
-            return (
-              gas +
-              V3_SWAP_BASE_GAS_ESTIMATE +
-              section.length * V3_SWAP_HOP_GAS_ESTIMATE
-            );
-          } else if (section.every((pool) => pool instanceof Pair)) {
-            return (
-              gas +
-              V2_SWAP_BASE_GAS_ESTIMATE +
-              (section.length - 1) * V2_SWAP_HOP_GAS_ESTIMATE
-            );
-          } else {
-            console.warn("Invalid section");
-            return gas;
-          }
-        }, 0);
-      } else {
+      }
+      // else if (route.protocol === Protocol.MIXED) {
+      //   const sections = partitionMixedRouteByProtocol(
+      //     route as MixedRoute<Currency, Currency>,
+      //   );
+      //   gas += sections.reduce((gas, section) => {
+      //     if (section.every((pool) => pool instanceof Pool)) {
+      //       return (
+      //         gas +
+      //         V3_SWAP_BASE_GAS_ESTIMATE +
+      //         section.length * V3_SWAP_HOP_GAS_ESTIMATE
+      //       );
+      //     } else if (section.every((pool) => pool instanceof Pair)) {
+      //       return (
+      //         gas +
+      //         V2_SWAP_BASE_GAS_ESTIMATE +
+      //         (section.length - 1) * V2_SWAP_HOP_GAS_ESTIMATE
+      //       );
+      //     } else {
+      //       console.warn("Invalid section");
+      //       return gas;
+      //     }
+      //   }, 0);
+      // }
+      else {
         // fallback general gas estimation
         gas +=
           V3_SWAP_BASE_GAS_ESTIMATE +
@@ -143,8 +145,8 @@ export default function useClassicAutoSlippageTolerance(
     // if not, use local heuristic
     const dollarCostToUse =
       chainId &&
-      SUPPORTED_GAS_ESTIMATE_CHAIN_IDS.includes(chainId) &&
-      gasEstimateUSD
+        SUPPORTED_GAS_ESTIMATE_CHAIN_IDS.includes(chainId) &&
+        gasEstimateUSD
         ? gasEstimateUSD
         : gasCostStablecoinAmount;
 

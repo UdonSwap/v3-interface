@@ -1,4 +1,5 @@
-import { ChainId, Token } from "udonswap-core";
+import { Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { Interface } from "ethers/lib/utils";
 import ERC20_ABI from "uniswap/src/abis/erc20.json";
 import { Erc20Interface } from "uniswap/src/abis/types/Erc20";
@@ -57,20 +58,20 @@ function tryParseToken(address: string, chainId: ChainId, data: CallResult[]) {
       ? (Erc20.decodeFunctionResult("name", nameData.returnData)[0] as string)
       : nameDataBytes32.success
         ? (Erc20Bytes32.decodeFunctionResult(
-            "name",
-            nameDataBytes32.returnData,
-          )[0] as string)
+          "name",
+          nameDataBytes32.returnData,
+        )[0] as string)
         : undefined;
     const symbol = symbolData.success
       ? (Erc20.decodeFunctionResult(
-          "symbol",
-          symbolData.returnData,
-        )[0] as string)
+        "symbol",
+        symbolData.returnData,
+      )[0] as string)
       : symbolDataBytes32.success
         ? (Erc20Bytes32.decodeFunctionResult(
-            "symbol",
-            symbolDataBytes32.returnData,
-          )[0] as string)
+          "symbol",
+          symbolDataBytes32.returnData,
+        )[0] as string)
         : undefined;
     const decimals = decimalsData.success
       ? parseInt(decimalsData.returnData)
@@ -152,8 +153,8 @@ export async function getTokensAsync(
   // Caches tokens currently being fetched for further calls to use
   formattedAddresses.forEach(
     (address) =>
-      (TokenPromiseCache[buildCurrencyKey(chainId, address)] =
-        calledTokens.then((tokenMap) => tokenMap[address])),
+    (TokenPromiseCache[buildCurrencyKey(chainId, address)] =
+      calledTokens.then((tokenMap) => tokenMap[address])),
   );
 
   const tokenMap = await calledTokens;

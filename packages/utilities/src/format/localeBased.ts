@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 import {
   FormatterRule,
   StandardCurrency,
@@ -143,8 +143,8 @@ export function addFiatSymbolToNumber({
       ? parts[1]?.value
       : ""
     : parts[parts.length - 2]?.type === "literal"
-    ? parts[parts.length - 2]?.value
-    : "";
+      ? parts[parts.length - 2]?.value
+      : "";
 
   return isSymbolAtFront
     ? `${currencySymbol}${extra}${value}`

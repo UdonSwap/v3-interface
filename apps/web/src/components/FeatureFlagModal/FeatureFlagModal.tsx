@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { SmallButtonPrimary } from "components/Button";
 import Column from "components/Column";
 import {

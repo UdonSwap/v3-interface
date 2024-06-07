@@ -1,4 +1,5 @@
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import React from "react";
 import styled from "styled-components";
@@ -47,7 +48,7 @@ const LogoContainer = styled.div`
 export default function AssetLogo({
   currency,
 
-  chainId = ChainId.MAINNET,
+  chainId = ChainId.MODE,
   size = "24px",
   style,
 }: AssetLogoProps) {

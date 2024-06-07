@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { useMemo } from "react";
 
 import { useUnsupportedTokens } from "./Tokens";

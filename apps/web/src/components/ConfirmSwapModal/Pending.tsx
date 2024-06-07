@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { OrderContent } from "components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal";
 import Column, { ColumnCenter } from "components/Column";
@@ -114,9 +114,10 @@ export function Pending({
 
   const swapStatus = useSwapTransactionStatus(swapResult);
   const uniswapXOrder = useOrder(
-    swapResult?.type === TradeFillType.UniswapX
-      ? swapResult.response.orderHash
-      : "",
+    "",
+    // swapResult?.type === TradeFillType.UniswapX
+    //   ? swapResult.response.orderHash
+    //   : "",
   );
 
   const limitPlaced =
@@ -132,10 +133,8 @@ export function Pending({
   const transactionPending =
     revocationPending || tokenApprovalPending || wrapPending || swapPending;
 
-  const showSubmitted =
-    swapPending && !swapConfirmed && chainId === ChainId.MAINNET;
-  const showSuccess =
-    swapConfirmed || (chainId !== ChainId.MAINNET && swapPending);
+  const showSubmitted = swapPending && !swapConfirmed && false; // chainId === ChainId.MAINNET;
+  const showSuccess = swapConfirmed || (true && swapPending);
 
   const currentStepContainerRef = useRef<HTMLDivElement>(null);
   useUnmountingAnimation(currentStepContainerRef, () => AnimationType.EXITING);
@@ -153,7 +152,7 @@ export function Pending({
       return;
     }
     return getExplorerLink(
-      chainId || ChainId.MAINNET,
+      chainId || ChainId.MODE,
       txHash,
       ExplorerDataType.TRANSACTION,
     );

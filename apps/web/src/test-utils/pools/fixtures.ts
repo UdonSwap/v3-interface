@@ -1,7 +1,8 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { ChainId, Currency, WETH9 } from "udonswap-core";
-import { FeeAmount, Pool, Position } from "udonswap-v3";
-import { USDC_MAINNET } from "constants/tokens";
+import { Currency, WETH9 } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
+import { FeeAmount, Pool, Position } from "v3sdk18";
+import { USDC_MODE } from "constants/tokens";
 import { PoolData } from "graphql/data/pools/usePoolData";
 import { Token } from "graphql/thegraph/__generated__/types-and-hooks";
 import { Token as BEToken } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
@@ -59,8 +60,8 @@ export const validBEPoolToken1 = {
 export const owner = "0xf5b6bb25f5beaea03dd014c6ef9fa9f3926bf36c";
 
 const pool = new Pool(
-  USDC_MAINNET,
-  WETH9[ChainId.MAINNET],
+  USDC_MODE,
+  WETH9[ChainId.MODE],
   FeeAmount.MEDIUM,
   "1851127709498178402383049949138810",
   "7076437181775065414",
@@ -77,8 +78,8 @@ const details = {
   nonce: BigNumber.from("0"),
   tokenId: BigNumber.from("0"),
   operator: "0x0",
-  token0: USDC_MAINNET.address,
-  token1: WETH9[ChainId.MAINNET].address,
+  token0: USDC_MODE.address,
+  token1: WETH9[ChainId.MODE].address,
   fee: FeeAmount.MEDIUM,
   tickLower: -100,
   tickUpper: 100,
@@ -92,7 +93,7 @@ export const useMultiChainPositionsReturnValue = {
   positions: [
     {
       owner,
-      chainId: ChainId.MAINNET,
+      chainId: ChainId.MODE,
       position,
       pool,
       details,

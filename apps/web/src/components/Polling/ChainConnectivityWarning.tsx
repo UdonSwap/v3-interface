@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { getChainInfoOrDefault, L2ChainInfo } from "constants/chainInfo";
 import { Trans } from "i18n";
@@ -63,14 +63,15 @@ export function ChainConnectivityWarning() {
         </TitleText>
       </TitleRow>
       <BodyRow>
-        {chainId === ChainId.MAINNET ? (
+        {/* {chainId === ChainId.MAINNET ? (
           <Trans>You may have lost your network connection.</Trans>
-        ) : (
-          <Trans>
-            {{ label }} might be down right now, or you may have lost your
-            network connection.
-          </Trans>
-        )}{" "}
+        ) :
+         ( */}
+        <Trans>
+          {{ label }} might be down right now, or you may have lost your network
+          connection.
+        </Trans>
+        {/* )}{" "} */}
         {(info as unknown as L2ChainInfo).statusPage !== undefined && (
           <span>
             <Trans>Check network status</Trans>{" "}

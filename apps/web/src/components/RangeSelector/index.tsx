@@ -1,4 +1,4 @@
-import { Currency, Price, Token } from "udonswap-core";
+import { Currency, Price, Token } from "sdkcore18";
 import StepCounter from "components/InputStepCounter/InputStepCounter";
 import { AutoRow } from "components/Row";
 import { Trans } from "i18n";

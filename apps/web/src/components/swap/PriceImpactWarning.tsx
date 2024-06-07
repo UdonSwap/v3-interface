@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { OutlineCard } from "components/Card";
 import { Trans } from "i18n";
 import styled, { useTheme } from "styled-components";

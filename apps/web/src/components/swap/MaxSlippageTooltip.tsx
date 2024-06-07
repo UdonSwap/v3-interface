@@ -1,4 +1,4 @@
-import { Percent, TradeType } from "udonswap-core";
+import { Percent, TradeType } from "sdkcore18";
 import Column from "components/Column";
 import { RowBetween } from "components/Row";
 import { Trans } from "i18n";

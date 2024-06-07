@@ -1,4 +1,5 @@
-import { ChainId, Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { exploreSearchStringAtom } from "components/Tokens/state";
 import { BIPS_BASE } from "constants/misc";
 import { OrderDirection, chainIdToBackendName } from "graphql/data/util";
@@ -147,7 +148,7 @@ export function useTopPools(sortState: PoolTableSortState, chainId?: ChainId) {
     data: dataV2,
   } = useTopV2PairsQuery({
     variables: { first: 100 },
-    skip: chainId !== ChainId.MAINNET,
+    skip: true // chainId !== ChainId.MAINNET,
   });
   const loading = loadingV3 || loadingV2;
 

@@ -5,7 +5,8 @@ import {
   InterfaceElementName,
   NFTEventName,
 } from "@uniswap/analytics-events";
-import { ChainId, Currency, CurrencyAmount, Token } from "udonswap-core";
+import { Currency, CurrencyAmount, Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent, sendAnalyticsEvent } from "analytics";
 import { useToggleAccountDrawer } from "components/AccountDrawer/MiniPortfolio/hooks";
@@ -349,7 +350,7 @@ export const BagFooter = ({
   const [tokenSelectorOpen, setTokenSelectorOpen] = useState(false);
   const isPending = PENDING_BAG_STATUSES.includes(bagStatus);
   const activeCurrency = inputCurrency ?? defaultCurrency;
-  const usingPayWithAnyToken = !!inputCurrency && chainId === ChainId.MAINNET;
+  const usingPayWithAnyToken = !!inputCurrency && false;
   const { universalRouterAddress, universalRouterAddressIsLoading } =
     useNftUniversalRouterAddress();
 
@@ -390,21 +391,21 @@ export const BagFooter = ({
 
   const { balance: balanceInEth } = useWalletBalance();
   const sufficientBalance = useMemo(() => {
-    if (!connected || chainId !== ChainId.MAINNET) {
+    if (!connected || true) {
       return undefined;
     }
 
-    if (inputCurrency) {
-      const inputAmount = trade?.inputAmount;
+    // if (inputCurrency) {
+    //   const inputAmount = trade?.inputAmount;
 
-      if (!inputCurrencyBalance || !inputAmount) {
-        return undefined;
-      }
+    //   if (!inputCurrencyBalance || !inputAmount) {
+    //     return undefined;
+    //   }
 
-      return !inputCurrencyBalance.lessThan(inputAmount);
-    }
+    //   return !inputCurrencyBalance.lessThan(inputAmount);
+    // }
 
-    return parseEther(balanceInEth).gte(totalEthPrice);
+    // return parseEther(balanceInEth).gte(totalEthPrice);
   }, [
     connected,
     chainId,
@@ -431,8 +432,8 @@ export const BagFooter = ({
     handleClick,
     buttonColor,
   } = useMemo((): BuyButtonStateData => {
-    if (connected && chainId !== ChainId.MAINNET) {
-      const handleClick = () => switchChain(connector, ChainId.MAINNET);
+    if (connected && true) {
+      const handleClick = () => switchChain(connector, ChainId.MODE);
       return getBuyButtonStateData(
         BuyButtonStates.NOT_SUPPORTED_CHAIN,
         theme,

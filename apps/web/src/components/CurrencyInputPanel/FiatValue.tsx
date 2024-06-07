@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import Row from "components/Row";
 import { LoadingBubble } from "components/Tokens/loading";
 import { MouseoverTooltip } from "components/Tooltip";

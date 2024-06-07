@@ -1,4 +1,4 @@
-import { CurrencyAmount, Token } from "udonswap-core";
+import { CurrencyAmount, Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { Trans } from "i18n";
 import { useCallback, useEffect } from "react";

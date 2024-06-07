@@ -1,4 +1,4 @@
-import { TokenInfo } from '@uniswap/token-lists'
+import { TokenInfo } from 'udonswap-token-lists'
 
 import { ListsState } from 'state/lists/types'
 import store from '../state'
@@ -24,12 +24,12 @@ class TokenSafetyLookupTable {
     this.initialized = true
 
     // Initialize extended tokens first
-    lists.byUrl[UNI_EXTENDED_LIST]?.current?.tokens.forEach((token) => {
+    lists.byUrl[UNI_EXTENDED_LIST]?.current?.tokens.forEach((token: any) => {
       this.dict[token.address.toLowerCase()] = TOKEN_LIST_TYPES.UNI_EXTENDED
     })
 
     // Initialize default tokens second, so that any tokens on both default and extended will display as default (no warning)
-    lists.byUrl[UNI_LIST]?.current?.tokens.forEach((token) => {
+    lists.byUrl[UNI_LIST]?.current?.tokens.forEach((token: any) => {
       this.dict[token.address.toLowerCase()] = TOKEN_LIST_TYPES.UNI_DEFAULT
     })
 

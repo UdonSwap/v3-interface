@@ -1,11 +1,7 @@
-import {
-  ChainId,
-  CurrencyAmount,
-  Token,
-  V3_CORE_FACTORY_ADDRESSES,
-} from "udonswap-core";
+import { CurrencyAmount, Token } from "sdkcore18";
+import { ChainId, V3_CORE_FACTORY_ADDRESSES } from "smartorderrouter18";
 import IUniswapV3PoolStateJSON from "@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json";
-import { Pool, Position, computePoolAddress } from "udonswap-v3";
+import { Pool, Position, computePoolAddress } from "v3sdk18";
 import { BigNumber } from "ethers/lib/ethers";
 import { Interface } from "ethers/lib/utils";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -65,14 +61,14 @@ type FeeAmounts = [BigNumber, BigNumber];
 const MAX_UINT128 = BigNumber.from(2).pow(128).sub(1);
 
 const DEFAULT_CHAINS = [
-  ChainId.MAINNET,
+  // ChainId.MAINNET,
   ChainId.MODE,
-  ChainId.ARBITRUM_ONE,
-  ChainId.OPTIMISM,
-  ChainId.POLYGON,
-  ChainId.BNB,
-  ChainId.AVALANCHE,
-  ChainId.BLAST,
+  // ChainId.ARBITRUM_ONE,
+  // ChainId.OPTIMISM,
+  // ChainId.POLYGON,
+  // ChainId.BNB,
+  // ChainId.AVALANCHE,
+  // ChainId.BLAST,
 ];
 
 type UseMultiChainPositionsData = {

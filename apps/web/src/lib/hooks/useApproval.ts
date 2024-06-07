@@ -1,7 +1,7 @@
 import { MaxUint256 } from "@ethersproject/constants";
 import type { TransactionResponse } from "@ethersproject/providers";
 import { InterfaceEventName } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount, Token } from "udonswap-core";
+import { Currency, CurrencyAmount, Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent } from "analytics";
 import { useTokenContract } from "hooks/useContract";
@@ -54,17 +54,17 @@ export function useApproval(
   spender: string | undefined,
   useIsPendingApproval: (token?: Token, spender?: string) => boolean,
 ): [
-  ApprovalState,
-  () => Promise<
-    | {
+    ApprovalState,
+    () => Promise<
+      | {
         response: TransactionResponse;
         tokenAddress: string;
         spenderAddress: string;
         amount: CurrencyAmount<Currency>;
       }
-    | undefined
-  >,
-] {
+      | undefined
+    >,
+  ] {
   const { chainId } = useWeb3React();
   const token = amountToApprove?.currency?.isToken
     ? amountToApprove.currency

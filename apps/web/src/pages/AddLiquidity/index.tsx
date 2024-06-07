@@ -6,14 +6,10 @@ import {
   InterfaceEventName,
   LiquidityEventName,
 } from "@uniswap/analytics-events";
-import {
-  ChainId,
-  Currency,
-  CurrencyAmount,
-  NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
-  Percent,
-} from "udonswap-core";
-import { FeeAmount, NonfungiblePositionManager } from "udonswap-v3";
+import { Currency, CurrencyAmount, Percent } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
+import { NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from "../../constants/addresses";
+import { FeeAmount, NonfungiblePositionManager } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent, sendAnalyticsEvent, useTrace } from "analytics";
 import { useToggleAccountDrawer } from "components/AccountDrawer/MiniPortfolio/hooks";
@@ -723,9 +719,9 @@ function AddLiquidity() {
     hasExistingPosition && account && !ownsNFT,
   );
   const showBlastRebasingWarning =
-    chainId === ChainId.BLAST &&
-    ((!!currencyIdA && BLAST_REBASING_TOKENS.includes(currencyIdA)) ||
-      (!!currencyIdB && BLAST_REBASING_TOKENS.includes(currencyIdB)));
+    false &&
+    ((!!currencyIdA && BLAST_REBASING_TOKENS.includes(currencyIdA ?? "")) ||
+      (!!currencyIdB && BLAST_REBASING_TOKENS.includes(currencyIdB ?? "")));
 
   const showBlastRebasingModal =
     useAtomValue(blastRebasingAlertAtom) && showBlastRebasingWarning;
@@ -784,7 +780,7 @@ function AddLiquidity() {
               >
                 <MediumOnly>
                   <ButtonText onClick={clearAll}>
-                    <div style={{color:"#9657EB"}}>
+                    <div style={{ color: "#9657EB" }}>
                       <Trans>Clear all</Trans>
                     </div>
                   </ButtonText>

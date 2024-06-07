@@ -14,7 +14,7 @@ class TokenLogoLookupTable {
       if (!listData) {
         return
       }
-      listData.current?.tokens.forEach((token) => {
+      listData.current?.tokens.forEach((token: any) => {
         if (token.logoURI) {
           const lowercaseAddress = token.address.toLowerCase()
           const currentEntry = dict[lowercaseAddress + ':' + token.chainId]

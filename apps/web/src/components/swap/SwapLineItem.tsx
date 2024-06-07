@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Percent, TradeType } from "udonswap-core";
+import { Currency, CurrencyAmount, Percent, Price, TradeType } from "sdkcore18";
 import { formatTimestamp } from "components/AccountDrawer/MiniPortfolio/formatTimestamp";
 import { LoadingRow } from "components/Loader/styled";
 import RouterLabel from "components/RouterLabel";
@@ -189,7 +189,11 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
           ) : (
             <Trans>Rate</Trans>
           ),
-        Value: () => <TradePrice price={trade.executionPrice} />,
+        Value: () => (
+          <TradePrice
+            price={trade.executionPrice as Price<Currency, Currency>}
+          />
+        ),
         TooltipBody: !isPreview
           ? () => <RoutingTooltip trade={trade} />
           : undefined,
@@ -326,8 +330,8 @@ function getFOTLineItem({
   const currency = isInput
     ? trade.inputAmount.currency
     : trade.outputAmount.currency;
-  const tax = isInput ? trade.inputTax : trade.outputTax;
-  if (tax.equalTo(0)) return;
+  const tax = 0; // isInput ? trade.inputTax : trade.outputTax;
+  if (tax === 0) return;
 
   return {
     Label: () => (

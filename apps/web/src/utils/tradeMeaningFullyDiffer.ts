@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { InterfaceTrade } from "state/routing/types";
 
 /**

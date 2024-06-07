@@ -1,4 +1,5 @@
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import {
@@ -66,7 +67,7 @@ interface BalanceProps {
 }
 const Balance = ({
   currency,
-  chainId = ChainId.MAINNET,
+  chainId = ChainId.MODE,
   gqlBalance,
   onClick,
 }: BalanceProps) => {
@@ -153,7 +154,7 @@ const OtherChainsBalanceSummary = ({
         const chainId =
           (balance.token &&
             supportedChainIdFromGQLChain(balance.token.chain)) ??
-          ChainId.MAINNET;
+          ChainId.MODE;
         return (
           <Balance
             key={balance.id}

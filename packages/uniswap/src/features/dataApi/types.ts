@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { SafetyLevel } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
 import { CurrencyId } from "uniswap/src/types/currency";
 

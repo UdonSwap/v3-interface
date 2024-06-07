@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from "udonswap-core";
+import { Currency, CurrencyAmount, Price } from "sdkcore18";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "constants/locales";
 
 interface FormatLocaleNumberArgs {

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "src/app/hooks";
 import { Delay } from "src/components/layout/Delayed";
 import { FiatOnRampCurrency } from "src/features/fiatOnRamp/types";
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { ColorTokens, useSporeColors } from "ui/src";
 import { uniswapUrls } from "uniswap/src/constants/urls";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";
@@ -170,10 +170,10 @@ export function useMoonpayFiatOnRamp({
   } = useFiatOnRampLimitsQuery(
     quoteCurrencyCode
       ? {
-          baseCurrencyCode,
-          quoteCurrencyCode,
-          areFeesIncluded: MOONPAY_FEES_INCLUDED,
-        }
+        baseCurrencyCode,
+        quoteCurrencyCode,
+        areFeesIncluded: MOONPAY_FEES_INCLUDED,
+      }
       : skipToken
   );
 
@@ -202,16 +202,15 @@ export function useMoonpayFiatOnRamp({
     // as-is, avoids waterfalling requests => better ux
     quoteCurrencyCode
       ? {
-          ownerAddress: activeAccountAddress,
-          colorCode: colors.accent1.val,
-          externalTransactionId,
-          amount: baseCurrencyAmount,
-          currencyCode: quoteCurrencyCode,
-          baseCurrencyCode,
-          redirectUrl: `${
-            isAndroid ? uniswapUrls.appUrl : uniswapUrls.appBaseUrl
+        ownerAddress: activeAccountAddress,
+        colorCode: colors.accent1.val,
+        externalTransactionId,
+        amount: baseCurrencyAmount,
+        currencyCode: quoteCurrencyCode,
+        baseCurrencyCode,
+        redirectUrl: `${isAndroid ? uniswapUrls.appUrl : uniswapUrls.appBaseUrl
           }/?screen=transaction&fiatOnRamp=true&userAddress=${activeAccountAddress}`,
-        }
+      }
       : skipToken
   );
   const {
@@ -228,11 +227,11 @@ export function useMoonpayFiatOnRamp({
       isBaseCurrencyAmountValid &&
       debouncedBaseCurrencyAmount === baseCurrencyAmount
       ? {
-          baseCurrencyCode,
-          baseCurrencyAmount: debouncedBaseCurrencyAmount,
-          quoteCurrencyCode,
-          areFeesIncluded: MOONPAY_FEES_INCLUDED,
-        }
+        baseCurrencyCode,
+        baseCurrencyAmount: debouncedBaseCurrencyAmount,
+        quoteCurrencyCode,
+        areFeesIncluded: MOONPAY_FEES_INCLUDED,
+      }
       : skipToken
   );
 

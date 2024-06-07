@@ -1,15 +1,15 @@
 import {
-  ChainId,
   CurrencyAmount,
   Percent,
   Token,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
+import { ChainId, DAI_MODE, USDC_MODE } from "smartorderrouter18"
 // This is a test file, so the import of smart-order-router-v3 is allowed.
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import { V3Route } from "udonswap-smart-order-router-v3";
-import { FeeAmount, Pool } from "udonswap-v3";
-import { DAI, USDC_MAINNET, nativeOnChain } from "constants/tokens";
+import { V3Route } from "smartorderrouter18";
+import { FeeAmount, Pool } from "v3sdk18";
+import { nativeOnChain } from "constants/tokens";
 import { BigNumber } from "ethers/lib/ethers";
 import JSBI from "jsbi";
 import { expiryToDeadlineSeconds } from "state/limit/expiryToDeadlineSeconds";
@@ -23,27 +23,27 @@ import {
 } from "state/routing/types";
 
 export const TEST_TOKEN_1 = new Token(
-  1,
+  919,
   "0x0000000000000000000000000000000000000001",
   18,
   "ABC",
   "Abc",
 );
 export const TEST_TOKEN_2 = new Token(
-  1,
+  919,
   "0x0000000000000000000000000000000000000002",
   18,
   "DEF",
   "Def",
 );
 export const TEST_TOKEN_3 = new Token(
-  1,
+  919,
   "0x0000000000000000000000000000000000000003",
   18,
   "GHI",
   "Ghi",
 );
-export const ETH_MAINNET = nativeOnChain(ChainId.MAINNET);
+export const ETH_MODE = nativeOnChain(ChainId.MODE);
 
 export const TEST_POOL_12 = new Pool(
   TEST_TOKEN_1,
@@ -67,14 +67,14 @@ export const toCurrencyAmount = (token: Token, amount: number) =>
   CurrencyAmount.fromRawAmount(token, JSBI.BigInt(amount));
 
 export const TEST_TRADE_EXACT_INPUT = new ClassicTrade({
-  v3Routes: [
+  v2Routes: [
     {
-      routev3: new V3Route([TEST_POOL_12], TEST_TOKEN_1, TEST_TOKEN_2),
+      routev2: new V3Route([TEST_POOL_12], TEST_TOKEN_1, TEST_TOKEN_2),
       inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
       outputAmount: toCurrencyAmount(TEST_TOKEN_2, 1000),
     },
   ],
-  v2Routes: [],
+  // v2Routes: [],
   tradeType: TradeType.EXACT_INPUT,
   gasUseEstimateUSD: 1.0,
   approveInfo: { needsApprove: false },
@@ -82,14 +82,14 @@ export const TEST_TRADE_EXACT_INPUT = new ClassicTrade({
 });
 
 export const TEST_TRADE_EXACT_INPUT_API = new ClassicTrade({
-  v3Routes: [
+  v2Routes: [
     {
-      routev3: new V3Route([TEST_POOL_12], TEST_TOKEN_1, TEST_TOKEN_2),
+      routev2: new V3Route([TEST_POOL_12], TEST_TOKEN_1, TEST_TOKEN_2),
       inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
       outputAmount: toCurrencyAmount(TEST_TOKEN_2, 1000),
     },
   ],
-  v2Routes: [],
+  // v2Routes: [],
   tradeType: TradeType.EXACT_INPUT,
   gasUseEstimateUSD: 1.0,
   approveInfo: { needsApprove: false },
@@ -97,14 +97,14 @@ export const TEST_TRADE_EXACT_INPUT_API = new ClassicTrade({
 });
 
 export const TEST_TRADE_EXACT_OUTPUT = new ClassicTrade({
-  v3Routes: [
+  v2Routes: [
     {
-      routev3: new V3Route([TEST_POOL_13], TEST_TOKEN_1, TEST_TOKEN_3),
+      routev2: new V3Route([TEST_POOL_13], TEST_TOKEN_1, TEST_TOKEN_3),
       inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
       outputAmount: toCurrencyAmount(TEST_TOKEN_3, 1000),
     },
   ],
-  v2Routes: [],
+  // v2Routes: [],
   tradeType: TradeType.EXACT_OUTPUT,
   quoteMethod: QuoteMethod.CLIENT_SIDE_FALLBACK,
   approveInfo: { needsApprove: false },
@@ -113,7 +113,7 @@ export const TEST_TRADE_EXACT_OUTPUT = new ClassicTrade({
 export const TEST_ALLOWED_SLIPPAGE = new Percent(2, 100);
 
 export const TEST_DUTCH_TRADE_ETH_INPUT = new DutchOrderTrade({
-  currencyIn: ETH_MAINNET.wrapped,
+  currencyIn: ETH_MODE.wrapped,
   currenciesOut: [TEST_TOKEN_2],
   orderInfo: {
     reactor: "test_reactor",
@@ -127,7 +127,7 @@ export const TEST_DUTCH_TRADE_ETH_INPUT = new DutchOrderTrade({
     exclusiveFiller: "0x3456",
     exclusivityOverrideBps: BigNumber.from(0),
     input: {
-      token: ETH_MAINNET.wrapped.address,
+      token: ETH_MODE.wrapped.address,
       startAmount: BigNumber.from(1000),
       endAmount: BigNumber.from(900),
     },
@@ -152,14 +152,14 @@ export const TEST_DUTCH_TRADE_ETH_INPUT = new DutchOrderTrade({
 });
 
 const SELL_FEE_TOKEN = new Token(
-  1,
+  919,
   "0x0000000000000000000000000000000000000001",
   18,
   "ABC",
   "Abc",
   false,
-  undefined,
-  BigNumber.from(300),
+  // undefined,
+  // BigNumber.from(300),
 );
 const TEST_POOL_FOT_1 = new Pool(
   SELL_FEE_TOKEN,
@@ -170,14 +170,14 @@ const TEST_POOL_FOT_1 = new Pool(
   -69633,
 );
 export const TEST_TRADE_FEE_ON_SELL = new ClassicTrade({
-  v3Routes: [
+  v2Routes: [
     {
-      routev3: new V3Route([TEST_POOL_FOT_1], SELL_FEE_TOKEN, TEST_TOKEN_2),
+      routev2: new V3Route([TEST_POOL_FOT_1], SELL_FEE_TOKEN, TEST_TOKEN_2),
       inputAmount: toCurrencyAmount(SELL_FEE_TOKEN, 1000),
       outputAmount: toCurrencyAmount(TEST_TOKEN_2, 1000),
     },
   ],
-  v2Routes: [],
+  // v2Routes: [],
   tradeType: TradeType.EXACT_INPUT,
   gasUseEstimateUSD: 1.0,
   approveInfo: { needsApprove: false },
@@ -185,14 +185,14 @@ export const TEST_TRADE_FEE_ON_SELL = new ClassicTrade({
 });
 
 const BUY_FEE_TOKEN = new Token(
-  1,
+  919,
   "0x0000000000000000000000000000000000000002",
   18,
   "DEF",
   "Def",
   false,
-  BigNumber.from(300),
-  undefined,
+  // BigNumber.from(300),
+  // undefined,
 );
 const TEST_POOL_FOT_2 = new Pool(
   TEST_TOKEN_1,
@@ -203,14 +203,14 @@ const TEST_POOL_FOT_2 = new Pool(
   -69633,
 );
 export const TEST_TRADE_FEE_ON_BUY = new ClassicTrade({
-  v3Routes: [
+  v2Routes: [
     {
-      routev3: new V3Route([TEST_POOL_FOT_2], TEST_TOKEN_1, BUY_FEE_TOKEN),
+      routev2: new V3Route([TEST_POOL_FOT_2], TEST_TOKEN_1, BUY_FEE_TOKEN),
       inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
       outputAmount: toCurrencyAmount(BUY_FEE_TOKEN, 1000),
     },
   ],
-  v2Routes: [],
+  // v2Routes: [],
   tradeType: TradeType.EXACT_INPUT,
   gasUseEstimateUSD: 1.0,
   approveInfo: { needsApprove: false },
@@ -224,8 +224,8 @@ export const PREVIEW_EXACT_IN_TRADE = new PreviewTrade({
 });
 
 export const LIMIT_ORDER_TRADE = new LimitOrderTrade({
-  amountIn: CurrencyAmount.fromRawAmount(DAI, 100),
-  amountOut: CurrencyAmount.fromRawAmount(USDC_MAINNET, 100),
+  amountIn: CurrencyAmount.fromRawAmount(DAI_MODE, 100),
+  amountOut: CurrencyAmount.fromRawAmount(USDC_MODE, 100),
   tradeType: TradeType.EXACT_INPUT,
   wrapInfo: { needsWrap: false },
   approveInfo: { needsApprove: false },

@@ -1,5 +1,5 @@
-import { Currency } from "udonswap-core";
-import { TokenInfo } from "@uniswap/token-lists";
+import { Currency } from "sdkcore18";
+import { TokenInfo } from "udonswap-token-lists";
 
 import AssetLogo, { AssetLogoBaseProps } from "./AssetLogo";
 

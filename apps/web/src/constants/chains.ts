@@ -1,61 +1,70 @@
-import {
-  ChainId,
-  SUPPORTED_CHAINS,
-  SupportedChainsType,
-  V2_ROUTER_ADDRESSES,
-} from "udonswap-core";
+// import {
+// SUPPORTED_CHAINS,
+// V2_ROUTER_ADDRESSES,
+// } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
+
+const SUPPORTED_CHAINS = [ChainId.MODE] as const
+
+type SupportedChainsType = (typeof SUPPORTED_CHAINS)[number]
+
+export enum SupportedChainId {
+  MODE = 919,
+}
 
 export const CHAIN_IDS_TO_NAMES = {
-  [ChainId.MAINNET]: "mainnet",
+  // [ChainId.MAINNET]: "mainnet",
   [ChainId.MODE]: "mode",
-  [ChainId.GOERLI]: "goerli",
-  [ChainId.SEPOLIA]: "sepolia",
-  [ChainId.POLYGON]: "polygon",
-  [ChainId.POLYGON_MUMBAI]: "polygon_mumbai",
-  [ChainId.ARBITRUM_ONE]: "arbitrum",
-  [ChainId.ARBITRUM_GOERLI]: "arbitrum_goerli",
-  [ChainId.OPTIMISM]: "optimism",
-  [ChainId.OPTIMISM_GOERLI]: "optimism_goerli",
-  [ChainId.BNB]: "bnb",
-  [ChainId.AVALANCHE]: "avalanche",
-  [ChainId.BASE]: "base",
-  [ChainId.BLAST]: "blast",
+  // [ChainId.GOERLI]: "goerli",
+  // [ChainId.SEPOLIA]: "sepolia",
+  // [ChainId.POLYGON]: "polygon",
+  // [ChainId.POLYGON_MUMBAI]: "polygon_mumbai",
+  // [ChainId.ARBITRUM_ONE]: "arbitrum",
+  // [ChainId.ARBITRUM_GOERLI]: "arbitrum_goerli",
+  // [ChainId.OPTIMISM]: "optimism",
+  // [ChainId.OPTIMISM_GOERLI]: "optimism_goerli",
+  // [ChainId.BNB]: "bnb",
+  // [ChainId.AVALANCHE]: "avalanche",
+  // [ChainId.BASE]: "base",
+  // [ChainId.BLAST]: "blast",
 } as const;
 
 // Include ChainIds in this array if they are not supported by the UX yet, but are already in the SDK.
-const NOT_YET_UX_SUPPORTED_CHAIN_IDS: number[] = [
-  ChainId.BASE_GOERLI,
-  ChainId.ARBITRUM_SEPOLIA,
-  ChainId.OPTIMISM_SEPOLIA,
-  ChainId.ROOTSTOCK,
-  ChainId.ZORA,
-  ChainId.ZORA_SEPOLIA,
-];
+// const NOT_YET_UX_SUPPORTED_CHAIN_IDS: number[] = [
+//   ChainId.BASE_GOERLI,
+//   ChainId.ARBITRUM_SEPOLIA,
+//   ChainId.OPTIMISM_SEPOLIA,
+//   ChainId.ROOTSTOCK,
+//   ChainId.ZORA,
+//   ChainId.ZORA_SEPOLIA,
+// ];
 
 // TODO: include BASE_GOERLI, OPTIMISM_SEPOLIA, or ARBITRUM_SEPOLIA when routing is implemented
-export type SupportedInterfaceChain = Exclude<
-  SupportedChainsType,
-  | ChainId.BASE_GOERLI
-  | ChainId.ARBITRUM_SEPOLIA
-  | ChainId.OPTIMISM_SEPOLIA
-  | ChainId.ROOTSTOCK
-  | ChainId.ZORA
-  | ChainId.ZORA_SEPOLIA
->;
+export type SupportedInterfaceChain = SupportedChainsType
 
-export function isSupportedChain(
-  chainId: number | null | undefined | ChainId,
-  featureFlags?: Record<number, boolean>,
-): chainId is SupportedInterfaceChain {
-  if (featureFlags && chainId && chainId in featureFlags) {
-    return featureFlags[chainId];
-  }
-  return (
-    !!chainId &&
-    SUPPORTED_CHAINS.indexOf(chainId) !== -1 &&
-    NOT_YET_UX_SUPPORTED_CHAIN_IDS.indexOf(chainId) === -1
-  );
+export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = Object.values(ChainId).filter(
+  (id) => typeof id === 'number'
+) as ChainId[]
+
+export function isSupportedChain(chainId: number | null | undefined): chainId is ChainId {
+  return !!chainId && !!ChainId[chainId]
 }
+
+// export function isSupportedChain(
+//   chainId: number | null | undefined | ChainId,
+//   featureFlags?: Record<number, boolean>,
+// ): chainId is SupportedInterfaceChain {
+//   if (featureFlags && chainId && chainId in featureFlags) {
+//     return featureFlags[chainId];
+//   }
+//   return (
+//     !!chainId &&
+//     SUPPORTED_CHAINS.indexOf(chainId) !== -1 &&
+//     NOT_YET_UX_SUPPORTED_CHAIN_IDS.indexOf(chainId) === -1
+//   );
+// }
+
+
 
 export function asSupportedChain(
   chainId: number | null | undefined | ChainId,
@@ -69,48 +78,49 @@ export function asSupportedChain(
 }
 
 export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
-  ChainId.MAINNET,
+  // ChainId.MAINNET,
   ChainId.MODE,
-  ChainId.POLYGON,
-  ChainId.OPTIMISM,
-  ChainId.ARBITRUM_ONE,
-  ChainId.BNB,
-  ChainId.AVALANCHE,
-  ChainId.BASE,
-  ChainId.BLAST,
+  // ChainId.POLYGON,
+  // ChainId.OPTIMISM,
+  // ChainId.ARBITRUM_ONE,
+  // ChainId.BNB,
+  // ChainId.AVALANCHE,
+  // ChainId.BASE,
+  // ChainId.BLAST,
 ] as const;
 
 /**
  * @deprecated when v2 pools are enabled on chains supported through sdk-core
  */
-export const SUPPORTED_V2POOL_CHAIN_IDS_DEPRECATED = [
-  ChainId.MAINNET,
-  ChainId.GOERLI,
+export const UNSUPPORTED_V2POOL_CHAIN_IDS = [
+  // ChainId.MAINNET,
+  // ChainId.GOERLI,
   ChainId.MODE,
 ] as const;
-export const SUPPORTED_V2POOL_CHAIN_IDS = Object.keys(V2_ROUTER_ADDRESSES).map(
-  (chainId) => parseInt(chainId),
-);
+
+// export const SUPPORTED_V2POOL_CHAIN_IDS = Object.keys(V2_ROUTER_ADDRESSES).map(
+//   (chainId) => parseInt(chainId),
+// );
 
 export const TESTNET_CHAIN_IDS = [
-  ChainId.GOERLI,
-  ChainId.SEPOLIA,
-  ChainId.POLYGON_MUMBAI,
-  ChainId.ARBITRUM_GOERLI,
-  ChainId.OPTIMISM_GOERLI,
+  // ChainId.GOERLI,
+  // ChainId.SEPOLIA,
+  // ChainId.POLYGON_MUMBAI,
+  // ChainId.ARBITRUM_GOERLI,
+  // ChainId.OPTIMISM_GOERLI,
 ] as const;
 
 /**
  * All the chain IDs that are running the Ethereum protocol.
  */
 export const L1_CHAIN_IDS = [
-  ChainId.MAINNET,
-  ChainId.GOERLI,
-  ChainId.SEPOLIA,
-  ChainId.POLYGON,
-  ChainId.POLYGON_MUMBAI,
-  ChainId.BNB,
-  ChainId.AVALANCHE,
+  // ChainId.MAINNET,
+  // ChainId.GOERLI,
+  // ChainId.SEPOLIA,
+  // ChainId.POLYGON,
+  // ChainId.POLYGON_MUMBAI,
+  // ChainId.BNB,
+  // ChainId.AVALANCHE,
 ] as const;
 
 export type SupportedL1ChainId = (typeof L1_CHAIN_IDS)[number];
@@ -121,11 +131,11 @@ export type SupportedL1ChainId = (typeof L1_CHAIN_IDS)[number];
  */
 export const L2_CHAIN_IDS = [
   ChainId.MODE,
-  ChainId.ARBITRUM_ONE,
-  ChainId.ARBITRUM_GOERLI,
-  ChainId.OPTIMISM,
-  ChainId.OPTIMISM_GOERLI,
-  ChainId.BASE,
+  // ChainId.ARBITRUM_ONE,
+  // ChainId.ARBITRUM_GOERLI,
+  // ChainId.OPTIMISM,
+  // ChainId.OPTIMISM_GOERLI,
+  // ChainId.BASE,
 ] as const;
 
 export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number];
@@ -137,33 +147,33 @@ export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number];
  */
 export function getChainPriority(chainId: ChainId): number {
   switch (chainId) {
-    case ChainId.MAINNET:
+    // case ChainId.MAINNET:
     case ChainId.MODE:
-    case ChainId.GOERLI:
-    case ChainId.SEPOLIA:
+      // case ChainId.GOERLI:
+      // case ChainId.SEPOLIA:
       return 0;
-    case ChainId.ARBITRUM_ONE:
-    case ChainId.ARBITRUM_GOERLI:
-      return 1;
-    case ChainId.OPTIMISM:
-    case ChainId.OPTIMISM_GOERLI:
-      return 2;
-    case ChainId.POLYGON:
-    case ChainId.POLYGON_MUMBAI:
-      return 3;
-    case ChainId.BASE:
-      return 4;
-    case ChainId.BNB:
-      return 5;
-    case ChainId.AVALANCHE:
-      return 6;
-    case ChainId.BLAST:
-      return 8;
+    // case ChainId.ARBITRUM_ONE:
+    // case ChainId.ARBITRUM_GOERLI:
+    //   return 1;
+    // case ChainId.OPTIMISM:
+    // case ChainId.OPTIMISM_GOERLI:
+    //   return 2;
+    // case ChainId.POLYGON:
+    // case ChainId.POLYGON_MUMBAI:
+    //   return 3;
+    // case ChainId.BASE:
+    //   return 4;
+    // case ChainId.BNB:
+    //   return 5;
+    // case ChainId.AVALANCHE:
+    //   return 6;
+    // case ChainId.BLAST:
+    //   return 8;
     default:
       return Infinity;
   }
 }
 
-export function isUniswapXSupportedChain(chainId: number) {
-  return chainId === ChainId.MAINNET;
-}
+// export function isUniswapXSupportedChain(chainId: number) {
+//   return chainId === ChainId.MAINNET;
+// }

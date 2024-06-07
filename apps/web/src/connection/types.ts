@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { Web3ReactHooks } from "@web3-react/core";
 import { Connector } from "@web3-react/types";
 

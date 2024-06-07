@@ -1,5 +1,6 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { ChainId, Currency, CurrencyAmount, TradeType } from "udonswap-core";
+import { Currency, CurrencyAmount, TradeType } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import UniswapXBolt from "assets/svg/bolt.svg";
 import { nativeOnChain } from "constants/tokens";
 import { ChainTokenMap, useAllTokensMultichain } from "hooks/Tokens";
@@ -57,20 +58,20 @@ function buildCurrencyDescriptor(
 ) {
   const formattedA = currencyA
     ? formatNumber({
-        input: parseFloat(
-          CurrencyAmount.fromRawAmount(currencyA, amtA).toSignificant(),
-        ),
-        type: NumberType.TokenNonTx,
-      })
+      input: parseFloat(
+        CurrencyAmount.fromRawAmount(currencyA, amtA).toSignificant(),
+      ),
+      type: NumberType.TokenNonTx,
+    })
     : t`Unknown`;
   const symbolA = currencyA?.symbol ?? "";
   const formattedB = currencyB
     ? formatNumber({
-        input: parseFloat(
-          CurrencyAmount.fromRawAmount(currencyB, amtB).toSignificant(),
-        ),
-        type: NumberType.TokenNonTx,
-      })
+      input: parseFloat(
+        CurrencyAmount.fromRawAmount(currencyB, amtB).toSignificant(),
+      ),
+      type: NumberType.TokenNonTx,
+    })
     : t`Unknown`;
   const symbolB = currencyB?.symbol ?? "";
   return [formattedA, symbolA, delimiter, formattedB, symbolB]
@@ -89,10 +90,10 @@ function parseSwap(
   const [inputRaw, outputRaw] =
     swap.tradeType === TradeType.EXACT_INPUT
       ? [
-          swap.inputCurrencyAmountRaw,
-          swap.settledOutputCurrencyAmountRaw ??
-            swap.expectedOutputCurrencyAmountRaw,
-        ]
+        swap.inputCurrencyAmountRaw,
+        swap.settledOutputCurrencyAmountRaw ??
+        swap.expectedOutputCurrencyAmountRaw,
+      ]
       : [swap.expectedInputCurrencyAmountRaw, swap.outputCurrencyAmountRaw];
 
   return {
@@ -238,11 +239,11 @@ function parseSend(
   const currency = getCurrency(currencyId, chainId, tokens);
   const formattedAmount = currency
     ? formatNumber({
-        input: parseFloat(
-          CurrencyAmount.fromRawAmount(currency, amount).toSignificant(),
-        ),
-        type: NumberType.TokenNonTx,
-      })
+      input: parseFloat(
+        CurrencyAmount.fromRawAmount(currency, amount).toSignificant(),
+      ),
+      type: NumberType.TokenNonTx,
+    })
     : t`Unknown`;
 
   return {

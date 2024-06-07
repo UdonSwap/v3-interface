@@ -1,4 +1,4 @@
-import { FeeAmount } from "udonswap-v3";
+import { FeeAmount } from "v3sdk18";
 import Badge from "components/Badge";
 import { useFeeTierDistribution } from "hooks/useFeeTierDistribution";
 import { PoolState } from "hooks/usePools";

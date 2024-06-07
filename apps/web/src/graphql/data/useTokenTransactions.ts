@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { chainIdToBackendName } from "graphql/data/util";
 import { useCallback, useMemo, useRef } from "react";
 import {
@@ -46,7 +46,7 @@ export function useTokenTransactions(
       address: address.toLowerCase(),
       first: TokenTransactionDefaultQuerySize,
     },
-    skip: chainId !== ChainId.MAINNET,
+    skip: true // chainId !== ChainId.MAINNET,
   });
   const loadingMoreV3 = useRef(false);
   const loadingMoreV2 = useRef(false);
@@ -55,7 +55,7 @@ export function useTokenTransactions(
     ({ onComplete }: { onComplete?: () => void }) => {
       if (
         loadingMoreV3.current ||
-        (loadingMoreV2.current && chainId === ChainId.MAINNET)
+        (loadingMoreV2.current && false)
       ) {
         return;
       }
@@ -73,7 +73,7 @@ export function useTokenTransactions(
           if (!fetchMoreResult) {
             return prev;
           }
-          if (!loadingMoreV2.current || chainId !== ChainId.MAINNET)
+          if (!loadingMoreV2.current || true)
             onComplete?.();
           const mergedData = {
             token: {
@@ -90,32 +90,32 @@ export function useTokenTransactions(
           return mergedData;
         },
       });
-      chainId == ChainId.MAINNET &&
-        fetchMoreV2({
-          variables: {
-            cursor:
-              dataV2?.token?.v2Transactions?.[
-                dataV2.token?.v2Transactions.length - 1
-              ]?.timestamp,
-          },
-          updateQuery: (prev, { fetchMoreResult }) => {
-            if (!fetchMoreResult) return prev;
-            if (!loadingMoreV3.current) onComplete?.();
-            const mergedData = {
-              token: {
-                ...prev.token,
-                id: prev?.token?.id ?? "",
-                chain: prev?.token?.chain ?? Chain.Ethereum,
-                v2Transactions: [
-                  ...(prev.token?.v2Transactions ?? []),
-                  ...(fetchMoreResult.token?.v2Transactions ?? []),
-                ],
-              },
-            };
-            loadingMoreV2.current = false;
-            return mergedData;
-          },
-        });
+      // false &&
+      //   fetchMoreV2({
+      //     variables: {
+      //       cursor:
+      //         dataV2?.token?.v2Transactions?.[
+      //           dataV2.token?.v2Transactions.length - 1
+      //         ]?.timestamp,
+      //     },
+      //     updateQuery: (prev, { fetchMoreResult }) => {
+      //       if (!fetchMoreResult) return prev;
+      //       if (!loadingMoreV3.current) onComplete?.();
+      //       const mergedData = {
+      //         token: {
+      //           ...prev.token,
+      //           id: prev?.token?.id ?? "",
+      //           chain: prev?.token?.chain ?? Chain.Ethereum,
+      //           v2Transactions: [
+      //             ...(prev.token?.v2Transactions ?? []),
+      //             ...(fetchMoreResult.token?.v2Transactions ?? []),
+      //           ],
+      //         },
+      //       };
+      //       loadingMoreV2.current = false;
+      //       return mergedData;
+      //     },
+      //   });
     },
     [
       chainId,

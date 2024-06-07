@@ -1,5 +1,5 @@
 import { SwapPriceUpdateUserResponse } from "@uniswap/analytics-events";
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { SwapResult } from "hooks/useSwapCallback";
 import {
   formatPercentInBasisPointsNumber,
@@ -87,12 +87,12 @@ export const formatSwapButtonClickEventProperties = ({
     swapResult?.type === TradeFillType.Classic
       ? swapResult.response.hash
       : undefined,
-  order_hash:
-    swapResult?.type === TradeFillType.UniswapX
-      ? swapResult.response.orderHash
-      : undefined,
+  order_hash: undefined,
+  // swapResult?.type === TradeFillType.UniswapX
+  //   ? swapResult.response.orderHash
+  //   : undefined,
   transaction_deadline_seconds: getDurationUntilTimestampSeconds(
-    transactionDeadlineSecondsSinceEpoch,
+    transactionDeadlineSecondsSinceEpoch
   ),
   token_in_address: trade
     ? getTokenAddress(trade.inputAmount.currency)

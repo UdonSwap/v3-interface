@@ -1,4 +1,5 @@
-import { ChainId, Currency, Token } from "udonswap-core";
+import { Currency, Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { useWeb3React } from "@web3-react/core";
 import { getChainInfo } from "constants/chainInfo";
 import {
@@ -59,7 +60,7 @@ function parseStringOrBytes32(
   return str && str.length > 0
     ? str
     : // need to check for proper bytes string and valid terminator
-      bytes32 && BYTES32_REGEX.test(bytes32) && arrayify(bytes32)[31] === 0
+    bytes32 && BYTES32_REGEX.test(bytes32) && arrayify(bytes32)[31] === 0
       ? parseBytes32String(bytes32)
       : defaultValue;
 }
@@ -371,20 +372,20 @@ export function useUnsupportedTokens(): { [address: string]: Token } {
 
     const unsupportedSet = new Set(Object.keys(unsupportedTokens));
 
-    return list.tokens.reduce((acc, tokenInfo) => {
+    return list.tokens.reduce((acc: any, tokenInfo: any) => {
       const bridgeInfo = tokenInfo.extensions
         ?.bridgeInfo as unknown as BridgeInfo;
       if (
         bridgeInfo &&
-        bridgeInfo[ChainId.MAINNET] &&
-        bridgeInfo[ChainId.MAINNET].tokenAddress &&
-        unsupportedSet.has(bridgeInfo[ChainId.MAINNET].tokenAddress)
+        bridgeInfo[ChainId.MODE] &&
+        bridgeInfo[ChainId.MODE].tokenAddress &&
+        unsupportedSet.has(bridgeInfo[ChainId.MODE].tokenAddress)
       ) {
-        const address = bridgeInfo[ChainId.MAINNET].tokenAddress;
+        const address = bridgeInfo[ChainId.MODE].tokenAddress;
         // don't rely on decimals--it's possible that a token could be bridged w/ different decimals on the L2
         return {
           ...acc,
-          [address]: new Token(ChainId.MAINNET, address, tokenInfo.decimals),
+          [address]: new Token(ChainId.MODE, address, tokenInfo.decimals),
         };
       }
       return acc;

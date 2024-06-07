@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { useCallback, useMemo } from "react";
 import { useDispatch } from "react-redux";

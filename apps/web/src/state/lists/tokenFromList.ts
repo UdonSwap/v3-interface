@@ -1,5 +1,5 @@
-import { Currency, Token } from "udonswap-core";
-import { Tags, TokenInfo, TokenList } from "@uniswap/token-lists";
+import { Currency, Token } from "sdkcore18";
+import { Tags, TokenInfo, TokenList } from "udonswap-token-lists";
 
 import { isAddress } from "utilities/src/addresses";
 

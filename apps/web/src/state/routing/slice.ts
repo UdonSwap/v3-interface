@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Protocol } from "udonswap-router";
+import { Protocol } from "routersdk18";
 import { sendAnalyticsEvent } from "analytics";
-import { isUniswapXSupportedChain } from "constants/chains";
+// import { isUniswapXSupportedChain } from "constants/chains";
 import ms from "ms";
 import { logSwapQuoteRequest } from "tracing/swapFlowLoggers";
 import { trace } from "tracing/trace";
@@ -69,12 +69,12 @@ function getRoutingAPIConfig(args: GetQuoteArgs): RoutingConfig {
     // If the user has opted out of UniswapX during the opt-out transition period, we should respect that preference and only request classic quotes.
     routerPreference === RouterPreference.API ||
     routerPreference === INTERNAL_ROUTER_PREFERENCE_PRICE ||
-    !isUniswapXSupportedChain(tokenInChainId)
+    true // !isUniswapXSupportedChain(tokenInChainId)
   ) {
     return [classic];
   }
 
-  return [uniswapx, classic];
+  // return [uniswapx, classic];
 }
 
 export const routingApi = createApi({
@@ -115,6 +115,7 @@ export const routingApi = createApi({
                   : QuoteIntent.Quote,
               configs: JSON.stringify(getRoutingAPIConfig(args)), // Ensure configs are converted to a string
             };
+            console.log("before tryyyy.....")
 
             try {
               return trace.child(

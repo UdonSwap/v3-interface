@@ -1,4 +1,5 @@
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { PortfolioLogo } from "components/AccountDrawer/MiniPortfolio/PortfolioLogo";
 import { ButtonLight } from "components/Button";
@@ -107,7 +108,7 @@ const NumericalInputSymbolContainer = styled.span<{ showPlaceholder: boolean }>`
   ${({ showPlaceholder }) =>
     showPlaceholder &&
     css`
-      color:#ffffffbd;
+      color: #ffffffbd;
     `}
 `;
 
@@ -131,16 +132,16 @@ const MaxButton = styled(ButtonLight)`
   color: ${({ theme }) => theme.accent1};
   cursor: pointer;
   font-size: 14px;
-  border-radius:0.4rem;
+  border-radius: 0.4rem;
   font-weight: 500;
   padding: 4px 10px;
   pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
-  margin:10px;
+  margin: 10px;
   :hover {
     opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
     background-color: rgb(56, 37, 83);
     color: ${({ theme }) => theme.accent1};
-    box-shadow:none;
+    box-shadow: none;
   }
 `;
 const StyledDropDown = styled(DropDown)`
@@ -285,8 +286,7 @@ export default function SendCurrencyInputForm({
   const fiatCurrency = useMemo(
     () =>
       STABLECOIN_AMOUNT_OUT[
-        asSupportedChain(chainId) ??
-          (ChainId.MAINNET as SupportedInterfaceChain)
+        asSupportedChain(chainId) ?? (ChainId.MODE as SupportedInterfaceChain)
       ].currency,
     [chainId],
   );
@@ -436,7 +436,7 @@ export default function SendCurrencyInputForm({
                 <PortfolioLogo
                   currencies={[inputCurrency]}
                   size="36px"
-                  chainId={chainId ?? ChainId.MAINNET}
+                  chainId={chainId ?? ChainId.MODE}
                 />
               )}
               <Row width="100%">

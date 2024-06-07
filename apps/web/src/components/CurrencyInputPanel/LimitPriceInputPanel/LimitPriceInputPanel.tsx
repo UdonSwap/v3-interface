@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from "udonswap-core";
+import { Currency, CurrencyAmount, Price } from "sdkcore18";
 import { InputPanel } from "components/CurrencyInputPanel/SwapCurrencyInputPanel";
 import CurrencyLogo from "components/Logo/CurrencyLogo";
 import { StyledNumericalInput } from "components/NumericalInput";

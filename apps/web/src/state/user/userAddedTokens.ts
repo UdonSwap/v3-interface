@@ -1,4 +1,4 @@
-import { Token } from "udonswap-core";
+import { Token } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { useMemo } from "react";
 import { useAppSelector } from "state/hooks";
@@ -14,8 +14,8 @@ function useUserAddedTokensOnChain(
     if (!chainId) return [];
     const tokenMap: Token[] = serializedTokensMap?.[chainId]
       ? Object.values(serializedTokensMap[chainId]).map((value) =>
-          deserializeToken(value, UserAddedToken),
-        )
+        deserializeToken(value, UserAddedToken),
+      )
       : [];
     return tokenMap;
   }, [serializedTokensMap, chainId]);

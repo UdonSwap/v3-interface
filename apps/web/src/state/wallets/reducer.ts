@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { shallowEqual } from "react-redux";
 
 import { Wallet } from "./types";

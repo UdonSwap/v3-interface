@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import useBlockNumber, {
   useMainnetBlockNumber,
@@ -41,7 +41,7 @@ export function useMainnetSingleCallResult(
 ) {
   const latestMainnetBlock = useMainnetBlockNumber();
   return multicall.hooks.useSingleCallResult(
-    ChainId.MAINNET,
+    ChainId.MODE,
     latestMainnetBlock,
     ...args,
   );

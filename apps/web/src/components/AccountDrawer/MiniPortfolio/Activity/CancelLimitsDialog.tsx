@@ -1,4 +1,5 @@
-import { ChainId, CurrencyAmount } from "udonswap-core";
+import { CurrencyAmount } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import {
   ConfirmedIcon,
   LogoContainer,

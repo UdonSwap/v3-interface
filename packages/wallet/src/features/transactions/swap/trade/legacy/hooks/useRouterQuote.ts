@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import { GqlResult } from "uniswap/src/data/types";
 import {
   RoutingIntent,

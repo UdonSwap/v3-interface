@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { MouseoverTooltip } from "components/Tooltip";
 import { getChainInfo } from "constants/chainInfo";
 import { TokenQueryData } from "graphql/data/Token";
@@ -159,25 +159,26 @@ export default function StatsSection(props: StatsSectionProps) {
       </StatsWrapper>
     );
   } else {
-    return UNSUPPORTED_METADATA_CHAINS.includes(chainId) ? (
-      <>
-        <Header>
-          <Trans>Stats</Trans>
-        </Header>
-        <ThemedText.BodySecondary pt="12px">
-          <Trans>
-            Token stats and charts for {{ label }} are available on{" "}
-            <ExternalLink
-              color="currentColor"
-              href={`${infoLink}tokens/${address}`}
-            >
-              info.uniswap.org
-            </ExternalLink>
-          </Trans>
-        </ThemedText.BodySecondary>
-      </>
-    ) : (
-      <NoData data-cy="token-details-no-stats-data">No stats available</NoData>
-    );
+    return <NoData>No stats available</NoData>;
+    // UNSUPPORTED_METADATA_CHAINS.includes(chainId) ? (
+    //   <>
+    //     <Header>
+    //       <Trans>Stats</Trans>
+    //     </Header>
+    //     <ThemedText.BodySecondary pt="12px">
+    //       <Trans>
+    //         Token stats and charts for {{ label }} are available on{" "}
+    //         <ExternalLink
+    //           color="currentColor"
+    //           href={`${infoLink}tokens/${address}`}
+    //         >
+    //           info.uniswap.org
+    //         </ExternalLink>
+    //       </Trans>
+    //     </ThemedText.BodySecondary>
+    //   </>
+    // ) : (
+    //   <NoData data-cy="token-details-no-stats-data">No stats available</NoData>
+    // );
   }
 }

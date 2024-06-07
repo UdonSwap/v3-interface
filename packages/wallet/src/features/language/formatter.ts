@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { Currency, CurrencyAmount } from "udonswap-core";
+import { Currency, CurrencyAmount } from "sdkcore18";
 // eslint-disable-next-line no-restricted-imports
 import {
   addFiatSymbolToNumber,

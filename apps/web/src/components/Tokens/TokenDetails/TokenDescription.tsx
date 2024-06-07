@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import Column from "components/Column";
 import { EtherscanLogo } from "components/Icons/Etherscan";
 import { Globe } from "components/Icons/Globe";
@@ -144,11 +144,12 @@ export function TokenDescription() {
         <ExternalLink href={explorerUrl}>
           <TokenInfoButton>
             <EtherscanLogo width="18px" height="18px" fill={neutral2} />
-            {currency.chainId === ChainId.MAINNET ? (
+            {/* {currency.chainId === ChainId.MAINNET ? (
               <Trans>Etherscan</Trans>
             ) : (
               <Trans>Explorer</Trans>
-            )}
+            )} */}
+            <Trans>Explorer</Trans>
           </TokenInfoButton>
         </ExternalLink>
         {homepageUrl && (

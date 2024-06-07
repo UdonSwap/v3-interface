@@ -1,7 +1,6 @@
 import { AddressZero } from "@ethersproject/constants";
-import { MixedRouteSDK, ONE, Protocol, Trade } from "udonswap-router";
+import { MixedRouteSDK, ONE, Protocol, Trade } from "routersdk18";
 import {
-  ChainId,
   Currency,
   CurrencyAmount,
   Fraction,
@@ -9,14 +8,15 @@ import {
   Price,
   Token,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import {
   DutchOrderInfo,
   DutchOrderInfoJSON,
   DutchOrderTrade as IDutchOrderTrade,
-} from "udonswapx-sdk";
-import { Route as V2Route } from "udonswap-v2-sdk";
-import { Route as V3Route } from "udonswap-v3";
+} from "@uniswap/uniswapx-sdk";
+// import { Route as V2Route } from "udonswap-v2-sdk";
+import { Route as V3Route } from "v3sdk18";
 import { ZERO_PERCENT } from "constants/misc";
 import { BigNumber } from "ethers/lib/ethers";
 import { SignatureType } from "state/signatures/types";
@@ -252,22 +252,23 @@ export class ClassicTrade extends Trade<Currency, Currency, TradeType> {
     quoteMethod: QuoteMethod;
     approveInfo: ApproveInfo;
     swapFee?: SwapFeeInfo;
+    // v2Routes: {
+    //   routev2: V2Route<Currency, Currency>;
+    //   inputAmount: CurrencyAmount<Currency>;
+    //   outputAmount: CurrencyAmount<Currency>;
+    // }[];
     v2Routes: {
-      routev2: V2Route<Currency, Currency>;
+      routev2: V3Route<Currency, Currency>;
       inputAmount: CurrencyAmount<Currency>;
       outputAmount: CurrencyAmount<Currency>;
     }[];
-    v3Routes: {
-      routev3: V3Route<Currency, Currency>;
-      inputAmount: CurrencyAmount<Currency>;
-      outputAmount: CurrencyAmount<Currency>;
-    }[];
-    tradeType: TradeType;
-    mixedRoutes?: {
-      mixedRoute: MixedRouteSDK<Currency, Currency>;
-      inputAmount: CurrencyAmount<Currency>;
-      outputAmount: CurrencyAmount<Currency>;
-    }[];
+    tradeType: TradeType
+    // tradeType: TradeType;
+    // mixedRoutes?: {
+    //   mixedRoute: MixedRouteSDK<Currency, Currency>;
+    //   inputAmount: CurrencyAmount<Currency>;
+    //   outputAmount: CurrencyAmount<Currency>;
+    // }[];
   }) {
     super(routes);
     this.blockNumber = blockNumber;
@@ -476,10 +477,10 @@ export class PreviewTrade {
    */
   public get inputTax(): Percent {
     const inputCurrency = this.inputAmount.currency;
-    if (inputCurrency.isNative || !inputCurrency.wrapped.sellFeeBps)
-      return ZERO_PERCENT;
+    // if (inputCurrency.isNative || !inputCurrency.wrapped.sellFeeBps)
+    return ZERO_PERCENT;
 
-    return new Percent(inputCurrency.wrapped.sellFeeBps.toNumber(), 10000);
+    // return new Percent(inputCurrency.wrapped.sellFeeBps.toNumber(), 10000);
   }
 
   /**
@@ -487,10 +488,10 @@ export class PreviewTrade {
    */
   public get outputTax(): Percent {
     const outputCurrency = this.outputAmount.currency;
-    if (outputCurrency.isNative || !outputCurrency.wrapped.buyFeeBps)
-      return ZERO_PERCENT;
+    // if (outputCurrency.isNative || !outputCurrency.wrapped.buyFeeBps)
+    return ZERO_PERCENT;
 
-    return new Percent(outputCurrency.wrapped.buyFeeBps.toNumber(), 10000);
+    // return new Percent(outputCurrency.wrapped.buyFeeBps.toNumber(), 10000);
   }
 
   private _executionPrice: Price<Currency, Currency> | undefined;
@@ -696,37 +697,37 @@ export enum QuoteState {
 
 export type QuoteResult =
   | {
-      state: QuoteState.NOT_FOUND;
-      data?: undefined;
-    }
+    state: QuoteState.NOT_FOUND;
+    data?: undefined;
+  }
   | {
-      state: QuoteState.SUCCESS;
-      data: URAQuoteResponse;
-    };
+    state: QuoteState.SUCCESS;
+    data: URAQuoteResponse;
+  };
 
 export type TradeResult =
   | {
-      state: QuoteState.NOT_FOUND;
-      trade?: undefined;
-      latencyMs?: number;
-    }
+    state: QuoteState.NOT_FOUND;
+    trade?: undefined;
+    latencyMs?: number;
+  }
   | {
-      state: QuoteState.SUCCESS;
-      trade: SubmittableTrade;
-      latencyMs?: number;
-    };
+    state: QuoteState.SUCCESS;
+    trade: SubmittableTrade;
+    latencyMs?: number;
+  };
 
 export type PreviewTradeResult =
   | {
-      state: QuoteState.NOT_FOUND;
-      trade?: undefined;
-      latencyMs?: number;
-    }
+    state: QuoteState.NOT_FOUND;
+    trade?: undefined;
+    latencyMs?: number;
+  }
   | {
-      state: QuoteState.SUCCESS;
-      trade: PreviewTrade;
-      latencyMs?: number;
-    };
+    state: QuoteState.SUCCESS;
+    trade: PreviewTrade;
+    latencyMs?: number;
+  };
 
 export enum PoolType {
   V2Pool = "v2-pool",

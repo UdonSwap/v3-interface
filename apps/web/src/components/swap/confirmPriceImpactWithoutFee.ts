@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 
 import {
   ALLOWED_PRICE_IMPACT_HIGH,

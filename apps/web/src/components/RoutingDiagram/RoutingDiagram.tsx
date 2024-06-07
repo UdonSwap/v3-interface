@@ -1,6 +1,6 @@
-import { Protocol } from "udonswap-router";
-import { Currency } from "udonswap-core";
-import { FeeAmount } from "udonswap-v3";
+import { Protocol } from "routersdk18";
+import { Currency } from "sdkcore18";
+import { FeeAmount } from "v3sdk18";
 import Badge from "components/Badge";
 import DoubleCurrencyLogo from "components/DoubleLogo";
 import CurrencyLogo from "components/Logo/CurrencyLogo";
@@ -119,7 +119,7 @@ function Route({
         <DotColor />
       </DottedLine>
       <OpaqueBadge>
-        {protocol === Protocol.MIXED ? (
+        {/* {protocol === Protocol.MIXED ? (
           <MixedProtocolBadge>
             <BadgeText>V3 + V2</BadgeText>
           </MixedProtocolBadge>
@@ -127,7 +127,12 @@ function Route({
           <ProtocolBadge>
             <BadgeText color="neutral1">{protocol.toUpperCase()}</BadgeText>
           </ProtocolBadge>
-        )}
+        )} */}
+        {
+          <ProtocolBadge>
+            <BadgeText color="neutral1">{protocol.toUpperCase()}</BadgeText>
+          </ProtocolBadge>
+        }
         <BadgeText style={{ minWidth: "auto" }}>
           {percent.toSignificant(2)}%
         </BadgeText>

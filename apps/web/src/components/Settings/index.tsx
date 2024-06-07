@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { Scrim } from "components/AccountDrawer";
 import AnimatedDropdown from "components/AnimatedDropdown";
@@ -6,7 +6,7 @@ import Column, { AutoColumn } from "components/Column";
 import Row from "components/Row";
 import {
   isSupportedChain,
-  isUniswapXSupportedChain,
+  // isUniswapXSupportedChain,
   L2_CHAIN_IDS,
 } from "constants/chains";
 import useDisableScrolling from "hooks/useDisableScrolling";
@@ -142,8 +142,8 @@ export default function SettingsTab({
   useOnClickOutside(node, isOpenDesktop ? closeMenu : undefined);
   useDisableScrolling(isOpen);
 
-  const uniswapXEnabled = chainId && isUniswapXSupportedChain(chainId);
-  const showRoutingSettings = Boolean(uniswapXEnabled && !hideRoutingSettings);
+  // const uniswapXEnabled = chainId && isUniswapXSupportedChain(chainId);
+  const showRoutingSettings = Boolean(false && !hideRoutingSettings);
 
   const isChainSupported = isSupportedChain(chainId);
   const Settings = useMemo(

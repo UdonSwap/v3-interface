@@ -1,12 +1,12 @@
 import { BigNumber } from "ethers";
-import { Currency, Percent, TradeType } from "udonswap-core";
-import { Protocol } from "udonswap-router";
+import { Currency, Percent, TradeType } from "sdkcore18";
+import { Protocol } from "routersdk18";
 import {
   FlatFeeOptions,
   SwapOptions as UniversalRouterSwapOptions,
   SwapRouter as UniversalSwapRouter,
-} from "udonswap-sdk-universal-router";
-import { FeeOptions } from "udonswap-v3";
+} from "universalroutersdk18";
+import { FeeOptions } from "v3sdk18";
 import { AppTFunction } from "ui/src/i18n/types";
 import { CurrencyId } from "uniswap/src/types/currency";
 import { NumberType } from "utilities/src/format/types";
@@ -112,25 +112,25 @@ export function tradeToTransactionInfo(
 
   return trade.tradeType === TradeType.EXACT_INPUT
     ? {
-        ...baseTransactionInfo,
-        type: TransactionType.Swap,
-        tradeType: TradeType.EXACT_INPUT,
-        inputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
-        expectedOutputCurrencyAmountRaw: trade.outputAmount.quotient.toString(),
-        minimumOutputCurrencyAmountRaw: trade
-          .minimumAmountOut(slippageTolerancePercent)
-          .quotient.toString(),
-      }
+      ...baseTransactionInfo,
+      type: TransactionType.Swap,
+      tradeType: TradeType.EXACT_INPUT,
+      inputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
+      expectedOutputCurrencyAmountRaw: trade.outputAmount.quotient.toString(),
+      minimumOutputCurrencyAmountRaw: trade
+        .minimumAmountOut(slippageTolerancePercent)
+        .quotient.toString(),
+    }
     : {
-        ...baseTransactionInfo,
-        type: TransactionType.Swap,
-        tradeType: TradeType.EXACT_OUTPUT,
-        outputCurrencyAmountRaw: trade.outputAmount.quotient.toString(),
-        expectedInputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
-        maximumInputCurrencyAmountRaw: trade
-          .maximumAmountIn(slippageTolerancePercent)
-          .quotient.toString(),
-      };
+      ...baseTransactionInfo,
+      type: TransactionType.Swap,
+      tradeType: TradeType.EXACT_OUTPUT,
+      outputCurrencyAmountRaw: trade.outputAmount.quotient.toString(),
+      expectedInputCurrencyAmountRaw: trade.inputAmount.quotient.toString(),
+      maximumInputCurrencyAmountRaw: trade
+        .maximumAmountIn(slippageTolerancePercent)
+        .quotient.toString(),
+    };
 }
 
 function parseQuoteTypeSpecificParms(quoteData: QuoteData | undefined): {
@@ -241,15 +241,15 @@ export const prepareSwapFormState = ({
 }): TransactionState | undefined => {
   return inputCurrencyId
     ? {
-        exactCurrencyField: CurrencyField.INPUT,
-        exactAmountToken: "",
-        [CurrencyField.INPUT]: {
-          address: currencyIdToAddress(inputCurrencyId),
-          chainId: currencyIdToChain(inputCurrencyId) ?? ChainId.Mainnet,
-          type: AssetType.Currency,
-        },
-        [CurrencyField.OUTPUT]: null,
-      }
+      exactCurrencyField: CurrencyField.INPUT,
+      exactAmountToken: "",
+      [CurrencyField.INPUT]: {
+        address: currencyIdToAddress(inputCurrencyId),
+        chainId: currencyIdToChain(inputCurrencyId) ?? ChainId.Mainnet,
+        type: AssetType.Currency,
+      },
+      [CurrencyField.OUTPUT]: null,
+    }
     : undefined;
 };
 
@@ -288,12 +288,12 @@ export const getSwapMethodParameters = ({
   const universalRouterSwapOptions: UniversalRouterSwapOptions =
     permit2Signature
       ? {
-          ...baseOptions,
-          inputTokenPermit: {
-            signature: permit2Signature.signature,
-            ...permit2Signature.permitMessage,
-          },
-        }
+        ...baseOptions,
+        inputTokenPermit: {
+          signature: permit2Signature.signature,
+          ...permit2Signature.permitMessage,
+        },
+      }
       : baseOptions;
   return UniversalSwapRouter.swapERC20CallParameters(
     trade,

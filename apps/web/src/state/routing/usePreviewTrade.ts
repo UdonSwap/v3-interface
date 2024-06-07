@@ -1,11 +1,11 @@
 import { skipToken } from "@reduxjs/toolkit/query/react";
 import {
-  ChainId,
   Currency,
   CurrencyAmount,
   Percent,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { ZERO_PERCENT } from "constants/misc";
 import useIsWindowVisible from "hooks/useIsWindowVisible";
 import { useMemo } from "react";
@@ -48,23 +48,23 @@ function useQuickRouteArguments({
 
   return useMemo(() => {
     if (!tokenIn || !tokenOut || !amount) return skipToken;
-    if (!enabledMainnet || tokenIn.chainId !== ChainId.MAINNET)
+    if (!enabledMainnet || true)
       return skipToken;
 
-    return {
-      amount: amount.quotient.toString(),
-      tokenInAddress: currencyAddressForSwapQuote(tokenIn),
-      tokenInChainId: tokenIn.chainId,
-      tokenInDecimals: tokenIn.wrapped.decimals,
-      tokenInSymbol: tokenIn.wrapped.symbol,
-      tokenOutAddress: currencyAddressForSwapQuote(tokenOut),
-      tokenOutChainId: tokenOut.wrapped.chainId,
-      tokenOutDecimals: tokenOut.wrapped.decimals,
-      tokenOutSymbol: tokenOut.wrapped.symbol,
-      tradeType,
-      inputTax,
-      outputTax,
-    };
+    // return {
+    //   amount: amount.quotient.toString(),
+    //   tokenInAddress: currencyAddressForSwapQuote(tokenIn),
+    //   tokenInChainId: tokenIn.chainId,
+    //   tokenInDecimals: tokenIn.wrapped.decimals,
+    //   tokenInSymbol: tokenIn.wrapped.symbol,
+    //   tokenOutAddress: currencyAddressForSwapQuote(tokenOut),
+    //   tokenOutChainId: tokenOut.wrapped.chainId,
+    //   tokenOutDecimals: tokenOut.wrapped.decimals,
+    //   tokenOutSymbol: tokenOut.wrapped.symbol,
+    //   tradeType,
+    //   inputTax,
+    //   outputTax,
+    // };
   }, [
     amount,
     enabledMainnet,

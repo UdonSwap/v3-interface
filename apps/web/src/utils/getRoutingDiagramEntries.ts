@@ -1,7 +1,7 @@
-import { Protocol } from "udonswap-router";
-import { Currency, Percent, TradeType } from "udonswap-core";
-import { Pair } from "udonswap-v2-sdk";
-import { FeeAmount } from "udonswap-v3";
+import { Protocol } from "routersdk18";
+import { Currency, Percent, TradeType } from "sdkcore18";
+// import { Pair } from "udonswap-v2-sdk";
+import { FeeAmount } from "v3sdk18";
 import { ClassicTrade } from "state/routing/types";
 
 export interface RoutingDiagramEntry {
@@ -37,7 +37,7 @@ export default function getRoutingDiagramEntries(
         const entry: RoutingDiagramEntry["path"][0] = [
           tokenIn,
           tokenOut,
-          nextPool instanceof Pair ? V2_DEFAULT_FEE_TIER : nextPool.fee,
+          nextPool.fee // nextPool instanceof Pair ? V2_DEFAULT_FEE_TIER : nextPool.fee,
         ];
         path.push(entry);
       }

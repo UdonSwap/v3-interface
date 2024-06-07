@@ -1,11 +1,12 @@
 import {
-  ChainId,
+
   Currency,
   Price,
   Token,
-  V3_CORE_FACTORY_ADDRESSES,
-} from "udonswap-core";
-import { FeeAmount, Pool, TICK_SPACINGS, tickToPrice } from "udonswap-v3";
+} from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
+import { V3_CORE_FACTORY_ADDRESSES } from '../constants/addresses'
+import { FeeAmount, Pool, TICK_SPACINGS, tickToPrice } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import { TickData, Ticks } from "graphql/thegraph/AllV3TicksQuery";
 import { useAllV3TicksQuery } from "graphql/thegraph/__generated__/types-and-hooks";
@@ -15,7 +16,7 @@ import { useEffect, useMemo, useState } from "react";
 import computeSurroundingTicks from "utils/computeSurroundingTicks";
 
 import { chainToApolloClient } from "graphql/thegraph/apollo";
-import { PoolState, usePoolMultichain } from "./usePools";
+import { PoolState, usePool } from "./usePools";
 
 const PRICE_FIXED_DIGITS = 8;
 
@@ -34,7 +35,7 @@ const getActiveTick = (
 ) =>
   tickCurrent && feeAmount
     ? Math.floor(tickCurrent / TICK_SPACINGS[feeAmount]) *
-      TICK_SPACINGS[feeAmount]
+    TICK_SPACINGS[feeAmount]
     : undefined;
 
 function useTicksFromSubgraph(
@@ -48,12 +49,12 @@ function useTicksFromSubgraph(
   const poolAddress =
     currencyA && currencyB && feeAmount
       ? Pool.getAddress(
-          currencyA?.wrapped,
-          currencyB?.wrapped,
-          feeAmount,
-          undefined,
-          chainId ? V3_CORE_FACTORY_ADDRESSES[chainId] : undefined,
-        )
+        currencyA?.wrapped,
+        currencyB?.wrapped,
+        feeAmount,
+        undefined,
+        chainId ? V3_CORE_FACTORY_ADDRESSES[chainId] : undefined,
+      )
       : undefined;
 
   return useAllV3TicksQuery({
@@ -123,12 +124,12 @@ export function usePoolActiveLiquidity(
   sqrtPriceX96?: JSBI;
   data?: TickProcessed[];
 } {
-  const defaultChainId = useWeb3React().chainId ?? ChainId.MAINNET;
-  const pool = usePoolMultichain(
+  const defaultChainId = useWeb3React().chainId ?? ChainId.MODE;
+  const pool = usePool(
     currencyA?.wrapped,
     currencyB?.wrapped,
     feeAmount,
-    chainId ?? defaultChainId,
+    // chainId ?? defaultChainId,
   );
   const liquidity = pool[1]?.liquidity;
   const sqrtPriceX96 = pool[1]?.sqrtRatioX96;

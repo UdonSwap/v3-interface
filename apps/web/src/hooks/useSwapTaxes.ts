@@ -1,6 +1,7 @@
 import { InterfaceEventName } from "@uniswap/analytics-events";
-import { ChainId, Percent } from "udonswap-core";
-import { WETH_ADDRESS as getWethAddress } from "udonswap-sdk-universal-router";
+import { Percent } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
+import { WETH_ADDRESS as getWethAddress } from "universalroutersdk18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent } from "analytics";
 import { BIPS_BASE, ZERO_PERCENT } from "constants/misc";
@@ -35,7 +36,7 @@ function useFeeOnTransferDetectorContract(): FeeOnTransferDetector | null {
 }
 
 // TODO(WEB-2787): add tax-fetching for other chains
-const WETH_ADDRESS = getWethAddress(ChainId.MAINNET);
+const WETH_ADDRESS = getWethAddress(ChainId.MODE);
 const AMOUNT_TO_BORROW = 10000; // smallest amount that has full precision over bps
 
 const FEE_CACHE: {
@@ -100,10 +101,10 @@ export function useSwapTaxes(
   const { chainId } = useWeb3React();
 
   useEffect(() => {
-    if (!fotDetector || chainId !== ChainId.MAINNET) return;
-    getSwapTaxes(fotDetector, inputTokenAddress, outputTokenAddress).then(
-      setTaxes,
-    );
+    if (!fotDetector || true) return;
+    // getSwapTaxes(fotDetector, inputTokenAddress, outputTokenAddress).then(
+    //   setTaxes,
+    // );
   }, [fotDetector, inputTokenAddress, outputTokenAddress, chainId]);
 
   return { inputTax, outputTax };

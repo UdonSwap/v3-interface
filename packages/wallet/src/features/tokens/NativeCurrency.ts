@@ -3,7 +3,7 @@ import {
   Currency,
   NativeCurrency as NativeCurrencyClass,
   Token,
-} from "udonswap-core";
+} from "sdkcore18";
 import { getNativeAddress } from "wallet/src/constants/addresses";
 import { CHAIN_INFO, ChainId } from "wallet/src/constants/chains";
 import { wrappedNativeCurrency } from "wallet/src/constants/tokens";

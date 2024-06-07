@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { Trans } from "i18n";
 import { useSwapAndLimitContext, useSwapContext } from "state/swap/hooks";
 import styled from "styled-components";

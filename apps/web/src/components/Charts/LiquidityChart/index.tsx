@@ -5,14 +5,9 @@ import {
 } from "components/Charts/ChartModel";
 import { ISeriesApi, UTCTimestamp } from "lightweight-charts";
 
-import { ChainId, CurrencyAmount, Token } from "udonswap-core";
-import {
-  FeeAmount,
-  Pool,
-  TICK_SPACINGS,
-  TickMath,
-  tickToPrice,
-} from "udonswap-v3";
+import { CurrencyAmount, Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
+import { FeeAmount, Pool, TICK_SPACINGS, TickMath, tickToPrice } from "v3sdk18";
 import { BigNumber } from "ethers/lib/ethers";
 import { TickProcessed, usePoolActiveLiquidity } from "hooks/usePoolTickData";
 import JSBI from "jsbi";

@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { CurrencyId } from "uniswap/src/types/currency";
 import {
   getNativeAddress,

@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { showTestnetsAtom } from "components/AccountDrawer/TestnetsToggle";
 import { ChainLogo } from "components/Logo/ChainLogo";
@@ -74,25 +74,21 @@ export const ChainSelector = ({ leftAlign }: { leftAlign?: boolean }) => {
   const walletSupportsChain = useWalletSupportedChains();
 
   const [supportedChains, unsupportedChains] = useMemo(() => {
-    const { supported, unsupported } = NETWORK_SELECTOR_CHAINS.filter(
-      (chain: number) => {
-        return showTestnets || !TESTNET_CHAIN_IDS.includes(chain);
+    const { supported, unsupported } = NETWORK_SELECTOR_CHAINS.sort(
+      (a, b) => getChainPriority(a) - getChainPriority(b),
+    ).reduce(
+      (acc, chain) => {
+        if (walletSupportsChain.includes(chain)) {
+          acc.supported.push(chain);
+        } else {
+          acc.unsupported.push(chain);
+        }
+        return acc;
       },
-    )
-      .sort((a, b) => getChainPriority(a) - getChainPriority(b))
-      .reduce(
-        (acc, chain) => {
-          if (walletSupportsChain.includes(chain)) {
-            acc.supported.push(chain);
-          } else {
-            acc.unsupported.push(chain);
-          }
-          return acc;
-        },
-        { supported: [], unsupported: [] } as Record<string, ChainId[]>,
-      );
+      { supported: [], unsupported: [] } as Record<string, ChainId[]>,
+    );
     return [supported, unsupported];
-  }, [showTestnets, walletSupportsChain]);
+  }, [walletSupportsChain]);
 
   const info = getChainInfo(chainId);
 

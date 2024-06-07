@@ -1,14 +1,14 @@
 import { Contract } from "@ethersproject/contracts";
 import { InterfaceEventName } from "@uniswap/analytics-events";
+import { ChainId } from "smartorderrouter18"
 import {
   ARGENT_WALLET_DETECTOR_ADDRESS,
-  ChainId,
-  ENS_REGISTRAR_ADDRESSES,
-  MULTICALL_ADDRESSES,
+  // ENS_REGISTRAR_ADDRESSES,
+  MULTICALL_ADDRESS,
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
-  V2_ROUTER_ADDRESSES,
+  // V2_ROUTER_ADDRESSES,
   V3_MIGRATOR_ADDRESSES,
-} from "udonswap-core";
+} from 'constants/addresses'
 import IUniswapV2PairJson from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import IUniswapV2Router02Json from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import NonfungiblePositionManagerJson from "@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json";
@@ -89,14 +89,14 @@ function useMainnetContract<T extends Contract = Contract>(
   address: string | undefined,
   ABI: any,
 ): T | null {
-  const { chainId } = useWeb3React();
-  const isMainnet = chainId === ChainId.MAINNET;
+  // const { chainId } = useWeb3React();
+  const isMainnet = false // chainId === ChainId.MAINNET;
   const contract = useContract(isMainnet ? address : undefined, ABI, false);
 
   return useMemo(() => {
     if (isMainnet) return contract;
     if (!address) return null;
-    const provider = RPC_PROVIDERS[ChainId.MAINNET];
+    const provider = RPC_PROVIDERS[ChainId.MODE];
     try {
       return getContract(address, ABI, provider);
     } catch (error) {
@@ -142,12 +142,12 @@ export function useArgentWalletDetectorContract() {
   );
 }
 
-export function useENSRegistrarContract() {
-  return useMainnetContract<EnsRegistrar>(
-    ENS_REGISTRAR_ADDRESSES[ChainId.MAINNET],
-    ENS_ABI,
-  );
-}
+// export function useENSRegistrarContract() {
+//   return useMainnetContract<EnsRegistrar>(
+//     ENS_REGISTRAR_ADDRESSES[ChainId.MAINNET],
+//     ENS_ABI,
+//   );
+// }
 
 export function useENSResolverContract(address: string | undefined) {
   return useMainnetContract<EnsPublicResolver>(
@@ -174,18 +174,18 @@ export function usePairContract(
   return useContract(pairAddress, IUniswapV2PairABI, withSignerIfPossible);
 }
 
-export function useV2RouterContract(): Contract | null {
-  const { chainId } = useWeb3React();
-  return useContract(
-    chainId ? V2_ROUTER_ADDRESSES[chainId] : undefined,
-    IUniswapV2Router02ABI,
-    true,
-  );
-}
+// export function useV2RouterContract(): Contract | null {
+//   const { chainId } = useWeb3React();
+//   return useContract(
+//     chainId ? V2_ROUTER_ADDRESSES[chainId] : undefined,
+//     IUniswapV2Router02ABI,
+//     true,
+//   );
+// }
 
 export function useInterfaceMulticall() {
   return useContract<UniswapInterfaceMulticall>(
-    MULTICALL_ADDRESSES,
+    MULTICALL_ADDRESS,
     MulticallABI,
     false,
   ) as UniswapInterfaceMulticall;
@@ -193,7 +193,7 @@ export function useInterfaceMulticall() {
 
 export function useMainnetInterfaceMulticall() {
   return useMainnetContract<UniswapInterfaceMulticall>(
-    MULTICALL_ADDRESSES[ChainId.MAINNET],
+    MULTICALL_ADDRESS[ChainId.MODE],
     MulticallABI,
   ) as UniswapInterfaceMulticall;
 }

@@ -2,13 +2,13 @@ import { MaxUint256 } from "@ethersproject/constants";
 import { SwapEventName } from "@uniswap/analytics-events";
 import { providers } from "ethers";
 import { useCallback, useEffect, useMemo } from "react";
-import { Currency, CurrencyAmount, TradeType } from "udonswap-core";
+import { Currency, CurrencyAmount, TradeType } from "sdkcore18";
 import { PERMIT2_ADDRESS } from "udonswap-permit2";
 import {
   FlatFeeOptions,
   UNIVERSAL_ROUTER_ADDRESS,
-} from "udonswap-sdk-universal-router";
-import { FeeOptions } from "udonswap-v3";
+} from "universalroutersdk18";
+import { FeeOptions } from "v3sdk18";
 import ERC20_ABI from "uniswap/src/abis/erc20.json";
 import { Erc20 } from "uniswap/src/abis/types";
 import { logger } from "utilities/src/logger/logger";
@@ -127,11 +127,11 @@ const getWrapTransactionRequest = async (
   const wethTx =
     wrapType === WrapType.Wrap
       ? await wethContract.populateTransaction.deposit({
-          value: `0x${currencyAmountIn.quotient.toString(16)}`,
-        })
+        value: `0x${currencyAmountIn.quotient.toString(16)}`,
+      })
       : await wethContract.populateTransaction.withdraw(
-          `0x${currencyAmountIn.quotient.toString(16)}`
-        );
+        `0x${currencyAmountIn.quotient.toString(16)}`
+      );
 
   return { ...wethTx, from: address, chainId };
 };

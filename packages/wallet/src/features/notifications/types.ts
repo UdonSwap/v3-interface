@@ -1,4 +1,4 @@
-import { TradeType } from "udonswap-core";
+import { TradeType } from "sdkcore18";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";
 import { ChainId } from "wallet/src/constants/chains";
 import { AssetType } from "wallet/src/entities/assets";

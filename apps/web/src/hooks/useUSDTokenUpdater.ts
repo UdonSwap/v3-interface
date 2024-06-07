@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import tryParseCurrencyAmount from "lib/utils/tryParseCurrencyAmount";
 import { useMemo } from "react";
 import { NumberType, useFormatter } from "utils/formatNumbers";
@@ -32,9 +32,9 @@ export function useUSDTokenUpdater(
       const supportedChainId = asSupportedChain(exactCurrency.chainId);
       const stablecoinAmount = supportedChainId
         ? tryParseCurrencyAmount(
-            exactAmountUSD,
-            STABLECOIN_AMOUNT_OUT[supportedChainId].currency,
-          )
+          exactAmountUSD,
+          STABLECOIN_AMOUNT_OUT[supportedChainId].currency,
+        )
         : undefined;
 
       const currencyAmount = stablecoinAmount

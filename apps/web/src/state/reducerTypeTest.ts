@@ -1,5 +1,5 @@
-import { ChainId } from "udonswap-core";
-import { TokenList } from "@uniswap/token-lists";
+import { ChainId } from "smartorderrouter18";
+import { TokenList } from "udonswap-token-lists";
 import { RecentConnectionMeta } from "connection/types";
 import { SupportedLocale } from "constants/locales";
 import multicall from "lib/state/multicall";
@@ -181,16 +181,16 @@ interface ExpectedLogsState {
       listeners: number;
       fetchingBlockNumber?: number;
       results?:
-        | {
-            blockNumber: number;
-            logs: Log[];
-            error?: undefined;
-          }
-        | {
-            blockNumber: number;
-            logs?: undefined;
-            error: true;
-          };
+      | {
+        blockNumber: number;
+        logs: Log[];
+        error?: undefined;
+      }
+      | {
+        blockNumber: number;
+        logs?: undefined;
+        error: true;
+      };
     };
   };
 }

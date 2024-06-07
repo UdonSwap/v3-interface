@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Currency, TradeType } from "udonswap-core";
+import { Currency, TradeType } from "sdkcore18";
 import { Flex, Icons, Text, TouchableArea } from "ui/src";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";
 import { NumberType } from "utilities/src/format/types";

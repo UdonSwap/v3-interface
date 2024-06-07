@@ -1,8 +1,8 @@
 import { BigNumber } from "@ethersproject/bignumber";
 import type { TransactionResponse } from "@ethersproject/providers";
 import { LiquidityEventName, LiquiditySource } from "@uniswap/analytics-events";
-import { CurrencyAmount, Percent } from "udonswap-core";
-import { NonfungiblePositionManager } from "udonswap-v3";
+import { CurrencyAmount, Percent } from "sdkcore18";
+import { NonfungiblePositionManager } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import RangeBadge from "components/Badge/RangeBadge";

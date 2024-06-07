@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, Price } from "udonswap-core";
-import { Position } from "udonswap-v3";
+import { Currency, CurrencyAmount, Price } from "sdkcore18";
+import { Position } from "v3sdk18";
 import { AutoColumn } from "components/Column";
 import { PositionPreview } from "components/PositionPreview";
 import styled from "styled-components";

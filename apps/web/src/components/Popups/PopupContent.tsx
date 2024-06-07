@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useOpenOffchainActivityModal } from "components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal";
 import {
   signatureToActivity,
@@ -12,7 +12,7 @@ import AlertTriangleFilled from "components/Icons/AlertTriangleFilled";
 import { AutoRow } from "components/Row";
 import { getChainInfo } from "constants/chainInfo";
 import { useAllTokensMultichain } from "hooks/Tokens";
-import useENSName from "hooks/useENSName";
+// import useENSName from "hooks/useENSName";
 import { Trans } from "i18n";
 import { X } from "react-feather";
 import { useOrder } from "state/signatures/hooks";
@@ -116,7 +116,7 @@ function ActivityPopupContent({
 }: ActivityPopupContentProps) {
   const success =
     activity.status === TransactionStatus.Confirmed && !activity.cancelled;
-  const { ENSName } = useENSName(activity?.otherAccount);
+  // const { ENSName } = useENSName(activity?.otherAccount);
 
   return (
     <PopupContainer>
@@ -140,7 +140,7 @@ function ActivityPopupContent({
         descriptor={
           <Descriptor color="neutral2">
             {activity.descriptor}
-            {ENSName ?? activity.otherAccount}
+            {/* {ENSName ?? activity.otherAccount} */}
           </Descriptor>
         }
         onClick={onClick}

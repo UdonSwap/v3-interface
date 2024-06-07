@@ -1,8 +1,8 @@
 import { AnyAction } from "@reduxjs/toolkit";
 import { providers } from "ethers";
 import { Dispatch } from "react";
-import { TradeType } from "udonswap-core";
-import { Protocol } from "udonswap-router";
+import { TradeType } from "sdkcore18";
+import { Protocol } from "routersdk18";
 import { TransactionListQuery } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
 import { ChainId } from "wallet/src/constants/chains";
 import { AssetType } from "wallet/src/entities/assets";
@@ -288,7 +288,7 @@ export function isConfirmedSwapTypeInfo(
 ): typeInfo is ConfirmedSwapTransactionInfo {
   return Boolean(
     (typeInfo as ConfirmedSwapTransactionInfo).inputCurrencyAmountRaw &&
-      (typeInfo as ConfirmedSwapTransactionInfo).outputCurrencyAmountRaw
+    (typeInfo as ConfirmedSwapTransactionInfo).outputCurrencyAmountRaw
   );
 }
 

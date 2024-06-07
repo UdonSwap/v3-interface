@@ -6,8 +6,8 @@ import {
   SharedEventName,
   SwapEventName,
 } from "@uniswap/analytics-events";
-import { Currency, CurrencyAmount, Token } from "udonswap-core";
-import { UNIVERSAL_ROUTER_ADDRESS } from "udonswap-sdk-universal-router";
+import { Currency, CurrencyAmount, Token } from "sdkcore18";
+import { UNIVERSAL_ROUTER_ADDRESS } from "universalroutersdk18";
 import { useWeb3React } from "@web3-react/core";
 import { Trace, TraceEvent, sendAnalyticsEvent, useTrace } from "analytics";
 import { useToggleAccountDrawer } from "components/AccountDrawer/MiniPortfolio/hooks";

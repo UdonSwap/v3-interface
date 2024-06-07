@@ -3,7 +3,7 @@ import {
   TICK_SPACINGS,
   TickMath,
   nearestUsableTick,
-} from "udonswap-v3";
+} from "v3sdk18";
 import { useMemo } from "react";
 import { Bound } from "state/mint/v3/actions";
 
@@ -17,18 +17,18 @@ export default function useIsTickAtLimit(
       [Bound.LOWER]:
         feeAmount && tickLower
           ? tickLower ===
-            nearestUsableTick(
-              TickMath.MIN_TICK,
-              TICK_SPACINGS[feeAmount as FeeAmount],
-            )
+          nearestUsableTick(
+            TickMath.MIN_TICK,
+            TICK_SPACINGS[feeAmount as FeeAmount],
+          )
           : undefined,
       [Bound.UPPER]:
         feeAmount && tickUpper
           ? tickUpper ===
-            nearestUsableTick(
-              TickMath.MAX_TICK,
-              TICK_SPACINGS[feeAmount as FeeAmount],
-            )
+          nearestUsableTick(
+            TickMath.MAX_TICK,
+            TICK_SPACINGS[feeAmount as FeeAmount],
+          )
           : undefined,
     }),
     [feeAmount, tickLower, tickUpper],

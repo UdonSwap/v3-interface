@@ -1,5 +1,5 @@
 import { createMulticall, ListenerOptions } from "@uniswap/redux-multicall";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import { getBlocksPerMainnetEpochForChainId } from "constants/chainInfo";
 import {
@@ -32,12 +32,12 @@ export function MulticallUpdater() {
   return (
     <>
       <multicall.Updater
-        chainId={ChainId.MAINNET}
+        chainId={ChainId.MODE}
         latestBlockNumber={latestMainnetBlockNumber}
         contract={mainnetContract}
         listenerOptions={MAINNET_LISTENER_OPTIONS}
       />
-      {chainId !== ChainId.MAINNET && (
+      {true && (
         <multicall.Updater
           chainId={chainId}
           latestBlockNumber={latestBlockNumber}

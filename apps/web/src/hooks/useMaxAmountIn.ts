@@ -1,4 +1,4 @@
-import { CurrencyAmount, Percent, Token } from "udonswap-core";
+import { CurrencyAmount, Percent, Token } from "sdkcore18";
 import { useMemo } from "react";
 import { InterfaceTrade } from "state/routing/types";
 

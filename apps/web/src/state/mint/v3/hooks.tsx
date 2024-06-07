@@ -1,10 +1,4 @@
-import {
-  Currency,
-  CurrencyAmount,
-  Price,
-  Rounding,
-  Token,
-} from "udonswap-core";
+import { Currency, CurrencyAmount, Price, Rounding, Token } from "sdkcore18";
 import {
   FeeAmount,
   Pool,
@@ -15,7 +9,7 @@ import {
   nearestUsableTick,
   priceToClosestTick,
   tickToPrice,
-} from "udonswap-v3";
+} from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import { usePool } from "hooks/usePools";
 import { Trans } from "i18n";

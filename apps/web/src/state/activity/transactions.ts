@@ -1,6 +1,6 @@
 import { TransactionReceipt } from "@ethersproject/abstract-provider";
 import { NEVER_RELOAD } from "@uniswap/redux-multicall";
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import useCurrentBlockTimestamp from "hooks/useCurrentBlockTimestamp";
 import useBlockNumber, {
@@ -65,13 +65,13 @@ export function shouldCheck(lastBlockNumber: number, tx: Transaction): boolean {
 }
 
 const RETRY_OPTIONS_BY_CHAIN_ID: { [chainId: number]: RetryOptions } = {
-  [ChainId.ARBITRUM_ONE]: { n: 10, minWait: 250, maxWait: 1000 },
-  [ChainId.ARBITRUM_GOERLI]: { n: 10, minWait: 250, maxWait: 1000 },
+  // [ChainId.ARBITRUM_ONE]: { n: 10, minWait: 250, maxWait: 1000 },
+  // [ChainId.ARBITRUM_GOERLI]: { n: 10, minWait: 250, maxWait: 1000 },
   [ChainId.MODE]: { n: 10, minWait: 250, maxWait: 1000 },
-  [ChainId.OPTIMISM]: { n: 10, minWait: 250, maxWait: 1000 },
-  [ChainId.OPTIMISM_GOERLI]: { n: 10, minWait: 250, maxWait: 1000 },
-  [ChainId.BASE]: { n: 10, minWait: 250, maxWait: 1000 },
-  [ChainId.BLAST]: { n: 10, minWait: 250, maxWait: 1000 },
+  // [ChainId.OPTIMISM]: { n: 10, minWait: 250, maxWait: 1000 },
+  // [ChainId.OPTIMISM_GOERLI]: { n: 10, minWait: 250, maxWait: 1000 },
+  // [ChainId.BASE]: { n: 10, minWait: 250, maxWait: 1000 },
+  // [ChainId.BLAST]: { n: 10, minWait: 250, maxWait: 1000 },
 };
 const DEFAULT_RETRY_OPTIONS: RetryOptions = { n: 1, minWait: 0, maxWait: 0 };
 
@@ -82,13 +82,13 @@ export function usePollPendingTransactions(onReceiveUpdate: ActivityUpdaterFn) {
   const multichainTransactions = useMultichainTransactions();
   const pendingTransactions = useMemo(() => {
     // We can skip polling when the app's current chain is supported by the subscription service.
-    if (
-      realtimeEnabled &&
-      appChainId &&
-      SUBSCRIPTION_CHAINIDS.includes(appChainId)
-    ) {
-      return [];
-    }
+    // if (
+    //   realtimeEnabled &&
+    //   appChainId &&
+    //  false // SUBSCRIPTION_CHAINIDS.includes(appChainId)
+    // ) {
+    //   return [];
+    // }
 
     return multichainTransactions.flatMap(
       ([tx, chainId]) => (chainId === appChainId && isPendingTx(tx) ? tx : []), // Only use pending transactions on the current chain.

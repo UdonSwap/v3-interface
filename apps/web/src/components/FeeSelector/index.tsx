@@ -2,8 +2,8 @@ import {
   FeePoolSelectAction,
   LiquidityEventName,
 } from "@uniswap/analytics-events";
-import { Currency } from "udonswap-core";
-import { FeeAmount } from "udonswap-v3";
+import { Currency } from "sdkcore18";
+import { FeeAmount } from "v3sdk18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import { ButtonGray } from "components/Button";
@@ -43,7 +43,7 @@ const FocusedOutlineCard = styled(Card)<{ pulsing: boolean }>`
   animation: ${({ pulsing, theme }) => pulsing && pulse(theme.accent1)} 0.6s
     linear;
   align-self: center;
-  background:Transparent;
+  background: Transparent;
 `;
 
 const Select = styled.div`

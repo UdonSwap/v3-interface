@@ -6,10 +6,10 @@ import {
   TextInputProps,
   TextInputSelectionChangeEventData,
 } from "react-native";
-import { Currency, CurrencyAmount } from "udonswap-core";
 import { Flex, FlexProps, SpaceTokens, Text } from "ui/src";
 import { fonts } from "ui/src/theme";
 import { CurrencyInfo } from "uniswap/src/features/dataApi/types";
+import { Currency, CurrencyAmount } from "usdkcore18";
 import { NumberType } from "utilities/src/format/types";
 import { SelectTokenButton } from "wallet/src/components/TokenSelector/SelectTokenButton";
 import { AmountInput } from "wallet/src/components/input/AmountInput";

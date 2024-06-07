@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Percent, Price, Token } from "udonswap-core";
+import { Currency, CurrencyAmount, Percent, Price, Token } from "sdkcore18";
 import { NATIVE_CHAIN_ID } from "constants/tokens";
 import {
   InterfaceTrade,
@@ -90,8 +90,8 @@ export function formatCommonPropertiesForTrade(
     allowed_slippage: formatPercentNumber(allowedSlippage),
     method: getQuoteMethod(trade),
     fee_usd: outputFeeFiatValue,
-    token_out_detected_tax: formatPercentNumber(trade.outputTax),
-    token_in_detected_tax: formatPercentNumber(trade.inputTax),
+    // token_out_detected_tax: formatPercentNumber(trade.outputTax),
+    // token_in_detected_tax: formatPercentNumber(trade.inputTax),
     offchain_order_type: isUniswapXTrade(trade)
       ? trade.offchainOrderType
       : undefined,

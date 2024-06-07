@@ -1,11 +1,12 @@
-import { ChainId, Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import blankTokenUrl from "assets/svg/blank_token.svg";
 import { ReactComponent as UnknownStatus } from "assets/svg/contract-interaction.svg";
 import { MissingImageLogo } from "components/Logo/AssetLogo";
 import { ChainLogo, getDefaultBorderRadius } from "components/Logo/ChainLogo";
 import { Unicon } from "components/Unicon";
 import useTokenLogoSource from "hooks/useAssetLogoSource";
-import useENSAvatar from "hooks/useENSAvatar";
+// import useENSAvatar from "hooks/useENSAvatar";
 import React from "react";
 import { Loader } from "react-feather";
 import styled from "styled-components";
@@ -185,15 +186,15 @@ function PortfolioAvatar({
   accountAddress: string;
   size: string;
 }) {
-  const { avatar, loading } = useENSAvatar(accountAddress, false);
+  // const { avatar, loading } = useENSAvatar(accountAddress, false);
   const uniconV2Enabled = useFeatureFlag(FeatureFlags.UniconsV2);
 
-  if (loading) {
-    return <Loader size={size} />;
-  }
-  if (avatar) {
-    return <ENSAvatarImg src={avatar} alt="avatar" />;
-  }
+  // if (loading) {
+  //   return <Loader size={size} />;
+  // }
+  // if (avatar) {
+  //   return <ENSAvatarImg src={avatar} alt="avatar" />;
+  // }
   return (
     <>
       {uniconV2Enabled ? (
@@ -215,7 +216,7 @@ interface PortfolioLogoProps {
 }
 
 function SquareL2Logo({ chainId }: { chainId: ChainId }) {
-  if (chainId === ChainId.MAINNET) return null;
+  // if (chainId === ChainId.MAINNET) return null;
 
   return (
     <L2LogoContainer>

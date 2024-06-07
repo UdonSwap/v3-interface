@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { t } from "i18n";
 
 export const getTokenPageTitle = (currency?: Currency) => {

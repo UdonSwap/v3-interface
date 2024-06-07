@@ -1,4 +1,5 @@
-import { ChainId, Token } from "udonswap-core";
+import { Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18"
 import { nativeOnChain } from "constants/tokens";
 import { supportedChainIdFromGQLChain } from "graphql/data/util";
 import { PortfolioTokenBalancePartsFragment } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
@@ -67,7 +68,7 @@ export function getSortedPortfolioTokens(
 
       const tokenChainId =
         supportedChainIdFromGQLChain(tokenBalance.token?.chain) ??
-        ChainId.MAINNET;
+        ChainId.MODE;
       if (tokenChainId !== chainId) {
         return undefined;
       }

@@ -1,4 +1,4 @@
-import { ChainId } from "udonswap-core";
+import { ChainId } from "smartorderrouter18";
 import { Connector } from "@web3-react/types";
 import { networkConnection, walletConnectV2Connection } from "connection";
 import { getChainInfo } from "constants/chainInfo";

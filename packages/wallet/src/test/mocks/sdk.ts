@@ -1,4 +1,4 @@
-import { FeeAmount, Pool } from "udonswap-v3";
+import { FeeAmount, Pool } from "v3sdk18";
 import { ChainId } from "wallet/src/constants/chains";
 import { UNI, WBTC } from "wallet/src/constants/tokens";
 

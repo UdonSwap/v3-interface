@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { CurrencyAmount, NativeCurrency } from "udonswap-core";
+import { CurrencyAmount, NativeCurrency } from "sdkcore18";
 import { isWeb } from "ui/src";
 import { useOnChainNativeCurrencyBalance } from "wallet/src/features/portfolio/api";
 import {

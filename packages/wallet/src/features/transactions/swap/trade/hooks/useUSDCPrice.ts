@@ -5,7 +5,7 @@ import {
   Price,
   Token,
   TradeType,
-} from "udonswap-core";
+} from "sdkcore18";
 import { ChainId } from "wallet/src/constants/chains";
 import { PollingInterval } from "wallet/src/constants/misc";
 import {
@@ -52,8 +52,8 @@ export function useUSDCPrice(
   // avoid requesting quotes for stablecoin input
   const currencyIsStablecoin = Boolean(
     stablecoin &&
-      currency &&
-      areCurrencyIdsEqual(currencyId(currency), currencyId(stablecoin))
+    currency &&
+    areCurrencyIdsEqual(currencyId(currency), currencyId(stablecoin))
   );
   const amountSpecified = currencyIsStablecoin ? undefined : quoteAmount;
 

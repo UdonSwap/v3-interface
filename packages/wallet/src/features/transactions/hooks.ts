@@ -1,6 +1,6 @@
 import { BigNumberish } from "ethers";
 import { useMemo } from "react";
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { ChainId } from "wallet/src/constants/chains";
 import { useCurrencyInfo } from "wallet/src/features/tokens/useCurrencyInfo";
 import {

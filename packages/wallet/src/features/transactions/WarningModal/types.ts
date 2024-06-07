@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { SvgProps } from "react-native-svg";
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 import { ColorTokens } from "ui/src";
 import { ThemeNames } from "ui/src/theme";
 

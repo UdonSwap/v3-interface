@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 
 const PRECISION = 10_000;
 const DENOMINATOR = PRECISION * 100;

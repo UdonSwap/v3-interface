@@ -1,5 +1,6 @@
 import { ApolloError } from "@apollo/client";
-import { ChainId, Token } from "udonswap-core";
+import { Token } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import {
   PoolTableColumns,
   PoolsTable,

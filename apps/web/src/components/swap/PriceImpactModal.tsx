@@ -1,4 +1,4 @@
-import { Percent } from "udonswap-core";
+import { Percent } from "sdkcore18";
 import { ButtonEmphasis, ButtonSize, ThemeButton } from "components/Button";
 import { ColumnCenter } from "components/Column";
 import Row from "components/Row";

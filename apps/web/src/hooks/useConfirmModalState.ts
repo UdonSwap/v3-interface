@@ -1,5 +1,5 @@
 import { InterfaceEventName } from "@uniswap/analytics-events";
-import { Currency, Percent } from "udonswap-core";
+import { Currency, Percent, Price } from "sdkcore18";
 import { useWeb3React } from "@web3-react/core";
 import { sendAnalyticsEvent, useTrace } from "analytics";
 import { Field, RESET_APPROVAL_TOKENS } from "components/swap/constants";
@@ -226,7 +226,7 @@ export function useConfirmModalState({
 
   const previousRevocationPending = usePrevious(
     allowance.state === AllowanceState.REQUIRED &&
-      allowance.isRevocationPending,
+    allowance.isRevocationPending,
   );
   useEffect(() => {
     if (
@@ -280,7 +280,7 @@ export function useConfirmModalState({
       !trade.executionPrice.equalTo(lastExecutionPrice)
     ) {
       setPriceUpdate(
-        getPriceUpdateBasisPoints(lastExecutionPrice, trade.executionPrice),
+        getPriceUpdateBasisPoints(lastExecutionPrice as Price<Currency, Currency>, trade.executionPrice as Price<Currency, Currency>),
       );
       setLastExecutionPrice(trade.executionPrice);
     }

@@ -1,4 +1,5 @@
-import { ChainId, Currency, CurrencyAmount, TradeType } from "udonswap-core";
+import { Currency, CurrencyAmount, TradeType } from "sdkcore18";
+import { ChainId } from "smartorderrouter18";
 import { useWeb3React } from "@web3-react/core";
 import {
   CancelLimitsDialog,
@@ -278,7 +279,7 @@ export function OrderContent({
     <Column>
       <Row gap="md">
         <PortfolioLogo
-          chainId={amounts?.inputAmount.currency.chainId ?? ChainId.MAINNET}
+          chainId={amounts?.inputAmount.currency.chainId ?? ChainId.MODE}
           currencies={currencies}
           images={[logos?.inputLogo, logos?.outputLogo]}
         />

@@ -1,6 +1,6 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { Percent, Price, Token } from "udonswap-core";
-import { Position } from "udonswap-v3";
+import { Percent, Price, Token } from "sdkcore18";
+import { Position } from "v3sdk18";
 import RangeBadge from "components/Badge/RangeBadge";
 import DoubleCurrencyLogo from "components/DoubleLogo";
 import HoverInlineText from "components/HoverInlineText";
@@ -20,10 +20,10 @@ import { useFormatter } from "utils/formatNumbers";
 import { unwrappedToken } from "utils/unwrappedToken";
 
 import {
-  DAI,
-  USDC_MAINNET,
-  USDT,
-  WBTC,
+  DAI_MODE,
+  USDC_MODE,
+  USDT_MODE,
+  WBTC_MODE,
   WRAPPED_NATIVE_CURRENCY,
 } from "../../constants/tokens";
 
@@ -130,7 +130,7 @@ export function getPriceOrderingFromPositionForUI(position?: Position): {
   const token1 = position.amount1.currency;
 
   // if token0 is a dollar-stable asset, set it as the quote token
-  const stables = [DAI, USDC_MAINNET, USDT];
+  const stables = [DAI_MODE, USDC_MODE, USDT_MODE];
   if (stables.some((stable) => stable.equals(token0))) {
     return {
       priceLower: position.token0PriceUpper.invert(),
@@ -141,7 +141,7 @@ export function getPriceOrderingFromPositionForUI(position?: Position): {
   }
 
   // if token1 is an ETH-/BTC-stable asset, set it as the base token
-  const bases = [...Object.values(WRAPPED_NATIVE_CURRENCY), WBTC];
+  const bases = [...Object.values(WRAPPED_NATIVE_CURRENCY), WBTC_MODE];
   if (bases.some((base) => base && base.equals(token1))) {
     return {
       priceLower: position.token0PriceUpper.invert(),

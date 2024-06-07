@@ -1,4 +1,4 @@
-import { Currency } from "udonswap-core";
+import { Currency } from "sdkcore18";
 
 export const getTestSelector = (selectorId: string) =>
   `[data-testid=${selectorId}]`;
