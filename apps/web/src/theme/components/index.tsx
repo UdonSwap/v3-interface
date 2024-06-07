@@ -338,7 +338,6 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
         color={color}
         clicked={isCopied}
         gap={displayGap}
-        
       >
         {iconPosition === "left" && Icon && (
           <Icon size={iconSize} strokeWidth={1.5} color={iconColor} />

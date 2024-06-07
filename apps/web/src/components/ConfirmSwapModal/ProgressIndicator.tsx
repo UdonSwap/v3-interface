@@ -164,7 +164,6 @@ export default function ProgressIndicator({
         }),
         actionRequiredTitle: t`Approve in wallet`,
         inProgressTitle: t`Approval pending...`,
-        learnMoreLinkText: t`Why do I have to approve a token?`,
         learnMoreLinkHref: SupportArticleURL.APPROVALS_EXPLAINER,
       },
       [ConfirmModalState.PERMITTING]: {

@@ -79,7 +79,7 @@ export default function SwapHeader({
         >
           <Trans>Swap</Trans>
         </SwapHeaderTabButton>
-        <SwapHeaderTabButton
+        {/* <SwapHeaderTabButton
           as={pathname === "/limit" ? "h1" : "button"}
           role="button"
           $isActive={currentTab === SwapTab.Limit}
@@ -88,7 +88,7 @@ export default function SwapHeader({
           }}
         >
           <Trans>Limit</Trans>
-        </SwapHeaderTabButton>
+        </SwapHeaderTabButton> */}
 
         {/* <SwapHeaderTabButton
           as={pathname === "/send" ? "h1" : "button"}

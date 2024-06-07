@@ -96,6 +96,7 @@ function DoubleLogo({
         size={size}
         src={logo1 ?? blankTokenUrl}
         onError={onError1}
+        alt="ololol"
       />
       <CircleLogoImage
         size={size}
