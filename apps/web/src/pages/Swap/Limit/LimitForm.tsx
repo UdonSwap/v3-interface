@@ -32,7 +32,7 @@ import { SwapResult, useSwapCallback } from "hooks/useSwapCallback";
 import { useUSDPrice } from "hooks/useUSDPrice";
 import { Trans } from "i18n";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ArrowDown } from "react-feather";
+import { ArrowDown, ArrowUp } from "react-feather";
 import { Text } from "rebass";
 import {
   LimitContextProvider,
@@ -77,8 +77,11 @@ const ShortArrowWrapper = styled(ArrowWrapper)`
 
   :hover {
     cursor: pointer;
-    opacity: 0.8;
-    background-color: rgb(28, 25, 36);
+    background-color: rgb(56, 37, 83);
+    transform: scale(1.1); /* Adds a scaling effect */
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease; /* Smooth transition */
   }
 `;
 
@@ -109,6 +112,7 @@ type LimitFormProps = {
 };
 
 function LimitForm({ onCurrencyChange }: LimitFormProps) {
+  const [showArrowDown, setShowArrowDown] = useState(true);
   const { chainId, account } = useWeb3React();
   const {
     currencyState: { inputCurrency, outputCurrency },
@@ -218,6 +222,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
         inputCurrency,
       ),
     }));
+    setShowArrowDown(!showArrowDown);
   }, [
     inputCurrency,
     limitState.outputAmount,
@@ -433,7 +438,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
             onClick={switchTokens}
             color={theme.neutral1}
           >
-            <ArrowDown size="16" color={theme.neutral1} />
+            {showArrowDown ? <ArrowDown size="16" /> : <ArrowUp size="16" />}
           </ArrowContainer>
         </TraceEvent>
       </ShortArrowWrapper>

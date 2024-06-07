@@ -263,14 +263,13 @@ const CopyHelperContainer = styled.div<{
   color: ${({ color }) => color ?? "inherit"};
 `;
 
-const CopyHelperText = styled.div<{ fontSize?: number; offset: number }>`
+const CopyHelperText = styled.div<{ fontSize?: number }>`
   ${EllipsisStyle}
   ${({ fontSize }) => (fontSize ? "font-size: " + fontSize + "px" : "inherit")};
-  max-width: calc(100% - ${({ offset }) => offset + "px"});
 `;
 
 const StyledCheckCircle = styled(CheckCircle)`
-  color: ${({ theme }) => theme.success};
+  color: #e9e002;
   stroke-width: 1.5px;
 `;
 
@@ -324,7 +323,7 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
     const isEllipsis = isEllipsisActive(textRef.current);
     const displayGap = isEllipsis ? gap - 4 : gap;
 
-    const [isHover, setIsHover] = useState(false);
+    const [isHover, setIsHover] = useState(true);
     const onHover = useCallback(() => setIsHover(true), []);
     const offHover = useCallback(() => setIsHover(false), []);
 
@@ -345,7 +344,7 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
         {iconPosition === "left" && Icon && (
           <Icon size={iconSize} strokeWidth={1.5} color={iconColor} />
         )}
-        <CopyHelperText ref={textRef} fontSize={fontSize} offset={offset}>
+        <CopyHelperText ref={textRef} fontSize={fontSize}>
           {isCopied && iconPosition === "left" ? (
             <Trans>Copied!</Trans>
           ) : (
