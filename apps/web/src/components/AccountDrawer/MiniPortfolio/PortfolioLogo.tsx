@@ -76,33 +76,81 @@ const L2LogoContainer = styled.div`
 `;
 
 interface DoubleLogoProps {
-  logo1?: string;
-  logo2?: string;
+  currency1?: Currency;
+  currency2?: Currency;
   size: string;
   onError1?: () => void;
   onError2?: () => void;
 }
 
 function DoubleLogo({
-  logo1,
+  currency1,
   onError1,
-  logo2,
+  currency2,
   onError2,
   size,
 }: DoubleLogoProps) {
+  const isDarkMode = useIsDarkMode();
+  const logolessColorScheme1 = useLogolessColorScheme(
+    currency1?.name ?? currency1?.symbol ?? "",
+  );
+  const logolessColorScheme2 = useLogolessColorScheme(
+    currency2?.name ?? currency2?.symbol ?? "",
+  );
+  let foreground1, background1, foreground2, background2;
+  {
+    const { foreground, background } = isDarkMode
+      ? logolessColorScheme1.dark
+      : logolessColorScheme1.light;
+
+    foreground1 = foreground;
+    background1 = background;
+  }
+  {
+    const { foreground, background } = isDarkMode
+      ? logolessColorScheme2.dark
+      : logolessColorScheme2.light;
+
+    foreground2 = foreground;
+    background2 = background;
+  }
   return (
     <DoubleLogoContainer>
-      <CircleLogoImage
+      {/* <CircleLogoImage
         size={size}
         src={logo1 ?? blankTokenUrl}
         onError={onError1}
         alt="ololol"
-      />
-      <CircleLogoImage
+      /> */}
+
+      <MissingImageLogo
+        $size={size}
+        $textColor={foreground1}
+        $backgroundColor={background1}
+      >
+        {currency1?.symbol
+          ?.toUpperCase()
+          .replace("$", "")
+          .replace(/\s+/g, "")
+          .slice(0, 3)}
+      </MissingImageLogo>
+
+      {/* <CircleLogoImage
         size={size}
         src={logo2 ?? blankTokenUrl}
         onError={onError2}
-      />
+      /> */}
+      <MissingImageLogo
+        $size={size}
+        $textColor={foreground2}
+        $backgroundColor={background2}
+      >
+        {currency2?.symbol
+          ?.toUpperCase()
+          .replace("$", "")
+          .replace(/\s+/g, "")
+          .slice(0, 3)}
+      </MissingImageLogo>
     </DoubleLogoContainer>
   );
 }
@@ -139,9 +187,9 @@ function DoubleCurrencyLogo({
   if (currencies.length > 1) {
     return (
       <DoubleLogo
-        logo1={src}
+        currency1={currencies?.[0]}
         onError1={nextSrc}
-        logo2={src2}
+        currency2={currencies?.[1]}
         onError2={nextSrc2}
         size={size}
       />
@@ -262,14 +310,14 @@ function getLogo({
   if (images?.length === 1) {
     return <CircleLogoImage size={size} src={images[0] ?? blankTokenUrl} />;
   }
-  if (images && images?.length >= 2) {
-    return (
-      <DoubleLogo
-        logo1={images[0]}
-        logo2={images[images.length - 1]}
-        size={size}
-      />
-    );
-  }
+  // if (images && images?.length >= 2) {
+  //   return (
+  //     <DoubleLogo
+  //       logo1={images[0]}
+  //       logo2={images[images.length - 1]}
+  //       size={size}
+  //     />
+  //   );
+  // }
   return <UnknownContract width={size} height={size} />;
 }
