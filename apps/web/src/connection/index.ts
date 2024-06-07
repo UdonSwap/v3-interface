@@ -8,7 +8,7 @@ import { Actions, Connector } from "@web3-react/types";
 import GNOSIS_ICON from "assets/images/gnosis.png";
 import LOGO from "../assets/images/Logo.png";
 import COINBASE_ICON from "assets/wallets/coinbase-icon.svg";
-import UNIWALLET_ICON from "assets/wallets/uniswap-wallet-icon.png";
+// import UNIWALLET_ICON from "assets/wallets/uniswap-wallet-icon.png";
 import WALLET_CONNECT_ICON from "assets/wallets/walletconnect-icon.svg";
 import { t } from "i18n";
 import { useSyncExternalStore } from "react";
@@ -205,7 +205,7 @@ export const walletConnectV2Connection: Connection = new (class
 //     (actions) => new UniwalletWCV2Connect({ actions, onError }),
 //   );
 
-const isNonSupportedDevice = !isWebIOS && !isWebAndroid && isTouchable;
+// const isNonSupportedDevice = !isWebIOS && !isWebAndroid && isTouchable;
 
 // export const uniwalletWCV2ConnectConnection: Connection = {
 //   getProviderInfo: () => ({ name: "Uniswap ", icon: UNIWALLET_ICON }),

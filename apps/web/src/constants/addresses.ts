@@ -1,5 +1,5 @@
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from 'v3sdk18'
-import { SupportedChainId } from 'constants/chains'
+// import { SupportedChainId } from 'constants/chains'
 
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 

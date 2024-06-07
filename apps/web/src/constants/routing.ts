@@ -1,5 +1,5 @@
 // a list of tokens by chain
-import { Currency, Token, WETH9 } from "sdkcore18";
+import { Currency, Token } from "sdkcore18";
 import { ChainId } from "smartorderrouter18"
 import {
   // ARB,
