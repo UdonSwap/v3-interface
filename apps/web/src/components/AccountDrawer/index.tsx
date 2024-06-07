@@ -135,6 +135,9 @@ const AccountDrawerWrapper = styled.div<{ open: boolean }>`
 
 const CloseIcon = styled(ChevronsRight).attrs({ size: 24 })`
   stroke: ${({ theme }) => theme.neutral2};
+  :hover {
+    stroke: #e9e002;
+  }
 `;
 
 const CloseDrawer = styled.div`

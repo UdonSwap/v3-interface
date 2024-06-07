@@ -273,8 +273,8 @@ export default function AuthenticatedHeader({
           </FadeInColumn>
         ) : (
           <Column gap="xs">
-            <LoadingBubble height="44px" width="170px" />
-            <LoadingBubble height="16px" width="100px" margin="4px 0 20px 0" />
+            {/* <LoadingBubble height="44px" width="170px" />
+            <LoadingBubble height="16px" width="100px" margin="4px 0 20px 0" /> */}
           </Column>
         )}
         {/* <Row

@@ -42,8 +42,6 @@ export default function SwapHeader({
   compact: boolean;
   syncTabToUrl: boolean;
 }) {
-  const limitsEnabled = useFeatureFlag(FeatureFlags.LimitsEnabled);
-  const sendEnabled = useFeatureFlag(FeatureFlags.SendEnabled) && !isIFramed();
   const { chainId, currentTab, setCurrentTab } = useSwapAndLimitContext();
   const {
     derivedSwapInfo: { trade, autoSlippage },
@@ -52,18 +50,8 @@ export default function SwapHeader({
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (PathnameToTab[pathname] === SwapTab.Limit && (!limitsEnabled || true)) {
-      navigate(`/${SwapTab.Swap}`, { replace: true });
-      return;
-    }
-
     setCurrentTab(PathnameToTab[pathname] ?? SwapTab.Swap);
-  }, [chainId, limitsEnabled, navigate, pathname, setCurrentTab]);
-
-  // Limits is only available on mainnet for now
-  if (true && currentTab === SwapTab.Limit) {
-    setCurrentTab(SwapTab.Swap);
-  }
+  }, [navigate, pathname, setCurrentTab]);
 
   const onTab = useCallback(
     (tab: SwapTab) => {
@@ -91,20 +79,18 @@ export default function SwapHeader({
         >
           <Trans>Swap</Trans>
         </SwapHeaderTabButton>
-        {limitsEnabled && false && (
-          <SwapHeaderTabButton
-            as={pathname === "/limit" ? "h1" : "button"}
-            role="button"
-            $isActive={currentTab === SwapTab.Limit}
-            onClick={() => {
-              onTab(SwapTab.Limit);
-            }}
-          >
-            <Trans>Limit</Trans>
-          </SwapHeaderTabButton>
-        )}
-
         <SwapHeaderTabButton
+          as={pathname === "/limit" ? "h1" : "button"}
+          role="button"
+          $isActive={currentTab === SwapTab.Limit}
+          onClick={() => {
+            onTab(SwapTab.Limit);
+          }}
+        >
+          <Trans>Limit</Trans>
+        </SwapHeaderTabButton>
+
+        {/* <SwapHeaderTabButton
           as={pathname === "/send" ? "h1" : "button"}
           role="button"
           $isActive={currentTab === SwapTab.Send}
@@ -113,7 +99,7 @@ export default function SwapHeader({
           }}
         >
           <Trans>Send</Trans>
-        </SwapHeaderTabButton>
+        </SwapHeaderTabButton> */}
       </HeaderButtonContainer>
       {currentTab === SwapTab.Swap && (
         <RowFixed>

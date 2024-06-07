@@ -88,7 +88,7 @@ export default function SettingsMenu({
   openLocalCurrencySettings: () => void;
 }) {
   const currencyConversionEnabled = useFeatureFlag(
-    FeatureFlags.CurrencyConversion
+    FeatureFlags.CurrencyConversion,
   );
   const activeLocale = useActiveLocale();
   const activeLocalCurrency = useActiveLocalCurrency();
@@ -104,7 +104,7 @@ export default function SettingsMenu({
             <SmallBalanceToggle />
             <SpamToggle />
             <AnalyticsToggle />
-            <TestnetsToggle />
+            {/* <TestnetsToggle /> */}
           </ToggleWrapper>
           {/* {!currencyConversionEnabled && (
             <>

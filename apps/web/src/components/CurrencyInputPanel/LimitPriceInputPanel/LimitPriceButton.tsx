@@ -47,7 +47,7 @@ const Container = styled.button<{
   align-items: center;
   background-color: ${({ theme, $highlighted, $selected }) => {
     if ($highlighted || $selected) {
-      return "#9657EB59";
+      return "rgb(150, 87, 235)";
     }
     return "unset";
   }};
@@ -55,7 +55,8 @@ const Container = styled.button<{
     $highlighted ? highlightedBorderCss : containerBorderCss};
   ${({ $disabled }) => !$disabled && ClickableStyle};
   :hover {
-    border-color: #9657eb59;
+    border: 1px solid rgb(150, 87, 235);
+    color: rgb(150, 87, 235);
   }
 `;
 
@@ -92,7 +93,7 @@ export function LimitPresetPriceButton({
       onClick={() => !disabled && onSelect(priceAdjustmentPercentage)}
     >
       {priceAdjustmentPercentage === 0 ? (
-        <ThemedText.BodySecondary fontWeight={535} color="inherit">
+        <ThemedText.BodySecondary fontWeight={535} color="red">
           <Trans>Market</Trans>
         </ThemedText.BodySecondary>
       ) : (
