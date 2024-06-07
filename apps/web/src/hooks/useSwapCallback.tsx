@@ -2,17 +2,17 @@ import { Percent, TradeType } from "sdkcore18";
 // import { FlatFeeOptions } from "universalroutersdk18";
 // import { FeeOptions } from "v3sdk";
 import { useWeb3React } from "@web3-react/core";
-import { BigNumber } from "ethers/lib/ethers";
+// import { BigNumber } from "ethers/lib/ethers";
 import { PermitSignature } from "hooks/usePermitAllowance";
 import { useCallback } from "react";
 import {
   InterfaceTrade,
-  OffchainOrderType,
-  TradeFillType,
+  // OffchainOrderType,
+  // TradeFillType,
 } from "state/routing/types";
-import { isClassicTrade, isUniswapXTrade } from "state/routing/utils";
+import { isClassicTrade } from "state/routing/utils";
 import { useAddOrder } from "state/signatures/hooks";
-import { UniswapXOrderDetails } from "state/signatures/types";
+// import { UniswapXOrderDetails } from "state/signatures/types";
 
 import { useTransactionAdder } from "../state/transactions/hooks";
 import {
@@ -21,7 +21,7 @@ import {
   TransactionType,
 } from "../state/transactions/types";
 import { currencyId } from "../utils/currencyId";
-import { useUniswapXSwapCallback } from "./useUniswapXSwapCallback";
+// import { useUniswapXSwapCallback } from "./useUniswapXSwapCallback";
 import { useUniversalRouterSwapCallback } from "./useUniversalRouter";
 import useTransactionDeadline from "./useTransactionDeadline";
 

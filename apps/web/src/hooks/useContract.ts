@@ -30,7 +30,7 @@ import ERC721_ABI from "uniswap/src/abis/erc721.json";
 import {
   ArgentWalletDetector,
   EnsPublicResolver,
-  EnsRegistrar,
+  // EnsRegistrar,
   Erc1155,
   Erc20,
   Erc721,
@@ -45,7 +45,7 @@ import WETH_ABI from "uniswap/src/abis/weth.json";
 import { getContract } from "utilities/src/contracts/getContract";
 
 const { abi: IUniswapV2PairABI } = IUniswapV2PairJson;
-const { abi: IUniswapV2Router02ABI } = IUniswapV2Router02Json;
+// const { abi: IUniswapV2Router02ABI } = IUniswapV2Router02Json;
 const { abi: MulticallABI } = UniswapInterfaceMulticallJson;
 const { abi: NFTPositionManagerABI } = NonfungiblePositionManagerJson;
 const { abi: V2MigratorABI } = V3MigratorJson;

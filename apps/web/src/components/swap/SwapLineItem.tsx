@@ -164,6 +164,7 @@ function FeeRow({
 
 function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
   const { trade, syncing, allowedSlippage, type } = props;
+  console.log("swap fee------trading ", trade);
   const { formatPercent } = useFormatter();
   const isAutoSlippage =
     useUserSlippageTolerance()[0] === SlippageTolerance.Auto;

@@ -2,8 +2,8 @@ import { ApolloError } from "@apollo/client";
 import { ChainId } from "smartorderrouter18";
 import { atomWithReset, useResetAtom, useUpdateAtom } from "jotai/utils";
 import { ProtocolVersion } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
-import { FeatureFlags } from "uniswap/src/features/experiments/flags";
-import { useFeatureFlag } from "uniswap/src/features/experiments/hooks";
+// import { FeatureFlags } from "uniswap/src/features/experiments/flags";
+// import { useFeatureFlag } from "uniswap/src/features/experiments/hooks";
 
 export type ChainOutageData = {
   chainId: ChainId;

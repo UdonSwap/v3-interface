@@ -133,10 +133,10 @@ export default function AuthenticatedHeader({
   const clearCollectionFilters = useWalletCollections(
     (state) => state.clearCollectionFilters,
   );
-  const shouldShowBuyFiatButton = !isPathBlocked("/buy");
+  // const shouldShowBuyFiatButton = !isPathBlocked("/buy");
   const { formatNumber, formatDelta } = useFormatter();
 
-  const shouldDisableNFTRoutes = useDisableNFTRoutes();
+  // const shouldDisableNFTRoutes = useDisableNFTRoutes();
 
   const unclaimedAmount: CurrencyAmount<Token> | undefined =
     useUserUnclaimedAmount(account);
@@ -151,21 +151,21 @@ export default function AuthenticatedHeader({
 
   const [accountDrawerOpen, toggleAccountDrawer] = useAccountDrawer();
 
-  const navigateToProfile = useCallback(() => {
-    toggleAccountDrawer();
-    resetSellAssets();
-    setSellPageState(ProfilePageStateType.VIEWING);
-    clearCollectionFilters();
-    navigate("/nfts/profile");
-    closeModal();
-  }, [
-    clearCollectionFilters,
-    closeModal,
-    navigate,
-    resetSellAssets,
-    setSellPageState,
-    toggleAccountDrawer,
-  ]);
+  // const navigateToProfile = useCallback(() => {
+  //   toggleAccountDrawer();
+  //   resetSellAssets();
+  //   setSellPageState(ProfilePageStateType.VIEWING);
+  //   clearCollectionFilters();
+  //   navigate("/nfts/profile");
+  //   closeModal();
+  // }, [
+  //   clearCollectionFilters,
+  //   closeModal,
+  //   navigate,
+  //   resetSellAssets,
+  //   setSellPageState,
+  //   toggleAccountDrawer,
+  // ]);
 
   const openFiatOnrampModal = useOpenModal(ApplicationModal.FIAT_ONRAMP);
   const openFoRModalWithAnalytics = useCallback(() => {
@@ -218,8 +218,8 @@ export default function AuthenticatedHeader({
       <HeaderWrapper>
         <Status
           account={account}
-          ensUsername={""}
-          uniswapUsername={unitag?.username}
+          // ensUsername={""}
+          // uniswapUsername={unitag?.username}
           connection={connection}
         />
         <IconContainer>

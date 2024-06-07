@@ -1,4 +1,4 @@
-import { Percent } from "sdkcore18";
+import { Percent } from "sdkcore18"
 
 export enum SlippageValidationResult {
   TooLow,
