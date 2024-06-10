@@ -370,6 +370,8 @@
 }
 .tooltipAPR {
   width: 300px;
+  background: #18151f;
+  font-size: 10px;
 }
 /* loader */
 .loader {

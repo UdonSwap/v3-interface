@@ -164,19 +164,19 @@ const StyledTokenName = styled.span<{ active?: boolean }>`
 const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
   background: #9657eb47;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.4rem;
   color: white;
   cursor: pointer;
   font-size: 11px;
   font-weight: 535;
   margin-left: 0.25rem;
   opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
-  padding: 6px;
+  padding: 4px 10px;
   pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
 
   :hover {
     opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
-    border: 1px solid white;
+    // border: 1px solid white;
   }
 
   :focus {
