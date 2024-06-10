@@ -209,12 +209,12 @@ const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
   font-size: 14px;
   border-radius: 0.4rem;
   font-weight: 500;
-  opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
+  opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
   padding: 4px 10px;
   pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
   margin: 10px;
   :hover {
-    opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
+    opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
   }
 
   :focus {

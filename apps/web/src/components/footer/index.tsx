@@ -90,13 +90,16 @@ function Footer() {
 
         <div className="f-sec2">
           <div className="socialMain">
-            <a href="https://mirror.xyz/0xC99C6ec8f5096B1E8D984aF857F9267A4041864F">
+            <a
+              href="https://mirror.xyz/0xC99C6ec8f5096B1E8D984aF857F9267A4041864F"
+              target="_blank"
+            >
               <img src={X} alt="x" className="fImg1" />
             </a>
             <a>
               <img src={web} alt="web" className="fImg1" />
             </a>
-            <a href="https://discord.gg/K9wMF5vWfN">
+            <a href="https://discord.gg/K9wMF5vWfN" target="_blank">
               <img
                 src={discord}
                 alt="discord"
@@ -106,7 +109,7 @@ function Footer() {
             </a>
           </div>
           <div className="socialMain2">
-            <a href="https://udonswap.org/">
+            <a href="https://udonswap.org/" target="_blank">
               <img src={logo} alt="x" />
             </a>
           </div>

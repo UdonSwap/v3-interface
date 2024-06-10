@@ -23,7 +23,46 @@ export const MissingImageLogo = styled.div<{
   align-items: center;
   justify-content: center;
 `;
-
+export const MissingImageLogoPool1 = styled.div<{
+  $size?: string;
+  $textColor: string;
+  $backgroundColor: string;
+}>`
+  --size: 22px;
+  border-radius: 20px 0 0 20px;
+  object-position: 0 0;
+  color: ${({ $textColor }) => $textColor};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  font-size: calc(var(--size) / 3);
+  font-weight: 535;
+  height: 40px;
+  line-height: ${({ $size }) => $size ?? "24px"};
+  text-align: center;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const MissingImageLogoPool2 = styled.div<{
+  $size?: string;
+  $textColor: string;
+  $backgroundColor: string;
+}>`
+  --size: 22px;
+  border-radius: 0 20px 20px 0;
+  object-position: 100% 0;
+  color: ${({ $textColor }) => $textColor};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  font-size: calc(var(--size) / 3);
+  font-weight: 535;
+  height: 40px;
+  line-height: ${({ $size }) => $size ?? "24px"};
+  text-align: center;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 export type AssetLogoBaseProps = {
   symbol?: string | null;
   primaryImg?: string | null;

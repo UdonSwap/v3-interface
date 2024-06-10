@@ -1,6 +1,9 @@
-import { LoaderV3 } from 'components/Icons/LoadingSpinner'
-import styled, { css, useTheme } from 'styled-components'
-import { FadePresence, FadePresenceAnimationType } from 'theme/components/FadePresence'
+import { LoaderV3 } from "components/Icons/LoadingSpinner";
+import styled, { css, keyframes, useTheme } from "styled-components";
+import {
+  FadePresence,
+  FadePresenceAnimationType,
+} from "theme/components/FadePresence";
 
 export const LogoContainer = styled.div`
   height: 64px;
@@ -10,7 +13,7 @@ export const LogoContainer = styled.div`
   justify-content: center;
   border-radius: 50%;
   overflow: visible;
-`
+`;
 
 const LoadingIndicator = styled(LoaderV3)`
   stroke: ${({ theme }) => theme.neutral3};
@@ -20,40 +23,81 @@ const LoadingIndicator = styled(LoaderV3)`
   top: -4px;
   left: -4px;
   position: absolute;
-`
+`;
 
+const dash = keyframes`
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+`;
+
+const dashCheck = keyframes`
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+`;
+
+const Circle = styled.circle`
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  // -webkit-animation: ${dash} 0.9s ease-in-out;
+  // animation: ${dash} 0.9s ease-in-out;
+`;
+
+const PolyLine = styled.polyline`
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  stroke-dashoffset: -100;
+  -webkit-animation: ${dashCheck} 0.9s 0.35s ease-in-out forwards;
+  animation: ${dashCheck} 0.9s 0.35s ease-in-out forwards;
+`;
 export function LoadingIndicatorOverlay() {
   return (
     <FadePresence>
       <LoadingIndicator />
     </FadePresence>
-  )
+  );
 }
 
 export function ConfirmedIcon({ className }: { className?: string }) {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
-    <FadePresence animationType={FadePresenceAnimationType.FadeAndScale}>
-      <svg
-        data-testid="confirmed-icon"
-        width="54"
-        height="54"
-        viewBox="0 0 54 54"
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 130.2 130.2"
+    >
+      <Circle
+        className="path circle"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={className}
-      >
-        <path
-          d="M27 0.333008C12.28 0.333008 0.333313 12.2797 0.333313 26.9997C0.333313 41.7197 12.28 53.6663 27 53.6663C41.72 53.6663 53.6666 41.7197 53.6666 26.9997C53.6666 12.2797 41.72 0.333008 27 0.333008ZM37.7466 22.1997L25.2933 34.6263C24.9199 35.0263 24.4133 35.2131 23.8799 35.2131C23.3733 35.2131 22.8666 35.0263 22.4666 34.6263L16.2533 28.4131C15.48 27.6398 15.48 26.3596 16.2533 25.5863C17.0266 24.8129 18.3066 24.8129 19.08 25.5863L23.8799 30.3864L34.92 19.373C35.6933 18.573 36.9733 18.573 37.7466 19.373C38.52 20.1464 38.52 21.3997 37.7466 22.1997Z"
-          fill={theme.success}
-        />
-      </svg>
-    </FadePresence>
-  )
+        stroke={"#9657EB"}
+        strokeWidth="6"
+        strokeMiterlimit="10"
+        cx="65.1"
+        cy="65.1"
+        r="62.1"
+      />
+      <PolyLine
+        className="path check"
+        fill="none"
+        stroke={"#9657EB"}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        points="100.2,40.2 51.5,88.8 29.8,67.5 "
+      />
+    </svg>
+  );
 }
 
 export function SubmittedIcon({ className }: { className?: string }) {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <FadePresence animationType={FadePresenceAnimationType.FadeAndScale}>
       <svg
@@ -71,18 +115,18 @@ export function SubmittedIcon({ className }: { className?: string }) {
         />
       </svg>
     </FadePresence>
-  )
+  );
 }
 
 const IconCss = css`
   height: 64px;
   width: 64px;
-`
+`;
 
 export const AnimatedEntranceConfirmationIcon = styled(ConfirmedIcon)`
   ${IconCss}
-`
+`;
 
 export const AnimatedEntranceSubmittedIcon = styled(SubmittedIcon)`
   ${IconCss}
-`
+`;

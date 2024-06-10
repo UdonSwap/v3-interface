@@ -245,7 +245,7 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
             })}
           </TabBar>
           <FiltersContainer>
-            <NetworkFilter />
+            {/* <NetworkFilter /> */}
             {/* <TimeSelector /> */}
             <SearchBar />
           </FiltersContainer>

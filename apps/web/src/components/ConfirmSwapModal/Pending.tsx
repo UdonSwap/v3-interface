@@ -21,7 +21,7 @@ import { ThemedText } from "theme/components/text";
 import { UniswapXOrderStatus } from "types/uniswapx";
 import { TransactionStatus } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
 import { ExplorerDataType, getExplorerLink } from "utils/getExplorerLink";
-
+import { CloseIcon, CustomLightSpinner } from "theme/components";
 import { isLimitTrade } from "state/routing/utils";
 import {
   AnimatedEntranceConfirmationIcon,
@@ -31,6 +31,7 @@ import {
 } from "../AccountDrawer/MiniPortfolio/Activity/Logos";
 import { slideInAnimation, slideOutAnimation } from "./animations";
 import { TradeSummary } from "./TradeSummary";
+import circle from "../../assets/images/circle.gif";
 
 const Container = styled(ColumnCenter)`
   margin: 48px 0 8px;
@@ -176,7 +177,9 @@ export function Pending({
         {showSubmitted && <AnimatedEntranceSubmittedIcon />}
         {/* Scales in for any step that waits for an onchain transaction, while the transaction is pending */}
         {/* On the last step, appears while waiting for the transaction to be signed too */}
-        {!showSuccess && !showSubmitted && <LoadingIndicatorOverlay />}
+        {!showSuccess && !showSubmitted && (
+          <CustomLightSpinner src={circle} alt="loader" size="100%" />
+        )}
       </LogoContainer>
       <HeaderContainer gap="md" $disabled={transactionPending && !limitPlaced}>
         <AnimationWrapper>

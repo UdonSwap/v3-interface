@@ -72,7 +72,7 @@ export function FOTTooltipContent() {
     <>
       <Trans>
         Some tokens take a fee when they are bought or sold, which is set by the
-        token issuer. Uniswap does not receive any of these fees.
+        token issuer. Udonswap does not receive any of these fees.
       </Trans>{" "}
       {/* <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/18673568523789-What-is-a-token-fee-">
         Learn more
@@ -84,12 +84,12 @@ export function FOTTooltipContent() {
 function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
   const message = hasFee ? (
     <Trans>
-      Fees are applied to ensure the best experience with Uniswap, and have
+      Fees are applied to ensure the best experience with Udonswap, and have
       already been factored into this quote.
     </Trans>
   ) : (
     <Trans>
-      Fees are applied to ensure the best experience with Uniswap. There is no
+      Fees are applied to ensure the best experience with Udonswap. There is no
       fee associated with this swap.
     </Trans>
   );

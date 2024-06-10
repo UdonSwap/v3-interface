@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import allpool from "components/Tokens/TokenV3/allpool.module.css";
 import axios from "axios";
+import { Tooltip, Button } from "@nextui-org/react";
 import { GRAPH_ENDPOINT } from "../../../constants/lists";
 
 // Define the types for the data
@@ -98,10 +99,21 @@ export function PoolTable() {
                 <th className={allpool.column1}>#</th>
                 <th className={allpool.column2}>Pool</th>
                 <th className={allpool.column3}>Transaction</th>
-                <th className={allpool.column4}>TVL</th>
+
+                <Tooltip
+                  content="Total Value Locked"
+                  className={allpool.tooltip}
+                >
+                  <th className={allpool.column4}>TVL</th>
+                </Tooltip>
                 <th className={allpool.column5}>1 day volume</th>
                 <th className={allpool.column6}>7 day volume</th>
-                <th className={allpool.column7}>1 day APR</th>
+                <Tooltip
+                  content="1 day APR refers to the amount of trading fees relative to total value locked (TVL) within a pool. 1 day APR = 24H Fees / TVL"
+                  className={allpool.tooltipAPR}
+                >
+                  <th className={allpool.column7}>1 day APR</th>
+                </Tooltip>
               </tr>
             </thead>
           </table>

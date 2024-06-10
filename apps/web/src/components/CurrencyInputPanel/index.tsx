@@ -170,12 +170,12 @@ const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
   font-size: 11px;
   font-weight: 535;
   margin-left: 0.25rem;
-  opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
+  opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
   padding: 6px;
   pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
 
   :hover {
-    opacity: ${({ disabled }) => (!disabled ? 0.8 : 0.4)};
+    opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
     border: 1px solid white;
   }
 

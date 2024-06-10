@@ -60,7 +60,7 @@ const MenuFlyout = styled(AutoColumn)`
   position: absolute;
   top: 100%;
   margin-top: 10px;
-  right: 0;
+  left: 75px;
   z-index: 100;
   color: ${({ theme }) => theme.neutral1};
   ${({ theme }) => theme.deprecated_mediaWidth.deprecated_upToMedium`

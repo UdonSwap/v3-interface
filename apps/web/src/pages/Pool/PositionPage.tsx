@@ -299,18 +299,14 @@ function LinkedCurrency({
 
   const Link = isGqlSupportedChain(chainId) ? TokenLink : ExternalTokenLink;
   return (
-    <Link chainId={chainId} address={address}>
-      <RowFixed>
-        <CurrencyLogo
-          currency={currency}
-          size="20px"
-          style={{ marginRight: "0.5rem" }}
-        />
-        <ThemedText.DeprecatedMain>
-          {currency?.symbol} ↗
-        </ThemedText.DeprecatedMain>
-      </RowFixed>
-    </Link>
+    <RowFixed>
+      <CurrencyLogo
+        currency={currency}
+        size="20px"
+        style={{ marginRight: "0.5rem" }}
+      />
+      <ThemedText.DeprecatedMain>{currency?.symbol}</ThemedText.DeprecatedMain>
+    </RowFixed>
   );
 }
 
@@ -924,7 +920,7 @@ function PositionPageContent() {
                 {ownsNFT && (
                   <ActionButtonResponsiveRow>
                     {currency0 && currency1 && feeAmount && tokenId ? (
-                      <ButtonGray
+                      <SmallButtonPrimary
                         as={Link}
                         to={`/add/${currencyId(currency0)}/${currencyId(currency1)}/${feeAmount}/${tokenId}`}
                         padding="6px 8px"
@@ -933,7 +929,7 @@ function PositionPageContent() {
                         style={{ marginRight: "8px" }}
                       >
                         <Trans>Increase liquidity</Trans>
-                      </ButtonGray>
+                      </SmallButtonPrimary>
                     ) : null}
                     {tokenId && !removed ? (
                       <SmallButtonPrimary

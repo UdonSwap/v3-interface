@@ -86,9 +86,15 @@ export function Transaction() {
     const differenceSeconds = currentEpoch - transactionEpoch;
     if (differenceSeconds < 60) {
       return `${differenceSeconds}s ago`;
-    } else {
+    } else if (differenceSeconds < 3600) {
       const differenceMinutes = Math.floor(differenceSeconds / 60);
       return `${differenceMinutes}m ago`;
+    } else if (differenceSeconds < 86400) {
+      const differenceHours = Math.floor(differenceSeconds / 3600);
+      return `${differenceHours}h ago`;
+    } else {
+      const differenceDays = Math.floor(differenceSeconds / 86400);
+      return differenceDays === 1 ? "1 day ago" : `${differenceDays} days ago`;
     }
   };
 

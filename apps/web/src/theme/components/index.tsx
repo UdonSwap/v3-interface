@@ -68,8 +68,8 @@ export const CloseIcon = styled(X)<{ onClick: () => void }>`
 `;
 
 const LinkStyle = css`
-  color: ${({ theme }) => theme.accent1};
   stroke: ${({ theme }) => theme.accent1};
+  color: white;
   font-weight: 500;
   :hover {
     color: #e9e002;

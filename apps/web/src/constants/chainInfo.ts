@@ -131,7 +131,7 @@ const CHAIN_INFO: ChainInfoMap = {
   [ChainId.MODE]: {
     networkType: NetworkType.L2,
     blockWaitMsBeforeWarning: ms(`25m`),
-    bridge: "https://mode.com/help/get-started",
+    bridge: "https://symbiosis.finance/swap-and-bridge-mode",
     defaultListUrl: MODE_LIST,
     docs: "https://mode.com/help/get-started",
     explorer: "https://sepolia.explorer.mode.network/",

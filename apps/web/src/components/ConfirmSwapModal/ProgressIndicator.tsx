@@ -171,7 +171,6 @@ export default function ProgressIndicator({
         rippleColor: theme.accent1,
         previewTitle: t`Sign message`,
         actionRequiredTitle: t`Sign message in wallet`,
-        learnMoreLinkText: t`Why are signatures required?`,
         learnMoreLinkHref: SupportArticleURL.APPROVALS_EXPLAINER,
       },
       [ConfirmModalState.PENDING_CONFIRMATION]: {

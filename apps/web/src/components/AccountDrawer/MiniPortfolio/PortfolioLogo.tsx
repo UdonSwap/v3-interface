@@ -2,7 +2,11 @@ import { Currency } from "sdkcore18";
 import { ChainId } from "smartorderrouter18";
 import blankTokenUrl from "assets/svg/blank_token.svg";
 import { ReactComponent as UnknownStatus } from "assets/svg/contract-interaction.svg";
-import { MissingImageLogo } from "components/Logo/AssetLogo";
+import {
+  MissingImageLogo,
+  MissingImageLogoPool1,
+  MissingImageLogoPool2,
+} from "components/Logo/AssetLogo";
 import { ChainLogo, getDefaultBorderRadius } from "components/Logo/ChainLogo";
 import { Unicon } from "components/Unicon";
 import useTokenLogoSource from "hooks/useAssetLogoSource";
@@ -123,7 +127,7 @@ function DoubleLogo({
         alt="ololol"
       /> */}
 
-      <MissingImageLogo
+      <MissingImageLogoPool1
         $size={size}
         $textColor={foreground1}
         $backgroundColor={background1}
@@ -133,14 +137,14 @@ function DoubleLogo({
           .replace("$", "")
           .replace(/\s+/g, "")
           .slice(0, 3)}
-      </MissingImageLogo>
+      </MissingImageLogoPool1>
 
       {/* <CircleLogoImage
         size={size}
         src={logo2 ?? blankTokenUrl}
         onError={onError2}
       /> */}
-      <MissingImageLogo
+      <MissingImageLogoPool2
         $size={size}
         $textColor={foreground2}
         $backgroundColor={background2}
@@ -150,7 +154,7 @@ function DoubleLogo({
           .replace("$", "")
           .replace(/\s+/g, "")
           .slice(0, 3)}
-      </MissingImageLogo>
+      </MissingImageLogoPool2>
     </DoubleLogoContainer>
   );
 }
