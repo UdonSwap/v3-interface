@@ -89,35 +89,36 @@ export enum ExploreTab {
   Pools = "pools",
   Transactions = "transactions",
 }
-
 interface Page {
   title: React.ReactNode;
   key: ExploreTab;
-  component: () => JSX.Element;
+  component: (props: any) => JSX.Element; // Update component type
   loggingElementName: string;
 }
+
 const Pages: Array<Page> = [
   {
     title: <Trans>Tokens</Trans>,
     key: ExploreTab.Tokens,
-    component: TokenTable,
+    component: (props) => <TokenTable {...props} />, // Pass props to the component
     loggingElementName: InterfaceElementName.EXPLORE_TOKENS_TAB,
   },
   {
     title: <Trans>Pools</Trans>,
     key: ExploreTab.Pools,
-    component: PoolTable,
+    component: (props) => <PoolTable {...props} />, // Pass props to the component
     loggingElementName: InterfaceElementName.EXPLORE_POOLS_TAB,
   },
   {
     title: <Trans>Transactions</Trans>,
     key: ExploreTab.Transactions,
-    component: Transaction,
+    component: (props) => <Transaction {...props} />, // Pass props to the component
     loggingElementName: InterfaceElementName.EXPLORE_TRANSACTIONS_TAB,
   },
 ];
 
 const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
+  const [searchQuery, setSearchQuery] = useState(""); // Add state for search query
   const tabNavRef = useRef<HTMLDivElement>(null);
   const resetManualOutage = useResetAtom(manualChainOutageAtom);
 
@@ -247,10 +248,12 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
           <FiltersContainer>
             {/* <NetworkFilter /> */}
             {/* <TimeSelector /> */}
-            <SearchBar />
+            {Pages[currentTab].key !== ExploreTab.Transactions && (
+              <SearchBar tab={Pages[currentTab].key} onSearch={setSearchQuery} />
+            )}
           </FiltersContainer>
         </NavWrapper>
-        <Page />
+        <Page searchQuery={searchQuery} />
       </ExploreContainer>
     </Trace>
   );

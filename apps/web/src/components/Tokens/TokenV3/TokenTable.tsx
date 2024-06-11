@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import allpool from "./allpool.module.css";
 import axios from "axios";
 import { GRAPH_ENDPOINT } from "constants/lists";
-import { Tooltip, Button } from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/react";
 
 // Define the types for the data
 interface TokenDayData {
@@ -31,8 +31,11 @@ const formatLargeNumber = (num: number): string => {
   return num.toFixed(2);
 };
 
-// Component
-export function TokenTable() {
+interface TokenTableProps {
+  searchQuery: string;
+}
+
+export function TokenTable({ searchQuery }: TokenTableProps) {
   const [tokens, setTokens] = useState<Token[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -79,6 +82,13 @@ export function TokenTable() {
     return change.toFixed(2) + "%";
   };
 
+  // Filter tokens based on the search query
+  const filteredTokens = tokens.filter(
+    (token) =>
+      token.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      token.symbol.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+
   return (
     <div className="">
       <div className={allpool.tablediv}>
@@ -87,14 +97,18 @@ export function TokenTable() {
             <thead>
               <tr className={allpool.row}>
                 <th className={allpool.column1}>#</th>
-
                 <th className={allpool.column2}>Token name</th>
                 <th className={allpool.column3}>Price (USD)</th>
                 <th className={allpool.column4}>1 day</th>
                 <th className={allpool.column5}>7 days</th>
-
-                <th className={allpool.column6}>FDV (USD) </th>
-
+                <Tooltip
+                  content="Fully diluted valuation (FDV) calculates the total market value assuming all tokens are in circulation."
+                  className={allpool.tooltipAPR}
+                >
+                  <th className={allpool.column6} style={{ cursor: "pointer" }}>
+                    FDV (USD)
+                  </th>
+                </Tooltip>
                 <th className={allpool.column7}>1d Volume (USD)</th>
               </tr>
             </thead>
@@ -108,57 +122,63 @@ export function TokenTable() {
           ) : (
             <table className={allpool.table}>
               <tbody>
-                {tokens.map((token, index) => {
-                  const currentPriceUSD = parseFloat(
-                    token.tokenDayData[0].priceUSD,
-                  );
-                  const fdv = currentPriceUSD * parseFloat(token.totalSupply);
+                {filteredTokens.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan={7}
+                      style={{ textAlign: "center", margin: "20px 0px" }}
+                    >
+                      No data found
+                    </td>
+                  </tr>
+                ) : (
+                  filteredTokens.map((token, index) => {
+                    const currentPriceUSD = parseFloat(
+                      token.tokenDayData[0].priceUSD,
+                    );
+                    const fdv = currentPriceUSD * parseFloat(token.totalSupply);
 
-                  // 1 day change
+                    const previousDayPriceUSD = token.tokenDayData[1]
+                      ? parseFloat(token.tokenDayData[1].priceUSD)
+                      : 0;
+                    const oneDayChange = calculatePercentageChange(
+                      currentPriceUSD,
+                      previousDayPriceUSD,
+                    );
 
-                  console.log("token:", token);
-                  const previousDayPriceUSD = token.tokenDayData[1]
-                    ? parseFloat(token.tokenDayData[1].priceUSD)
-                    : 0;
-                  const oneDayChange = calculatePercentageChange(
-                    currentPriceUSD,
-                    previousDayPriceUSD,
-                  );
+                    const sevenDayPriceUSD = token.tokenDayData[6]
+                      ? parseFloat(token.tokenDayData[6].priceUSD)
+                      : 0;
+                    const sevenDayChange = calculatePercentageChange(
+                      currentPriceUSD,
+                      sevenDayPriceUSD,
+                    );
 
-                  // 7 days change
-                  const sevenDayPriceUSD = token.tokenDayData[6]
-                    ? parseFloat(token.tokenDayData[6].priceUSD)
-                    : 0;
-                  const sevenDayChange = calculatePercentageChange(
-                    currentPriceUSD,
-                    sevenDayPriceUSD,
-                  );
+                    const latestVolume = parseFloat(
+                      token.tokenDayData[0].volumeUSD,
+                    );
 
-                  // Latest volume
-                  const latestVolume = parseFloat(
-                    token.tokenDayData[0].volumeUSD,
-                  );
-
-                  return (
-                    <tr className={allpool.row} key={token.id}>
-                      <td className={allpool.column1}>{index + 1}</td>
-                      <td className={allpool.column2}>
-                        {token.name} ({token.symbol})
-                      </td>
-                      <td className={allpool.column3}>
-                        ${currentPriceUSD.toFixed(2)}
-                      </td>
-                      <td className={allpool.column4}>{oneDayChange}</td>
-                      <td className={allpool.column5}>{sevenDayChange}</td>
-                      <td className={allpool.column6}>
-                        ${formatLargeNumber(fdv)}
-                      </td>
-                      <td className={allpool.column7}>
-                        ${formatLargeNumber(latestVolume)}
-                      </td>
-                    </tr>
-                  );
-                })}
+                    return (
+                      <tr className={allpool.row} key={token.id}>
+                        <td className={allpool.column1}>{index + 1}</td>
+                        <td className={allpool.column2}>
+                          {token.name} ({token.symbol})
+                        </td>
+                        <td className={allpool.column3}>
+                          ${currentPriceUSD.toFixed(2)}
+                        </td>
+                        <td className={allpool.column4}>{oneDayChange}</td>
+                        <td className={allpool.column5}>{sevenDayChange}</td>
+                        <td className={allpool.column6}>
+                          ${formatLargeNumber(fdv)}
+                        </td>
+                        <td className={allpool.column7}>
+                          ${formatLargeNumber(latestVolume)}
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
               </tbody>
             </table>
           )}

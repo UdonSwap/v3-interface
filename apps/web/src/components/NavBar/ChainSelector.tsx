@@ -98,9 +98,9 @@ export const ChainSelector = ({ leftAlign }: { leftAlign?: boolean }) => {
   const [pendingChainId, setPendingChainId] = useState<ChainId | undefined>(
     undefined,
   );
-
   const onSelectChain = useCallback(
     async (targetChainId: ChainId) => {
+      console.log("Selected Chain:", targetChainId); // Add this line to log the selected chain
       setPendingChainId(targetChainId);
       await selectChain(targetChainId);
       setPendingChainId(undefined);
@@ -108,6 +108,7 @@ export const ChainSelector = ({ leftAlign }: { leftAlign?: boolean }) => {
     },
     [selectChain, setIsOpen],
   );
+
   useEffect(() => {
     if (chainId && !info) {
       // Redirect to a specific page if the network is unsupported

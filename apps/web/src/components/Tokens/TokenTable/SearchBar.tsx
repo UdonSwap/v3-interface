@@ -1,21 +1,25 @@
-import { BrowserEvent, InterfaceElementName, InterfaceEventName } from '@uniswap/analytics-events'
-import { TraceEvent } from 'analytics'
-import searchIcon from 'assets/svg/search.svg'
-import xIcon from 'assets/svg/x.svg'
-import useDebounce from 'hooks/useDebounce'
-import { t } from 'i18n'
-import { useAtomValue, useUpdateAtom } from 'jotai/utils'
-import { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import {
+  BrowserEvent,
+  InterfaceElementName,
+  InterfaceEventName,
+} from "@uniswap/analytics-events";
+import { TraceEvent } from "analytics";
+import searchIcon from "assets/svg/search.svg";
+import xIcon from "assets/svg/x.svg";
+import useDebounce from "hooks/useDebounce";
+import { t } from "i18n";
+import { useAtomValue, useUpdateAtom } from "jotai/utils";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 
-import { MEDIUM_MEDIA_BREAKPOINT } from '../constants'
-import { exploreSearchStringAtom } from '../state'
-const ICON_SIZE = '20px'
+import { MEDIUM_MEDIA_BREAKPOINT } from "../constants";
+import { exploreSearchStringAtom } from "../state";
+const ICON_SIZE = "20px";
 
 const SearchBarContainer = styled.div`
   display: flex;
   flex: 1;
-`
+`;
 const SearchInput = styled.input<{ isOpen?: boolean }>`
   background: no-repeat scroll 7px 7px;
   background-image: url(${searchIcon});
@@ -25,7 +29,7 @@ const SearchInput = styled.input<{ isOpen?: boolean }>`
   border-radius: 12px;
   border: 1px solid ${({ theme }) => theme.surface3};
   height: 100%;
-  width: ${({ isOpen }) => (isOpen ? '200px' : '0')};
+  width: ${({ isOpen }) => (isOpen ? "200px" : "0")};
   font-size: 16px;
   font-weight: 485;
   padding-left: 40px;
@@ -59,53 +63,43 @@ const SearchInput = styled.input<{ isOpen?: boolean }>`
   }
 
   @media only screen and (max-width: ${MEDIUM_MEDIA_BREAKPOINT}) {
-    width: ${({ isOpen }) => (isOpen ? 'min(100%, 200px)' : '0')};
+    width: ${({ isOpen }) => (isOpen ? "min(100%, 200px)" : "0")};
   }
-`
+`;
 
-export default function SearchBar({ tab }: { tab?: string }) {
-  const currentString = useAtomValue(exploreSearchStringAtom)
-  const [localFilterString, setLocalFilterString] = useState(currentString)
-  const setFilterString = useUpdateAtom(exploreSearchStringAtom)
-  const debouncedLocalFilterString = useDebounce(localFilterString, 300)
-  const [isOpen, setIsOpen] = useState(false)
+interface SearchBarProps {
+  tab?: string;
+  onSearch: (query: string) => void; // Add this prop
+}
 
-  useEffect(() => {
-    setLocalFilterString(currentString)
-    if (currentString) setIsOpen(true)
-  }, [currentString])
+export default function SearchBar({ tab, onSearch }: SearchBarProps) {
+  const [localFilterString, setLocalFilterString] = useState("");
+  const debouncedLocalFilterString = useDebounce(localFilterString, 300);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    setFilterString(debouncedLocalFilterString)
-  }, [debouncedLocalFilterString, setFilterString])
+    onSearch(debouncedLocalFilterString); // Pass the debounced search query up to the parent
+  }, [debouncedLocalFilterString, onSearch]);
 
-  const handleFocus = () => setIsOpen(true)
+  const handleFocus = () => setIsOpen(true);
 
   const handleBlur = () => {
-    if (localFilterString === '') setIsOpen(false)
-  }
+    if (localFilterString === "") setIsOpen(false);
+  };
 
   return (
     <SearchBarContainer>
-      {/* TODO need to figure out new style for this */}
-      <TraceEvent
-        events={[BrowserEvent.onFocus]}
-        name={InterfaceEventName.EXPLORE_SEARCH_SELECTED}
-        element={InterfaceElementName.EXPLORE_SEARCH_INPUT}
-      >
-        <SearchInput
-          data-testid="explore-tokens-search-input"
-          type="search"
-          placeholder={tab === 'tokens' ? t('Search tokens') : t('Search pools')}
-          id="searchBar"
-          autoComplete="off"
-          value={localFilterString}
-          onChange={({ target: { value } }) => setLocalFilterString(value)}
-          isOpen={isOpen}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-      </TraceEvent>
+      <SearchInput
+        type="search"
+        placeholder={
+          tab === "tokens" ? "Search tokens" : "Search pools"
+        }
+        value={localFilterString}
+        onChange={({ target: { value } }) => setLocalFilterString(value)}
+        isOpen={isOpen}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
     </SearchBarContainer>
-  )
+  );
 }
