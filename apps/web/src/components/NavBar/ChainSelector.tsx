@@ -103,23 +103,25 @@ export const ChainSelector = ({ leftAlign }: { leftAlign?: boolean }) => {
       console.log("Selected Chain:", targetChainId); // Add this line to log the selected chain
       setPendingChainId(targetChainId);
       await selectChain(targetChainId);
+      navigate("/swap");
       setPendingChainId(undefined);
       setIsOpen(false);
     },
     [selectChain, setIsOpen],
   );
+  const isSupported = !!info;
 
   useEffect(() => {
-    if (chainId && !info) {
+    if (!isSupported) {
       // Redirect to a specific page if the network is unsupported
       navigate("/unsupported"); // Change the path to your desired page
     }
-  }, [chainId, info, navigate]);
+  }, [isSupported, info, navigate]);
   if (!chainId) {
     return null;
   }
 
-  const isSupported = !!info;
+
 
   const styledMenuCss = css`
     ${leftAlign ? "left: 0;" : "right: 0;"}

@@ -157,7 +157,7 @@ export function PoolTable({ searchQuery }: PoolTableProps) {
           )}
           {!loading && filteredPools.length > 0 && (
             <table className={allpool.table}>
-              <tbody>
+             
                 {filteredPools.map((pool, index) => {
                   const oneDayVolume = parseFloat(
                     pool.poolDayData[0]?.volumeUSD || "0",
@@ -201,7 +201,7 @@ export function PoolTable({ searchQuery }: PoolTableProps) {
                     </tr>
                   );
                 })}
-              </tbody>
+              
             </table>
           )}
         </div>
