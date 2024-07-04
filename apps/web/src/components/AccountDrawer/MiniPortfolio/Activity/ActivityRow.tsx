@@ -68,6 +68,8 @@ export function ActivityRow({ activity }: { activity: Activity }) {
     offchainOrderDetails,
   } = activity;
 
+  console.log("Activity Object:", activity);
+
   const openOffchainActivityModal = useOpenOffchainActivityModal();
 
   // const { ENSName } = useENSName(otherAccount)
@@ -103,7 +105,12 @@ export function ActivityRow({ activity }: { activity: Activity }) {
       events={[BrowserEvent.onClick]}
       name={SharedEventName.ELEMENT_CLICKED}
       element={InterfaceElementName.MINI_PORTFOLIO_ACTIVITY_ROW}
-      properties={{ hash, chain_id: chainId, explorer_url: explorerUrl }}
+      properties={{
+        hash,
+        chain_id: chainId,
+        explorer_url: explorerUrl,
+        currencies: currencies,
+      }}
     >
       <PortfolioRow
         left={
@@ -125,7 +132,7 @@ export function ActivityRow({ activity }: { activity: Activity }) {
           </Row>
         }
         descriptor={
-          <ActivityRowDescriptor color="neutral2">
+          <ActivityRowDescriptor color="red">
             {descriptor}
             {/* {ENSName ?? shortenAddress(otherAccount)} */}
           </ActivityRowDescriptor>
