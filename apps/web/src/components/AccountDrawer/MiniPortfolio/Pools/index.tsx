@@ -197,6 +197,7 @@ function PositionListItem({ positionInfo }: { positionInfo: PositionInfo }) {
   );
   console.log("pools....1", pool.token0.symbol);
   console.log("pools....2", pool.token1.symbol);
+  console.log(".....pools", pool);
 
   return (
     <TraceEvent

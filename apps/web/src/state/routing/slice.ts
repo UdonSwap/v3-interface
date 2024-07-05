@@ -115,7 +115,7 @@ export const routingApi = createApi({
                   : QuoteIntent.Quote,
               configs: JSON.stringify(getRoutingAPIConfig(args)), // Ensure configs are converted to a string
             };
-            console.log("before tryyyy.....")
+            console.log("before tryyyy.....");
 
             try {
               return trace.child(
@@ -137,7 +137,7 @@ export const routingApi = createApi({
                   const queryString = toQueryString(requestBody);
 
                   // Append query string to URL
-                  const url = `https://0p1ecyveab.execute-api.us-east-1.amazonaws.com/prod/quote?${queryString}`;
+                  const url = `https://eec6r7he8c.execute-api.us-east-1.amazonaws.com/prod/quote?${queryString}`;
                   console.log("url...", url);
                   const response = await fetch({
                     url: url,
@@ -195,7 +195,8 @@ export const routingApi = createApi({
               );
             } catch (error: any) {
               console.warn(
-                `GetQuote failed on Unified Routing API, falling back to client: ${error?.message ?? error?.detail ?? error
+                `GetQuote failed on Unified Routing API, falling back to client: ${
+                  error?.message ?? error?.detail ?? error
                 }`,
               );
             }

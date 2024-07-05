@@ -43,7 +43,7 @@ function StatusIndicator({
   activity: Activity;
 }) {
   const timeSince = useTimeSince(timestamp);
-
+  console.log("StatusIndicator:", { status, timestamp, offchainOrderDetails });
   switch (status) {
     case TransactionStatus.Pending:
       if (offchainOrderDetails?.type === SignatureType.SIGN_LIMIT) return null;
@@ -68,7 +68,7 @@ export function ActivityRow({ activity }: { activity: Activity }) {
     offchainOrderDetails,
   } = activity;
 
-  console.log("Activity Object:", activity);
+  console.groupEnd();
 
   const openOffchainActivityModal = useOpenOffchainActivityModal();
 
@@ -109,7 +109,9 @@ export function ActivityRow({ activity }: { activity: Activity }) {
         hash,
         chain_id: chainId,
         explorer_url: explorerUrl,
-        currencies: currencies,
+        currencies:
+          currencies?.map((c) => c?.symbol || "undefined").join(",") ||
+          "undefined",
       }}
     >
       <PortfolioRow

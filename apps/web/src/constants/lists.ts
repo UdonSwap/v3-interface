@@ -1,6 +1,6 @@
 export const UNI_LIST = "https://tokenlist-api.vercel.app/v3-tokens";
 export const GRAPH_ENDPOINT =
-  "https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn"
+  "https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn";
 export const UNI_EXTENDED_LIST =
   "https://cloudflare-ipfs.com/ipns/extendedtokens.uniswap.org";
 const UNI_UNSUPPORTED_LIST =
@@ -29,7 +29,7 @@ const SET_LIST =
 const WRAPPED_LIST = "wrapped.tokensoft.eth";
 
 // mode testnet token list api
-export const MODE_LIST = "https://api.udonswap.org/tokens";
+export const MODE_LIST = "https://udonswap-tokenlist.vercel.app/v3-tokens";
 // export const OPTIMISM_LIST =
 //   "https://static.optimism.io/optimism.tokenlist.json";
 // export const ARBITRUM_LIST = "https://bridge.arbitrum.io/token-list-42161.json";

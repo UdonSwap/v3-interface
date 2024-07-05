@@ -160,6 +160,7 @@ export function TransactionPopupContent({
 }) {
   const transaction = useTransaction(hash);
   const tokens = useAllTokensMultichain();
+  console.log("All tokens multichain:", tokens);
   const { formatNumber } = useFormatter();
   if (!transaction) return null;
 
@@ -200,6 +201,7 @@ export function UniswapXOrderPopupContent({
 }) {
   const order = useOrder(orderHash);
   const tokens = useAllTokensMultichain();
+
   const openOffchainActivityModal = useOpenOffchainActivityModal();
   const { formatNumber } = useFormatter();
   if (!order) return null;
