@@ -88,7 +88,7 @@ export function useUniswapXSwapCallback({
         if (!provider) throw new Error("missing provider");
         if (!trade) throw new Error("missing trade");
 
-        sendAnalyticsEvent("UniswapX Signature Requested", {
+        sendAnalyticsEvent("UdonswapX Signature Requested", {
           ...formatSwapSignedAnalyticsEventProperties({
             trade,
             allowedSlippage,
@@ -190,7 +190,7 @@ export function useUniswapXSwapCallback({
           // TODO(UniswapX): For now, `errorCode` is not always present in the response, so we have to fallback
           // check for status code and perform this type narrowing.
           if (isErrorResponse(res, body)) {
-            sendAnalyticsEvent("UniswapX Order Post Error", {
+            sendAnalyticsEvent("UdonswapX Order Post Error", {
               ...formatSwapSignedAnalyticsEventProperties({
                 trade,
                 allowedSlippage,
@@ -207,7 +207,7 @@ export function useUniswapXSwapCallback({
               `${body.errorCode ?? body.detail ?? "Unknown error"}`,
             );
           }
-          sendAnalyticsEvent("UniswapX Order Submitted", {
+          sendAnalyticsEvent("UdonswapX Order Submitted", {
             ...formatSwapSignedAnalyticsEventProperties({
               trade,
               allowedSlippage,

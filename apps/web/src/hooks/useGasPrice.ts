@@ -1,9 +1,7 @@
 import JSBI from 'jsbi'
 import { useSingleCallResult } from 'lib/hooks/multicall'
 import { useMemo } from 'react'
-
 import { useContract } from './useContract'
-// import useENSAddress from './useENSAddress'
 import { useWeb3React } from '@web3-react/core'
 
 const CHAIN_DATA_ABI = [
@@ -21,9 +19,7 @@ const CHAIN_DATA_ABI = [
  */
 export default function useGasPrice(skip = false): JSBI | undefined {
   const { account } = useWeb3React()
-  // const { address } = useENSAddress('fast-gas-gwei.data.eth')
   const contract = useContract(account ?? undefined, CHAIN_DATA_ABI, false)
-
   const resultStr = useSingleCallResult(skip ? undefined : contract, 'latestAnswer').result?.[0]?.toString()
   return useMemo(() => (typeof resultStr === 'string' ? JSBI.BigInt(resultStr) : undefined), [resultStr])
 }

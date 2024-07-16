@@ -51,20 +51,7 @@ function useQuickRouteArguments({
     if (!enabledMainnet || true)
       return skipToken;
 
-    // return {
-    //   amount: amount.quotient.toString(),
-    //   tokenInAddress: currencyAddressForSwapQuote(tokenIn),
-    //   tokenInChainId: tokenIn.chainId,
-    //   tokenInDecimals: tokenIn.wrapped.decimals,
-    //   tokenInSymbol: tokenIn.wrapped.symbol,
-    //   tokenOutAddress: currencyAddressForSwapQuote(tokenOut),
-    //   tokenOutChainId: tokenOut.wrapped.chainId,
-    //   tokenOutDecimals: tokenOut.wrapped.decimals,
-    //   tokenOutSymbol: tokenOut.wrapped.symbol,
-    //   tradeType,
-    //   inputTax,
-    //   outputTax,
-    // };
+   
   }, [
     amount,
     enabledMainnet,

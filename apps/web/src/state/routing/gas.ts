@@ -1,6 +1,5 @@
 import { MaxUint256, PERMIT2_ADDRESS } from "udonswap-permit2";
 import { Currency } from "sdkcore18";
-// import { ChainId } from "smartorderrouter18"
 import { SupportedInterfaceChain } from "constants/chains";
 import { RPC_PROVIDERS } from "constants/providers";
 import { WRAPPED_NATIVE_CURRENCY } from "constants/tokens";

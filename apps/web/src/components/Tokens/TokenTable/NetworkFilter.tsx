@@ -90,17 +90,7 @@ export default function NetworkFilter() {
                 </InternalMenuItem>
               );
             })}
-            {/* {BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS.map((network) => {
-              const chainInfo = getChainInfo(network)
-              return (
-                <InternalMenuItem key={network} data-testid={`tokens-network-filter-option-${network}-chain`} disabled>
-                  <NetworkLabel>
-                    <ChainLogo chainId={network} size={20} /> {chainInfo.label}
-                  </NetworkLabel>
-                  <Tag>Coming soon</Tag>
-                </InternalMenuItem>
-              )
-            })} */}
+           
           </>
         }
         buttonCss={StyledButton}

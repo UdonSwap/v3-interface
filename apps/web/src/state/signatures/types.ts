@@ -1,19 +1,22 @@
-import { UniswapXOrderStatus } from 'types/uniswapx'
-import { ExactInputSwapTransactionInfo, ExactOutputSwapTransactionInfo } from '../transactions/types'
+import { UniswapXOrderStatus } from "types/uniswapx";
+import {
+  ExactInputSwapTransactionInfo,
+  ExactOutputSwapTransactionInfo,
+} from "../transactions/types";
 
 export enum SignatureType {
-  SIGN_UNISWAPX_ORDER = 'signUniswapXOrder',
-  SIGN_UNISWAPX_V2_ORDER = 'signUniswapXV2Order',
-  SIGN_LIMIT = 'signLimit',
+  SIGN_UNISWAPX_ORDER = "signUniswapXOrder",
+  SIGN_UNISWAPX_V2_ORDER = "signUniswapXV2Order",
+  SIGN_LIMIT = "signLimit",
 }
 
 interface BaseSignatureFields {
-  type?: SignatureType
-  id: string
-  addedTime: number
-  chainId: number
-  expiry?: number
-  offerer: string
+  type?: SignatureType;
+  id: string;
+  addedTime: number;
+  chainId: number;
+  expiry?: number;
+  offerer: string;
 }
 
 /**
@@ -23,12 +26,14 @@ interface BaseSignatureFields {
  * - `txHash` is marked as optional because it's only present for orders that have been filled onchain. OrderHash !== TxHash
  */
 export interface UniswapXOrderDetails extends BaseSignatureFields {
-  orderHash: string
-  type?: SignatureType
-  status: UniswapXOrderStatus
-  swapInfo: (ExactInputSwapTransactionInfo | ExactOutputSwapTransactionInfo) & { isUniswapXOrder: true }
-  txHash?: string
-  encodedOrder?: string
+  orderHash: string;
+  type?: SignatureType;
+  status: UniswapXOrderStatus;
+  swapInfo: (ExactInputSwapTransactionInfo | ExactOutputSwapTransactionInfo) & {
+    isUniswapXOrder: true;
+  };
+  txHash?: string;
+  encodedOrder?: string;
 }
 
-export type SignatureDetails = UniswapXOrderDetails
+export type SignatureDetails = UniswapXOrderDetails;

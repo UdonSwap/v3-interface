@@ -290,13 +290,6 @@ const PoolDetailsHeaderActions = ({
         <DropdownSelector
           isOpen={contractsModalIsOpen}
           toggleOpen={toggleContractsModal}
-          // menuLabel={
-          //   chainId === ChainId.MAINNET ? (
-          //     <EtherscanLogo width="18px" height="18px" fill={theme.neutral1} />
-          //   ) : (
-          //     <ExplorerIcon width="18px" height="18px" fill={theme.neutral1} />
-          //   )
-          // }
           menuLabel={
             <ExplorerIcon width="18px" height="18px" fill={theme.neutral1} />
           }

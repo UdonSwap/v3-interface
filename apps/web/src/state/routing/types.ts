@@ -15,7 +15,6 @@ import {
   DutchOrderInfoJSON,
   DutchOrderTrade as IDutchOrderTrade,
 } from "@uniswap/uniswapx-sdk";
-// import { Route as V2Route } from "udonswap-v2-sdk";
 import { Route as V3Route } from "v3sdk18";
 import { ZERO_PERCENT } from "constants/misc";
 import { BigNumber } from "ethers/lib/ethers";
@@ -40,7 +39,7 @@ export enum QuoteMethod {
 export const INTERNAL_ROUTER_PREFERENCE_PRICE = "price" as const;
 
 export enum RouterPreference {
-  X = "uniswapx",
+  X = "udonswapx",
   API = "api",
 }
 
@@ -83,7 +82,6 @@ export type GetQuickQuoteArgs = {
   outputTax: Percent;
 };
 
-// from https://github.com/Uniswap/routing-api/blob/main/lib/handlers/schema.ts
 export type TokenInRoute = Pick<
   Token,
   "address" | "chainId" | "symbol" | "decimals"
@@ -207,7 +205,7 @@ export function isClassicQuoteResponse(
 
 export enum TradeFillType {
   Classic = "classic", // Uniswap V1, V2, and V3 trades with on-chain routes
-  UniswapX = "uniswap_x", // off-chain trades, no routes
+  UniswapX = "udonswap_x", // off-chain trades, no routes
   None = "none", // for preview trades, cant be used for submission
 }
 

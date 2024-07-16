@@ -1,19 +1,12 @@
 import { Percent, TradeType } from "sdkcore18";
-// import { FlatFeeOptions } from "universalroutersdk18";
-// import { FeeOptions } from "v3sdk";
 import { useWeb3React } from "@web3-react/core";
-// import { BigNumber } from "ethers/lib/ethers";
 import { PermitSignature } from "hooks/usePermitAllowance";
 import { useCallback } from "react";
 import {
   InterfaceTrade,
-  // OffchainOrderType,
-  // TradeFillType,
 } from "state/routing/types";
 import { isClassicTrade } from "state/routing/utils";
 import { useAddOrder } from "state/signatures/hooks";
-// import { UniswapXOrderDetails } from "state/signatures/types";
-
 import { useTransactionAdder } from "../state/transactions/hooks";
 import {
   ExactInputSwapTransactionInfo,
@@ -21,40 +14,12 @@ import {
   TransactionType,
 } from "../state/transactions/types";
 import { currencyId } from "../utils/currencyId";
-// import { useUniswapXSwapCallback } from "./useUniswapXSwapCallback";
 import { useUniversalRouterSwapCallback } from "./useUniversalRouter";
 import useTransactionDeadline from "./useTransactionDeadline";
 
 export type SwapResult = Awaited<
   ReturnType<ReturnType<typeof useSwapCallback>>
 >;
-
-// type UniversalRouterFeeField =
-//   | { feeOptions: FeeOptions }
-//   | { flatFeeOptions: FlatFeeOptions };
-
-// function getUniversalRouterFeeFields(
-//   trade?: InterfaceTrade,
-// ): UniversalRouterFeeField | undefined {
-//   if (!isClassicTrade(trade)) return undefined;
-//   if (!trade.swapFee) return undefined;
-
-//   if (trade.tradeType === TradeType.EXACT_INPUT) {
-//     return {
-//       feeOptions: {
-//         fee: trade.swapFee.percent,
-//         recipient: trade.swapFee.recipient,
-//       },
-//     };
-//   } else {
-//     return {
-//       flatFeeOptions: {
-//         amount: BigNumber.from(trade.swapFee.amount),
-//         recipient: trade.swapFee.recipient,
-//       },
-//     };
-//   }
-// }
 
 // Returns a function that will execute a swap, if the parameters are all valid
 // and the user has approved the slippage adjusted input amount for the trade
@@ -69,20 +34,13 @@ export function useSwapCallback(
   const addOrder = useAddOrder();
   const { account, chainId } = useWeb3React();
 
-  // const uniswapXSwapCallback = useUniswapXSwapCallback({
-  //   trade: isUniswapXTrade(trade) ? trade : undefined,
-  //   allowedSlippage,
-  //   fiatValues,
-  // });
 
   const universalRouterSwapCallback = useUniversalRouterSwapCallback(
     isClassicTrade(trade) ? trade : undefined,
     fiatValues,
     {
       slippageTolerance: allowedSlippage,
-      // deadline,
       permit: permitSignature,
-      // ...getUniversalRouterFeeFields(trade),
     },
   );
 
@@ -123,21 +81,8 @@ export function useSwapCallback(
           }),
     };
 
-    // if (result.type === TradeFillType.UniswapX) {
-    //   addOrder(
-    //     account,
-    //     result.response.orderHash,
-    //     chainId,
-    //     result.response.deadline,
-    //     swapInfo as UniswapXOrderDetails["swapInfo"],
-    //     result.response.encodedOrder,
-    //     isUniswapXTrade(trade)
-    //       ? trade.offchainOrderType
-    //       : OffchainOrderType.DUTCH_AUCTION, // satisfying type-checker; isUniswapXTrade should always be true
-    //   );
-    // } else {
     addTransaction(result.response, swapInfo, result.deadline?.toNumber());
-    // }
+
 
     return result;
   }, [

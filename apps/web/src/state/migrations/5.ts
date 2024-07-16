@@ -12,12 +12,12 @@ export type PersistAppStateV5 = {
 export const migration5 = (state: PersistAppStateV5 | undefined) => {
   if (!state) return state
   // Remove a previously-persisted variable
-  if (state?.user && 'disabledUniswapX' in state.user) {
-    delete state.user['disabledUniswapX']
+  if (state?.user && 'disabledUdonswapX' in state.user) {
+    delete state.user['disabledUdonswapX']
   }
   const userOptedOutOfUniswapX = state?.user?.optedOutOfUniswapX
-  if (state?.user && 'optedOutOfUniswapX' in state.user) {
-    delete state.user['optedOutOfUniswapX']
+  if (state?.user && 'optedOutOfUdonswapX' in state.user) {
+    delete state.user['optedOutOfUdonswapX']
   }
   // If the the user has previously disabled UniswapX *during the opt-out rollout period*, we respect that preference.
   if (state?.user && !userOptedOutOfUniswapX) {

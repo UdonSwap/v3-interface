@@ -69,7 +69,7 @@ export const getIsMetaMaskWallet = () => getDeprecatedInjection()?.name === 'Met
 
 export const getIsCoinbaseWallet = () => Boolean(window.ethereum?.isCoinbaseWallet)
 
-// https://eips.ethereum.org/EIPS/eip-1193#provider-errors
+
 export enum ErrorCode {
   USER_REJECTED_REQUEST = 4001,
   UNAUTHORIZED = 4100,
@@ -77,7 +77,6 @@ export enum ErrorCode {
   DISCONNECTED = 4900,
   CHAIN_DISCONNECTED = 4901,
 
-  // https://docs.metamask.io/guide/rpc-api.html#unrestricted-methods
   CHAIN_NOT_ADDED = 4902,
   MM_ALREADY_PENDING = -32002,
 

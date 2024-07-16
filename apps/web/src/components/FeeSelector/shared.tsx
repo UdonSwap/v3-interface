@@ -12,16 +12,7 @@ export const FEE_AMOUNT_DETAIL: Record<
     label: "0.01",
     description: <Trans>Best for very stable pairs.</Trans>,
     supportedChains: [
-      // ChainId.ARBITRUM_ONE,
       ChainId.MODE,
-      // ChainId.BNB,
-      // ChainId.MAINNET,
-      // ChainId.OPTIMISM,
-      // ChainId.POLYGON,
-      // ChainId.POLYGON_MUMBAI,
-      // ChainId.AVALANCHE,
-      // ChainId.BASE,
-      // ChainId.BLAST,
     ],
   },
   [FeeAmount.LOW]: {

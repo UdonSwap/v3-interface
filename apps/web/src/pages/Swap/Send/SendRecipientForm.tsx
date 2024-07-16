@@ -4,7 +4,6 @@ import Identicon from "components/Identicon";
 import Row from "components/Row";
 import { Unicon } from "components/Unicon";
 import { UniTagProfilePicture } from "components/UniTag/UniTagProfilePicture";
-// import useENSName from 'hooks/useENSName'
 import { useGroupedRecentTransfers } from "hooks/useGroupedRecentTransfers";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { useUnmountingAnimation } from "hooks/useUnmountingAnimation";
@@ -143,8 +142,6 @@ const AutocompleteRow = ({
 }) => {
   const { account } = useWeb3React();
   const { unitag } = useUnitagByAddressWithoutFlag(address, Boolean(address));
-  // const { ENSName } = useENSName(address);
-  // const cachedEnsName = ENSName || validatedEnsName;
   const formattedAddress = shortenAddress(address);
   const uniconsV2Enabled = useFeatureFlag(FeatureFlags.UniconsV2);
 

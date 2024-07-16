@@ -143,7 +143,7 @@ const LearnMoreArrow = styled(ArrowRightCircle)`
 `;
 const ProtocolDescription = () => (
   <Trans>
-    Uniswap products are powered by the Uniswap Protocol. The protocol is the
+    Udonswap products are powered by the Udonswap Protocol. The protocol is the
     largest onchain marketplace, with billions of dollars in weekly volume
     across thousands of tokens on Ethereum and 7+ additional chains.
   </Trans>

@@ -8,7 +8,6 @@ import {
   TradeType,
 } from "sdkcore18";
 import { DutchOrderInfo, DutchOrderInfoJSON } from "@uniswap/uniswapx-sdk";
-// import { Pair } from "udonswap-v2-sdk";
 import { FeeAmount, Pool, Route as V3Route } from "v3sdk18";
 import { BIPS_BASE } from "constants/misc";
 import { nativeOnChain } from "constants/tokens";
@@ -46,8 +45,6 @@ import {
 
 interface RouteResult {
   routev2: V3Route<Currency, Currency> | null;
-  // routev2: V2Route<Currency, Currency> | null;
-  // mixedRoute: MixedRouteSDK<Currency, Currency> | null;
   inputAmount: CurrencyAmount<Currency>;
   outputAmount: CurrencyAmount<Currency>;
 }
@@ -214,10 +211,7 @@ function getClassicTradeDetails(
   routes?: RouteResult[];
   swapFee?: SwapFeeInfo;
 } {
-  // const classicQuote =
-  //   data.routing === URAQuoteType.CLASSIC
-  //     ? data.quote
-  //     : data.allQuotes.find(isClassicQuoteResponse)?.quote;
+  
 
   const classicQuote = data.quote
 
@@ -271,10 +265,6 @@ export async function transformQuoteToTrade(
 ): Promise<TradeResult> {
   const { tradeType, needsWrapIfUniswapX, routerPreference, account, amount } =
     args;
-  // const showUniswapXTrade =
-  //   data.routing === URAQuoteType.DUTCH_LIMIT &&
-  //   routerPreference === RouterPreference.X;
-
   const [currencyIn, currencyOut] = getTradeCurrencies(args, false);
 
   const { gasUseEstimateUSD, blockNumber, routes, gasUseEstimate, swapFee } =
@@ -291,20 +281,7 @@ export async function transformQuoteToTrade(
   );
   console.log("approveInfo", approveInfo)
   const classicTrade = new ClassicTrade({
-    // v2Routes:
-    //   routes
-    //     ?.filter(
-    //       (
-    //         r,
-    //       ): r is RouteResult & {
-    //         routev2: NonNullable<RouteResult["routev2"]>;
-    //       } => r.routev2 !== null,
-    //     )
-    //     .map(({ routev2, inputAmount, outputAmount }) => ({
-    //       routev2,
-    //       inputAmount,
-    //       outputAmount,
-    //     })) ?? [],
+
     v2Routes:
       routes
         ?.filter(
@@ -319,20 +296,7 @@ export async function transformQuoteToTrade(
           inputAmount,
           outputAmount,
         })) ?? [],
-    // mixedRoutes:
-    //   routes
-    //     ?.filter(
-    //       (
-    //         r,
-    //       ): r is RouteResult & {
-    //         mixedRoute: NonNullable<RouteResult["mixedRoute"]>;
-    //       } => r.mixedRoute !== null,
-    //     )
-    //     .map(({ mixedRoute, inputAmount, outputAmount }) => ({
-    //       mixedRoute,
-    //       inputAmount,
-    //       outputAmount,
-    //     })) ?? [],
+ 
     tradeType,
     gasUseEstimateUSD,
     gasUseEstimate,
@@ -344,42 +308,6 @@ export async function transformQuoteToTrade(
   });
 
   console.log("classic trade", classicTrade)
-
-  // If the top-level URA quote type is DUTCH_LIMIT, then UniswapX is better for the user
-  // const isUniswapXBetter = false //data.routing === URAQuoteType.DUTCH_LIMIT;
-  // if (isUniswapXBetter) {
-  //   const orderInfo = toDutchOrderInfo(data.quote.orderInfo);
-  //   const swapFee = getSwapFee(data.quote);
-  //   const wrapInfo = await getWrapInfo(
-  //     needsWrapIfUniswapX,
-  //     account,
-  //     currencyIn.chainId,
-  //     amount,
-  //     usdCostPerGas,
-  //   );
-
-  //   const uniswapXTrade = new DutchOrderTrade({
-  //     currencyIn,
-  //     currenciesOut: [currencyOut],
-  //     orderInfo,
-  //     tradeType,
-  //     quoteId: data.quote.quoteId,
-  //     requestId: data.quote.requestId,
-  //     classicGasUseEstimateUSD: classicTrade.totalGasUseEstimateUSD,
-  //     wrapInfo,
-  //     approveInfo,
-  //     auctionPeriodSecs: data.quote.auctionPeriodSecs,
-  //     startTimeBufferSecs: data.quote.startTimeBufferSecs,
-  //     deadlineBufferSecs: data.quote.deadlineBufferSecs,
-  //     slippageTolerance: toSlippagePercent(data.quote.slippageTolerance),
-  //     swapFee,
-  //   });
-
-  //   return {
-  //     state: QuoteState.SUCCESS,
-  //     trade: uniswapXTrade,
-  //   };
-  // }
 
   return { state: QuoteState.SUCCESS, trade: classicTrade };
 }
@@ -424,11 +352,7 @@ function parsePool({
   );
 }
 
-// const parsePair = ({ reserve0, reserve1 }: V2PoolInRoute): Pair =>
-//   new Pair(
-//     CurrencyAmount.fromRawAmount(parseToken(reserve0.token), reserve0.quotient),
-//     CurrencyAmount.fromRawAmount(parseToken(reserve1.token), reserve1.quotient),
-//   );
+
 
 // TODO(WEB-2050): Convert other instances of tradeType comparison to use this utility function
 export function isExactInput(tradeType: TradeType): boolean {
@@ -437,9 +361,7 @@ export function isExactInput(tradeType: TradeType): boolean {
 
 export function currencyAddressForSwapQuote(currency: Currency): string {
   if (currency.isNative) {
-    // if (isPolygon(currency.chainId)) return SwapRouterNativeAssets.MATIC;
-    // if (isBsc(currency.chainId)) return SwapRouterNativeAssets.BNB;
-    // if (isAvalanche(currency.chainId)) return SwapRouterNativeAssets.AVAX;
+    
     return SwapRouterNativeAssets.ETH;
   }
 

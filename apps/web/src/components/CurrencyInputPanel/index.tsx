@@ -4,7 +4,6 @@ import {
   SwapEventName,
 } from "@uniswap/analytics-events";
 import { Currency, CurrencyAmount } from "sdkcore18";
-// import { Pair } from "udonswap-v2-sdk";
 import { useWeb3React } from "@web3-react/core";
 import { TraceEvent } from "analytics";
 import {
@@ -288,16 +287,6 @@ export default function CurrencyInputPanel({
                   <Aligner>
                     <RowFixed>
                       {
-                        // pair ? (
-                        //   <span style={{ marginRight: "0.5rem" }}>
-                        //     <DoubleCurrencyLogo
-                        //       currency0={pair.token0}
-                        //       currency1={pair.token1}
-                        //       size={24}
-                        //       margin={true}
-                        //     />
-                        //   </span>
-                        // ) :
                         currency && (
                           <CurrencyLogo
                             style={{ marginRight: "0.5rem" }}
@@ -307,11 +296,7 @@ export default function CurrencyInputPanel({
                         )
                       }
                       {
-                        // pair ? (
-                        //   <StyledTokenName className="pair-name-container">
-                        //     {pair?.token0.symbol}:{pair?.token1.symbol}
-                        //   </StyledTokenName>
-                        // ) :
+                        
                         <StyledTokenName
                           className="token-symbol-container"
                           active={Boolean(currency && currency.symbol)}

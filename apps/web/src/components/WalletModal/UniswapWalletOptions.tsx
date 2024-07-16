@@ -69,7 +69,7 @@ export function UniswapWalletOptions() {
                 color="$neutral1"
                 whiteSpace="nowrap"
               >
-                <Trans>Uniswap Extension</Trans>
+                <Trans>Udonswap Extension</Trans>
               </Text>
             </Row>
             <TagContainer>
@@ -79,42 +79,7 @@ export function UniswapWalletOptions() {
             </TagContainer>
           </OptionContainer>
         )}
-        {/* <OptionContainer
-          gap="md"
-          onClick={() =>
-            tryActivation(
-              uniwalletWCV2ConnectConnection,
-              toggleAccountDrawer,
-              chainId,
-            )
-          }
-        >
-          <Mobile
-            size="$icon.40"
-            minWidth={40}
-            color="$accent1"
-            backgroundColor="$accent2"
-            borderRadius={8}
-            p={7}
-          />
-          <Row gap="xs">
-            <Column>
-              <Text
-                variant="buttonLabel3"
-                color="$neutral1"
-                whiteSpace="nowrap"
-              >
-                <Trans>Mobile Wallet</Trans>
-              </Text>
-              <Text variant="body4" color="$neutral2" whiteSpace="nowrap">
-                <Trans>Scan QR code to connect</Trans>
-              </Text>
-            </Column>
-          </Row>
-          <TagContainer>
-            <QrCode size={20} color="$neutral2" />
-          </TagContainer>
-        </OptionContainer> */}
+       
       </Column>
     </Column>
   );

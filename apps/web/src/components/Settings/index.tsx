@@ -149,11 +149,6 @@ export default function SettingsTab({
   const Settings = useMemo(
     () => (
       <>
-        {/* {showRoutingSettings && (
-          <AutoColumn gap="16px">
-            <RouterPreferenceSettings />
-          </AutoColumn>
-        )} */}
         <AnimatedDropdown open={!isUniswapXTrade(trade)}>
           <ExpandColumn $padTop={showRoutingSettings}>
             {showRoutingSettings}

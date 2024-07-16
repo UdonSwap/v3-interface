@@ -38,7 +38,7 @@ export function SwitchLocaleLink() {
 
   return (
     <Container>
-      <Trans>Uniswap available in: </Trans>
+      <Trans>Udonswap available in: </Trans>
       <StyledInternalLink onClick={onClick} to={to}>
         {LOCALE_LABEL[targetLocale]}
       </StyledInternalLink>

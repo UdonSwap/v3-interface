@@ -3,10 +3,8 @@ import { InterfaceEventName } from "@uniswap/analytics-events";
 import { ChainId } from "smartorderrouter18"
 import {
   ARGENT_WALLET_DETECTOR_ADDRESS,
-  // ENS_REGISTRAR_ADDRESSES,
   MULTICALL_ADDRESS,
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
-  // V2_ROUTER_ADDRESSES,
   V3_MIGRATOR_ADDRESSES,
 } from 'constants/addresses'
 import IUniswapV2PairJson from "@uniswap/v2-core/build/IUniswapV2Pair.json";
@@ -142,13 +140,6 @@ export function useArgentWalletDetectorContract() {
   );
 }
 
-// export function useENSRegistrarContract() {
-//   return useMainnetContract<EnsRegistrar>(
-//     ENS_REGISTRAR_ADDRESSES[ChainId.MAINNET],
-//     ENS_ABI,
-//   );
-// }
-
 export function useENSResolverContract(address: string | undefined) {
   return useMainnetContract<EnsPublicResolver>(
     address,
@@ -174,14 +165,6 @@ export function usePairContract(
   return useContract(pairAddress, IUniswapV2PairABI, withSignerIfPossible);
 }
 
-// export function useV2RouterContract(): Contract | null {
-//   const { chainId } = useWeb3React();
-//   return useContract(
-//     chainId ? V2_ROUTER_ADDRESSES[chainId] : undefined,
-//     IUniswapV2Router02ABI,
-//     true,
-//   );
-// }
 
 export function useInterfaceMulticall() {
   return useContract<UniswapInterfaceMulticall>(

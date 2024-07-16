@@ -16,7 +16,7 @@ export function isProductionEnv(): boolean {
 }
 
 function isAppUniswapOrg({ hostname }: { hostname: string }): boolean {
-  return hostname === 'app.uniswap.org'
+  return hostname === 'https://v3.udonswap.org/'
 }
 
 function isAppUniswapStagingOrg({ hostname }: { hostname: string }): boolean {

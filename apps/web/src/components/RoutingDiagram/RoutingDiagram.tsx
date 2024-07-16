@@ -119,15 +119,6 @@ function Route({
         <DotColor />
       </DottedLine>
       <OpaqueBadge>
-        {/* {protocol === Protocol.MIXED ? (
-          <MixedProtocolBadge>
-            <BadgeText>V3 + V2</BadgeText>
-          </MixedProtocolBadge>
-        ) : (
-          <ProtocolBadge>
-            <BadgeText color="neutral1">{protocol.toUpperCase()}</BadgeText>
-          </ProtocolBadge>
-        )} */}
         {
           <ProtocolBadge>
             <BadgeText color="neutral1">{protocol.toUpperCase()}</BadgeText>

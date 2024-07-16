@@ -15,7 +15,7 @@ export default function RouterLabel({
   if (isUniswapXTrade(trade)) {
     return (
       <UniswapXRouterLabel>
-        <ThemedText.BodySmall>Uniswap X</ThemedText.BodySmall>
+        <ThemedText.BodySmall>Udonswap X</ThemedText.BodySmall>
       </UniswapXRouterLabel>
     );
   }

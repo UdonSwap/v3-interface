@@ -2,7 +2,6 @@ import { LOCALE_LABEL, SUPPORTED_LOCALES, SupportedLocale } from 'constants/loca
 import { useActiveLocale } from 'hooks/useActiveLocale'
 import { useLocationLinkProps } from 'hooks/useLocationLinkProps'
 import { Trans } from 'i18n'
-
 import { useUserLocaleManager } from 'state/user/hooks'
 import { SlideOutMenu } from './SlideOutMenu'
 import { MenuColumn, MenuItem } from './shared'

@@ -17,19 +17,6 @@ import { useRoutingAPITrade } from "state/routing/useRoutingAPITrade";
 
 import { SupportedInterfaceChain, asSupportedChain } from "constants/chains";
 import {
-  // DAI_OPTIMISM,
-  // USDB_BLAST,
-  // USDC_ARBITRUM,
-  // USDC_ARBITRUM_GOERLI,
-  // USDC_AVALANCHE,
-  // USDC_BASE,
-  // USDC_GOERLI,
-  // USDC_MAINNET,
-  // USDC_OPTIMISM_GOERLI,
-  // USDC_POLYGON,
-  // USDC_POLYGON_MUMBAI,
-  // USDC_SEPOLIA,
-  // USDT_BSC,
   USDC_MODE
 } from "../constants/tokens";
 
@@ -38,29 +25,7 @@ import {
 export const STABLECOIN_AMOUNT_OUT: {
   [key in SupportedInterfaceChain]: CurrencyAmount<Token>;
 } = {
-  // [ChainId.MAINNET]: CurrencyAmount.fromRawAmount(USDC_MAINNET, 100_000e6),
   [ChainId.MODE]: CurrencyAmount.fromRawAmount(USDC_MODE, 100_000e6),
-  // [ChainId.ARBITRUM_ONE]: CurrencyAmount.fromRawAmount(USDC_ARBITRUM, 10_000e6),
-  // [ChainId.OPTIMISM]: CurrencyAmount.fromRawAmount(DAI_OPTIMISM, 10_000e18),
-  // [ChainId.POLYGON]: CurrencyAmount.fromRawAmount(USDC_POLYGON, 10_000e6),
-  // [ChainId.BNB]: CurrencyAmount.fromRawAmount(USDT_BSC, 100e18),
-  // [ChainId.AVALANCHE]: CurrencyAmount.fromRawAmount(USDC_AVALANCHE, 10_000e6),
-  // [ChainId.BASE]: CurrencyAmount.fromRawAmount(USDC_BASE, 10_000e6),
-  // [ChainId.GOERLI]: CurrencyAmount.fromRawAmount(USDC_GOERLI, 10_000e6),
-  // [ChainId.SEPOLIA]: CurrencyAmount.fromRawAmount(USDC_SEPOLIA, 10_000e6),
-  // [ChainId.OPTIMISM_GOERLI]: CurrencyAmount.fromRawAmount(
-  //   USDC_OPTIMISM_GOERLI,
-  //   10_000e6,
-  // ),
-  // [ChainId.ARBITRUM_GOERLI]: CurrencyAmount.fromRawAmount(
-  //   USDC_ARBITRUM_GOERLI,
-  //   10_000e6,
-  // ),
-  // [ChainId.POLYGON_MUMBAI]: CurrencyAmount.fromRawAmount(
-  //   USDC_POLYGON_MUMBAI,
-  //   10_000e6,
-  // ),
-  // [ChainId.BLAST]: CurrencyAmount.fromRawAmount(USDB_BLAST, 10_000e18),
 };
 
 /**

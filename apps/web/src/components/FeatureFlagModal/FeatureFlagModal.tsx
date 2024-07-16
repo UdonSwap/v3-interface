@@ -309,14 +309,14 @@ export default function FeatureFlagModal() {
             label="Enable quick routes for these chains"
           />
         </FeatureFlagGroup>
-        <FeatureFlagGroup name="UniswapX Flags">
+        <FeatureFlagGroup name="UdonswapX Flags">
           <FeatureFlagOption
             flag={FeatureFlags.UniswapXSyntheticQuote}
-            label="Force synthetic quotes for UniswapX"
+            label="Force synthetic quotes for UdonswapX"
           />
           <FeatureFlagOption
             flag={FeatureFlags.UniswapXv2}
-            label="UniswapX v2"
+            label="UdonswapX v2"
           />
         </FeatureFlagGroup>
         <FeatureFlagGroup name="Extension">

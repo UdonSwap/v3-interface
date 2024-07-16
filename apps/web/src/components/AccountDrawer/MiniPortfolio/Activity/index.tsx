@@ -9,7 +9,6 @@ import { EmptyWalletModule } from 'nft/components/profile/view/EmptyWalletConten
 import { useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import { ThemedText } from 'theme/components'
-
 import { OpenLimitOrdersButton } from 'components/AccountDrawer/MiniPortfolio/Limits/OpenLimitOrdersButton'
 import { PortfolioSkeleton, PortfolioTabWrapper } from '../PortfolioRow'
 import { useAccountDrawer } from '../hooks'

@@ -62,11 +62,7 @@ export function BlockNumberProvider({ children }: PropsWithChildren) {
           return { chainId, block, mainnetBlock };
         }
       }
-      //  else if (chainId === ChainId.MAINNET) {
-      //   if (!chainBlock.mainnetBlock || chainBlock.mainnetBlock < block) {
-      //     return { ...chainBlock, mainnetBlock: block };
-      //   }
-      // }
+    
       return chainBlock;
     });
   }, []);

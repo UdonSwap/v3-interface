@@ -3,7 +3,6 @@ import { BigNumber } from "@ethersproject/bignumber";
 import { CustomUserProperties, SwapEventName } from "@uniswap/analytics-events";
 import { Percent } from "sdkcore18";
 import {
-  // FlatFeeOptions,
   SwapRouter,
   UNIVERSAL_ROUTER_ADDRESS,
 } from "universalroutersdk18";

@@ -119,7 +119,7 @@ export const generateTweetForList = (assets: WalletAsset[]): string => {
           .join(', ')}. Buy it on @Uniswap at https://app.uniswap.org/${getAssetHref(assets[0])}`
       : `I just listed ${
           assets.length
-        } items on @Uniswap at https://app.uniswap.org/nfts/profile\n\nCollections: ${mapAssetsToCollections(assets)
+        } items on @Udonswap at https://app.uniswap.org/nfts/profile\n\nCollections: ${mapAssetsToCollections(assets)
           .map(({ collection, items }) => `${collection} ${items.map((item) => item).join(', ')}`)
           .join(', ')} \n\nMarketplaces: ${assets[0].marketplaces?.map((market) => market.name).join(', ')}`
   return `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`

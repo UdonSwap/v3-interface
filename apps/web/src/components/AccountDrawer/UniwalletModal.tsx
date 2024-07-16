@@ -7,8 +7,6 @@ import { sendAnalyticsEvent } from "analytics";
 import Column, { AutoColumn } from "components/Column";
 import Modal from "components/Modal";
 import { RowBetween } from "components/Row";
-// import { uniwalletWCV2ConnectConnection } from "connection";
-// import { UniwalletConnect as UniwalletConnectV2 } from "connection/WalletConnectV2";
 import { ActivationStatus, useActivationState } from "connection/activate";
 import { ConnectionType } from "connection/types";
 import { Trans } from "i18n";
@@ -53,17 +51,6 @@ export default function UniwalletModal() {
     activationState.connection.type === ConnectionType.UNISWAP_WALLET_V2 &&
     !!uri;
 
-  // useEffect(() => {
-  //   const connectorV2 =
-  //     uniwalletWCV2ConnectConnection.connector as WalletConnectv2;
-  //   connectorV2.events.addListener(
-  //     UniwalletConnectV2.UNI_URI_AVAILABLE,
-  //     (uri: string) => {
-  //       uri && setUri(uri);
-  //     },
-  //   );
-  // }, []);
-
   useEffect(() => {
     if (open)
       sendAnalyticsEvent(InterfaceEventName.UNIWALLET_CONNECT_MODAL_OPENED);
@@ -75,7 +62,7 @@ export default function UniwalletModal() {
       <UniwalletConnectWrapper>
         <HeaderRow>
           <ThemedText.SubHeader>
-            <Trans>Scan with Uniswap Wallet</Trans>
+            <Trans>Scan with Udonswap Wallet</Trans>
           </ThemedText.SubHeader>
           <CloseIcon onClick={cancelActivation} />
         </HeaderRow>
@@ -115,11 +102,11 @@ function InfoSection() {
     <InfoSectionWrapper>
       <AutoColumn gap="4px">
         <ThemedText.SubHeaderSmall color="neutral1">
-          <Trans>Don&apos;t have a Uniswap wallet?</Trans>
+          <Trans>Don&apos;t have a Udonswap wallet?</Trans>
         </ThemedText.SubHeaderSmall>
         <ThemedText.BodySmall color="neutral2">
           <Trans>
-            Safely store and swap tokens with the Uniswap app. Available on iOS
+            Safely store and swap tokens with the Udonswap app. Available on iOS
             and Android.
           </Trans>
         </ThemedText.BodySmall>

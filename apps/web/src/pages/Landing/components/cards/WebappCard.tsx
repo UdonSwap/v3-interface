@@ -178,18 +178,7 @@ const tokens = [
     chainId: ChainId.MODE,
     address: "ETH",
   },
-  // {
-  //   chainId: ChainId.BASE,
-  //   address: USDC_BASE.address,
-  // },
-  // {
-  //   chainId: ChainId.MAINNET,
-  //   address: UNI[ChainId.MAINNET].address,
-  // },
-  // {
-  //   chainId: ChainId.MAINNET,
-  //   address: LDO.address,
-  // },
+  
 ];
 
 function Token({ chainId, address }: { chainId: ChainId; address: string }) {

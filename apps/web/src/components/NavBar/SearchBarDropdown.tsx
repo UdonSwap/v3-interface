@@ -11,7 +11,6 @@ import { ChainLogo } from "components/Logo/ChainLogo";
 import { SearchToken } from "graphql/data/SearchTokens";
 import useTrendingTokens from "graphql/data/TrendingTokens";
 import { useTrendingCollections } from "graphql/data/nft/TrendingCollections";
-// import { BACKEND_NOT_YET_SUPPORTED_CHAIN_IDS } from "graphql/data/util";
 import { useDisableNFTRoutes } from "hooks/useDisableNFTRoutes";
 import { useIsNftPage } from "hooks/useIsNftPage";
 import { Trans } from "i18n";

@@ -73,10 +73,7 @@ export function FOTTooltipContent() {
       <Trans>
         Some tokens take a fee when they are bought or sold, which is set by the
         token issuer. Udonswap does not receive any of these fees.
-      </Trans>{" "}
-      {/* <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/18673568523789-What-is-a-token-fee-">
-        Learn more
-      </ExternalLink> */}
+      </Trans>
     </>
   );
 }
@@ -95,10 +92,7 @@ function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
   );
   return (
     <>
-      {message}{" "}
-      {/* <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/20131678274957">
-        <Trans>Learn more</Trans>
-      </ExternalLink> */}
+      {message}
     </>
   );
 }

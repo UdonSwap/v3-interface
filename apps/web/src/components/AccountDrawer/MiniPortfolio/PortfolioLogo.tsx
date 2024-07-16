@@ -10,7 +10,6 @@ import {
 import { ChainLogo, getDefaultBorderRadius } from "components/Logo/ChainLogo";
 import { Unicon } from "components/Unicon";
 import useTokenLogoSource from "hooks/useAssetLogoSource";
-// import useENSAvatar from "hooks/useENSAvatar";
 import React from "react";
 import { Loader } from "react-feather";
 import styled from "styled-components";
@@ -120,13 +119,6 @@ function DoubleLogo({
   }
   return (
     <DoubleLogoContainer>
-      {/* <CircleLogoImage
-        size={size}
-        src={logo1 ?? blankTokenUrl}
-        onError={onError1}
-        alt="ololol"
-      /> */}
-
       <MissingImageLogoPool1
         $size={size}
         $textColor={foreground1}
@@ -138,12 +130,6 @@ function DoubleLogo({
           .replace(/\s+/g, "")
           .slice(0, 3)}
       </MissingImageLogoPool1>
-
-      {/* <CircleLogoImage
-        size={size}
-        src={logo2 ?? blankTokenUrl}
-        onError={onError2}
-      /> */}
       <MissingImageLogoPool2
         $size={size}
         $textColor={foreground2}
@@ -239,15 +225,8 @@ function PortfolioAvatar({
   accountAddress: string;
   size: string;
 }) {
-  // const { avatar, loading } = useENSAvatar(accountAddress, false);
+  
   const uniconV2Enabled = useFeatureFlag(FeatureFlags.UniconsV2);
-
-  // if (loading) {
-  //   return <Loader size={size} />;
-  // }
-  // if (avatar) {
-  //   return <ENSAvatarImg src={avatar} alt="avatar" />;
-  // }
   return (
     <>
       {uniconV2Enabled ? (
@@ -269,8 +248,6 @@ interface PortfolioLogoProps {
 }
 
 function SquareL2Logo({ chainId }: { chainId: ChainId }) {
-  // if (chainId === ChainId.MAINNET) return null;
-
   return (
     <L2LogoContainer>
       <ChainLogo fillContainer={true} chainId={chainId} />
@@ -314,14 +291,6 @@ function getLogo({
   if (images?.length === 1) {
     return <CircleLogoImage size={size} src={images[0] ?? blankTokenUrl} />;
   }
-  // if (images && images?.length >= 2) {
-  //   return (
-  //     <DoubleLogo
-  //       logo1={images[0]}
-  //       logo2={images[images.length - 1]}
-  //       size={size}
-  //     />
-  //   );
-  // }
+
   return <UnknownContract width={size} height={size} />;
 }

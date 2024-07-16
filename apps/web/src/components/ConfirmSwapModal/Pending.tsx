@@ -222,7 +222,7 @@ export function Pending({
                 {isLimitTrade(initialTrade) ? (
                   <Trans>Learn more about limits</Trans>
                 ) : (
-                  <Trans>Learn more about swapping with UniswapX</Trans>
+                  <Trans>Learn more about swapping with Udonswap</Trans>
                 )}
               </ExternalLink>
             </ThemedText.BodySmall>

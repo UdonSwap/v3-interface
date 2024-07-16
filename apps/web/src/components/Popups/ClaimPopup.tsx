@@ -125,7 +125,7 @@ export default function ClaimPopup() {
               color="white"
             >
               <Trans>
-                Thanks for being part of the Uniswap community{" "}
+                Thanks for being part of the Udonswap community{" "}
                 <Heart size={12} />
               </Trans>
             </ThemedText.DeprecatedSubHeader>

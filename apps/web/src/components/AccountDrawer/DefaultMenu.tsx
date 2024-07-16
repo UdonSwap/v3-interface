@@ -4,7 +4,6 @@ import Column from 'components/Column'
 import WalletModal from 'components/WalletModal'
 import { useCallback, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
-
 import { sendAnalyticsEvent } from 'analytics'
 import { atom, useAtom } from 'jotai'
 import AuthenticatedHeader from './AuthenticatedHeader'

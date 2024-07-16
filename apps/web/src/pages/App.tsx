@@ -204,7 +204,7 @@ export default function App() {
         <Helmet>
           <title>
             {findRouteByPath(pathname)?.getTitle(pathname) ??
-              "Uniswap Interface"}
+              "Udonswap Interface"}
           </title>
         </Helmet>
         <UserPropertyUpdater />

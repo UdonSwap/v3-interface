@@ -127,9 +127,9 @@ export function UniswapXDescription() {
   return (
     <ThemedText.Caption color="neutral2">
       <Trans>
-        <InlineUniswapXGradient>UniswapX</InlineUniswapXGradient> aggregates
+        <InlineUniswapXGradient>UdonswapX</InlineUniswapXGradient> aggregates
         liquidity sources for better prices and gas free swaps.
-      </Trans>{" "}
+      </Trans>
       {/* <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/17515415311501">
         <Trans>Learn more</Trans>
       </ExternalLink> */}

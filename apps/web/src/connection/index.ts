@@ -8,7 +8,6 @@ import { Actions, Connector } from "@web3-react/types";
 import GNOSIS_ICON from "assets/images/gnosis.png";
 import LOGO from "../assets/images/Logo.png";
 import COINBASE_ICON from "assets/wallets/coinbase-icon.svg";
-// import UNIWALLET_ICON from "assets/wallets/uniswap-wallet-icon.png";
 import WALLET_CONNECT_ICON from "assets/wallets/walletconnect-icon.svg";
 import { t } from "i18n";
 import { useSyncExternalStore } from "react";
@@ -200,22 +199,6 @@ export const walletConnectV2Connection: Connection = new (class
   }
 })();
 
-// const [web3WCV2UniwalletConnect, web3WCV2UniwalletConnectHooks] =
-//   initializeConnector<UniwalletWCV2Connect>(
-//     (actions) => new UniwalletWCV2Connect({ actions, onError }),
-//   );
-
-// const isNonSupportedDevice = !isWebIOS && !isWebAndroid && isTouchable;
-
-// export const uniwalletWCV2ConnectConnection: Connection = {
-//   getProviderInfo: () => ({ name: "Uniswap ", icon: UNIWALLET_ICON }),
-//   connector: web3WCV2UniwalletConnect,
-//   hooks: web3WCV2UniwalletConnectHooks,
-//   type: ConnectionType.UNISWAP_WALLET_V2,
-//   shouldDisplay: () =>
-//     Boolean(!getIsInjectedMobileBrowser() && !isNonSupportedDevice),
-// };
-
 const [web3CoinbaseWallet, web3CoinbaseWalletHooks] =
   initializeConnector<CoinbaseWallet>(
     (actions) =>
@@ -223,7 +206,7 @@ const [web3CoinbaseWallet, web3CoinbaseWalletHooks] =
         actions,
         options: {
           url: APP_RPC_URLS[ChainId.MODE][0],
-          appName: "Uniswap",
+          appName: "Udonswap",
           appLogoUrl: LOGO,
           reloadOnDisconnect: false,
         },

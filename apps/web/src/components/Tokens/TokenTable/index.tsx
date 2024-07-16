@@ -129,7 +129,7 @@ export const HEADER_DESCRIPTIONS: Record<
   ),
   [TokenSortMethod.VOLUME]: (
     <Trans>
-      Volume is the amount of the asset that has been traded on Uniswap v3
+      Volume is the amount of the asset that has been traded on Udonswap v3
       during the selected time frame.
     </Trans>
   ),

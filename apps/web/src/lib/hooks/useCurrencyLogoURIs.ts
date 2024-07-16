@@ -22,22 +22,7 @@ type Network =
 
 export function chainIdToNetworkName(networkId: ChainId): Network {
   switch (networkId) {
-    // case ChainId.MAINNET:
-    //   return "ethereum";
-    // case ChainId.ARBITRUM_ONE:
-    //   return "arbitrum";
-    // case ChainId.OPTIMISM:
-    //   return "optimism";
-    // case ChainId.POLYGON:
-    //   return "polygon";
-    // case ChainId.BNB:
-    //   return "smartchain";
-    // case ChainId.AVALANCHE:
-    //   return "avalanchec";
-    // case ChainId.BASE:
-    //   return "base";
-    // case ChainId.BLAST:
-    //   return "blast";
+    
     case ChainId.MODE:
       return "mode";
     default:
@@ -47,14 +32,8 @@ export function chainIdToNetworkName(networkId: ChainId): Network {
 
 export function getNativeLogoURI(chainId: ChainId = ChainId.MODE): string {
   switch (chainId) {
-    // case ChainId.POLYGON:
     case ChainId.MODE:
-      // case ChainId.POLYGON_MUMBAI:
       return EthereumLogo;
-    // case ChainId.BNB:
-    //   return BnbLogo;
-    // case ChainId.AVALANCHE:
-    // return AvaxLogo;
     default:
       return EthereumLogo;
   }
@@ -66,12 +45,6 @@ function getTokenLogoURI(
 ): string | void {
   const networkName = chainIdToNetworkName(chainId);
   const networksWithUrls = [
-    // ChainId.ARBITRUM_ONE,
-    // ChainId.MAINNET,
-    // ChainId.OPTIMISM,
-    // ChainId.BNB,
-    // ChainId.AVALANCHE,
-    // ChainId.BASE,
     ChainId.MODE,
   ];
 

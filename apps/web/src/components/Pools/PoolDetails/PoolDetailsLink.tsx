@@ -217,19 +217,6 @@ export function PoolDetailsLink({
             data-testid={`explorer-url-${explorerUrl}`}
           >
             <ExplorerWrapper>
-              {/* {chainId === ChainId.MAINNET ? (
-                <EtherscanLogo
-                  width="16px"
-                  height="16px"
-                  fill={theme.neutral1}
-                />
-              ) : (
-                <ExplorerIcon
-                  width="16px"
-                  height="16px"
-                  fill={theme.neutral1}
-                />
-              )} */}
               {
                 <ExplorerIcon
                   width="16px"

@@ -18,7 +18,7 @@ export default async function getCollection(collectionAddress: string, url: stri
     return undefined
   }
   const formattedAsset = {
-    title: collection.name + ' on Uniswap',
+    title: collection.name + ' on Udonswap',
     image,
     url,
     name: collection.name ?? 'Collection',

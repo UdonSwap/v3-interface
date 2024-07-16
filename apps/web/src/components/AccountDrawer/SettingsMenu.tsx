@@ -104,33 +104,7 @@ export default function SettingsMenu({
             <SmallBalanceToggle />
             <SpamToggle />
             <AnalyticsToggle />
-            {/* <TestnetsToggle /> */}
-          </ToggleWrapper>
-          {/* {!currencyConversionEnabled && (
-            <>
-              <SectionTitle data-testid="wallet-header">
-                <Trans>Language</Trans>
-              </SectionTitle>
-              <LanguageMenuItems />
-            </>
-          )} */}
-
-          {/* {currencyConversionEnabled && (
-            <Column>
-              <SettingsButton
-                title={<Trans>Language</Trans>}
-                currentState={LOCALE_LABEL[activeLocale]}
-                onClick={openLanguageSettings}
-                testId="language-settings-button"
-              />
-              <SettingsButton
-                title={<Trans>Currency</Trans>}
-                currentState={activeLocalCurrency}
-                onClick={openLocalCurrencySettings}
-                testId="local-currency-settings-button"
-              />
-            </Column>
-          )} */}
+          </ToggleWrapper>  
         </div>
         <GitVersionRow />
       </Container>

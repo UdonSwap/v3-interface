@@ -25,9 +25,6 @@ export function LimitDisclaimer({ className }: { className?: string }) {
       </DisclaimerText>
       <DisclaimerText>Canceling a limit has a network cost.</DisclaimerText>
       <DisclaimerText>
-        {/* <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/24300813697933">
-          <Trans>Learn more</Trans>
-        </ExternalLink> */}
       </DisclaimerText>
     </Container>
   )

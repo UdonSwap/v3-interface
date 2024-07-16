@@ -4,7 +4,6 @@ import { useLocalCurrencyLinkProps } from 'hooks/useLocalCurrencyLinkProps'
 import { Trans } from 'i18n'
 import { useMemo } from 'react'
 import styled from 'styled-components'
-
 import { MenuColumn, MenuItem } from './shared'
 import { SlideOutMenu } from './SlideOutMenu'
 

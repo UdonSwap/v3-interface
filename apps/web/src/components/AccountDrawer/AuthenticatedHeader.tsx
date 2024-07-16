@@ -19,7 +19,6 @@ import { LoadingBubble } from "components/Tokens/loading";
 import { getConnection } from "connection";
 import { useTokenBalancesQuery } from "graphql/data/apollo/TokenBalancesProvider";
 import { useDisableNFTRoutes } from "hooks/useDisableNFTRoutes";
-// import useENSName from "hooks/useENSName";
 import { Trans, t } from "i18n";
 import {
   useProfilePageState,
@@ -133,11 +132,7 @@ export default function AuthenticatedHeader({
   const clearCollectionFilters = useWalletCollections(
     (state) => state.clearCollectionFilters,
   );
-  // const shouldShowBuyFiatButton = !isPathBlocked("/buy");
   const { formatNumber, formatDelta } = useFormatter();
-
-  // const shouldDisableNFTRoutes = useDisableNFTRoutes();
-
   const unclaimedAmount: CurrencyAmount<Token> | undefined =
     useUserUnclaimedAmount(account);
   const isUnclaimed = useUserHasAvailableClaim(account);
@@ -150,23 +145,6 @@ export default function AuthenticatedHeader({
   }, [connector, dispatch]);
 
   const [accountDrawerOpen, toggleAccountDrawer] = useAccountDrawer();
-
-  // const navigateToProfile = useCallback(() => {
-  //   toggleAccountDrawer();
-  //   resetSellAssets();
-  //   setSellPageState(ProfilePageStateType.VIEWING);
-  //   clearCollectionFilters();
-  //   navigate("/nfts/profile");
-  //   closeModal();
-  // }, [
-  //   clearCollectionFilters,
-  //   closeModal,
-  //   navigate,
-  //   resetSellAssets,
-  //   setSellPageState,
-  //   toggleAccountDrawer,
-  // ]);
-
   const openFiatOnrampModal = useOpenModal(ApplicationModal.FIAT_ONRAMP);
   const openFoRModalWithAnalytics = useCallback(() => {
     toggleAccountDrawer();
@@ -277,38 +255,6 @@ export default function AuthenticatedHeader({
             <LoadingBubble height="16px" width="100px" margin="4px 0 20px 0" /> */}
           </Column>
         )}
-        {/* <Row
-          gap="8px"
-          marginBottom={
-            !fiatOnrampAvailable && fiatOnrampAvailabilityChecked
-              ? "20px"
-              : "0px"
-          }
-        >
-          {shouldShowBuyFiatButton && (
-            <ActionTile
-              dataTestId="wallet-buy-crypto"
-              Icon={<CreditCardIcon />}
-              name={t`Buy`}
-              onClick={handleBuyCryptoClick}
-              disabled={disableBuyCryptoButton}
-              loading={fiatOnrampAvailabilityLoading}
-              error={Boolean(
-                !fiatOnrampAvailable && fiatOnrampAvailabilityChecked
-              )}
-              errorMessage={t`Restricted region`}
-              errorTooltip={t`Moonpay is not available in some regions. Click to learn more.`}
-            />
-          )}
-          {!shouldDisableNFTRoutes && (
-            <ActionTile
-              dataTestId="nft-view-self-nfts"
-              Icon={<ImagesIcon />}
-              name={t`View NFTs`}
-              onClick={navigateToProfile}
-            />
-          )}
-        </Row> */}
         <MiniPortfolio account={account} />
         {isUnclaimed && (
           <UNIButton

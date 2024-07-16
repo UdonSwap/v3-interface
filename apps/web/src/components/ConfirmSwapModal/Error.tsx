@@ -45,7 +45,7 @@ function getErrorContent({
         title: <Trans>Token approval failed</Trans>,
         message: (
           <Trans>
-            This provides the Uniswap protocol access to your token for trading.
+            This provides the Udonswap protocol access to your token for trading.
             For security, it expires after 30 days.
           </Trans>
         ),
@@ -83,7 +83,7 @@ function getErrorContent({
         title: <Trans>Wrap failed</Trans>,
         message: (
           <Trans>
-            Swaps on the Uniswap Protocol can start and end with ETH. However,
+            Swaps on the Udonswap Protocol can start and end with ETH. However,
             during the swap ETH is wrapped into WETH.
           </Trans>
         ),

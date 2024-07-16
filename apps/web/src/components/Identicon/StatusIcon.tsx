@@ -1,7 +1,6 @@
 import { useWeb3React } from "@web3-react/core";
 import { Unicon } from "components/Unicon";
 import { Connection } from "connection/types";
-// import useENSAvatar from 'hooks/useENSAvatar'
 import { navSearchInputVisibleSize } from "hooks/useScreenSize";
 import styled from "styled-components";
 import { useIsDarkMode } from "theme/components/ThemeToggle";
@@ -113,7 +112,6 @@ const MainWalletIcon = ({
   size: number;
 }) => {
   const { unitag } = useUnitagByAddressWithoutFlag(account, Boolean(account));
-  // const { avatar } = useENSAvatar(account ?? undefined)
   const uniconV2Enabled = useFeatureFlag(FeatureFlags.UniconsV2);
 
   if (!account) return null;

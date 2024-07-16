@@ -64,8 +64,8 @@ export function BlastRebasingModal({
       description={
         <Trans>
           On Blast, USDB and WETH are rebasing tokens that automatically earn
-          yield. Due to incompatibility with Uniswap v3, LP positions with USDB
-          or WETH won&apos;t earn rebasing yield, but will in Uniswap v2.
+          yield. Due to incompatibility with Udonswap v3, LP positions with USDB
+          or WETH won&apos;t earn rebasing yield, but will in Udonswap v2.
         </Trans>
       }
      
@@ -134,14 +134,9 @@ export function BlastRebasingAlert() {
         <TextWrapper lineHeight="20px" $expanded={expanded}>
           <Trans>
             On Blast, USDB and WETH are rebasing tokens that automatically earn
-            yield. Due to incompatibility with Uniswap v3, LP positions with
-            USDB or WETH won&apos;t earn rebasing yield, but will in Uniswap v2.
+            yield. Due to incompatibility with Udonswap v3, LP positions with
+            USDB or WETH won&apos;t earn rebasing yield, but will in Udonswap v2.
           </Trans>{" "}
-          {/* <StyledLearnMore href="https://support.uniswap.org/hc/en-us/articles/25351747812109-Blast-Rebase-Tokens">
-            <ThemedText.SubHeaderSmall fontWeight={535} lineHeight="20px" color="neutral1">
-              <Trans>Learn more</Trans>
-            </ThemedText.SubHeaderSmall>
-          </StyledLearnMore> */}
         </TextWrapper>
         <ReadMore onClick={handleSetExpanded}>
           <ThemedText.SubHeaderSmall lineHeight="20px" fontWeight={535}>

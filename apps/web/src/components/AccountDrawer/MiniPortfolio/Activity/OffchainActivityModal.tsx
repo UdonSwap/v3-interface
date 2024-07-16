@@ -61,7 +61,7 @@ export function useOpenOffchainActivityModal() {
 
   return useCallback(
     (order: UniswapXOrderDetails, logos?: Logos) => {
-      sendAnalyticsEvent("UniswapX Order Details Sheet Opened", {
+      sendAnalyticsEvent("Udonswap Order Details Sheet Opened", {
         order: order.orderHash,
       });
       setSelectedOrder({ order, logos, modalOpen: true });

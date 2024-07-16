@@ -1,11 +1,7 @@
 import { FACTORY_ADDRESS as V3_FACTORY_ADDRESS } from 'v3sdk18'
-// import { SupportedChainId } from 'constants/chains'
-
 import { constructSameAddressMap } from '../utils/constructSameAddressMap'
 
 type AddressMap = { [chainId: number]: string }
-
-
 
 /* V3 Contract Addresses */
 export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
@@ -33,7 +29,6 @@ export const GOVERNANCE_ALPHA_V1_ADDRESSES: AddressMap = {}
  */
 export const GOVERNANCE_BRAVO_ADDRESSES: AddressMap = {}
 
-// export const TIMELOCK_ADDRESS: AddressMap = {}
 
 export const MERKLE_DISTRIBUTOR_ADDRESS: AddressMap = {}
 
@@ -48,8 +43,6 @@ export const NONFUNGIBLE_POSITION_MANAGER_ADDRESSES: AddressMap = {
 }
 
 export const ENS_REGISTRAR_ADDRESSES: AddressMap = {}
-
-// export const SOCKS_CONTROLLER_ADDRESSES: AddressMap = {}
 
 export const TICK_LENS_ADDRESSES: AddressMap = {
     ...constructSameAddressMap('0xE5a7A29FF8D7F6EEc07377b791F4F9db7f3FFDBC'),

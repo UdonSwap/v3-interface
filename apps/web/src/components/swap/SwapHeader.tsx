@@ -79,27 +79,6 @@ export default function SwapHeader({
         >
           <Trans>Swap</Trans>
         </SwapHeaderTabButton>
-        {/* <SwapHeaderTabButton
-          as={pathname === "/limit" ? "h1" : "button"}
-          role="button"
-          $isActive={currentTab === SwapTab.Limit}
-          onClick={() => {
-            onTab(SwapTab.Limit);
-          }}
-        >
-          <Trans>Limit</Trans>
-        </SwapHeaderTabButton> */}
-
-        {/* <SwapHeaderTabButton
-          as={pathname === "/send" ? "h1" : "button"}
-          role="button"
-          $isActive={currentTab === SwapTab.Send}
-          onClick={() => {
-            onTab(SwapTab.Send);
-          }}
-        >
-          <Trans>Send</Trans>
-        </SwapHeaderTabButton> */}
       </HeaderButtonContainer>
       {currentTab === SwapTab.Swap && (
         <RowFixed>

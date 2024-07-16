@@ -14,7 +14,6 @@ import { EllipsisStyle, ThemedText } from 'theme/components'
 import { PortfolioTokenBalancePartsFragment } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import { NumberType, useFormatter } from 'utils/formatNumbers'
 import { splitHiddenTokens } from 'utils/splitHiddenTokens'
-
 import { useTokenBalancesQuery } from 'graphql/data/apollo/TokenBalancesProvider'
 import { hideSmallBalancesAtom } from '../../SmallBalanceToggle'
 import { ExpandoRow } from '../ExpandoRow'

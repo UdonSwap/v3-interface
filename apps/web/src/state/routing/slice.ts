@@ -1,12 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Protocol } from "routersdk18";
 import { sendAnalyticsEvent } from "analytics";
-// import { isUniswapXSupportedChain } from "constants/chains";
 import ms from "ms";
 import { logSwapQuoteRequest } from "tracing/swapFlowLoggers";
 import { trace } from "tracing/trace";
-// import axios from 'axios';
-
 import {
   GetQuoteArgs,
   INTERNAL_ROUTER_PREFERENCE_PRICE,

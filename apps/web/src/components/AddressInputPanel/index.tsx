@@ -1,13 +1,10 @@
 import { Trans } from "i18n";
-// eslint-disable-next-line no-restricted-imports
 import { useWeb3React } from "@web3-react/core";
 import { t } from "i18n";
 import { ChangeEvent, ReactNode, useCallback } from "react";
 import styled, { useTheme } from "styled-components";
 import { ExternalLink, ThemedText } from "theme/components";
 import { flexColumnNoWrap } from "theme/styles";
-
-// import useENS from '../../hooks/useENS'
 import { ExplorerDataType, getExplorerLink } from "../../utils/getExplorerLink";
 import { AutoColumn } from "../Column";
 import { RowBetween } from "../Row";
@@ -84,16 +81,11 @@ export default function AddressInputPanel({
   className?: string;
   label?: ReactNode;
   placeholder?: string;
-  // the typed string value
   value: string;
-  // triggers whenever the typed value changes
   onChange: (value: string) => void;
 }) {
   const { chainId, account } = useWeb3React();
   const theme = useTheme();
-
-  // const { address, loading, name } = useENS(value)
-
   const handleInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const input = event.target.value;

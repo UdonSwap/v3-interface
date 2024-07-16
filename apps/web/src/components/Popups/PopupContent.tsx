@@ -12,7 +12,6 @@ import AlertTriangleFilled from "components/Icons/AlertTriangleFilled";
 import { AutoRow } from "components/Row";
 import { getChainInfo } from "constants/chainInfo";
 import { useAllTokensMultichain } from "hooks/Tokens";
-// import useENSName from "hooks/useENSName";
 import { Trans } from "i18n";
 import { X } from "react-feather";
 import { useOrder } from "state/signatures/hooks";
@@ -90,8 +89,8 @@ export function FailedNetworkSwitchPopup({
 
           <ThemedText.BodySmall color="neutral2">
             <Trans>
-              To use Uniswap on {{ label: chainInfo.label }}, switch the network
-              in your wallet’s settings.
+              To use Udonswap on {{ label: chainInfo.label }}, switch the
+              network in your wallet’s settings.
             </Trans>
           </ThemedText.BodySmall>
         </ColumnContainer>
@@ -116,8 +115,6 @@ function ActivityPopupContent({
 }: ActivityPopupContentProps) {
   const success =
     activity.status === TransactionStatus.Confirmed && !activity.cancelled;
-  // const { ENSName } = useENSName(activity?.otherAccount);
-
   return (
     <PopupContainer>
       <StyledClose $padding={16} onClick={onClose} />

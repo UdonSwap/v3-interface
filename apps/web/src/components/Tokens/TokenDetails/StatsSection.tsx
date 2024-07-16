@@ -117,7 +117,7 @@ export default function StatsSection(props: StatsSectionProps) {
               description={
                 <Trans>
                   Total value locked (TVL) is the aggregate amount of the asset
-                  available across all Uniswap v3 liquidity pools.
+                  available across all Udonswap v3 liquidity pools.
                 </Trans>
               }
               title={<Trans>TVL</Trans>}
@@ -149,7 +149,7 @@ export default function StatsSection(props: StatsSectionProps) {
               description={
                 <Trans>
                   1 day volume is the amount of the asset that has been traded
-                  on Uniswap v3 during the past 24 hours.
+                  on Udonswap v3 during the past 24 hours.
                 </Trans>
               }
               title={<Trans>1 day volume</Trans>}
@@ -160,25 +160,6 @@ export default function StatsSection(props: StatsSectionProps) {
     );
   } else {
     return <NoData>No stats available</NoData>;
-    // UNSUPPORTED_METADATA_CHAINS.includes(chainId) ? (
-    //   <>
-    //     <Header>
-    //       <Trans>Stats</Trans>
-    //     </Header>
-    //     <ThemedText.BodySecondary pt="12px">
-    //       <Trans>
-    //         Token stats and charts for {{ label }} are available on{" "}
-    //         <ExternalLink
-    //           color="currentColor"
-    //           href={`${infoLink}tokens/${address}`}
-    //         >
-    //           info.uniswap.org
-    //         </ExternalLink>
-    //       </Trans>
-    //     </ThemedText.BodySecondary>
-    //   </>
-    // ) : (
-    //   <NoData data-cy="token-details-no-stats-data">No stats available</NoData>
-    // );
+    
   }
 }

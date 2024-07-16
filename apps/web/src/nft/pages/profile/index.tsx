@@ -84,16 +84,16 @@ function getProfilePageTitle(
   ENSName: string | null | undefined,
 ): string {
   if (!account) {
-    return t`NFT collection on Uniswap`;
+    return t`NFT collection on Udonswap`;
   }
 
   if (!ENSName) {
-    return t(`NFT collection on Uniswap - {{address}}`, {
+    return t(`NFT collection on Udonswap - {{address}}`, {
       address: shortenAddress(account),
     });
   }
 
-  return t(`{{name}}'s NFT collection on Uniswap`, {
+  return t(`{{name}}'s NFT collection on Udonswap`, {
     name: ENSName,
   });
 }
