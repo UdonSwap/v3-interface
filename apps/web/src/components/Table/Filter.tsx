@@ -1,18 +1,18 @@
-import Column from 'components/Column'
-import Row from 'components/Row'
-import { DropdownIcon } from 'components/Table/icons'
-import { useOnClickOutside } from 'hooks/useOnClickOutside'
-import { useScreenSize } from 'hooks/useScreenSize'
-import { Portal } from 'nft/components/common/Portal'
-import { Checkbox } from 'nft/components/layout/Checkbox'
-import { Fragment, useCallback, useRef, useState } from 'react'
-import styled from 'styled-components'
-import { ThemedText } from 'theme/components'
-import { Z_INDEX } from 'theme/zIndex'
+import Column from "components/Column";
+import Row from "components/Row";
+import { DropdownIcon } from "components/Table/icons";
+import { useOnClickOutside } from "hooks/useOnClickOutside";
+import { useScreenSize } from "hooks/useScreenSize";
+import { Portal } from "nft/components/common/Portal";
+import { Checkbox } from "nft/components/layout/Checkbox";
+import { Fragment, useCallback, useRef, useState } from "react";
+import styled from "styled-components";
+import { ThemedText } from "theme/components";
+import { Z_INDEX } from "theme/zIndex";
 
 const StyledDropdownIcon = styled(DropdownIcon)`
   position: relative;
-`
+`;
 const FilterDropdown = styled(Column)<{ isSticky?: boolean }>`
   position: absolute;
   top: ${({ isSticky }) => (isSticky ? 64 : 42)}px;
@@ -27,14 +27,15 @@ const FilterDropdown = styled(Column)<{ isSticky?: boolean }>`
   opacity: 1 !important;
   z-index: ${Z_INDEX.modal};
 
-  @media only screen and (max-width: ${({ theme }) => `${theme.breakpoint.sm}px`}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      `${theme.breakpoint.sm}px`}) {
     position: fixed;
     bottom: 0;
     left: 0;
     top: unset;
     width: 100vw;
   }
-`
+`;
 
 const FilterRow = styled(Row)`
   padding: 10px 8px;
@@ -43,15 +44,15 @@ const FilterRow = styled(Row)`
   &:hover {
     background: ${({ theme }) => theme.surface3};
   }
-`
+`;
 
 interface FilterProps<T extends string> {
-  allFilters: T[]
-  activeFilter: T[]
-  setFilters: (filter: T[]) => void
-  isOpen: boolean
-  toggleFilterModal: () => void
-  isSticky?: boolean
+  allFilters: T[];
+  activeFilter: T[];
+  setFilters: (filter: T[]) => void;
+  isOpen: boolean;
+  toggleFilterModal: () => void;
+  isSticky?: boolean;
 }
 
 export function Filter<T extends string>({
@@ -62,24 +63,24 @@ export function Filter<T extends string>({
   toggleFilterModal,
   isSticky,
 }: FilterProps<T>) {
-  const [hoveredRow, setHoveredRow] = useState(-1)
-  const isScreenSize = useScreenSize()
-  const isMobile = !isScreenSize['sm']
-  const filterModalRef = useRef<HTMLDivElement>(null)
-  useOnClickOutside(filterModalRef, isOpen ? toggleFilterModal : undefined)
+  const [hoveredRow, setHoveredRow] = useState(-1);
+  const isScreenSize = useScreenSize();
+  const isMobile = !isScreenSize["sm"];
+  const filterModalRef = useRef<HTMLDivElement>(null);
+  useOnClickOutside(filterModalRef, isOpen ? toggleFilterModal : undefined);
 
   const handleFilterOptionClick = useCallback(
     (filter: T) => {
       if (activeFilter.includes(filter)) {
-        setFilters(activeFilter.filter((f) => f !== filter))
+        setFilters(activeFilter.filter((f) => f !== filter));
       } else {
-        setFilters([...activeFilter, filter])
+        setFilters([...activeFilter, filter]);
       }
     },
-    [activeFilter, setFilters]
-  )
+    [activeFilter, setFilters],
+  );
   // Need to put the modal in a Portal when on mobile to show over promo banner
-  const Wrapper = isMobile ? Portal : Fragment
+  const Wrapper = isMobile ? Portal : Fragment;
 
   return (
     <>
@@ -91,20 +92,24 @@ export function Filter<T extends string>({
               <FilterRow
                 key={filter}
                 onClick={(e) => {
-                  e.stopPropagation()
-                  e.preventDefault()
-                  handleFilterOptionClick(filter)
+                  e.stopPropagation();
+                  e.preventDefault();
+                  handleFilterOptionClick(filter);
                 }}
                 onMouseEnter={() => setHoveredRow(index)}
                 onMouseLeave={() => setHoveredRow(-1)}
               >
                 <ThemedText.BodySecondary>{filter}</ThemedText.BodySecondary>
-                <Checkbox checked={activeFilter.includes(filter)} hovered={index === hoveredRow} size={20} />
+                <Checkbox
+                  checked={activeFilter.includes(filter)}
+                  hovered={index === hoveredRow}
+                  size={20}
+                />
               </FilterRow>
             ))}
           </FilterDropdown>
         </Wrapper>
       )}
     </>
-  )
+  );
 }

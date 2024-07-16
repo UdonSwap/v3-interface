@@ -33,9 +33,7 @@ export const verifiedBadge = style({
 })
 
 /* From [contractAddress] */
-export const dropDown = style({
-  width: '190px',
-})
+
 
 export const activeDropDown = style({
   boxShadow: vars.color.dropShadow,

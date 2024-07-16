@@ -97,18 +97,7 @@ export const eventTime = style([
   },
 ])
 
-export const addressCell = style([
-  buttonTextMedium,
-  sprinkles({
-    color: 'neutral1',
-    height: 'full',
-    justifyContent: 'center',
-    paddingLeft: '2',
-  }),
-  {
-    lineHeight: '24px',
-  },
-])
+
 
 export const baseBuyCell = style([
   buttonTextMedium,
@@ -126,24 +115,6 @@ export const baseBuyCell = style([
   },
 ])
 
-export const buyCell = style([
-  baseBuyCell,
-  {
-    selectors: {
-      '&:enabled': {
-        cursor: 'pointer',
-        color: vars.color.accent1,
-      },
-      '&:disabled': {
-        color: themeVars.colors.neutral3,
-      },
-      '&:hover&:enabled': {
-        background: vars.color.accent1,
-        color: themeVars.colors.white,
-      },
-    },
-  },
-])
 
 export const removeCell = style([
   baseBuyCell,

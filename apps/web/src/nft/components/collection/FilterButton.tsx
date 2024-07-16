@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Box } from 'nft/components/Box'
 import * as styles from 'nft/components/collection/FilterButton.css'
-import { FilterIcon } from 'nft/components/icons'
+
 import { buttonTextMedium } from 'nft/css/common.css'
 import { breakpoints } from 'nft/css/sprinkles.css'
 import { pluralize } from 'nft/utils'
@@ -37,7 +37,7 @@ export const FilterButton = ({
       whiteSpace="nowrap"
       data-testid="nft-filter"
     >
-      <FilterIcon />
+     
       {!isMobile ? (
         <Box className={buttonTextMedium}>
           {' '}

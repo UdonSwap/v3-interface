@@ -377,14 +377,12 @@ const Spinner = styled.img`
 `;
 export const SpinnerSVG = styled.svg``;
 
-const BackArrowIcon = styled(ArrowLeft)`
-  color: ${({ theme }) => theme.neutral1};
-`;
+
 
 export function BackArrowLink({ to }: { to: string }) {
   return (
     <StyledInternalLink to={to}>
-      <BackArrowIcon />
+     
     </StyledInternalLink>
   );
 }

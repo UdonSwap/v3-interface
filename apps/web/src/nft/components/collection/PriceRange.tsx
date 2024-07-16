@@ -4,7 +4,6 @@ import { NFTEventName, NFTFilterTypes } from '@uniswap/analytics-events'
 import { sendAnalyticsEvent } from 'analytics'
 import { Box } from 'nft/components/Box'
 import { Row } from 'nft/components/Flex'
-import { NumericInput } from 'nft/components/layout/Input'
 import { body } from 'nft/css/common.css'
 import { useCollectionFilters } from 'nft/hooks/useCollectionFilters'
 import { usePriceRange } from 'nft/hooks/usePriceRange'
@@ -140,36 +139,7 @@ export const PriceRange = () => {
 
   return (
     <TraitsHeader title="Price range" index={TraitPosition.PRICE_RANGE_INDEX}>
-      <Row marginTop="12" color="neutral1" justifyContent="space-between">
-        <Row position="relative">
-          <NumericInput
-            style={{
-              width: '126px',
-            }}
-            className={styles.priceInput}
-            placeholder={priceRangeLow}
-            onChange={updateMinPriceRange}
-            onFocus={handleFocus}
-            value={minPrice}
-            onBlur={handleBlur}
-          />
-        </Row>
-        <Box className={body}>to</Box>
-        <Row position="relative">
-          <NumericInput
-            style={{
-              width: '126px',
-            }}
-            className={styles.priceInput}
-            placeholder={priceRangeHigh}
-            value={maxPrice}
-            onChange={updateMaxPriceRange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
-        </Row>
-      </Row>
-
+     
       <Row marginTop="24" marginBottom="12" paddingLeft="8" paddingRight="8">
         <StyledSlider
           defaultValue={[0, 100]}

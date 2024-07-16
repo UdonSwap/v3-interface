@@ -14,7 +14,7 @@ import { ThemedText } from 'theme/components'
 
 import { Box } from '../../components/Box'
 import { CollectionTableColumn } from '../../types'
-import { ColumnHeaders } from './CollectionTable'
+
 import * as styles from './Explore.css'
 
 // Default table cell max width
@@ -112,14 +112,7 @@ export function Table<D extends Record<string, unknown>>({
       {
         columns,
         data,
-        initialState: {
-          sortBy: [
-            {
-              desc: true,
-              id: ColumnHeaders.Volume,
-            },
-          ],
-        },
+        
         ...props,
       },
       useSortBy

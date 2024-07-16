@@ -117,8 +117,8 @@ export const NftCard = ({
       {!hideDetails && (
         <>
           <Card.DetailsRelativeContainer>
-            <Card.DetailsContainer>
-              <Card.InfoContainer>
+           
+             
                 <Card.PrimaryRow>
                   <Card.PrimaryDetails>
                     <Card.PrimaryInfo>{display.primaryInfo}</Card.PrimaryInfo>
@@ -131,8 +131,8 @@ export const NftCard = ({
                     <Card.SecondaryInfo>{display.secondaryInfo}</Card.SecondaryInfo>
                   </Card.SecondaryDetails>
                 </Card.SecondaryRow>
-              </Card.InfoContainer>
-            </Card.DetailsContainer>
+            
+            
           </Card.DetailsRelativeContainer>
           <Card.ActionButton clickActionButton={clickActionButton} isDisabled={isDisabled} isSelected={isSelected}>
             {isSelected ? display.selectedInfo : isDisabled ? display.disabledInfo : display.notSelectedInfo}

@@ -6,8 +6,6 @@ import { ButtonPrimary } from "components/Button";
 // import useENSName from 'hooks/useENSName'
 import { t, Trans } from "i18n";
 import { XXXL_BAG_WIDTH } from "nft/components/bag/Bag";
-import { ListPage } from "nft/components/profile/list/ListPage";
-import { ProfilePage } from "nft/components/profile/view/ProfilePage";
 import {
   useBag,
   useProfilePageState,
@@ -129,34 +127,7 @@ export default function Profile() {
       <Helmet>
         <title>{getProfilePageTitle(account, "")}</title>
       </Helmet>
-      <Trace page={InterfacePageName.NFT_PROFILE_PAGE} shouldLogImpression>
-        <ProfilePageWrapper>
-          {account ? (
-            <LoadedAccountPage
-              cartExpanded={cartExpanded}
-              isListingNfts={isListingNfts}
-            >
-              {!isListingNfts ? <ProfilePage /> : <ListPage />}
-            </LoadedAccountPage>
-          ) : (
-            <Center>
-              <ThemedText.HeadlineMedium
-                lineHeight="36px"
-                color="neutral2"
-                fontWeight="535"
-                marginBottom="24px"
-              >
-                <Trans>No items to display</Trans>
-              </ThemedText.HeadlineMedium>
-              <ConnectWalletButton onClick={toggleWalletDrawer}>
-                <ThemedText.SubHeader color="white" lineHeight="20px">
-                  <Trans>Connect wallet</Trans>
-                </ThemedText.SubHeader>
-              </ConnectWalletButton>
-            </Center>
-          )}
-        </ProfilePageWrapper>
-      </Trace>
+     
     </>
   );
 }

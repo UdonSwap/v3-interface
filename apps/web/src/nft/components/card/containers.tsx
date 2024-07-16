@@ -208,9 +208,7 @@ const DetailsRelativeContainer = ({ children }: { children: ReactNode }) => {
   return <StyledDetailsRelativeContainer>{children}</StyledDetailsRelativeContainer>
 }
 
-const DetailsContainer = ({ children }: { children: ReactNode }) => {
-  return <StyledDetailsContainer>{children}</StyledDetailsContainer>
-}
+
 
 const StyledInfoContainer = styled(Column)`
   gap: 4px;
@@ -220,9 +218,6 @@ const StyledInfoContainer = styled(Column)`
   height: 48px;
 `
 
-const InfoContainer = ({ children }: { children: ReactNode }) => {
-  return <StyledInfoContainer>{children}</StyledInfoContainer>
-}
 
 const StyledPrimaryRow = styled(Row)`
   gap: 8px;
@@ -283,9 +278,9 @@ const SecondaryInfo = ({ children }: { children: ReactNode }) => {
 export {
   ActionButton,
   Container,
-  DetailsContainer,
+ 
   DetailsRelativeContainer,
-  InfoContainer,
+ 
   PrimaryDetails,
   PrimaryInfo,
   PrimaryRow,

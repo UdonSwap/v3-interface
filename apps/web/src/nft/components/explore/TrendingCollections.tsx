@@ -8,7 +8,6 @@ import { ThemedText } from 'theme/components'
 import { HistoryDuration } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import { useFormatterLocales } from 'utils/formatNumbers'
 
-import CollectionTable from './CollectionTable'
 
 const timeOptions: { label: string; value: TimePeriod }[] = [
   { label: '1D', value: TimePeriod.OneDay },
@@ -159,7 +158,7 @@ const TrendingCollections = () => {
           </Selector>
         </Filter>
       </FiltersRow>
-      <CollectionTable data={trendingCollectionColumns} timePeriod={timePeriod} />
+   
     </ExploreContainer>
   )
 }

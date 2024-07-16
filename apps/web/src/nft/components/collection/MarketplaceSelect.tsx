@@ -4,7 +4,6 @@ import clsx from 'clsx'
 import { Box } from 'nft/components/Box'
 import * as styles from 'nft/components/collection/Filters.css'
 import { Column, Row } from 'nft/components/Flex'
-import { ChevronUpIcon } from 'nft/components/icons'
 import { subheadSmall } from 'nft/css/common.css'
 import { useCollectionFilters } from 'nft/hooks/useCollectionFilters'
 import { TraitPosition, useTraitsOpen } from 'nft/hooks/useTraitsOpen'
@@ -13,7 +12,7 @@ import { FormEvent, useEffect, useMemo, useReducer, useState } from 'react'
 import styled from 'styled-components'
 import { ThemedText } from 'theme/components'
 
-import { Checkbox } from '../layout/Checkbox'
+
 
 const FilterItemWrapper = styled(Row)`
   justify-content: space-between;
@@ -89,13 +88,7 @@ const MarketplaceItem = ({
     sendAnalyticsEvent(NFTEventName.NFT_FILTER_SELECTED, { filter_type: NFTFilterTypes.MARKETPLACE })
   }
 
-  const checkbox = (
-    <Checkbox checked={isCheckboxSelected} hovered={hovered} onChange={handleCheckbox}>
-      <Box as="span" color="neutral2" marginLeft="4" paddingRight="12">
-        {count}
-      </Box>
-    </Checkbox>
-  )
+  
 
   const titleWithLogo = (
     <MarketNameWrapper>
@@ -106,7 +99,7 @@ const MarketplaceItem = ({
 
   return (
     <div key={value} onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
-      <FilterItem title={titleWithLogo} element={checkbox} onClick={handleCheckbox} />
+     
     </div>
   )
 }
@@ -147,16 +140,7 @@ export const FilterDropdown = ({
           onClick={onClick}
         >
           {title}
-          <Box display="flex" alignItems="center">
-            <Box
-              className={styles.chevronContainer}
-              style={{
-                transform: `rotate(${isOpen ? 0 : 180}deg)`,
-              }}
-            >
-              <ChevronUpIcon className={styles.chevronIcon} />
-            </Box>
-          </Box>
+          
         </Box>
         <Column className={styles.filterDropDowns} paddingBottom="8" paddingLeft="0">
           {items}

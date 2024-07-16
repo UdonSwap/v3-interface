@@ -1,7 +1,6 @@
 import { ButtonEmphasis, ButtonSize } from 'components/Button'
 import { Box } from 'nft/components/Box'
 import { Column, Row } from 'nft/components/Flex'
-import { VerifiedIcon } from 'nft/components/icons'
 import { useIsMobile, useSellAsset } from 'nft/hooks'
 import { WalletAsset } from 'nft/types'
 import { useState } from 'react'
@@ -31,10 +30,7 @@ const ProfileAssetRow = ({ asset }: { asset: WalletAsset }) => {
         <Row overflow="hidden" width="full" justifyContent="space-between" whiteSpace="nowrap" gap="16">
           <Box className={styles.assetName}>{asset.name || `#${asset.tokenId}`}</Box>
         </Row>
-        <Row overflow="hidden" whiteSpace="nowrap" gap="2">
-          <Box className={styles.collectionName}>{asset.asset_contract.name}</Box>
-          {asset.collectionIsVerified && <VerifiedIcon className={styles.icon} />}
-        </Row>
+        
       </Column>
       {hovered && !isMobile && (
         <RemoveButton onClick={handleRemoveAsset} emphasis={ButtonEmphasis.medium} size={ButtonSize.medium}>

@@ -12,7 +12,7 @@ import {
 import useDisableScrolling from "hooks/useDisableScrolling";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { Trans } from "i18n";
-import { Portal } from "nft/components/common/Portal";
+
 import { useIsMobile } from "nft/hooks";
 import { useCallback, useMemo, useRef } from "react";
 import { X } from "react-feather";
@@ -177,7 +177,7 @@ export default function SettingsTab({
       />
       {isOpenDesktop && <MenuFlyout>{Settings}</MenuFlyout>}
       {isOpenMobile && (
-        <Portal>
+      
           <MobileMenuContainer data-testid="mobile-settings-menu">
             <Scrim onClick={closeMenu} $open />
             <MobileMenuWrapper $open>
@@ -197,7 +197,7 @@ export default function SettingsTab({
               {Settings}
             </MobileMenuWrapper>
           </MobileMenuContainer>
-        </Portal>
+     
       )}
     </Menu>
   );

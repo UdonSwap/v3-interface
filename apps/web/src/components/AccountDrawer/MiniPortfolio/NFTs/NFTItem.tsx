@@ -5,7 +5,6 @@ import Row from 'components/Row'
 import { Box } from 'nft/components/Box'
 import { NftCard } from 'nft/components/card'
 import { detailsHref } from 'nft/components/card/utils'
-import { VerifiedIcon } from 'nft/components/icons'
 import { WalletAsset } from 'nft/types'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
@@ -107,7 +106,7 @@ const BADGE_SIZE = '18px'
 function Verified() {
   return (
     <Row width="unset" style={{ flexShrink: 0 }}>
-      <VerifiedIcon height={BADGE_SIZE} width={BADGE_SIZE} />
+      
     </Row>
   )
 }

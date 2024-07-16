@@ -6,15 +6,6 @@ import { TimedLoader } from 'nft/components/bag/TimedLoader'
 import { Box } from 'nft/components/Box'
 import { Suspicious } from 'nft/components/card/icons'
 import { Column, Row } from 'nft/components/Flex'
-import {
-  ChevronDownBagIcon,
-  ChevronUpBagIcon,
-  CircularCloseIcon,
-  CloseTimerIcon,
-  SquareArrowDownIcon,
-  SquareArrowUpIcon,
-  VerifiedIcon,
-} from 'nft/components/icons'
 import { bodySmall } from 'nft/css/common.css'
 import { loadingBlock } from 'nft/css/loading.css'
 import { GenieAsset, UpdatedGenieAsset } from 'nft/types'
@@ -56,7 +47,7 @@ const RemoveAssetOverlay = styled.div`
 
 export const RemoveAssetButton = ({ onClick }: { onClick: (e: MouseEvent<HTMLDivElement>) => void }) => (
   <RemoveAssetOverlay onClick={onClick}>
-    <CircularCloseIcon />
+   
   </RemoveAssetOverlay>
 )
 
@@ -144,10 +135,7 @@ export const BagRow = ({ asset, usdPrice, removeAsset, showRemove, grayscale, is
             <Box className={styles.assetName}>{asset.name ?? `#${asset.tokenId}`}</Box>
             {asset.susFlag && <Suspicious />}
           </Row>
-          <Row overflow="hidden" whiteSpace="nowrap" gap="2">
-            <Box className={styles.collectionName}>{asset.collectionName}</Box>
-            {asset.collectionIsVerified && <VerifiedIcon className={styles.icon} />}
-          </Row>
+          
         </Column>
         {showRemoveButton && (
           <RemoveButton onClick={handleRemoveClick} emphasis={ButtonEmphasis.medium} size={ButtonSize.medium}>
@@ -200,7 +188,7 @@ export const PriceChangeBagRow = ({ asset, usdPrice, markAssetAsReviewed, top, i
   return (
     <Column className={styles.priceChangeColumn} borderTopColor={top ? 'surface3' : 'transparent'}>
       <Row className={styles.priceChangeRow}>
-        {isPriceIncrease ? <SquareArrowUpIcon /> : <SquareArrowDownIcon />}
+        
         <Box>{`Price ${isPriceIncrease ? 'increased' : 'decreased'} from ${formatEther({
           input: asset.priceInfo.ETHPrice,
           type: NumberType.NFTToken,
@@ -314,9 +302,7 @@ export const UnavailableAssetsHeaderRow = ({
             {!isShowingAssets && <UnavailableAssetsPreview assets={assets.slice(0, 5)} />}
             No longer available
           </Row>
-          {moreThanOneUnavailable && (
-            <Row color="neutral2">{isOpen ? <ChevronUpBagIcon /> : <ChevronDownBagIcon />}</Row>
-          )}
+          
           {!didOpenUnavailableAssets && (
             <Row
               position="relative"
@@ -328,7 +314,7 @@ export const UnavailableAssetsHeaderRow = ({
               onClick={clearUnavailableAssets}
             >
               <TimedLoader />
-              <CloseTimerIcon />
+              
             </Row>
           )}
         </Row>

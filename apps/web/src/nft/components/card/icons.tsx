@@ -1,14 +1,14 @@
-import Row from 'components/Row'
-import { MouseoverTooltip } from 'components/Tooltip'
-import { Trans } from 'i18n'
-import { getMarketplaceIcon } from 'nft/components/card/utils'
-import { CollectionSelectedAssetIcon } from 'nft/components/icons'
-import { Markets } from 'nft/types'
-import { AlertTriangle, Check, Tag } from 'react-feather'
-import styled from 'styled-components'
-import { ThemedText } from 'theme/components'
-import { NftStandard } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
-import { NumberType, useFormatter } from 'utils/formatNumbers'
+import Row from "components/Row";
+import { MouseoverTooltip } from "components/Tooltip";
+import { Trans } from "i18n";
+import { getMarketplaceIcon } from "nft/components/card/utils";
+
+import { Markets } from "nft/types";
+import { AlertTriangle, Check, Tag } from "react-feather";
+import styled from "styled-components";
+import { ThemedText } from "theme/components";
+import { NftStandard } from "uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks";
+import { NumberType, useFormatter } from "utils/formatNumbers";
 
 const StyledMarketplaceContainer = styled.div<{ isText?: boolean }>`
   position: absolute;
@@ -16,15 +16,15 @@ const StyledMarketplaceContainer = styled.div<{ isText?: boolean }>`
   top: 12px;
   left: 12px;
   height: 32px;
-  width: ${({ isText }) => (isText ? 'auto' : '32px')};
-  padding: ${({ isText }) => (isText ? '0px 8px' : '0px')};
+  width: ${({ isText }) => (isText ? "auto" : "32px")};
+  padding: ${({ isText }) => (isText ? "0px 8px" : "0px")};
   background: rgba(93, 103, 133, 0.24);
   color: ${({ theme }) => theme.deprecated_accentTextLightPrimary};
   justify-content: center;
   align-items: center;
   border-radius: 32px;
   z-index: 2;
-`
+`;
 
 const ListPriceRowContainer = styled(Row)`
   gap: 6px;
@@ -33,7 +33,7 @@ const ListPriceRowContainer = styled(Row)`
   font-weight: 535;
   line-height: 16px;
   text-shadow: 1px 1px 3px rgba(51, 53, 72, 0.54);
-`
+`;
 
 export const MarketplaceContainer = ({
   isSelected,
@@ -42,11 +42,11 @@ export const MarketplaceContainer = ({
   listedPrice,
   hidePrice,
 }: {
-  isSelected: boolean
-  marketplace?: Markets
-  tokenType?: NftStandard
-  listedPrice?: string
-  hidePrice?: boolean
+  isSelected: boolean;
+  marketplace?: Markets;
+  tokenType?: NftStandard;
+  listedPrice?: string;
+  hidePrice?: boolean;
 }) => {
   if (isSelected) {
     if (!marketplace) {
@@ -54,14 +54,10 @@ export const MarketplaceContainer = ({
         <StyledMarketplaceContainer>
           <Check size={20} />
         </StyledMarketplaceContainer>
-      )
+      );
     }
 
-    return (
-      <StyledMarketplaceContainer>
-        <CollectionSelectedAssetIcon width="20px" height="20px" viewBox="0 0 20 20" />
-      </StyledMarketplaceContainer>
-    )
+    return <StyledMarketplaceContainer></StyledMarketplaceContainer>;
   }
 
   if (listedPrice && !hidePrice) {
@@ -72,34 +68,38 @@ export const MarketplaceContainer = ({
           {listedPrice} ETH
         </ListPriceRowContainer>
       </StyledMarketplaceContainer>
-    )
+    );
   }
 
   if (!marketplace || tokenType === NftStandard.Erc1155) {
-    return null
+    return null;
   }
 
-  return <StyledMarketplaceContainer>{getMarketplaceIcon(marketplace)}</StyledMarketplaceContainer>
-}
+  return (
+    <StyledMarketplaceContainer>
+      {getMarketplaceIcon(marketplace)}
+    </StyledMarketplaceContainer>
+  );
+};
 
 const SuspiciousIcon = styled(AlertTriangle)`
   width: 16px;
   height: 16px;
   color: ${({ theme }) => theme.critical};
-`
+`;
 
 interface RankingProps {
-  provider: { url?: string; rank?: number }
+  provider: { url?: string; rank?: number };
 }
 
 const RarityLogoContainer = styled(Row)`
   margin-right: 8px;
   width: 16px;
-`
+`;
 
 const RarityText = styled(ThemedText.BodySmall)`
   display: flex;
-`
+`;
 
 const RarityInfo = styled(ThemedText.BodySmall)`
   flex-shrink: 0;
@@ -111,13 +111,13 @@ const RarityInfo = styled(ThemedText.BodySmall)`
   line-height: 12px;
   text-align: right;
   cursor: pointer;
-`
+`;
 
 export const Ranking = ({ provider }: RankingProps) => {
-  const { formatNumber } = useFormatter()
+  const { formatNumber } = useFormatter();
 
   if (!provider.rank) {
-    return null
+    return null;
   }
 
   return (
@@ -136,12 +136,12 @@ export const Ranking = ({ provider }: RankingProps) => {
         # {formatNumber({ input: provider.rank, type: NumberType.WholeNumber })}
       </MouseoverTooltip>
     </RarityInfo>
-  )
-}
+  );
+};
 
 const SuspiciousIconContainer = styled(Row)`
   flex-shrink: 0;
-`
+`;
 
 export const Suspicious = () => {
   return (
@@ -157,5 +157,5 @@ export const Suspicious = () => {
         <SuspiciousIcon />
       </SuspiciousIconContainer>
     </MouseoverTooltip>
-  )
-}
+  );
+};

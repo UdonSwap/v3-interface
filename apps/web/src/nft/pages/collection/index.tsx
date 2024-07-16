@@ -10,11 +10,11 @@ import { useScreenSize } from 'hooks/useScreenSize'
 import { t } from 'i18n'
 import { BAG_WIDTH, XXXL_BAG_WIDTH } from 'nft/components/bag/Bag'
 import { MobileHoverBag } from 'nft/components/bag/MobileHoverBag'
-import { Activity, ActivitySwitcher, CollectionNfts, CollectionStats, Filters } from 'nft/components/collection'
+import {   CollectionNfts, CollectionStats, Filters } from 'nft/components/collection'
 import { CollectionNftsAndMenuLoading } from 'nft/components/collection/CollectionNfts'
 import { CollectionPageSkeleton } from 'nft/components/collection/CollectionPageSkeleton'
 import { UnavailableCollectionPage } from 'nft/components/collection/UnavailableCollectionPage'
-import { BagCloseIcon } from 'nft/components/icons'
+
 import { useBag, useCollectionFilters, useFiltersExpanded, useIsMobile } from 'nft/hooks'
 import * as styles from 'nft/pages/collection/index.css'
 import { blocklistedCollections } from 'nft/utils'
@@ -212,13 +212,7 @@ const Collection = () => {
               <CollectionDescriptionSection>
                 {collectionStats && <CollectionStats stats={collectionStats} isMobile={isMobile} />}
                 <div id="nft-anchor" />
-                <ActivitySwitcher
-                  showActivity={isActivityToggled}
-                  toggleActivity={() => {
-                    isFiltersExpanded && setFiltersExpanded(false)
-                    toggleActivity()
-                  }}
-                />
+              
               </CollectionDescriptionSection>
               <CollectionDisplaySection>
                 <FiltersContainer isMobile={isMobile} isFiltersExpanded={isFiltersExpanded}>
@@ -227,9 +221,7 @@ const Collection = () => {
                       {isMobile && (
                         <MobileFilterHeader>
                           <ThemedText.HeadlineSmall>Filter</ThemedText.HeadlineSmall>
-                          <IconWrapper onClick={() => setFiltersExpanded(false)}>
-                            <BagCloseIcon />
-                          </IconWrapper>
+                        
                         </MobileFilterHeader>
                       )}
                       <Filters traitsByGroup={collectionStats?.traits ?? EMPTY_TRAIT_OBJ} />
@@ -244,16 +236,8 @@ const Collection = () => {
                     width: gridWidthOffset.to((x) => `calc(100% - ${x as number}px)`),
                   }}
                 >
-                  {isActivityToggled
-                    ? contractAddress && (
-                        <Activity
-                          contractAddress={contractAddress}
-                          rarityVerified={collectionStats?.rarityVerified ?? false}
-                          collectionName={collectionStats?.name ?? ''}
-                          chainId={chainId}
-                        />
-                      )
-                    : contractAddress &&
+                 
+                {  contractAddress &&
                       collectionStats && (
                         <Suspense fallback={<CollectionNftsAndMenuLoading />}>
                           <CollectionNfts

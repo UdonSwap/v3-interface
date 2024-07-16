@@ -2,9 +2,6 @@ import { InterfacePageName } from "@uniswap/analytics-events";
 import { Trace } from "analytics";
 import { useNftAssetDetails } from "graphql/data/nft/Details";
 import { t } from "i18n";
-import { AssetDetails } from "nft/components/details/AssetDetails";
-import { AssetDetailsLoading } from "nft/components/details/AssetDetailsLoading";
-import { AssetPriceDetails } from "nft/components/details/AssetPriceDetails";
 import { blocklistedCollections } from "nft/utils";
 import { Helmet } from "react-helmet-async/lib/index";
 import { Navigate, useParams } from "react-router-dom";
@@ -47,7 +44,7 @@ const AssetPage = () => {
     return <Navigate to="/nfts" replace />;
   }
 
-  if (loading) return <AssetDetailsLoading />;
+
   return (
     <>
       <Helmet>
@@ -61,14 +58,7 @@ const AssetPage = () => {
         properties={{ collection_address: contractAddress, token_id: tokenId }}
         shouldLogImpression
       >
-        {!!asset && !!collection ? (
-          <AssetContainer>
-            <AssetDetails collection={collection} asset={asset} />
-            <AssetPriceDetailsContainer>
-              <AssetPriceDetails collection={collection} asset={asset} />
-            </AssetPriceDetailsContainer>
-          </AssetContainer>
-        ) : null}
+        
       </Trace>
     </>
   );

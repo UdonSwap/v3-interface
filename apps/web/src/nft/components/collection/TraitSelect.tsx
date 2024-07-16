@@ -3,7 +3,6 @@ import { sendAnalyticsEvent } from 'analytics'
 import useDebounce from 'hooks/useDebounce'
 import { Box } from 'nft/components/Box'
 import { Column, Row } from 'nft/components/Flex'
-import { Checkbox } from 'nft/components/layout/Checkbox'
 import { subheadSmall } from 'nft/css/common.css'
 import { Trait, useCollectionFilters } from 'nft/hooks/useCollectionFilters'
 import { pluralize } from 'nft/utils/roundAndPluralize'
@@ -11,8 +10,6 @@ import { scrollToTop } from 'nft/utils/scrollToTop'
 import { CSSProperties, FormEvent, MouseEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import { FixedSizeList } from 'react-window'
-
-import { Input } from '../layout/Input'
 import * as styles from './Filters.css'
 import { TraitsHeader } from './TraitsHeader'
 
@@ -103,11 +100,7 @@ const TraitItem = ({
           ? `${trait.trait_value} trait${pluralize(Number(trait.trait_value))}`
           : trait.trait_value}
       </Box>
-      <Checkbox checked={isCheckboxSelected} hovered={hovered} onChange={handleCheckbox}>
-        <Box as="span" color="neutral2" minWidth="8" paddingTop="2" paddingRight="12" position="relative">
-          {!showFullTraitName && trait.trait_count}
-        </Box>
-      </Checkbox>
+      
     </Row>
   )
 }
@@ -150,16 +143,7 @@ export const TraitSelect = ({ traits, type, index }: { traits: Trait[]; type: st
 
   return traits.length ? (
     <TraitsHeader index={index} numTraits={traits.length} title={type}>
-      <Input
-        value={search}
-        onChange={(e: FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)}
-        placeholder="Search"
-        marginTop="8"
-        marginBottom="8"
-        autoComplete="off"
-        position="static"
-        width="full"
-      />
+     
       <Column
         className={styles.filterDropDowns}
         style={{ height: `${Math.min(TRAIT_ROW_HEIGHT * searchedTraits.length, styles.MAX_FILTER_DROPDOWN_HEIGHT)}px` }}

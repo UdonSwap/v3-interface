@@ -6,7 +6,7 @@ import { BannerWrapper, CollectionBannerLoading } from 'nft/pages/collection'
 import { ScreenBreakpointsPaddings } from 'nft/pages/collection/index.css'
 import styled from 'styled-components'
 
-import { ActivitySwitcherLoading } from './ActivitySwitcher'
+
 import { CollectionNftsAndMenuLoading } from './CollectionNfts'
 import { CollectionStatsLoading } from './CollectionStats'
 
@@ -39,7 +39,7 @@ export const CollectionPageSkeleton = () => {
       </BannerWrapper>
       <CollectionDescriptionSection>
         <CollectionStatsLoading isMobile={isMobile} />
-        <StyledRow>{ActivitySwitcherLoading}</StyledRow>
+       
       </CollectionDescriptionSection>
       <CollectionNftsAndMenuLoading />
     </StyledColumn>

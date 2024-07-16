@@ -3,7 +3,6 @@ import { Column, Row } from 'nft/components/Flex'
 import * as styles from 'nft/components/collection/Filters.css'
 import { MarketplaceSelect } from 'nft/components/collection/MarketplaceSelect'
 import { PriceRange } from 'nft/components/collection/PriceRange'
-import { Checkbox } from 'nft/components/layout/Checkbox'
 import { subhead } from 'nft/css/common.css'
 import { useCollectionFilters } from 'nft/hooks'
 import { Trait } from 'nft/hooks/useCollectionFilters'
@@ -12,7 +11,7 @@ import { DropDownOption } from 'nft/types'
 import { useMemo, useReducer } from 'react'
 import { isMobile } from 'uniswap/src/utils/platform'
 
-import { FilterSortDropdown } from '../common/SortDropdown'
+
 import { getSortDropdownOptions } from './CollectionNfts'
 import { TraitSelect } from './TraitSelect'
 
@@ -56,11 +55,11 @@ export const Filters = ({ traitsByGroup }: { traitsByGroup: Record<string, Trait
           <Box data-testid="nft-collection-filter-buy-now" className={subhead}>
             Buy now
           </Box>
-          <Checkbox hovered={buyNowHovered} checked={buyNow} onClick={handleBuyNowToggle}>
+         
             <span />
-          </Checkbox>
+          
         </Row>
-        {isMobile && <FilterSortDropdown sortDropDownOptions={sortDropDownOptions} />}
+        
         <MarketplaceSelect />
         <PriceRange />
         {Object.entries(traitsByGroup).length > 0 && (

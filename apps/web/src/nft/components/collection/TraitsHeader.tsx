@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { Box } from 'nft/components/Box'
 import * as styles from 'nft/components/collection/Filters.css'
-import { ChevronUpIcon } from 'nft/components/icons'
 import { subheadSmall } from 'nft/css/common.css'
 import { useIsMobile } from 'nft/hooks'
 import { TraitPosition, useTraitsOpen } from 'nft/hooks/useTraitsOpen'
@@ -60,14 +59,7 @@ export const TraitsHeader = (props: TraitsHeaderProps) => {
             <Box color="neutral2" display="inline-block" marginRight="12">
               {props.numTraits}
             </Box>
-            <Box
-              className={styles.chevronContainer}
-              style={{
-                transform: `rotate(${isOpen ? 0 : 180}deg)`,
-              }}
-            >
-              <ChevronUpIcon className={styles.chevronIcon} />
-            </Box>
+           
           </Box>
         </Box>
         <ChildreMobileWrapper isMobile={isMobile}>{children}</ChildreMobileWrapper>

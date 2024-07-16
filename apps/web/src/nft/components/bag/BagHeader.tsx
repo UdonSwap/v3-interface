@@ -1,6 +1,6 @@
 import { OpacityHoverState } from "components/Common";
 import { Trans } from "i18n";
-import { BagCloseIcon } from "nft/components/icons";
+
 import { useMemo } from "react";
 import styled from "styled-components";
 import { ButtonText, ThemedText } from "theme/components";
@@ -97,9 +97,7 @@ export const BagHeader = ({
           </ClearButton>
         </>
       )}
-      <IconWrapper onClick={closeBag}>
-        <BagCloseIcon data-testid="nft-bag-close-icon" />
-      </IconWrapper>
+      
     </Wrapper>
   );
 };

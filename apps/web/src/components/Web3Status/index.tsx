@@ -17,7 +17,6 @@ import { getRecentConnectionMeta } from "connection/meta";
 import useLast from "hooks/useLast";
 import { navSearchInputVisibleSize } from "hooks/useScreenSize";
 import { Trans } from "i18n";
-import { Portal } from "nft/components/common/Portal";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "state/hooks";
 import { updateRecentConnectionMeta } from "state/user/reducer";
@@ -287,9 +286,9 @@ export default function Web3Status() {
   return (
     <PrefetchBalancesWrapper>
       <Web3StatusInner />
-      <Portal>
+  
         <PortfolioDrawer />
-      </Portal>
+     
     </PrefetchBalancesWrapper>
   );
 }

@@ -1,13 +1,5 @@
 import { NftImage, NftPlayableMedia } from 'nft/components/card/media'
-import {
-  LarvaLabsMarketplaceIcon,
-  LooksRareIcon,
-  Nft20Icon,
-  NftXIcon,
-  OpenSeaMarketplaceIcon,
-  SudoSwapIcon,
-  X2y2Icon,
-} from 'nft/components/icons'
+
 import { GenieAsset, Markets, UniformAspectRatio, UniformAspectRatios, WalletAsset } from 'nft/types'
 import { isAudio, isVideo } from 'nft/utils'
 import { ReactNode, useCallback } from 'react'
@@ -131,20 +123,12 @@ export function useSelectAsset({
 
 export function getMarketplaceIcon(market: Markets): ReactNode {
   switch (market) {
-    case Markets.Opensea:
-      return <OpenSeaMarketplaceIcon />
-    case Markets.LooksRare:
-      return <LooksRareIcon />
-    case Markets.X2Y2:
-      return <X2y2Icon />
-    case Markets.Sudoswap:
-      return <SudoSwapIcon />
-    case Markets.NFT20:
-      return <Nft20Icon />
-    case Markets.NFTX:
-      return <NftXIcon />
-    case Markets.Cryptopunks:
-      return <LarvaLabsMarketplaceIcon />
+    
+   
+
+ 
+   
+   
     default:
       return null
   }
