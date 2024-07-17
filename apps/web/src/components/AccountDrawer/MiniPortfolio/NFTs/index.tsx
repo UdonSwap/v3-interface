@@ -1,16 +1,16 @@
-import { useNftBalance } from 'graphql/data/nft/NftBalance'
-import { LoadingAssets } from 'nft/components/collection/CollectionAssetLoading'
-import { EmptyWalletModule } from 'nft/components/profile/view/EmptyWalletContent'
-import { useState } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
-import styled from 'styled-components'
+import { useNftBalance } from "graphql/data/nft/NftBalance";
 
-import { DEFAULT_NFT_QUERY_AMOUNT } from '../constants'
-import { useAccountDrawer } from '../hooks'
-import { NFT } from './NFTItem'
+import { EmptyWalletModule } from "nft/components/profile/view/EmptyWalletContent";
+import { useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import styled from "styled-components";
+
+import { DEFAULT_NFT_QUERY_AMOUNT } from "../constants";
+import { useAccountDrawer } from "../hooks";
+
 
 export default function NFTs({ account }: { account: string }) {
-  const [walletDrawerOpen, toggleWalletDrawer] = useAccountDrawer()
+  const [walletDrawerOpen, toggleWalletDrawer] = useAccountDrawer();
   const { walletAssets, loading, hasNext, loadMore } = useNftBalance(
     account,
     [],
@@ -19,53 +19,24 @@ export default function NFTs({ account }: { account: string }) {
     undefined,
     undefined,
     undefined,
-    !walletDrawerOpen
-  )
+    !walletDrawerOpen,
+  );
 
-  const [currentTokenPlayingMedia, setCurrentTokenPlayingMedia] = useState<string | undefined>()
-
-  if (loading && !walletAssets)
-    return (
-      <AssetsContainer>
-        <LoadingAssets count={2} />
-      </AssetsContainer>
-    )
+  const [currentTokenPlayingMedia, setCurrentTokenPlayingMedia] = useState<
+    string | undefined
+  >();
 
   if (!walletAssets || walletAssets?.length === 0) {
-    return <EmptyWalletModule onNavigateClick={toggleWalletDrawer} />
+    return <EmptyWalletModule onNavigateClick={toggleWalletDrawer} />;
   }
 
   return (
-    <InfiniteScroll
-      next={loadMore}
-      hasMore={hasNext ?? false}
-      loader={
-        Boolean(hasNext && walletAssets?.length) && (
-          <AssetsContainer>
-            <LoadingAssets count={2} />
-          </AssetsContainer>
-        )
-      }
-      dataLength={walletAssets?.length ?? 0}
-      style={{ overflow: 'unset' }}
-      scrollableTarget="wallet-dropdown-scroll-wrapper"
-    >
+    <div>
       <AssetsContainer>
-        {walletAssets?.length
-          ? walletAssets.map((asset, index) => {
-              return (
-                <NFT
-                  setCurrentTokenPlayingMedia={setCurrentTokenPlayingMedia}
-                  mediaShouldBePlaying={currentTokenPlayingMedia === asset.tokenId}
-                  key={index}
-                  asset={asset}
-                />
-              )
-            })
-          : null}
+        
       </AssetsContainer>
-    </InfiniteScroll>
-  )
+    </div>
+  );
 }
 
 const AssetsContainer = styled.div`
@@ -75,4 +46,4 @@ const AssetsContainer = styled.div`
   // use minmax to not let grid items escape the parent container
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   margin: 16px;
-`
+`;

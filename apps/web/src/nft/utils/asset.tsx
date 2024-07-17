@@ -27,19 +27,6 @@ export const getAssetHref = (asset: GenieAsset | WalletAsset, origin?: DetailsOr
   return `/nfts/asset/${address}/${asset.tokenId}${origin ? `?origin=${origin}` : ''}`
 }
 
-export const getMarketplaceIcon = (marketplace: string, size: string | number = '16') => {
-  switch (marketplace.toLowerCase()) {
-   
-   
-   
-    
-    case Markets.Cryptopunks:
-  
-    
-    default:
-      return null
-  }
-}
 
 export const generateTweetForAsset = (asset: GenieAsset): string => {
   return `https://twitter.com/intent/tweet?text=Check%20out%20${

@@ -9,7 +9,7 @@ import { Screens } from 'src/screens/Screens'
 import { Flex, useDeviceInsets, useSporeColors } from 'ui/src'
 import { GQLQueries } from 'uniswap/src/data/graphql/uniswap-data-api/queries'
 import { isAndroid } from 'uniswap/src/utils/platform'
-import { NftsList } from 'wallet/src/components/nfts/NftsList'
+
 import { NFTItem } from 'wallet/src/features/nfts/types'
 
 export const NFTS_TAB_DATA_DEPENDENCIES = [GQLQueries.NftsTab]
@@ -68,23 +68,7 @@ export const NftsTab = memo(
 
     return (
       <Flex grow px="$spacing12">
-        <NftsList
-          ref={ref}
-          ListFooterComponent={isExternalProfile ? null : adaptiveFooter}
-          emptyStateStyle={containerProps?.emptyContainerStyle}
-          errorStateStyle={containerProps?.emptyContainerStyle}
-          footerHeight={footerHeight}
-          isExternalProfile={isExternalProfile}
-          owner={owner}
-          refreshControl={refreshControl}
-          refreshing={refreshing}
-          renderNFTItem={renderNFTItem}
-          renderedInModal={renderedInModal}
-          onContentSizeChange={onContentSizeChange}
-          onRefresh={onRefresh}
-          onScroll={scrollHandler}
-          {...containerProps}
-        />
+        
       </Flex>
     )
   })
