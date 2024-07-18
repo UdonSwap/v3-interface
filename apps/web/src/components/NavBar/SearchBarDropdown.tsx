@@ -279,36 +279,20 @@ function SearchBarDropdownContents({
       </Box>
     );
 
-  // const collectionSearchResults =
-  //   collections.length > 0 ? (
-  //     <SearchBarDropdownSection
-  //       hoveredIndex={hoveredIndex}
-  //       startingIndex={showCollectionsFirst ? 0 : tokens.length}
-  //       setHoveredIndex={setHoveredIndex}
-  //       toggleOpen={toggleOpen}
-  //       suggestions={collections}
-  //       eventProperties={{
-  //         suggestion_type: NavBarSearchTypes.COLLECTION_SUGGESTION,
-  //         ...eventProperties,
-  //       }}
-  //       header={<Trans>NFT collections</Trans>}
-  //     />
-  //   ) : (
-  //     <Box className={styles.notFoundContainer}>No NFT collections found.</Box>
-  //   );
+  
 
   return hasInput ? (
     // Empty or Up to 8 combined tokens and nfts
     <Column gap="20">
       {showCollectionsFirst ? (
         <>
-          {/* {collectionSearchResults} */}
+         
           {tokenSearchResults}
         </>
       ) : (
         <>
           {tokenSearchResults}
-          {/* {collectionSearchResults} */}
+         
         </>
       )}
     </Column>
@@ -347,38 +331,13 @@ function SearchBarDropdownContents({
           isLoading={!trendingTokenData}
         />
       )}
-      {/* {Boolean(!isTokenPage && !shouldDisableNFTRoutes) && (
-        <SearchBarDropdownSection
-          hoveredIndex={hoveredIndex}
-          startingIndex={
-            shortenedHistory.length +
-            (isNFTPage ? 0 : trendingTokens?.length ?? 0)
-          }
-          setHoveredIndex={setHoveredIndex}
-          toggleOpen={toggleOpen}
-          suggestions={
-            formattedTrendingCollections as unknown as GenieCollection[]
-          }
-          eventProperties={{
-            suggestion_type: NavBarSearchTypes.COLLECTION_TRENDING,
-            ...eventProperties,
-          }}
-          // header={<Trans>Popular NFT collections</Trans>}
-          // headerIcon={<TrendingArrow />}
-          // isLoading={trendingCollectionsAreLoading}
-        />
-      )} */}
+     
     </Column>
   );
 }
 
 function ComingSoonText({ chainId }: { chainId: ChainId }) {
-  // switch (chainId) {
-  //   case ChainId.AVALANCHE:
-  //     return (
-  //       <Trans>Coming soon: search and explore tokens on Avalanche Chain</Trans>
-  //     );
-  //   default:
+  
   return null;
-  // }
+
 }

@@ -4,7 +4,6 @@ import Web3Status from "components/Web3Status";
 import { chainIdToBackendName } from "graphql/data/util";
 import { useDisableNFTRoutes } from "hooks/useDisableNFTRoutes";
 import { useIsLandingPage } from "hooks/useIsLandingPage";
-import { useIsNftPage } from "hooks/useIsNftPage";
 import { useIsPoolsPage } from "hooks/useIsPoolsPage";
 import { Trans } from "i18n";
 import { Box } from "nft/components/Box";
@@ -69,10 +68,7 @@ export const PageTabs = () => {
   const { pathname } = useLocation();
   const { chainId: connectedChainId } = useWeb3React();
   const chainName = chainIdToBackendName(connectedChainId);
-
   const isPoolActive = useIsPoolsPage();
-  const isNftPage = useIsNftPage();
-
   const shouldDisableNFTRoutes = useDisableNFTRoutes();
 
   return (
@@ -103,7 +99,6 @@ export const PageTabs = () => {
 };
 
 const Navbar = ({ blur }: { blur: boolean }) => {
-  const isNftPage = useIsNftPage();
   const isLandingPage = useIsLandingPage();
   const sellPageState = useProfilePageState((state) => state.state);
   const navigate = useNavigate();
@@ -156,7 +151,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
             <Row gap="12">
               <Box
                 position="relative"
-                display={isNavSearchInputVisible ? "none" : { sm: "flex" }}
+                display={isNavSearchInputVisible ? "none" : "none"}
               >
                 <SearchBar />
               </Box>
