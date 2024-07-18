@@ -4,7 +4,7 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { UnitagStackScreenProp } from 'src/app/navigation/types'
 import { AnimateInOrder } from 'src/components/animation/AnimateInOrder'
 import { Screen } from 'src/components/layout/Screen'
-import { UnitagWithProfilePicture } from 'src/components/unitags/UnitagWithProfilePicture'
+
 import {
   EmojiElement,
   ENSElement,
@@ -27,7 +27,7 @@ export function UnitagConfirmationScreen({
   const { unitag, address, profilePictureUri } = route.params
   const dimensions = useDeviceDimensions()
   const insets = useDeviceInsets()
-  const { t } = useTranslation()
+  
 
   const boxWidth = dimensions.fullWidth - insets.left - insets.right - spacing.spacing32
 
@@ -46,23 +46,7 @@ export function UnitagConfirmationScreen({
     navigate(Screens.Home)
   }
 
-  const elementsToAnimate = useMemo(
-    () => [
-      { element: <FroggyElement />, coordinates: { x: 5, y: 0 } },
-      { element: <ReceiveUSDCElement />, coordinates: { x: 10, y: 2 } },
-      { element: <OpenseaElement />, coordinates: { x: 8.2, y: 4 } },
-      { element: <HeartElement />, coordinates: { x: 9, y: 7 } },
-      { element: <SwapElement />, coordinates: { x: 10, y: 10 } },
-      { element: <ENSElement />, coordinates: { x: 1, y: 8.5 } },
-      {
-        element: <TextElement text={t('unitags.claim.confirmation.success.short')} />,
-        coordinates: { x: 0, y: 5 },
-      },
-      { element: <SendElement />, coordinates: { x: 1, y: 2 } },
-      { element: <EmojiElement emoji="👍" />, coordinates: { x: 3.5, y: 2.5 } },
-    ],
-    [t]
-  )
+  
 
   return (
     <Screen edges={['right', 'left', 'bottom']} pt="$spacing60">
@@ -97,43 +81,11 @@ export function UnitagConfirmationScreen({
                 height={boxWidth * 0.6}
               />
             </AnimateInOrder>
-            {elementsToAnimate.map(({ element, coordinates }, index) => (
-              <AnimateInOrder
-                key={index}
-                hapticOnEnter
-                index={index + 3}
-                position="absolute"
-                {...getInsetPropsForCoordinates(boxWidth, coordinates.x, coordinates.y)}>
-                {element}
-              </AnimateInOrder>
-            ))}
-            <AnimateInOrder key="unitag" hapticOnEnter index={12}>
-              <UnitagWithProfilePicture
-                address={address}
-                profilePictureUri={profilePictureUri}
-                unitag={unitag}
-              />
-            </AnimateInOrder>
+           
+            
           </AnimatePresence>
         </Flex>
-        <Flex centered gap="$spacing16" pb="$spacing16" px="$spacing24">
-          <Text color="$neutral1" textAlign="center" variant="heading3">
-            {t('unitags.claim.confirmation.success.long')}
-          </Text>
-          <Text color="$neutral2" textAlign="center" variant="subheading2">
-            {t('unitags.claim.confirmation.description', {
-              unitagAddress: `${unitag}${UNITAG_SUFFIX}`,
-            })}
-          </Text>
-        </Flex>
-        <Flex gap="$spacing12">
-          <Button size="medium" theme="primary" onPress={onPressDone}>
-            {t('common.button.done')}
-          </Button>
-          <Button size="medium" theme="secondary" onPress={onPressCustomize}>
-            {t('unitags.claim.confirmation.customize')}
-          </Button>
-        </Flex>
+       
       </Flex>
     </Screen>
   )

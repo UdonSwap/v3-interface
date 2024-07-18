@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FadeIn, FadeOut } from 'react-native-reanimated'
-import { TokenFiatOnRampList } from 'src/components/TokenSelector/TokenFiatOnRampList'
+
 import Trace from 'src/components/Trace/Trace'
 import { FOR_MODAL_SNAP_POINTS } from 'src/features/fiatOnRamp/constants'
 import { FiatOnRampCurrency } from 'src/features/fiatOnRamp/types'
@@ -48,15 +48,7 @@ export function FiatOnRampTokenSelectorModal({
           <Text color="$neutral1" mt="$spacing2" textAlign="center" variant="subheading1">
             {t('fiatOnRamp.button.chooseToken')}
           </Text>
-          <AnimatedFlex grow entering={FadeIn} exiting={FadeOut}>
-            <TokenFiatOnRampList
-              error={error}
-              list={list}
-              loading={loading}
-              onRetry={onRetry}
-              onSelectCurrency={onSelectCurrency}
-            />
-          </AnimatedFlex>
+          
         </Flex>
       </Trace>
     </BottomSheetModal>

@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { AppStackParamList, OnboardingStackParamList } from 'src/app/navigation/types'
 import { Screen } from 'src/components/layout/Screen'
 import Trace from 'src/components/Trace/Trace'
-import { UnitagProfilePicture } from 'src/components/unitags/UnitagProfilePicture'
 import { OnboardingScreens, Screens } from 'src/screens/Screens'
 import { useAddBackButton } from 'src/utils/useAddBackButton'
 import { Button, Flex, Loader, Text, useMedia, useSporeColors } from 'ui/src'
@@ -37,7 +36,7 @@ export function WelcomeWalletScreen({ navigation, route: { params } }: Props): J
   useAddBackButton(navigation)
 
   const colors = useSporeColors()
-  const { t } = useTranslation()
+
   const { convertFiatAmountFormatted } = useLocalizationContext()
   const media = useMedia()
 
@@ -71,13 +70,7 @@ export function WelcomeWalletScreen({ navigation, route: { params } }: Props): J
     <Screen mb="$spacing12" mx="$spacing24">
       <Flex fill gap="$spacing36" justifyContent="center">
         <Flex gap="$spacing12" px="$spacing16">
-          {params.unitagClaim?.avatarUri ? (
-            <UnitagProfilePicture
-              address={activeAddress ?? ''}
-              size={iconSizes.icon64}
-              unitagAvatarUri={params.unitagClaim?.avatarUri}
-            />
-          ) : (
+         
             <AccountIcon
               address={activeAddress ?? ''}
               avatarUri={avatar}
@@ -86,7 +79,7 @@ export function WelcomeWalletScreen({ navigation, route: { params } }: Props): J
               showViewOnlyBadge={false}
               size={iconSizes.icon64}
             />
-          )}
+      
           <DisplayNameText
             displayName={displayName}
             justifyContent="flex-start"
@@ -108,7 +101,7 @@ export function WelcomeWalletScreen({ navigation, route: { params } }: Props): J
             maxFontSizeMultiplier={media.short ? 1.1 : fonts.heading3.maxFontSizeMultiplier}
             textAlign="center"
             variant="heading3">
-            {t('onboarding.wallet.title')}
+           
           </Text>
           <Text
             $short={{ variant: 'subheading2' }}
@@ -116,7 +109,7 @@ export function WelcomeWalletScreen({ navigation, route: { params } }: Props): J
             maxFontSizeMultiplier={media.short ? 1.1 : fonts.body1.maxFontSizeMultiplier}
             textAlign="center"
             variant="subheading2">
-            {t('onboarding.wallet.description.full')}
+            
           </Text>
         </Flex>
       </Flex>
@@ -136,7 +129,7 @@ export function WelcomeWalletScreen({ navigation, route: { params } }: Props): J
                   />
                 </Flex>
                 <Text color="$sporeWhite" variant="buttonLabel2">
-                  {t('onboarding.wallet.continue')}
+                 
                 </Text>
               </Flex>
               <Arrow color={colors.sporeWhite.val} direction="e" size={iconSizes.icon24} />

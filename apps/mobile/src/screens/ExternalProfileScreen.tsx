@@ -10,7 +10,7 @@ import { TokensTab } from 'src/components/home/TokensTab'
 import { Screen } from 'src/components/layout/Screen'
 import { renderTabLabel, TAB_STYLES, TabContentProps } from 'src/components/layout/TabHelpers'
 import Trace from 'src/components/Trace/Trace'
-import TraceTabView from 'src/components/Trace/TraceTabView'
+
 import { ProfileHeader } from 'src/features/externalProfile/ProfileHeader'
 import { ExploreModalAwareView } from 'src/screens/ModalAwareView'
 import { Screens } from 'src/screens/Screens'
@@ -160,14 +160,7 @@ export function ExternalProfileScreen({
           screen={Screens.ExternalProfile}>
           <Flex grow gap="$spacing16">
             <ProfileHeader address={address} />
-            <TraceTabView
-              lazy
-              navigationState={{ index: tabIndex, routes: tabs }}
-              renderScene={renderTab}
-              renderTabBar={renderTabBar}
-              screenName={Screens.ExternalProfile}
-              onIndexChange={setIndex}
-            />
+           
           </Flex>
         </Trace>
       </Screen>

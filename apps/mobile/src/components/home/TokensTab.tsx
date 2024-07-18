@@ -3,8 +3,6 @@ import React, { forwardRef, memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
 import { useAppDispatch } from 'src/app/hooks'
-import { TokenBalanceList } from 'src/components/TokenBalanceList/TokenBalanceList'
-import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { WalletEmptyState } from 'src/components/home/WalletEmptyState'
 import { TabContentProps, TabProps } from 'src/components/layout/TabHelpers'
 import { openModal } from 'src/features/modals/modalSlice'
@@ -36,18 +34,12 @@ export const TokensTab = memo(
       },
       ref
     ) {
-      const { t } = useTranslation()
+     
       const dispatch = useAppDispatch()
-      const tokenDetailsNavigation = useTokenDetailsNavigation()
+     
       const startProfilerTimer = useStartProfiler()
 
-      const onPressToken = useCallback(
-        (currencyId: CurrencyId): void => {
-          startProfilerTimer({ source: Screens.Home })
-          tokenDetailsNavigation.navigate(currencyId)
-        },
-        [startProfilerTimer, tokenDetailsNavigation]
-      )
+     
 
       // Update list empty styling based on which empty state is used
       const formattedContainerProps: TabContentProps | undefined = useMemo(() => {
@@ -82,19 +74,7 @@ export const TokensTab = memo(
 
       return (
         <Flex grow backgroundColor="$surface1">
-          <TokenBalanceList
-            ref={ref}
-            containerProps={formattedContainerProps}
-            empty={renderEmpty}
-            headerHeight={headerHeight}
-            isExternalProfile={isExternalProfile}
-            owner={owner}
-            refreshing={refreshing}
-            renderedInModal={renderedInModal}
-            scrollHandler={scrollHandler}
-            onPressToken={onPressToken}
-            onRefresh={onRefresh}
-          />
+       
         </Flex>
       )
     }

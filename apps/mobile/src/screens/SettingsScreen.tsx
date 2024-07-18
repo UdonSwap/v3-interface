@@ -17,12 +17,7 @@ import {
   SettingsStackNavigationProp,
   useSettingsStackNavigation,
 } from "src/app/navigation/types";
-import {
-  SettingsRow,
-  SettingsSection,
-  SettingsSectionItem,
-  SettingsSectionItemComponent,
-} from "src/components/Settings/SettingsRow";
+
 import { HeaderScrollScreen } from "src/components/layout/screens/HeaderScrollScreen";
 import { APP_FEEDBACK_LINK } from "src/constants/urls";
 import { useBiometricContext } from "src/features/biometrics/context";
@@ -345,7 +340,7 @@ export function SettingsScreen(): JSX.Element {
       return item.component;
     }
     return (
-      <SettingsRow key={item.screen} navigation={navigation} page={item} />
+     <div></div>
     );
   };
 

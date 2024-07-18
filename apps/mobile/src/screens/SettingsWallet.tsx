@@ -11,12 +11,7 @@ import {
   SettingsStackNavigationProp,
   SettingsStackParamList,
 } from 'src/app/navigation/types'
-import {
-  SettingsRow,
-  SettingsSection,
-  SettingsSectionItem,
-  SettingsSectionItemComponent,
-} from 'src/components/Settings/SettingsRow'
+
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
 import { openModal } from 'src/features/modals/modalSlice'
@@ -177,7 +172,7 @@ export function SettingsWallet({
     if (item.isHidden) {
       return null
     }
-    return <SettingsRow key={item.screen} navigation={navigation} page={item} />
+    return 
   }
 
   const onRemoveWallet = (): void => {

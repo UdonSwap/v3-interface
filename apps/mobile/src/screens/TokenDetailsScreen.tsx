@@ -7,14 +7,14 @@ import { useAppSelector } from 'src/app/hooks'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { PriceExplorer } from 'src/components/PriceExplorer/PriceExplorer'
 import { useTokenPriceHistory } from 'src/components/PriceExplorer/usePriceHistory'
-import { TokenBalances } from 'src/components/TokenDetails/TokenBalances'
-import { TokenDetailsActionButtons } from 'src/components/TokenDetails/TokenDetailsActionButtons'
-import { TokenDetailsFavoriteButton } from 'src/components/TokenDetails/TokenDetailsFavoriteButton'
-import { TokenDetailsHeader } from 'src/components/TokenDetails/TokenDetailsHeader'
-import { TokenDetailsLinks } from 'src/components/TokenDetails/TokenDetailsLinks'
+
+
+
+
+
 import { TokenDetailsStats } from 'src/components/TokenDetails/TokenDetailsStats'
-import { useCrossChainBalances } from 'src/components/TokenDetails/hooks'
-import Trace from 'src/components/Trace/Trace'
+
+
 import { HeaderScrollScreen } from 'src/components/layout/screens/HeaderScrollScreen'
 import { Loader } from 'src/components/loading'
 import { selectModalState } from 'src/features/modals/selectModalState'
@@ -66,7 +66,7 @@ function HeaderTitleElement({
   data: TokenDetailsScreenQuery | undefined
   ellipsisMenuVisible?: boolean
 }): JSX.Element {
-  const { t } = useTranslation()
+
   const { convertFiatAmountFormatted } = useLocalizationContext()
 
   const onChainData = data?.token
@@ -94,9 +94,7 @@ function HeaderTitleElement({
           symbol={symbol ?? undefined}
           url={logo}
         />
-        <Text color="$neutral2" numberOfLines={1} variant="buttonLabel4">
-          {symbol ?? t('token.error.unknown')}
-        </Text>
+      
       </Flex>
     </Flex>
   )
@@ -194,10 +192,7 @@ function TokenDetails({
   const tokenSymbol = token?.project?.name
 
   const crossChainTokens = token?.project?.tokens
-  const { currentChainBalance, otherChainBalances } = useCrossChainBalances(
-    _currencyId,
-    crossChainTokens
-  )
+ 
 
   const { tokenColor, tokenColorLoading } = useExtractedTokenColor(
     tokenLogoUrl,
@@ -284,11 +279,7 @@ function TokenDetails({
         showHandleBar={inModal}>
         <Flex gap="$spacing16" pb="$spacing16">
           <Flex gap="$spacing4">
-            <TokenDetailsHeader
-              data={data}
-              loading={loading}
-              onPressWarningIcon={(): void => setShowWarningModal(true)}
-            />
+           
             <PriceExplorer
               currencyId={_currencyId}
               forcePlaceholder={showSkeleton}
@@ -302,11 +293,7 @@ function TokenDetails({
             </AnimatedFlex>
           ) : null}
           <Flex gap="$spacing16" mb="$spacing8" px="$spacing16">
-            <TokenBalances
-              currentChainBalance={currentChainBalance}
-              otherChainBalances={otherChainBalances}
-              onPressSend={onPressSend}
-            />
+           
             <Separator />
             {showSkeleton ? (
               <TokenDetailsTextPlaceholders />
@@ -314,7 +301,7 @@ function TokenDetails({
               <>
                 <Flex gap="$spacing24">
                   <TokenDetailsStats data={data} tokenColor={tokenColor} />
-                  <TokenDetailsLinks currencyId={_currencyId} data={data} />
+                  
                 </Flex>
               </>
             )}
@@ -327,11 +314,7 @@ function TokenDetails({
           backgroundColor="$surface1"
           entering={FadeInDown}
           style={{ marginBottom: insets.bottom }}>
-          <TokenDetailsActionButtons
-            tokenColor={tokenColor}
-            onPressBuy={(): void => onPressSwap(CurrencyField.OUTPUT)}
-            onPressSell={(): void => onPressSwap(CurrencyField.INPUT)}
-          />
+          
         </AnimatedFlex>
       ) : null}
 
@@ -416,7 +399,7 @@ function HeaderRightElement({
           </TouchableArea>
         </ContextMenu>
       )}
-      <TokenDetailsFavoriteButton currencyId={currencyId} />
+     
     </AnimatedFlex>
   )
 }

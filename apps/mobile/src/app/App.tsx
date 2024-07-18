@@ -20,7 +20,7 @@ import { useIsPartOfNavigationTree } from 'src/app/navigation/hooks'
 import { AppStackNavigator } from 'src/app/navigation/navigation'
 import { persistor, store } from 'src/app/store'
 import Trace from 'src/components/Trace/Trace'
-import { TraceUserProperties } from 'src/components/Trace/TraceUserProperties'
+
 import { OfflineBanner } from 'src/components/banners/OfflineBanner'
 // eslint-disable-next-line no-restricted-imports
 import { usePersistedApolloClient } from 'src/data/usePersistedApolloClient'
@@ -309,8 +309,7 @@ function DataUpdaters(): JSX.Element {
 
   return (
     <>
-      <TraceUserProperties />
-      <TransactionHistoryUpdater />
+<TransactionHistoryUpdater />
     </>
   )
 }

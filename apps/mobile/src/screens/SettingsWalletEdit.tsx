@@ -11,7 +11,7 @@ import { useAppDispatch } from 'src/app/hooks'
 import { SettingsStackParamList } from 'src/app/navigation/types'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
-import { UnitagBanner } from 'src/components/unitags/UnitagBanner'
+
 import { Button, Flex, Icons, Text } from 'ui/src'
 import { fonts } from 'ui/src/theme'
 import { FeatureFlags } from 'uniswap/src/features/experiments/flags'
@@ -19,7 +19,7 @@ import { useFeatureFlag } from 'uniswap/src/features/experiments/hooks'
 import { isIOS } from 'uniswap/src/utils/platform'
 import { TextInput } from 'wallet/src/components/input/TextInput'
 import { NICKNAME_MAX_LENGTH } from 'wallet/src/constants/accounts'
-import { useCanAddressClaimUnitag } from 'wallet/src/features/unitags/hooks'
+
 import {
   EditAccountAction,
   editAccountActions,
@@ -36,23 +36,21 @@ export function SettingsWalletEdit({
     params: { address },
   },
 }: Props): JSX.Element {
-  const { t } = useTranslation()
+
   const dispatch = useAppDispatch()
   const activeAccount = useAccounts()[address]
   const displayName = useDisplayName(address)
   const [nickname, setNickname] = useState(displayName?.name)
   const [showEditButton, setShowEditButton] = useState(true)
   const unitagsFeatureFlagEnabled = useFeatureFlag(FeatureFlags.Unitags)
-  const { canClaimUnitag } = useCanAddressClaimUnitag(address)
+
   const showUnitagBanner =
     unitagsFeatureFlagEnabled &&
     activeAccount?.type === AccountType.SignerMnemonic &&
-    canClaimUnitag
+   
 
-  const accountNameIsEditable =
-    displayName?.type === DisplayNameType.Local || displayName?.type === DisplayNameType.Address
+  
 
-  const inputRef = useRef<NativeTextInput>(null)
 
   const onEditButtonPress = (): void => {
     inputRef.current?.focus()
@@ -84,7 +82,7 @@ export function SettingsWalletEdit({
         contentContainerStyle={styles.expand}
         style={styles.base}>
         <BackHeader alignment="center" mx="$spacing16" pt="$spacing16">
-          <Text variant="body1">{t('settings.setting.wallet.action.editLabel')}</Text>
+          
         </BackHeader>
         <Flex
           grow
@@ -114,7 +112,7 @@ export function SettingsWalletEdit({
                 m="$none"
                 maxLength={NICKNAME_MAX_LENGTH}
                 numberOfLines={1}
-                placeholder={t('settings.setting.wallet.label')}
+              
                 placeholderTextColor="$neutral3"
                 px="$none"
                 py="$spacing12"
@@ -137,12 +135,10 @@ export function SettingsWalletEdit({
             </Flex>
             {accountNameIsEditable && (
               <Flex px="$spacing8" py="$spacing12">
-                <Text color="$neutral3">{t('settings.setting.wallet.editLabel.description')}</Text>
+               
               </Flex>
             )}
-            {showUnitagBanner && (
-              <UnitagBanner compact address={address} entryPoint={Screens.Settings} />
-            )}
+           
           </Flex>
           <Button
             hapticFeedback
@@ -150,7 +146,7 @@ export function SettingsWalletEdit({
             size="medium"
             theme="primary"
             onPress={onPressSaveChanges}>
-            {t('settings.setting.wallet.editLabel.save')}
+           
           </Button>
         </Flex>
       </KeyboardAvoidingView>

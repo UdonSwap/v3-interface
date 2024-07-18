@@ -200,17 +200,8 @@ function* handleSessionProposal(proposal: ProposalTypes.Struct) {
       ', '
     )
 
-    const confirmed = yield* call(
-      showAlert,
-      i18n.t('walletConnect.error.connection.title'),
-      i18n.t('walletConnect.error.connection.message', {
-        chainNames: chainLabels,
-        dappName: dapp.name,
-      })
-    )
-    if (confirmed) {
-      yield* put(setHasPendingSessionError(false))
-    }
+   
+    
 
     // Set error state to cancel loading state in WalletConnectModal UI
     yield* put(setHasPendingSessionError(true))

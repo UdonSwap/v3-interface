@@ -24,7 +24,7 @@ import { UniconsV2Modal } from 'src/app/modals/UniconsV2Modal'
 import { NavBar, SWAP_BUTTON_HEIGHT } from 'src/app/navigation/NavBar'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import Trace from 'src/components/Trace/Trace'
-import TraceTabView from 'src/components/Trace/TraceTabView'
+
 import { AccountHeader } from 'src/components/accounts/AccountHeader'
 import { ExtensionPromoBanner } from 'src/components/banners/ExtensionPromoBanner'
 import { ACTIVITY_TAB_DATA_DEPENDENCIES, ActivityTab } from 'src/components/home/ActivityTab'
@@ -42,7 +42,6 @@ import {
   renderTabLabel,
   useScrollSync,
 } from 'src/components/layout/TabHelpers'
-import { UnitagBanner } from 'src/components/unitags/UnitagBanner'
 import { openModal } from 'src/features/modals/modalSlice'
 import { selectSomeModalOpen } from 'src/features/modals/selectSomeModalOpen'
 import { MobileEventName } from 'src/features/telemetry/constants'
@@ -436,7 +435,7 @@ export function HomeScreen(props?: AppStackScreenProp<Screens.Home>): JSX.Elemen
     if (shouldPromptUnitag) {
       return (
         <AnimatedFlex entering={FadeIn} exiting={FadeOut}>
-          <UnitagBanner address={activeAccount.address} entryPoint={Screens.Home} />
+         
         </AnimatedFlex>
       )
     } else if (showExtensionPromoBanner) {
@@ -712,18 +711,7 @@ export function HomeScreen(props?: AppStackScreenProp<Screens.Home>): JSX.Elemen
   return (
     <Screen edges={['left', 'right']}>
       <View style={TAB_STYLES.container}>
-        <TraceTabView
-          lazy
-          initialLayout={{
-            height: dimensions.fullHeight,
-            width: dimensions.fullWidth,
-          }}
-          navigationState={{ index: tabIndex, routes }}
-          renderScene={renderTab}
-          renderTabBar={renderTabBar}
-          screenName={Screens.Home}
-          onIndexChange={setTabIndex}
-        />
+       
       </View>
       <NavBar />
       <AnimatedFlex

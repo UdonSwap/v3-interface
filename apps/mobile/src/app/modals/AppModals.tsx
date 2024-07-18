@@ -8,9 +8,9 @@ import { ViewOnlyExplainerModal } from 'src/app/modals/ViewOnlyExplainerModal'
 import { LazyModalRenderer } from 'src/app/modals/utils'
 import { RemoveWalletModal } from 'src/components/RemoveWallet/RemoveWalletModal'
 import { RestoreWalletModal } from 'src/components/RestoreWalletModal/RestoreWalletModal'
-import { WalletConnectModals } from 'src/components/WalletConnect/WalletConnectModals'
+
 import { ForceUpgradeModal } from 'src/components/forceUpgrade/ForceUpgradeModal'
-import { UnitagsIntroModal } from 'src/components/unitags/UnitagsIntroModal'
+
 import { LockScreenModal } from 'src/features/authentication/LockScreenModal'
 import { ExchangeTransferModal } from 'src/features/fiatOnRamp/ExchangeTransferModal'
 import { FiatOnRampAggregatorModal } from 'src/features/fiatOnRamp/FiatOnRampAggregatorModal'
@@ -69,7 +69,7 @@ export function AppModals(): JSX.Element {
         <TransferTokenModal />
       </LazyModalRenderer>
 
-      <WalletConnectModals />
+ 
 
       <LazyModalRenderer name={ModalName.AccountSwitcher}>
         <AccountSwitcherModal />
@@ -91,9 +91,7 @@ export function AppModals(): JSX.Element {
         <SettingsFiatCurrencyModal />
       </LazyModalRenderer>
 
-      <LazyModalRenderer name={ModalName.UnitagsIntro}>
-        <UnitagsIntroModal />
-      </LazyModalRenderer>
+     
 
       <LazyModalRenderer name={ModalName.ViewOnlyExplainer}>
         <ViewOnlyExplainerModal />

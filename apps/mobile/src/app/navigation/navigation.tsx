@@ -15,9 +15,9 @@ import {
 import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeGestureTarget'
 import { useBiometricCheck } from 'src/features/biometrics/useBiometricCheck'
 import { FiatOnRampProvider } from 'src/features/fiatOnRamp/FiatOnRampContext'
-import { ChooseProfilePictureScreen } from 'src/features/unitags/ChooseProfilePictureScreen'
-import { ClaimUnitagScreen } from 'src/features/unitags/ClaimUnitagScreen'
-import { EditUnitagProfileScreen } from 'src/features/unitags/EditUnitagProfileScreen'
+
+
+
 import { UnitagConfirmationScreen } from 'src/features/unitags/UnitagConfirmationScreen'
 import { DevScreen } from 'src/screens/DevScreen'
 import { EducationScreen } from 'src/screens/EducationScreen'
@@ -243,12 +243,7 @@ export function OnboardingStackNavigator(): JSX.Element {
           name={OnboardingScreens.Landing}
           options={navOptions.noHeader}
         />
-        <OnboardingStack.Screen component={ClaimUnitagScreen} name={UnitagScreens.ClaimUnitag} />
-        <OnboardingStack.Screen
-          component={ChooseProfilePictureScreen}
-          name={UnitagScreens.ChooseProfilePicture}
-          options={{ ...TransitionPresets.ModalFadeTransition }}
-        />
+       
         <OnboardingStack.Screen component={EditNameScreen} name={OnboardingScreens.EditName} />
         <OnboardingStack.Screen component={BackupScreen} name={OnboardingScreens.Backup} />
         <OnboardingStack.Screen
@@ -328,19 +323,14 @@ export function UnitagStackNavigator(): JSX.Element {
           headerRightContainerStyle: { paddingRight: spacing.spacing16 },
           ...TransitionPresets.SlideFromRightIOS,
         }}>
-        <UnitagStack.Screen component={ClaimUnitagScreen} name={UnitagScreens.ClaimUnitag} />
-        <UnitagStack.Screen
-          component={ChooseProfilePictureScreen}
-          name={UnitagScreens.ChooseProfilePicture}
-          options={{ ...TransitionPresets.ModalFadeTransition }}
-        />
+       
         <UnitagStack.Screen
           component={UnitagConfirmationScreen}
           name={UnitagScreens.UnitagConfirmation}
           options={{ ...navOptions.noHeader, gestureEnabled: false }}
         />
         <UnitagStack.Screen
-          component={EditUnitagProfileScreen}
+         
           name={UnitagScreens.EditProfile}
           options={{ ...navOptions.noHeader, gestureEnabled: false }}
         />

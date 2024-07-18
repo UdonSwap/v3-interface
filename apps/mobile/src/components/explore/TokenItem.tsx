@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import ContextMenu from 'react-native-context-menu-view'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { useExploreTokenContextMenu } from 'src/components/explore/hooks'
-import { TokenMetadata } from 'src/components/tokens/TokenMetadata'
 import { sendMobileAnalyticsEvent } from 'src/features/telemetry'
 import { MobileEventName } from 'src/features/telemetry/constants'
 import { disableOnPress } from 'src/utils/disableOnPress'
@@ -133,14 +132,7 @@ export const TokenItem = memo(function _TokenItem({
               {getMetadataSubtitle()}
             </Text>
           </Flex>
-          <Flex grow row alignItems="center" justifyContent="flex-end">
-            <TokenMetadata>
-              <Text lineHeight={24} testID="token-item/price" variant="body1">
-                {convertFiatAmountFormatted(price, NumberType.FiatTokenPrice)}
-              </Text>
-              <RelativeChange change={pricePercentChange24h} variant="body2" />
-            </TokenMetadata>
-          </Flex>
+         
         </AnimatedFlex>
       </TouchableArea>
     </ContextMenu>
