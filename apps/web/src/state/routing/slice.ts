@@ -137,7 +137,7 @@ export const routingApi = createApi({
                   const queryString = toQueryString(requestBody);
 
                   // Append query string to URL
-                  const url = `https://rchi8cpea1.execute-api.us-east-1.amazonaws.com/prod/quote?${queryString}`;
+                  const url = `https://r11tophkd9.execute-api.us-east-1.amazonaws.com/prod/quote?${queryString}`;
                   console.log("url...", url);
                   const response = await fetch({
                     url: url,

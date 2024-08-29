@@ -420,19 +420,23 @@ export class PreviewTrade {
   public readonly tradeType: TradeType;
   public readonly inputAmount: CurrencyAmount<Currency>;
   public readonly outputAmount: CurrencyAmount<Currency>;
+  // public swapFee?: SwapFeeInfo;
 
   constructor({
     inputAmount,
     outputAmount,
     tradeType,
+    // swapFee,
   }: {
     inputAmount: CurrencyAmount<Currency>;
     outputAmount: CurrencyAmount<Currency>;
     tradeType: TradeType;
+    // swapFee?: SwapFeeInfo;
   }) {
     this.inputAmount = inputAmount;
     this.outputAmount = outputAmount;
     this.tradeType = tradeType;
+    // this.swapFee = swapFee;
   }
 
   // below methods are copied from router-sdk

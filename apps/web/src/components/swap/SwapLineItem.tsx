@@ -34,6 +34,7 @@ import GasEstimateTooltip from "./GasEstimateTooltip";
 import { MaxSlippageTooltip } from "./MaxSlippageTooltip";
 import { RoutingTooltip, SwapRoute } from "./SwapRoute";
 import TradePrice from "./TradePrice";
+// import { SwapFeeInfo } from "state/routing/types";
 
 export enum SwapLineItemType {
   EXCHANGE_RATE,
@@ -165,6 +166,10 @@ function FeeRow({
 function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
   const { trade, syncing, allowedSlippage, type } = props;
   console.log("swap fee------trading ", trade);
+  // if (trade) {
+  //   console.log("swap feeeeeeeeeeeeeeeeeee", trade.swapFee)
+  // }
+  // console.log("percentttttttttttt", trade.swapFee)
   const { formatPercent } = useFormatter();
   const isAutoSlippage =
     useUserSlippageTolerance()[0] === SlippageTolerance.Auto;
