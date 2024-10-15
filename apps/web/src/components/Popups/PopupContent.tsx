@@ -90,8 +90,8 @@ export function FailedNetworkSwitchPopup({
 
           <ThemedText.BodySmall color="neutral2">
             <Trans>
-              To use Uniswap on {{ label: chainInfo.label }}, switch the network
-              in your wallet’s settings.
+              To use Udonswap on {{ label: chainInfo.label }}, switch the
+              network in your wallet’s settings.
             </Trans>
           </ThemedText.BodySmall>
         </ColumnContainer>

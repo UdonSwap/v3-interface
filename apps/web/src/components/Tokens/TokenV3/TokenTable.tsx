@@ -133,9 +133,11 @@ export function TokenTable({ searchQuery }: TokenTableProps) {
                   </tr>
                 ) : (
                   filteredTokens.map((token, index) => {
-                    const currentPriceUSD = parseFloat(
-                      token.tokenDayData[0].priceUSD,
-                    );
+                    const currentPriceUSD =
+                      token.tokenDayData && token.tokenDayData[0]
+                        ? parseFloat(token.tokenDayData[0].priceUSD)
+                        : 0; // default to 0 if data is missing
+
                     const fdv = currentPriceUSD * parseFloat(token.totalSupply);
 
                     const previousDayPriceUSD = token.tokenDayData[1]
@@ -154,9 +156,11 @@ export function TokenTable({ searchQuery }: TokenTableProps) {
                       sevenDayPriceUSD,
                     );
 
-                    const latestVolume = parseFloat(
-                      token.tokenDayData[0].volumeUSD,
-                    );
+                    // Check if volumeUSD is available
+                    const latestVolume =
+                      token.tokenDayData && token.tokenDayData[0]
+                        ? parseFloat(token.tokenDayData[0].volumeUSD)
+                        : 0;
 
                     return (
                       <tr className={allpool.row} key={token.id}>
