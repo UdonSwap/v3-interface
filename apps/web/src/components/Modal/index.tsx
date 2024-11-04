@@ -25,7 +25,7 @@ const StyledDialogOverlay = styled(AnimatedDialogOverlay)<{
     }
     overflow-y: ${({ $scrollOverlay }) => $scrollOverlay && "scroll"};
     justify-content: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(15px);
     background: rgba(150, 87, 235, 0.13);
   }
 `;

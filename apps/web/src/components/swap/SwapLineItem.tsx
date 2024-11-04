@@ -251,22 +251,22 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
           </Row>
         ),
       };
-    case SwapLineItemType.SWAP_FEE: {
-      if (isPreview)
-        return { Label: () => <Trans>Fee</Trans>, Value: () => <Loading /> };
-      return {
-        Label: () => (
-          <>
-            <Trans>Fee</Trans>{" "}
-            {trade.swapFee && `(${formatPercent(trade.swapFee.percent)})`}
-          </>
-        ),
-        TooltipBody: () => (
-          <SwapFeeTooltipContent hasFee={Boolean(trade.swapFee)} />
-        ),
-        Value: () => <FeeRow trade={trade} />,
-      };
-    }
+    // case SwapLineItemType.SWAP_FEE: {
+    //   if (isPreview)
+    //     return { Label: () => <Trans>Fee</Trans>, Value: () => <Loading /> };
+    //   return {
+    //     Label: () => (
+    //       <>
+    //         <Trans>Fee</Trans>{" "}
+    //         {trade.swapFee && `(${formatPercent(trade.swapFee.percent)})`}
+    //       </>
+    //     ),
+    //     TooltipBody: () => (
+    //       <SwapFeeTooltipContent hasFee={Boolean(trade.swapFee)} />
+    //     ),
+    //     Value: () => <FeeRow trade={trade} />,
+    //   };
+    // }
     case SwapLineItemType.MAXIMUM_INPUT:
       if (trade.tradeType === TradeType.EXACT_INPUT) return;
       return {
