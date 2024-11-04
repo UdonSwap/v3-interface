@@ -300,7 +300,7 @@ export const NATIVE_CHAIN_ID = "NATIVE";
 
 export const DAI_MODE = new Token(
   ChainId.MODE,
-  "0x0f117Da8c078B83AD4136f0cF2e5058dAddb1151",
+  "0x38cb1619c3AfaeA2E259b1B264f550e7f69AC912",
   18,
   "DAI",
   "DAI",

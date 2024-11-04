@@ -49,14 +49,14 @@ function getRoutingAPIConfig(args: GetQuoteArgs): RoutingConfig {
     routerPreference,
   } = args;
 
-  const uniswapx = {
-    useSyntheticQuotes: uniswapXForceSyntheticQuotes,
-    // Protocol supports swap+send to different destination address, but
-    // for now recipient === swapper
-    recipient: account,
-    swapper: account,
-    routingType: URAQuoteType.DUTCH_LIMIT,
-  };
+  // const uniswapx = {
+  //   useSyntheticQuotes: uniswapXForceSyntheticQuotes,
+  //   // Protocol supports swap+send to different destination address, but
+  //   // for now recipient === swapper
+  //   recipient: account,
+  //   swapper: account,
+  //   routingType: URAQuoteType.DUTCH_LIMIT,
+  // };
 
   const classic = {
     ...DEFAULT_QUERY_PARAMS,
@@ -65,14 +65,15 @@ function getRoutingAPIConfig(args: GetQuoteArgs): RoutingConfig {
     enableFeeOnTransferFeeFetching: true,
   };
 
-  if (
-    // If the user has opted out of UniswapX during the opt-out transition period, we should respect that preference and only request classic quotes.
-    routerPreference === RouterPreference.API ||
-    routerPreference === INTERNAL_ROUTER_PREFERENCE_PRICE ||
-    true // !isUniswapXSupportedChain(tokenInChainId)
-  ) {
-    return [classic];
-  }
+  console.log("classic from slice.ts ...", classic)
+  // if (
+  //   // If the user has opted out of UniswapX during the opt-out transition period, we should respect that preference and only request classic quotes.
+  //   routerPreference === RouterPreference.API ||
+  //   routerPreference === INTERNAL_ROUTER_PREFERENCE_PRICE ||
+  //   true // !isUniswapXSupportedChain(tokenInChainId)
+  // ) {
+  return [classic];
+  // }
 
   // return [uniswapx, classic];
 }
@@ -115,6 +116,7 @@ export const routingApi = createApi({
                   : QuoteIntent.Quote,
               configs: JSON.stringify(getRoutingAPIConfig(args)), // Ensure configs are converted to a string
             };
+            console.log("request body ...", requestBody)
             console.log("before tryyyy.....");
 
             try {
@@ -137,7 +139,7 @@ export const routingApi = createApi({
                   const queryString = toQueryString(requestBody);
 
                   // Append query string to URL
-                  const url = `https://r11tophkd9.execute-api.us-east-1.amazonaws.com/prod/quote?${queryString}`;
+                  const url = `https://cbjjrgdhy3.execute-api.us-east-1.amazonaws.com/prod/quote?${queryString}`;
                   console.log("url...", url);
                   const response = await fetch({
                     url: url,
@@ -195,8 +197,7 @@ export const routingApi = createApi({
               );
             } catch (error: any) {
               console.warn(
-                `GetQuote failed on Unified Routing API, falling back to client: ${
-                  error?.message ?? error?.detail ?? error
+                `GetQuote failed on Unified Routing API, falling back to client: ${error?.message ?? error?.detail ?? error
                 }`,
               );
             }
